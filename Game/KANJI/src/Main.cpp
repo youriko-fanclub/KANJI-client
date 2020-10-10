@@ -1,32 +1,13 @@
 
-//
-// OpenSiv3D v0.4.3 ゲームテンプレート
-//
-
-//
-// macOS では README.md と同じフォルダに
-// include と lib をコピーしてください。
-//
+#include "ExecutiveManager.hpp"
 
 # include "Common.hpp"
 # include "Title.hpp"
 # include "Game.hpp"
 
-void Main()
-{
-	// （Esc キーで終了しないようにする場合はコメントを外す）
-	//System::SetTerminationTriggers(UserAction::CloseButtonClicked);
+void Main() {
 
-	// タイトルを設定
-	Window::SetTitle(U"クレイジーサイコレズ");
-
-	// 背景色を設定
-	Scene::SetBackground(ColorF(0.2, 0.8, 0.4));
-
-	// 使用するフォントアセットを登録
-	FontAsset::Register(U"Title", 120, U"example/font/AnnyantRoman/AnnyantRoman.ttf");
-	FontAsset::Register(U"Menu", 30, Typeface::Regular);
-	FontAsset::Register(U"Score", 36, Typeface::Bold);
+  dx::app::ExecutiveManager::instance()->initialize();
 
 	// シーンと遷移時の色を設定
 	MyApp manager;
@@ -38,10 +19,8 @@ void Main()
 	// （ゲームシーンから開始する場合はコメントを外す）
 	//manager.init(State::Game);
 
-	while (System::Update())
-	{
-		if (!manager.update())
-		{
+	while (System::Update()) {
+		if (!manager.update()) {
 			break;
 		}
 	}
