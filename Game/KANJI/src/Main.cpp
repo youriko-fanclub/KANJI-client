@@ -1,4 +1,4 @@
-﻿
+
 //
 // OpenSiv3D v0.4.3 ゲームテンプレート
 //
@@ -18,7 +18,7 @@ void Main()
 	//System::SetTerminationTriggers(UserAction::CloseButtonClicked);
 
 	// タイトルを設定
-	Window::SetTitle(U"ブロックくずし");
+	Window::SetTitle(U"クレイジーサイコレズ");
 
 	// 背景色を設定
 	Scene::SetBackground(ColorF(0.2, 0.8, 0.4));
