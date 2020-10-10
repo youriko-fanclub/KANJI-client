@@ -1,13 +1,16 @@
+#include "TitleScene.hpp"
 
-#include "Title.hpp"
+namespace kanji {
+namespace seq {
 
-Title::Title(const InitData& init)
+
+TitleScene::TitleScene(const InitData& init)
 	: IScene(init)
 {
 
 }
 
-void Title::update()
+void TitleScene::update()
 {
 	m_startTransition.update(m_startButton.mouseOver());
 	m_exitTransition.update(m_exitButton.mouseOver());
@@ -28,7 +31,7 @@ void Title::update()
 	}
 }
 
-void Title::draw() const
+void TitleScene::draw() const
 {
 	// const String titleText = U"ブロックくずし";
     const String titleText = U"クレイジーサイコレズ";
@@ -47,4 +50,8 @@ void Title::draw() const
 
 	const int32 highScore = getData().highScore;
 	FontAsset(U"Score")(U"High score: {}"_fmt(highScore)).drawAt(Vec2(620, 550));
+}
+
+
+}
 }

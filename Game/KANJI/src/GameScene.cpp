@@ -1,7 +1,10 @@
+#include "GameScene.hpp"
 
-# include "Game.hpp"
+namespace kanji {
+namespace seq {
 
-Game::Game(const InitData& init)
+
+GameScene::GameScene(const InitData& init)
 	: IScene(init)
 {
 	// 横 (Scene::Width() / blockSize.x) 個、縦 5 個のブロックを配列に追加する
@@ -11,7 +14,7 @@ Game::Game(const InitData& init)
 	}
 }
 
-void Game::update()
+void GameScene::update()
 {
 	// パドルを操作
 	m_paddle = Rect(Arg::center(Cursor::Pos().x, 500), 60, 10);
@@ -65,7 +68,7 @@ void Game::update()
 	}
 }
 
-void Game::draw() const
+void GameScene::draw() const
 {
 	FontAsset(U"Score")(m_score).drawAt(Scene::Center().x, 30);
 
@@ -80,4 +83,8 @@ void Game::draw() const
 
 	// パドルを描く
 	m_paddle.draw();
+}
+
+
+}
 }

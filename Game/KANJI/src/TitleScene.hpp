@@ -1,10 +1,13 @@
-﻿
-# pragma once
-# include "Common.hpp"
+#pragma once
+
+#include "SceneStates.hpp"
+
+namespace kanji {
+namespace seq {
+
 
 // タイトルシーン
-class Title : public MyApp::Scene
-{
+class TitleScene : public KanjiScene {
 private:
 
 	Rect m_startButton = Rect(Arg::center = Scene::Center().movedBy(0, 0), 300, 60);
@@ -15,9 +18,13 @@ private:
 
 public:
 
-	Title(const InitData& init);
+	TitleScene(const InitData& init);
 
 	void update() override;
 
 	void draw() const override;
 };
+
+
+}
+}

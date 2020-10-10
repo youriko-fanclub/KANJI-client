@@ -1,10 +1,12 @@
-﻿
-# pragma once
-# include "Common.hpp"
+#pragma once
+
+#include "SceneStates.hpp"
+
+namespace kanji {
+namespace seq {
 
 // ゲームシーン
-class Game : public MyApp::Scene
-{
+class GameScene : public KanjiScene {
 private:
 
 	// ブロックのサイズ
@@ -30,9 +32,12 @@ private:
 
 public:
 
-	Game(const InitData& init);
+	GameScene(const InitData& init);
 
 	void update() override;
 
 	void draw() const override;
 };
+
+}
+}

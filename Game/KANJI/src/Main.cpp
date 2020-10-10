@@ -1,29 +1,20 @@
 
+#include <Siv3D/System.hpp>
 #include "ExecutiveManager.hpp"
-
-# include "Common.hpp"
-# include "Title.hpp"
-# include "Game.hpp"
+#include "SequenceManager.hpp"
 
 void Main() {
 
   dx::app::ExecutiveManager::instance()->initialize();
+  const auto& sequenceMgr = kanji::seq::SequenceManager::instance();
+  sequenceMgr->initialize();
 
-	// シーンと遷移時の色を設定
-	MyApp manager;
-	manager
-		.add<Title>(State::Title)
-		.add<Game>(State::Game)
-		.setFadeColor(ColorF(1.0));
-
-	// （ゲームシーンから開始する場合はコメントを外す）
-	//manager.init(State::Game);
-
-	while (System::Update()) {
-		if (!manager.update()) {
+	while (s3d::System::Update()) {
+    if (!sequenceMgr->update()) {
 			break;
 		}
 	}
+  
 }
 
 //
