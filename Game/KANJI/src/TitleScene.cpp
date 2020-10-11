@@ -15,7 +15,7 @@ m_exit(
   DrawableText(FontAsset(U"Menu"), U"おわる"),
   Transition(0.4s, 0.2s)) {
   {
-    const String titleText = U"クレイジーサイコレズ";
+    const String titleText = U"漢字発見! モジバトル";
     const Vec2 center(Scene::Center().x, 120);
     m_title.first = FontAsset(U"Title")(titleText);
     m_title.second = FontAsset(U"Title")(titleText);

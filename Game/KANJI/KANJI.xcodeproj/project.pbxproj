@@ -46,6 +46,8 @@
 		7265F0752531E1BF00C15F67 /* SequenceManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7265F0732531E1BF00C15F67 /* SequenceManager.cpp */; };
 		7265F07C2531FD6500C15F67 /* DomainGameData.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7265F07A2531FD6500C15F67 /* DomainGameData.cpp */; };
 		7265F08325320FB000C15F67 /* MainExecutiveManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7265F08125320FB000C15F67 /* MainExecutiveManager.cpp */; };
+		7265F08A2533586E00C15F67 /* KouzanMouhituFontOTF.otf in Resources */ = {isa = PBXBuildFile; fileRef = 7265F0882533586E00C15F67 /* KouzanMouhituFontOTF.otf */; };
+		7265F08B2533586E00C15F67 /* azuki.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 7265F0892533586E00C15F67 /* azuki.ttf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -102,6 +104,8 @@
 		7265F07B2531FD6500C15F67 /* DomainGameData.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = DomainGameData.hpp; sourceTree = "<group>"; };
 		7265F08125320FB000C15F67 /* MainExecutiveManager.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = MainExecutiveManager.cpp; sourceTree = "<group>"; };
 		7265F08225320FB000C15F67 /* MainExecutiveManager.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = MainExecutiveManager.hpp; sourceTree = "<group>"; };
+		7265F0882533586E00C15F67 /* KouzanMouhituFontOTF.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = KouzanMouhituFontOTF.otf; sourceTree = "<group>"; };
+		7265F0892533586E00C15F67 /* azuki.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = azuki.ttf; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -225,6 +229,7 @@
 		7265F04B25319EAC00C15F67 /* asset */ = {
 			isa = PBXGroup;
 			children = (
+				7265F0872533586E00C15F67 /* font */,
 			);
 			path = asset;
 			sourceTree = "<group>";
@@ -271,6 +276,15 @@
 				7265F08225320FB000C15F67 /* MainExecutiveManager.hpp */,
 			);
 			path = application;
+			sourceTree = "<group>";
+		};
+		7265F0872533586E00C15F67 /* font */ = {
+			isa = PBXGroup;
+			children = (
+				7265F0882533586E00C15F67 /* KouzanMouhituFontOTF.otf */,
+				7265F0892533586E00C15F67 /* azuki.ttf */,
+			);
+			path = font;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -330,6 +344,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				2C6906D82298140F00A427D0 /* engine in Resources */,
+				7265F08B2533586E00C15F67 /* azuki.ttf in Resources */,
+				7265F08A2533586E00C15F67 /* KouzanMouhituFontOTF.otf in Resources */,
 				2C1778A31CE0B65500BB8AD0 /* icon.icns in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
