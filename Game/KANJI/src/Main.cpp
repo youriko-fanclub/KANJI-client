@@ -1,18 +1,15 @@
 
 #include <Siv3D/System.hpp>
 #include "ExecutiveManager.hpp"
-#include "SequenceManager.hpp"
 
 void Main() {
 
-  dx::app::ExecutiveManager::instance()->initialize();
-  const auto& sequenceMgr = kanji::seq::SequenceManager::instance();
-  sequenceMgr->initialize();
+  const auto& mgr = dx::app::ExecutiveManager::instance();
+  mgr->initialize();
 
 	while (s3d::System::Update()) {
-    if (!sequenceMgr->update()) {
-			break;
-		}
+    if (!mgr->update()) { break; }
+    mgr->draw();
 	}
   
 }

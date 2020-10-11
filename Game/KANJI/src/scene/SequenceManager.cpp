@@ -26,7 +26,11 @@ void SequenceManager::initialize() {
 }
 
 bool SequenceManager::update() {
-  return m_manager.update();
+  return m_manager.updateScene();
+}
+
+void SequenceManager::draw() const {
+  m_manager.drawScene();
 }
 
 // private function ------------------------------
