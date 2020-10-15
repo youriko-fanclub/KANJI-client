@@ -119,6 +119,7 @@
 		7265F1212533605000C15F67 /* Block_BlackBoard.png in Resources */ = {isa = PBXBuildFile; fileRef = 7265F0DA2533605000C15F67 /* Block_BlackBoard.png */; };
 		7265F1222533605000C15F67 /* Makimono.png in Resources */ = {isa = PBXBuildFile; fileRef = 7265F0DB2533605000C15F67 /* Makimono.png */; };
 		7265F1232533605000C15F67 /* Block_ExerciseBook.png in Resources */ = {isa = PBXBuildFile; fileRef = 7265F0DC2533605000C15F67 /* Block_ExerciseBook.png */; };
+		72859F6D25388CA100EB0AAD /* UIComponent.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 72859F6B25388CA100EB0AAD /* UIComponent.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -248,6 +249,8 @@
 		7265F0DA2533605000C15F67 /* Block_BlackBoard.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Block_BlackBoard.png; sourceTree = "<group>"; };
 		7265F0DB2533605000C15F67 /* Makimono.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Makimono.png; sourceTree = "<group>"; };
 		7265F0DC2533605000C15F67 /* Block_ExerciseBook.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Block_ExerciseBook.png; sourceTree = "<group>"; };
+		72859F6B25388CA100EB0AAD /* UIComponent.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = UIComponent.cpp; sourceTree = "<group>"; };
+		72859F6C25388CA100EB0AAD /* UIComponent.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = UIComponent.hpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -313,13 +316,10 @@
 		2C1778981CE0AA7C00BB8AD0 /* src */ = {
 			isa = PBXGroup;
 			children = (
+				72859F6825388A0000EB0AAD /* character */,
 				7265F08025320F8700C15F67 /* application */,
 				7265F04D2531A96400C15F67 /* scene */,
-				2C971A57239732F900E66570 /* GameScene.cpp */,
-				2C971A59239732F900E66570 /* GameScene.hpp */,
 				2C1778991CE0AA7C00BB8AD0 /* Main.cpp */,
-				2C971A5A239732F900E66570 /* TitleScene.cpp */,
-				2C971A56239732F900E66570 /* TitleScene.hpp */,
 			);
 			path = src;
 			sourceTree = "<group>";
@@ -362,6 +362,7 @@
 		7265F03E253195B800C15F67 /* dx */ = {
 			isa = PBXGroup;
 			children = (
+				72859F6A25388C1200EB0AAD /* ui */,
 				7265F0592531ACDC00C15F67 /* component */,
 				7265F04E2531A99100C15F67 /* application */,
 			);
@@ -380,6 +381,7 @@
 		7265F04D2531A96400C15F67 /* scene */ = {
 			isa = PBXGroup;
 			children = (
+				72859F6925388A3900EB0AAD /* main */,
 				7265F0732531E1BF00C15F67 /* SequenceManager.cpp */,
 				7265F0742531E1BF00C15F67 /* SequenceManager.hpp */,
 				7265F0772531E5DD00C15F67 /* Scenes.hpp */,
@@ -572,6 +574,33 @@
 			path = Stage;
 			sourceTree = "<group>";
 		};
+		72859F6825388A0000EB0AAD /* character */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = character;
+			sourceTree = "<group>";
+		};
+		72859F6925388A3900EB0AAD /* main */ = {
+			isa = PBXGroup;
+			children = (
+				2C971A57239732F900E66570 /* GameScene.cpp */,
+				2C971A59239732F900E66570 /* GameScene.hpp */,
+				2C971A5A239732F900E66570 /* TitleScene.cpp */,
+				2C971A56239732F900E66570 /* TitleScene.hpp */,
+			);
+			path = main;
+			sourceTree = "<group>";
+		};
+		72859F6A25388C1200EB0AAD /* ui */ = {
+			isa = PBXGroup;
+			children = (
+				72859F6B25388CA100EB0AAD /* UIComponent.cpp */,
+				72859F6C25388CA100EB0AAD /* UIComponent.hpp */,
+			);
+			path = ui;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -721,6 +750,7 @@
 				7265F0672531DC0F00C15F67 /* Singleton.cpp in Sources */,
 				2C17789A1CE0AA7C00BB8AD0 /* Main.cpp in Sources */,
 				7265F08325320FB000C15F67 /* MainExecutiveManager.cpp in Sources */,
+				72859F6D25388CA100EB0AAD /* UIComponent.cpp in Sources */,
 				7265F0702531DC1D00C15F67 /* ApplicationManager.cpp in Sources */,
 				2C971A5B239732F900E66570 /* GameScene.cpp in Sources */,
 			);
