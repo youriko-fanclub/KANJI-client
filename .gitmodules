@@ -1,0 +1,6 @@
+[submodule "Game/KANJI/KANJI-asset"]
+	path = Game/KANJI/KANJI-asset
+	url = git@github.com:youriko-fanclub/KANJI-asset.git
+[submodule "Game/KANJI/dx4siv3d"]
+	path = Game/KANJI/dx4siv3d
+	url = git@github.com:youriko-fanclub/dx4siv3d.git
