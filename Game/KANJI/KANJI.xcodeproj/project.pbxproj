@@ -121,6 +121,7 @@
 		7285A00E253AE5A700EB0AAD /* Block_ExerciseBook.png in Resources */ = {isa = PBXBuildFile; fileRef = 72859FC3253AE5A700EB0AAD /* Block_ExerciseBook.png */; };
 		7285A00F253AE5A700EB0AAD /* KouzanMouhituFontOTF.otf in Resources */ = {isa = PBXBuildFile; fileRef = 72859FC5253AE5A700EB0AAD /* KouzanMouhituFontOTF.otf */; };
 		7285A010253AE5A700EB0AAD /* azuki.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 72859FC6253AE5A700EB0AAD /* azuki.ttf */; };
+		7285A017253B25B700EB0AAD /* BattleScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7285A015253B25B700EB0AAD /* BattleScene.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -253,6 +254,8 @@
 		72859FC3253AE5A700EB0AAD /* Block_ExerciseBook.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Block_ExerciseBook.png; sourceTree = "<group>"; };
 		72859FC5253AE5A700EB0AAD /* KouzanMouhituFontOTF.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = KouzanMouhituFontOTF.otf; sourceTree = "<group>"; };
 		72859FC6253AE5A700EB0AAD /* azuki.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = azuki.ttf; sourceTree = "<group>"; };
+		7285A015253B25B700EB0AAD /* BattleScene.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = BattleScene.cpp; sourceTree = "<group>"; };
+		7285A016253B25B700EB0AAD /* BattleScene.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = BattleScene.hpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -318,7 +321,7 @@
 		2C1778981CE0AA7C00BB8AD0 /* src */ = {
 			isa = PBXGroup;
 			children = (
-				72859F6825388A0000EB0AAD /* character */,
+				7285A013253B251B00EB0AAD /* character */,
 				7265F08025320F8700C15F67 /* application */,
 				7265F04D2531A96400C15F67 /* scene */,
 				2C1778991CE0AA7C00BB8AD0 /* Main.cpp */,
@@ -416,16 +419,11 @@
 			path = application;
 			sourceTree = "<group>";
 		};
-		72859F6825388A0000EB0AAD /* character */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = character;
-			sourceTree = "<group>";
-		};
 		72859F6925388A3900EB0AAD /* main */ = {
 			isa = PBXGroup;
 			children = (
+				7285A015253B25B700EB0AAD /* BattleScene.cpp */,
+				7285A016253B25B700EB0AAD /* BattleScene.hpp */,
 				2C971A57239732F900E66570 /* GameScene.cpp */,
 				2C971A59239732F900E66570 /* GameScene.hpp */,
 				2C971A5A239732F900E66570 /* TitleScene.cpp */,
@@ -604,6 +602,13 @@
 			path = font;
 			sourceTree = "<group>";
 		};
+		7285A013253B251B00EB0AAD /* character */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = character;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -748,6 +753,7 @@
 			files = (
 				7265F0752531E1BF00C15F67 /* SequenceManager.cpp in Sources */,
 				7265F07C2531FD6500C15F67 /* DomainGameData.cpp in Sources */,
+				7285A017253B25B700EB0AAD /* BattleScene.cpp in Sources */,
 				7265F0712531DC1D00C15F67 /* AssetManager.cpp in Sources */,
 				2C971A5C239732F900E66570 /* TitleScene.cpp in Sources */,
 				7265F06F2531DC1D00C15F67 /* ExecutiveManager.cpp in Sources */,

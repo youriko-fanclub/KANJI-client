@@ -5,4 +5,5 @@
 
 // #include "SplashScene.hpp"
 #include "TitleScene.hpp"
-#include "GameScene.hpp"
+#include "BattleScene.hpp"
+#include "GameScene.hpp" // テスト用ブロックくずし

@@ -1,19 +1,19 @@
-#include "TitleScene.hpp"
+#include "BattleScene.hpp"
 
 namespace kanji {
 namespace seq {
 
 
-/* ---------- TitleScene ---------- */
+/* ---------- BattleScene ---------- */
 
 // static ----------------------------------------
 // public function -------------------------------
-void TitleScene::update() {
+void BattleScene::update() {
   m_start.update();
   m_exit.update();
 }
 
-void TitleScene::draw() const {
+void BattleScene::draw() const {
   Scene::Rect()(TextureAsset(U"Title::Bg")).draw();
   TextureAsset(U"Title::Logo").drawAt(Scene::Center().movedBy(55, -90));
 
@@ -30,7 +30,7 @@ void TitleScene::draw() const {
 
 // private function ------------------------------
 // ctor/dtor -------------------------------------
-TitleScene::TitleScene(const InitData& init) :
+BattleScene::BattleScene(const InitData& init) :
 IScene(init),
 m_start(
   Rect(Arg::center = Scene::Center().movedBy(65, 170), 300, 60),
@@ -41,7 +41,7 @@ m_exit(
   DrawableText(FontAsset(U"Menu"), U"おわる"),
   Transition(0.4s, 0.2s)) {
   
-  m_start.setCallback([this](){ changeScene(State::Battle); });
+  m_start.setCallback([this](){ changeScene(State::Game); });
   m_exit.setCallback([](){ System::Exit(); });
 }
 
