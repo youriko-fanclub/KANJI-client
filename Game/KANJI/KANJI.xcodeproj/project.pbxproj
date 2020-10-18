@@ -121,6 +121,23 @@
 		7285A00E253AE5A700EB0AAD /* Block_ExerciseBook.png in Resources */ = {isa = PBXBuildFile; fileRef = 72859FC3253AE5A700EB0AAD /* Block_ExerciseBook.png */; };
 		7285A00F253AE5A700EB0AAD /* KouzanMouhituFontOTF.otf in Resources */ = {isa = PBXBuildFile; fileRef = 72859FC5253AE5A700EB0AAD /* KouzanMouhituFontOTF.otf */; };
 		7285A010253AE5A700EB0AAD /* azuki.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 72859FC6253AE5A700EB0AAD /* azuki.ttf */; };
+		7285A032253B2EB000EB0AAD /* DemoSensor.hpp in Resources */ = {isa = PBXBuildFile; fileRef = 7285A01D253B2EB000EB0AAD /* DemoSensor.hpp */; };
+		7285A033253B2EB000EB0AAD /* Buttons.png in Resources */ = {isa = PBXBuildFile; fileRef = 7285A01F253B2EB000EB0AAD /* Buttons.png */; };
+		7285A034253B2EB000EB0AAD /* Base.png in Resources */ = {isa = PBXBuildFile; fileRef = 7285A020253B2EB000EB0AAD /* Base.png */; };
+		7285A035253B2EB000EB0AAD /* UserKeyAsGP.hpp in Resources */ = {isa = PBXBuildFile; fileRef = 7285A021253B2EB000EB0AAD /* UserKeyAsGP.hpp */; };
+		7285A036253B2EB000EB0AAD /* Arrow.hpp in Resources */ = {isa = PBXBuildFile; fileRef = 7285A022253B2EB000EB0AAD /* Arrow.hpp */; };
+		7285A037253B2EB000EB0AAD /* GamePadImpl.hpp in Resources */ = {isa = PBXBuildFile; fileRef = 7285A023253B2EB000EB0AAD /* GamePadImpl.hpp */; };
+		7285A038253B2EB000EB0AAD /* GamePadDefinition.hpp in Resources */ = {isa = PBXBuildFile; fileRef = 7285A024253B2EB000EB0AAD /* GamePadDefinition.hpp */; };
+		7285A039253B2EB000EB0AAD /* GamePad.hpp in Resources */ = {isa = PBXBuildFile; fileRef = 7285A025253B2EB000EB0AAD /* GamePad.hpp */; };
+		7285A03A253B2EB000EB0AAD /* KeyInputAsGamePad.hpp in Resources */ = {isa = PBXBuildFile; fileRef = 7285A026253B2EB000EB0AAD /* KeyInputAsGamePad.hpp */; };
+		7285A03C253B2EB000EB0AAD /* Button.hpp in Resources */ = {isa = PBXBuildFile; fileRef = 7285A028253B2EB000EB0AAD /* Button.hpp */; };
+		7285A03D253B2EB000EB0AAD /* PlayerInput.hpp in Resources */ = {isa = PBXBuildFile; fileRef = 7285A029253B2EB000EB0AAD /* PlayerInput.hpp */; };
+		7285A03E253B2EB000EB0AAD /* TouchInput.hpp in Resources */ = {isa = PBXBuildFile; fileRef = 7285A02B253B2EB000EB0AAD /* TouchInput.hpp */; };
+		7285A03F253B2EB000EB0AAD /* RxTouchInput.hpp in Resources */ = {isa = PBXBuildFile; fileRef = 7285A02C253B2EB000EB0AAD /* RxTouchInput.hpp */; };
+		7285A040253B2EB000EB0AAD /* TouchStep.hpp in Resources */ = {isa = PBXBuildFile; fileRef = 7285A02D253B2EB000EB0AAD /* TouchStep.hpp */; };
+		7285A041253B2EB000EB0AAD /* PositionIndicator.hpp in Resources */ = {isa = PBXBuildFile; fileRef = 7285A02F253B2EB000EB0AAD /* PositionIndicator.hpp */; };
+		7285A042253B2EB000EB0AAD /* Cursor.hpp in Resources */ = {isa = PBXBuildFile; fileRef = 7285A030253B2EB000EB0AAD /* Cursor.hpp */; };
+		7285A043253B2EB000EB0AAD /* TouchEvent.hpp in Resources */ = {isa = PBXBuildFile; fileRef = 7285A031253B2EB000EB0AAD /* TouchEvent.hpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -253,6 +270,24 @@
 		72859FC3253AE5A700EB0AAD /* Block_ExerciseBook.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Block_ExerciseBook.png; sourceTree = "<group>"; };
 		72859FC5253AE5A700EB0AAD /* KouzanMouhituFontOTF.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = KouzanMouhituFontOTF.otf; sourceTree = "<group>"; };
 		72859FC6253AE5A700EB0AAD /* azuki.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = azuki.ttf; sourceTree = "<group>"; };
+		7285A01D253B2EB000EB0AAD /* DemoSensor.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = DemoSensor.hpp; sourceTree = "<group>"; };
+		7285A01F253B2EB000EB0AAD /* Buttons.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Buttons.png; sourceTree = "<group>"; };
+		7285A020253B2EB000EB0AAD /* Base.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Base.png; sourceTree = "<group>"; };
+		7285A021253B2EB000EB0AAD /* UserKeyAsGP.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = UserKeyAsGP.hpp; sourceTree = "<group>"; };
+		7285A022253B2EB000EB0AAD /* Arrow.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = Arrow.hpp; sourceTree = "<group>"; };
+		7285A023253B2EB000EB0AAD /* GamePadImpl.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = GamePadImpl.hpp; sourceTree = "<group>"; };
+		7285A024253B2EB000EB0AAD /* GamePadDefinition.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = GamePadDefinition.hpp; sourceTree = "<group>"; };
+		7285A025253B2EB000EB0AAD /* GamePad.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = GamePad.hpp; sourceTree = "<group>"; };
+		7285A026253B2EB000EB0AAD /* KeyInputAsGamePad.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = KeyInputAsGamePad.hpp; sourceTree = "<group>"; };
+		7285A028253B2EB000EB0AAD /* Button.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = Button.hpp; sourceTree = "<group>"; };
+		7285A029253B2EB000EB0AAD /* PlayerInput.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = PlayerInput.hpp; sourceTree = "<group>"; };
+		7285A02B253B2EB000EB0AAD /* TouchInput.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = TouchInput.hpp; sourceTree = "<group>"; };
+		7285A02C253B2EB000EB0AAD /* RxTouchInput.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = RxTouchInput.hpp; sourceTree = "<group>"; };
+		7285A02D253B2EB000EB0AAD /* TouchStep.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = TouchStep.hpp; sourceTree = "<group>"; };
+		7285A02F253B2EB000EB0AAD /* PositionIndicator.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = PositionIndicator.hpp; sourceTree = "<group>"; };
+		7285A030253B2EB000EB0AAD /* Cursor.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = Cursor.hpp; sourceTree = "<group>"; };
+		7285A031253B2EB000EB0AAD /* TouchEvent.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = TouchEvent.hpp; sourceTree = "<group>"; };
+		7285A047253B41A800EB0AAD /* PlayerID.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = PlayerID.hpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -364,6 +399,7 @@
 		7265F03E253195B800C15F67 /* dx4siv3d */ = {
 			isa = PBXGroup;
 			children = (
+				7285A01A253B2EB000EB0AAD /* input */,
 				72859F6A25388C1200EB0AAD /* ui */,
 				7265F0592531ACDC00C15F67 /* component */,
 				7265F04E2531A99100C15F67 /* application */,
@@ -604,6 +640,71 @@
 			path = font;
 			sourceTree = "<group>";
 		};
+		7285A01A253B2EB000EB0AAD /* input */ = {
+			isa = PBXGroup;
+			children = (
+				7285A01B253B2EB000EB0AAD /* gamepad */,
+				7285A02A253B2EB000EB0AAD /* touch */,
+			);
+			path = input;
+			sourceTree = "<group>";
+		};
+		7285A01B253B2EB000EB0AAD /* gamepad */ = {
+			isa = PBXGroup;
+			children = (
+				7285A047253B41A800EB0AAD /* PlayerID.hpp */,
+				7285A01C253B2EB000EB0AAD /* demo */,
+				7285A021253B2EB000EB0AAD /* UserKeyAsGP.hpp */,
+				7285A022253B2EB000EB0AAD /* Arrow.hpp */,
+				7285A023253B2EB000EB0AAD /* GamePadImpl.hpp */,
+				7285A024253B2EB000EB0AAD /* GamePadDefinition.hpp */,
+				7285A025253B2EB000EB0AAD /* GamePad.hpp */,
+				7285A026253B2EB000EB0AAD /* KeyInputAsGamePad.hpp */,
+				7285A028253B2EB000EB0AAD /* Button.hpp */,
+				7285A029253B2EB000EB0AAD /* PlayerInput.hpp */,
+			);
+			path = gamepad;
+			sourceTree = "<group>";
+		};
+		7285A01C253B2EB000EB0AAD /* demo */ = {
+			isa = PBXGroup;
+			children = (
+				7285A01E253B2EB000EB0AAD /* texture */,
+				7285A01D253B2EB000EB0AAD /* DemoSensor.hpp */,
+			);
+			path = demo;
+			sourceTree = "<group>";
+		};
+		7285A01E253B2EB000EB0AAD /* texture */ = {
+			isa = PBXGroup;
+			children = (
+				7285A01F253B2EB000EB0AAD /* Buttons.png */,
+				7285A020253B2EB000EB0AAD /* Base.png */,
+			);
+			path = texture;
+			sourceTree = "<group>";
+		};
+		7285A02A253B2EB000EB0AAD /* touch */ = {
+			isa = PBXGroup;
+			children = (
+				7285A02E253B2EB000EB0AAD /* component */,
+				7285A02B253B2EB000EB0AAD /* TouchInput.hpp */,
+				7285A02C253B2EB000EB0AAD /* RxTouchInput.hpp */,
+				7285A02D253B2EB000EB0AAD /* TouchStep.hpp */,
+				7285A031253B2EB000EB0AAD /* TouchEvent.hpp */,
+			);
+			path = touch;
+			sourceTree = "<group>";
+		};
+		7285A02E253B2EB000EB0AAD /* component */ = {
+			isa = PBXGroup;
+			children = (
+				7285A02F253B2EB000EB0AAD /* PositionIndicator.hpp */,
+				7285A030253B2EB000EB0AAD /* Cursor.hpp */,
+			);
+			path = component;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -672,9 +773,11 @@
 				72859FFE253AE5A700EB0AAD /* LR_Reverse.png in Resources */,
 				7285A000253AE5A700EB0AAD /* Back_Button_Pushed.png in Resources */,
 				72859FE4253AE5A700EB0AAD /* IndexBase2.png in Resources */,
+				7285A03C253B2EB000EB0AAD /* Button.hpp in Resources */,
 				72859FD5253AE5A700EB0AAD /* Kurui.png in Resources */,
 				72859FDD253AE5A700EB0AAD /* Chars.png in Resources */,
 				7285A004253AE5A700EB0AAD /* Allow_1.png in Resources */,
+				7285A043253B2EB000EB0AAD /* TouchEvent.hpp in Resources */,
 				72859FF3253AE5A700EB0AAD /* Ray.png in Resources */,
 				72859FD4253AE5A700EB0AAD /* Kobushi.png in Resources */,
 				72859FF8253AE5A700EB0AAD /* Manual1.png in Resources */,
@@ -692,36 +795,50 @@
 				72859FE2253AE5A700EB0AAD /* Holder_2.png in Resources */,
 				72859FFA253AE5A700EB0AAD /* Manual3.png in Resources */,
 				72859FFD253AE5A700EB0AAD /* Embargo.png in Resources */,
+				7285A03A253B2EB000EB0AAD /* KeyInputAsGamePad.hpp in Resources */,
 				7285A003253AE5A700EB0AAD /* PushCircle.png in Resources */,
 				72859FE8253AE5A700EB0AAD /* Index3.png in Resources */,
+				7285A03F253B2EB000EB0AAD /* RxTouchInput.hpp in Resources */,
 				7285A006253AE5A700EB0AAD /* Allow_2.png in Resources */,
 				72859FF7253AE5A700EB0AAD /* Manual5.png in Resources */,
 				7285A00A253AE5A700EB0AAD /* ExerciseBook.png in Resources */,
 				72859FDA253AE5A700EB0AAD /* cursor.png in Resources */,
 				72859FD7253AE5A700EB0AAD /* Noroi.png in Resources */,
+				7285A038253B2EB000EB0AAD /* GamePadDefinition.hpp in Resources */,
 				72859FF5253AE5A700EB0AAD /* Manual6.png in Resources */,
 				72859FC9253AE5A700EB0AAD /* Kiri.png in Resources */,
 				72859FD1253AE5A700EB0AAD /* Kaminari.png in Resources */,
 				72859FDC253AE5A700EB0AAD /* Thumbnail_Shade.png in Resources */,
 				2C1778A31CE0B65500BB8AD0 /* icon.icns in Resources */,
 				72859FCE253AE5A700EB0AAD /* Hikari.png in Resources */,
+				7285A034253B2EB000EB0AAD /* Base.png in Resources */,
 				72859FD0253AE5A700EB0AAD /* Toki.png in Resources */,
 				72859FF2253AE5A700EB0AAD /* radical_1.png in Resources */,
 				72859FC8253AE5A700EB0AAD /* Aburi.png in Resources */,
 				72859FFB253AE5A700EB0AAD /* Logo.png in Resources */,
 				72859FCD253AE5A700EB0AAD /* Tsume.png in Resources */,
+				7285A042253B2EB000EB0AAD /* Cursor.hpp in Resources */,
 				7285A002253AE5A700EB0AAD /* Brush.png in Resources */,
+				7285A032253B2EB000EB0AAD /* DemoSensor.hpp in Resources */,
+				7285A035253B2EB000EB0AAD /* UserKeyAsGP.hpp in Resources */,
 				72859FF9253AE5A700EB0AAD /* Manual2.png in Resources */,
 				72859FE0253AE5A700EB0AAD /* IndexBase1.png in Resources */,
 				72859FF4253AE5A700EB0AAD /* Message.png in Resources */,
 				72859FCA253AE5A700EB0AAD /* Hoshi.png in Resources */,
+				7285A041253B2EB000EB0AAD /* PositionIndicator.hpp in Resources */,
 				72859FEA253AE5A700EB0AAD /* HP_1.png in Resources */,
 				7285A005253AE5A700EB0AAD /* Allow_0.png in Resources */,
+				7285A039253B2EB000EB0AAD /* GamePad.hpp in Resources */,
 				72859FE9253AE5A700EB0AAD /* Index2.png in Resources */,
+				7285A040253B2EB000EB0AAD /* TouchStep.hpp in Resources */,
 				7285A001253AE5A700EB0AAD /* Controller.png in Resources */,
+				7285A036253B2EB000EB0AAD /* Arrow.hpp in Resources */,
 				72859FF1253AE5A700EB0AAD /* radical_0.png in Resources */,
+				7285A03E253B2EB000EB0AAD /* TouchInput.hpp in Resources */,
+				7285A033253B2EB000EB0AAD /* Buttons.png in Resources */,
 				72859FD8253AE5A700EB0AAD /* Background.png in Resources */,
 				72859FEF253AE5A700EB0AAD /* radical_3.png in Resources */,
+				7285A037253B2EB000EB0AAD /* GamePadImpl.hpp in Resources */,
 				72859FCB253AE5A700EB0AAD /* Arashi.png in Resources */,
 				7285A007253AE5A700EB0AAD /* Allow_3.png in Resources */,
 				72859FCF253AE5A700EB0AAD /* Tagane.png in Resources */,
@@ -736,6 +853,7 @@
 				7285A010253AE5A700EB0AAD /* azuki.ttf in Resources */,
 				7285A008253AE5A700EB0AAD /* Back_Button.png in Resources */,
 				72859FE3253AE5A700EB0AAD /* IndexBase3.png in Resources */,
+				7285A03D253B2EB000EB0AAD /* PlayerInput.hpp in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
