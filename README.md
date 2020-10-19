@@ -6,5 +6,21 @@
 ## QuickStart
 ```
 $ make init
+$ make run
+```
+
+## Build on CLI
+### Default build
+```
 $ make build
+```
+
+### Debug build
+```
+$ make build/debug
+```
+
+### Release Build
+```
+$ make build/release
 ```
