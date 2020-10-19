@@ -18,6 +18,7 @@ void SequenceManager::initialize() {
   //  .setFadeColor(s3d::ColorF(1.0));
   m_manager
     .add<TitleScene>(State::Title)
+    .add<CharacterSelectionScene>(State::CharacterSelection)
     .add<GameScene>(State::Game)
     .setFadeColor(s3d::ColorF(1.0));
     

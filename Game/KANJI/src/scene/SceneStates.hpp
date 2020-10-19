@@ -10,7 +10,8 @@ namespace seq {
 enum class State {
   Splash,
 	Title,
-	Game
+	CharacterSelection,
+	Game,
 };
 
 

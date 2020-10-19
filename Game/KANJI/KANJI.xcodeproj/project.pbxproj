@@ -121,6 +121,7 @@
 		7285A00E253AE5A700EB0AAD /* Block_ExerciseBook.png in Resources */ = {isa = PBXBuildFile; fileRef = 72859FC3253AE5A700EB0AAD /* Block_ExerciseBook.png */; };
 		7285A00F253AE5A700EB0AAD /* KouzanMouhituFontOTF.otf in Resources */ = {isa = PBXBuildFile; fileRef = 72859FC5253AE5A700EB0AAD /* KouzanMouhituFontOTF.otf */; };
 		7285A010253AE5A700EB0AAD /* azuki.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 72859FC6253AE5A700EB0AAD /* azuki.ttf */; };
+		C800DE80253DE01900C3835B /* CharacterSelectionScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C800DE7E253DE01800C3835B /* CharacterSelectionScene.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -253,6 +254,8 @@
 		72859FC3253AE5A700EB0AAD /* Block_ExerciseBook.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Block_ExerciseBook.png; sourceTree = "<group>"; };
 		72859FC5253AE5A700EB0AAD /* KouzanMouhituFontOTF.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = KouzanMouhituFontOTF.otf; sourceTree = "<group>"; };
 		72859FC6253AE5A700EB0AAD /* azuki.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = azuki.ttf; sourceTree = "<group>"; };
+		C800DE7E253DE01800C3835B /* CharacterSelectionScene.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CharacterSelectionScene.cpp; sourceTree = "<group>"; };
+		C800DE7F253DE01900C3835B /* CharacterSelectionScene.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = CharacterSelectionScene.hpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -426,6 +429,8 @@
 		72859F6925388A3900EB0AAD /* main */ = {
 			isa = PBXGroup;
 			children = (
+				C800DE7E253DE01800C3835B /* CharacterSelectionScene.cpp */,
+				C800DE7F253DE01900C3835B /* CharacterSelectionScene.hpp */,
 				2C971A57239732F900E66570 /* GameScene.cpp */,
 				2C971A59239732F900E66570 /* GameScene.hpp */,
 				2C971A5A239732F900E66570 /* TitleScene.cpp */,
@@ -751,6 +756,7 @@
 				7265F0712531DC1D00C15F67 /* AssetManager.cpp in Sources */,
 				2C971A5C239732F900E66570 /* TitleScene.cpp in Sources */,
 				7265F06F2531DC1D00C15F67 /* ExecutiveManager.cpp in Sources */,
+				C800DE80253DE01900C3835B /* CharacterSelectionScene.cpp in Sources */,
 				7265F0672531DC0F00C15F67 /* Singleton.cpp in Sources */,
 				2C17789A1CE0AA7C00BB8AD0 /* Main.cpp in Sources */,
 				7265F08325320FB000C15F67 /* MainExecutiveManager.cpp in Sources */,
