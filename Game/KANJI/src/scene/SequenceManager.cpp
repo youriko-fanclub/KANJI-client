@@ -27,7 +27,7 @@ void SequenceManager::initialize() {
     .setFadeColor(s3d::ColorF(1.0));
     
   // （ゲームシーンから開始する場合はコメントを外す）
-  //manager.init(State::Game);
+  m_manager.init(State::Battle);
 }
 
 bool SequenceManager::update() {
