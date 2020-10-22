@@ -29,6 +29,12 @@ void BattleScene::update() {
             // クリックした場所にボールを作成
             bodies << world.createCircle(Cursor::PosF(), 0.5);
         }
+        constexpr float force_factor = 100;
+        float force_x = force_factor
+            * (KeyH.pressed() ? -1
+            : KeyL.pressed() ? 1
+            : 0);
+        m_chara.applyForce(Vec2(force_x, 0));
     }
 }
 void BattleScene::draw() const {
@@ -43,6 +49,7 @@ void BattleScene::draw() const {
         for (const auto& body : bodies) {
             body.draw(HSV(body.id() * 10, 0.7, 0.9));
         }
+        m_chara.draw();
     }
     camera.draw();
 }
@@ -56,6 +63,7 @@ BattleScene::BattleScene(const InitData& init) :
         Transition(0.4s, 0.2s)),
     camera(Vec2(0, -8), 20.0),
     world(9.8),
+    m_chara(world.createRect(Vec2(0, -5), SizeF(2, 3))),
     line(world.createStaticLine(Vec2(0, 0), Line(-16, 0, 16, 0)))
 {
     // 物理演算のワールド更新に 60FPS の定数時間を使う場合は true, 実時間を使う場合 false

@@ -23,6 +23,7 @@ private: // field
     // 物理演算用のワールド
     P2World world;
     // 物体
+    P2Body m_chara;
     Array<P2Body> bodies;
     // 床
     const P2Body line;
