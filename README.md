@@ -27,9 +27,10 @@ $ make build/release
 
 
 ## Coding Conventions
+```
 - case
-  - 変数: snake_case
-  - 関数: camelCase
+  - variable: snake_case
+  - function: camelCase
   - class: PascalCase
   - namespace: smallcase
   - enum: PascalCase
@@ -40,3 +41,4 @@ $ make build/release
 - indent
   - default: 4
   - namespace: 0
+```
