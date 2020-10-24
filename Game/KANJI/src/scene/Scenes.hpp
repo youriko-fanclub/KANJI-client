@@ -6,3 +6,5 @@
 // #include "SplashScene.hpp"
 #include "TitleScene.hpp"
 #include "GameScene.hpp"
+
+#include "InputDemoScene.hpp"

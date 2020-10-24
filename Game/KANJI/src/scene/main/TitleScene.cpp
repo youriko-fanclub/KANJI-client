@@ -41,7 +41,8 @@ m_exit(
   DrawableText(FontAsset(U"Menu"), U"おわる"),
   Transition(0.4s, 0.2s)) {
   
-  m_start.setCallback([this](){ changeScene(State::Game); });
+  // m_start.setCallback([this](){ changeScene(State::Game); });
+  m_start.setCallback([this](){ changeScene(State::InputDemo); });
   m_exit.setCallback([](){ System::Exit(); });
 }
 

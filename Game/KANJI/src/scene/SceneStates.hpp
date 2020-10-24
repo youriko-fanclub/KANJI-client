@@ -8,9 +8,11 @@ namespace seq {
 
 // シーンの名前
 enum class State {
-  Splash,
-	Title,
-	Game
+    Splash,
+    Title,
+    Game,
+ 
+    InputDemo,
 };
 
 
