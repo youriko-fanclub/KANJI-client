@@ -24,3 +24,19 @@ $ make build/debug
 ```
 $ make build/release
 ```
+
+
+## Coding Conventions
+- case
+  - 変数: snake_case
+  - 関数: camelCase
+  - class: PascalCase
+  - namespace: smallcase
+  - enum: PascalCase
+  - macro: CAPITAL_SNAKE
+- prefix
+  - class member field: m_
+  - class static member field: s_
+- indent
+  - default: 4
+  - namespace: 0
