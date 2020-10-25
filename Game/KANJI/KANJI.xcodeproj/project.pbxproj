@@ -138,6 +138,7 @@
 		72A3BD7525455C0D003393C4 /* Button.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 72A3BD7425455C0D003393C4 /* Button.cpp */; };
 		72A3BD78254564A3003393C4 /* DPad.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 72A3BD77254564A3003393C4 /* DPad.cpp */; };
 		72A3BD7B25457D84003393C4 /* Axis.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 72A3BD7A25457D84003393C4 /* Axis.cpp */; };
+		72A3BD8C25459980003393C4 /* InputManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 72A3BD8A25459980003393C4 /* InputManager.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -294,6 +295,8 @@
 		72A3BD7425455C0D003393C4 /* Button.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Button.cpp; sourceTree = "<group>"; };
 		72A3BD77254564A3003393C4 /* DPad.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = DPad.cpp; sourceTree = "<group>"; };
 		72A3BD7A25457D84003393C4 /* Axis.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Axis.cpp; sourceTree = "<group>"; };
+		72A3BD8A25459980003393C4 /* InputManager.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = InputManager.cpp; sourceTree = "<group>"; };
+		72A3BD8B25459980003393C4 /* InputManager.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = InputManager.hpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -664,6 +667,8 @@
 				72A3BD8325459464003393C4 /* key */,
 				72A3BD8225459457003393C4 /* component */,
 				7285A01C253B2EB000EB0AAD /* demo */,
+				72A3BD8A25459980003393C4 /* InputManager.cpp */,
+				72A3BD8B25459980003393C4 /* InputManager.hpp */,
 			);
 			path = gamepad;
 			sourceTree = "<group>";
@@ -888,6 +893,7 @@
 				7265F07C2531FD6500C15F67 /* DomainGameData.cpp in Sources */,
 				72A3BD5E25443711003393C4 /* InputDemoScene.cpp in Sources */,
 				7265F0712531DC1D00C15F67 /* AssetManager.cpp in Sources */,
+				72A3BD8C25459980003393C4 /* InputManager.cpp in Sources */,
 				2C971A5C239732F900E66570 /* TitleScene.cpp in Sources */,
 				72A3BD7525455C0D003393C4 /* Button.cpp in Sources */,
 				7265F06F2531DC1D00C15F67 /* ExecutiveManager.cpp in Sources */,
