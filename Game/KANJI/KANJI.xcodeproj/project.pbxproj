@@ -141,6 +141,7 @@
 		72A3BD95254C6197003393C4 /* Input.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 72A3BD93254C6197003393C4 /* Input.cpp */; };
 		72A3BD9B254D7FD5003393C4 /* JoyConDemo.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 72A3BD99254D7FD5003393C4 /* JoyConDemo.cpp */; };
 		72A3BD9F254D80AB003393C4 /* GamePadDemo.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 72A3BD9D254D80AB003393C4 /* GamePadDemo.cpp */; };
+		C800DE80253DE01900C3835B /* CharacterSelectionScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C800DE7E253DE01800C3835B /* CharacterSelectionScene.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -303,6 +304,8 @@
 		72A3BD9A254D7FD5003393C4 /* JoyConDemo.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = JoyConDemo.hpp; sourceTree = "<group>"; };
 		72A3BD9D254D80AB003393C4 /* GamePadDemo.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = GamePadDemo.cpp; sourceTree = "<group>"; };
 		72A3BD9E254D80AB003393C4 /* GamePadDemo.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = GamePadDemo.hpp; sourceTree = "<group>"; };
+		C800DE7E253DE01800C3835B /* CharacterSelectionScene.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CharacterSelectionScene.cpp; sourceTree = "<group>"; };
+		C800DE7F253DE01900C3835B /* CharacterSelectionScene.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = CharacterSelectionScene.hpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -479,6 +482,8 @@
 		72859F6925388A3900EB0AAD /* main */ = {
 			isa = PBXGroup;
 			children = (
+				C800DE7E253DE01800C3835B /* CharacterSelectionScene.cpp */,
+				C800DE7F253DE01900C3835B /* CharacterSelectionScene.hpp */,
 				2C971A57239732F900E66570 /* GameScene.cpp */,
 				2C971A59239732F900E66570 /* GameScene.hpp */,
 				2C971A5A239732F900E66570 /* TitleScene.cpp */,
@@ -908,6 +913,7 @@
 				72A3BD95254C6197003393C4 /* Input.cpp in Sources */,
 				72A3BD7525455C0D003393C4 /* Button.cpp in Sources */,
 				7265F06F2531DC1D00C15F67 /* ExecutiveManager.cpp in Sources */,
+				C800DE80253DE01900C3835B /* CharacterSelectionScene.cpp in Sources */,
 				7265F0672531DC0F00C15F67 /* Singleton.cpp in Sources */,
 				72A3BD6D254536A9003393C4 /* PlayerId.cpp in Sources */,
 				72A3BD6825452A7B003393C4 /* KeyCode.cpp in Sources */,
