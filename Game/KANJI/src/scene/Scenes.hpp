@@ -7,3 +7,5 @@
 #include "TitleScene.hpp"
 #include "CharacterSelectionScene.hpp"
 #include "GameScene.hpp"
+
+#include "InputDemoScene.hpp"
