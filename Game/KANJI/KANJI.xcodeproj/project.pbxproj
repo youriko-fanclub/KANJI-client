@@ -138,7 +138,9 @@
 		72A3BD7525455C0D003393C4 /* Button.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 72A3BD7425455C0D003393C4 /* Button.cpp */; };
 		72A3BD78254564A3003393C4 /* DPad.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 72A3BD77254564A3003393C4 /* DPad.cpp */; };
 		72A3BD7B25457D84003393C4 /* Axis.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 72A3BD7A25457D84003393C4 /* Axis.cpp */; };
-		72A3BD8C25459980003393C4 /* InputManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 72A3BD8A25459980003393C4 /* InputManager.cpp */; };
+		72A3BD95254C6197003393C4 /* Input.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 72A3BD93254C6197003393C4 /* Input.cpp */; };
+		72A3BD9B254D7FD5003393C4 /* JoyConDemo.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 72A3BD99254D7FD5003393C4 /* JoyConDemo.cpp */; };
+		72A3BD9F254D80AB003393C4 /* GamePadDemo.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 72A3BD9D254D80AB003393C4 /* GamePadDemo.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -295,8 +297,12 @@
 		72A3BD7425455C0D003393C4 /* Button.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Button.cpp; sourceTree = "<group>"; };
 		72A3BD77254564A3003393C4 /* DPad.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = DPad.cpp; sourceTree = "<group>"; };
 		72A3BD7A25457D84003393C4 /* Axis.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Axis.cpp; sourceTree = "<group>"; };
-		72A3BD8A25459980003393C4 /* InputManager.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = InputManager.cpp; sourceTree = "<group>"; };
-		72A3BD8B25459980003393C4 /* InputManager.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = InputManager.hpp; sourceTree = "<group>"; };
+		72A3BD93254C6197003393C4 /* Input.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Input.cpp; sourceTree = "<group>"; };
+		72A3BD94254C6197003393C4 /* Input.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = Input.hpp; sourceTree = "<group>"; };
+		72A3BD99254D7FD5003393C4 /* JoyConDemo.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = JoyConDemo.cpp; sourceTree = "<group>"; };
+		72A3BD9A254D7FD5003393C4 /* JoyConDemo.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = JoyConDemo.hpp; sourceTree = "<group>"; };
+		72A3BD9D254D80AB003393C4 /* GamePadDemo.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = GamePadDemo.cpp; sourceTree = "<group>"; };
+		72A3BD9E254D80AB003393C4 /* GamePadDemo.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = GamePadDemo.hpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -663,12 +669,12 @@
 		7285A01B253B2EB000EB0AAD /* gamepad */ = {
 			isa = PBXGroup;
 			children = (
+				72A3BD93254C6197003393C4 /* Input.cpp */,
+				72A3BD94254C6197003393C4 /* Input.hpp */,
 				72A3BD862545949C003393C4 /* legacy */,
 				72A3BD8325459464003393C4 /* key */,
 				72A3BD8225459457003393C4 /* component */,
 				7285A01C253B2EB000EB0AAD /* demo */,
-				72A3BD8A25459980003393C4 /* InputManager.cpp */,
-				72A3BD8B25459980003393C4 /* InputManager.hpp */,
 			);
 			path = gamepad;
 			sourceTree = "<group>";
@@ -680,6 +686,10 @@
 				7285A01D253B2EB000EB0AAD /* DemoSensor.hpp */,
 				72A3BD5C25443711003393C4 /* InputDemoScene.cpp */,
 				72A3BD5D25443711003393C4 /* InputDemoScene.hpp */,
+				72A3BD99254D7FD5003393C4 /* JoyConDemo.cpp */,
+				72A3BD9A254D7FD5003393C4 /* JoyConDemo.hpp */,
+				72A3BD9D254D80AB003393C4 /* GamePadDemo.cpp */,
+				72A3BD9E254D80AB003393C4 /* GamePadDemo.hpp */,
 			);
 			path = demo;
 			sourceTree = "<group>";
@@ -889,12 +899,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				72A3BD9F254D80AB003393C4 /* GamePadDemo.cpp in Sources */,
 				7265F0752531E1BF00C15F67 /* SequenceManager.cpp in Sources */,
 				7265F07C2531FD6500C15F67 /* DomainGameData.cpp in Sources */,
 				72A3BD5E25443711003393C4 /* InputDemoScene.cpp in Sources */,
 				7265F0712531DC1D00C15F67 /* AssetManager.cpp in Sources */,
-				72A3BD8C25459980003393C4 /* InputManager.cpp in Sources */,
 				2C971A5C239732F900E66570 /* TitleScene.cpp in Sources */,
+				72A3BD95254C6197003393C4 /* Input.cpp in Sources */,
 				72A3BD7525455C0D003393C4 /* Button.cpp in Sources */,
 				7265F06F2531DC1D00C15F67 /* ExecutiveManager.cpp in Sources */,
 				7265F0672531DC0F00C15F67 /* Singleton.cpp in Sources */,
@@ -907,6 +918,7 @@
 				72859F6D25388CA100EB0AAD /* UIComponent.cpp in Sources */,
 				72A3BD59254427A9003393C4 /* Misc.cpp in Sources */,
 				7265F0702531DC1D00C15F67 /* ApplicationManager.cpp in Sources */,
+				72A3BD9B254D7FD5003393C4 /* JoyConDemo.cpp in Sources */,
 				72A3BD722545379E003393C4 /* KeyMapping.cpp in Sources */,
 				2C971A5B239732F900E66570 /* GameScene.cpp in Sources */,
 			);
