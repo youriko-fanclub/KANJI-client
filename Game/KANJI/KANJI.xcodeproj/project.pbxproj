@@ -121,7 +121,28 @@
 		7285A00E253AE5A700EB0AAD /* Block_ExerciseBook.png in Resources */ = {isa = PBXBuildFile; fileRef = 72859FC3253AE5A700EB0AAD /* Block_ExerciseBook.png */; };
 		7285A00F253AE5A700EB0AAD /* KouzanMouhituFontOTF.otf in Resources */ = {isa = PBXBuildFile; fileRef = 72859FC5253AE5A700EB0AAD /* KouzanMouhituFontOTF.otf */; };
 		7285A010253AE5A700EB0AAD /* azuki.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 72859FC6253AE5A700EB0AAD /* azuki.ttf */; };
-		7285A017253B25B700EB0AAD /* BattleScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7285A015253B25B700EB0AAD /* BattleScene.cpp */; };
+		7285A032253B2EB000EB0AAD /* DemoSensor.hpp in Resources */ = {isa = PBXBuildFile; fileRef = 7285A01D253B2EB000EB0AAD /* DemoSensor.hpp */; };
+		7285A033253B2EB000EB0AAD /* Buttons.png in Resources */ = {isa = PBXBuildFile; fileRef = 7285A01F253B2EB000EB0AAD /* Buttons.png */; };
+		7285A034253B2EB000EB0AAD /* Base.png in Resources */ = {isa = PBXBuildFile; fileRef = 7285A020253B2EB000EB0AAD /* Base.png */; };
+		7285A035253B2EB000EB0AAD /* UserKeyAsGP.hpp in Resources */ = {isa = PBXBuildFile; fileRef = 7285A021253B2EB000EB0AAD /* UserKeyAsGP.hpp */; };
+		7285A038253B2EB000EB0AAD /* GamePadDefinition.hpp in Resources */ = {isa = PBXBuildFile; fileRef = 7285A024253B2EB000EB0AAD /* GamePadDefinition.hpp */; };
+		7285A039253B2EB000EB0AAD /* GamePad.hpp in Resources */ = {isa = PBXBuildFile; fileRef = 7285A025253B2EB000EB0AAD /* GamePad.hpp */; };
+		7285A03A253B2EB000EB0AAD /* KeyInputAsGamePad.hpp in Resources */ = {isa = PBXBuildFile; fileRef = 7285A026253B2EB000EB0AAD /* KeyInputAsGamePad.hpp */; };
+		7285A03C253B2EB000EB0AAD /* Button.hpp in Resources */ = {isa = PBXBuildFile; fileRef = 7285A028253B2EB000EB0AAD /* Button.hpp */; };
+		7285A03D253B2EB000EB0AAD /* PlayerInput.hpp in Resources */ = {isa = PBXBuildFile; fileRef = 7285A029253B2EB000EB0AAD /* PlayerInput.hpp */; };
+		72A3BD59254427A9003393C4 /* Misc.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 72A3BD57254427A9003393C4 /* Misc.cpp */; };
+		72A3BD5E25443711003393C4 /* InputDemoScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 72A3BD5C25443711003393C4 /* InputDemoScene.cpp */; };
+		72A3BD6825452A7B003393C4 /* KeyCode.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 72A3BD6625452A7B003393C4 /* KeyCode.cpp */; };
+		72A3BD6D254536A9003393C4 /* PlayerId.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 72A3BD6C254536A9003393C4 /* PlayerId.cpp */; };
+		72A3BD722545379E003393C4 /* KeyMapping.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 72A3BD702545379D003393C4 /* KeyMapping.cpp */; };
+		72A3BD7525455C0D003393C4 /* Button.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 72A3BD7425455C0D003393C4 /* Button.cpp */; };
+		72A3BD78254564A3003393C4 /* DPad.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 72A3BD77254564A3003393C4 /* DPad.cpp */; };
+		72A3BD7B25457D84003393C4 /* Axis.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 72A3BD7A25457D84003393C4 /* Axis.cpp */; };
+		72A3BD95254C6197003393C4 /* Input.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 72A3BD93254C6197003393C4 /* Input.cpp */; };
+		72A3BD9B254D7FD5003393C4 /* JoyConDemo.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 72A3BD99254D7FD5003393C4 /* JoyConDemo.cpp */; };
+		72A3BD9F254D80AB003393C4 /* GamePadDemo.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 72A3BD9D254D80AB003393C4 /* GamePadDemo.cpp */; };
+		72A3BDAD254DC083003393C4 /* BattleScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 72A3BDAC254DC083003393C4 /* BattleScene.cpp */; };
+		C800DE80253DE01900C3835B /* CharacterSelectionScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C800DE7E253DE01800C3835B /* CharacterSelectionScene.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -254,8 +275,40 @@
 		72859FC3253AE5A700EB0AAD /* Block_ExerciseBook.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Block_ExerciseBook.png; sourceTree = "<group>"; };
 		72859FC5253AE5A700EB0AAD /* KouzanMouhituFontOTF.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = KouzanMouhituFontOTF.otf; sourceTree = "<group>"; };
 		72859FC6253AE5A700EB0AAD /* azuki.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = azuki.ttf; sourceTree = "<group>"; };
-		7285A015253B25B700EB0AAD /* BattleScene.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = BattleScene.cpp; sourceTree = "<group>"; };
-		7285A016253B25B700EB0AAD /* BattleScene.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = BattleScene.hpp; sourceTree = "<group>"; };
+		7285A01D253B2EB000EB0AAD /* DemoSensor.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = DemoSensor.hpp; sourceTree = "<group>"; };
+		7285A01F253B2EB000EB0AAD /* Buttons.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Buttons.png; sourceTree = "<group>"; };
+		7285A020253B2EB000EB0AAD /* Base.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Base.png; sourceTree = "<group>"; };
+		7285A021253B2EB000EB0AAD /* UserKeyAsGP.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = UserKeyAsGP.hpp; sourceTree = "<group>"; };
+		7285A024253B2EB000EB0AAD /* GamePadDefinition.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = GamePadDefinition.hpp; sourceTree = "<group>"; };
+		7285A025253B2EB000EB0AAD /* GamePad.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = GamePad.hpp; sourceTree = "<group>"; };
+		7285A026253B2EB000EB0AAD /* KeyInputAsGamePad.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = KeyInputAsGamePad.hpp; sourceTree = "<group>"; };
+		7285A028253B2EB000EB0AAD /* Button.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = Button.hpp; sourceTree = "<group>"; };
+		7285A029253B2EB000EB0AAD /* PlayerInput.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = PlayerInput.hpp; sourceTree = "<group>"; };
+		7285A047253B41A800EB0AAD /* PlayerId.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = PlayerId.hpp; sourceTree = "<group>"; };
+		72A3BD54254422F0003393C4 /* DPad.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = DPad.hpp; sourceTree = "<group>"; };
+		72A3BD552544233C003393C4 /* Axis.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Axis.hpp; sourceTree = "<group>"; };
+		72A3BD57254427A9003393C4 /* Misc.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Misc.cpp; sourceTree = "<group>"; };
+		72A3BD58254427A9003393C4 /* Misc.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Misc.hpp; sourceTree = "<group>"; };
+		72A3BD5C25443711003393C4 /* InputDemoScene.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = InputDemoScene.cpp; sourceTree = "<group>"; };
+		72A3BD5D25443711003393C4 /* InputDemoScene.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = InputDemoScene.hpp; sourceTree = "<group>"; };
+		72A3BD6625452A7B003393C4 /* KeyCode.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = KeyCode.cpp; sourceTree = "<group>"; };
+		72A3BD6725452A7B003393C4 /* KeyCode.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = KeyCode.hpp; sourceTree = "<group>"; };
+		72A3BD6C254536A9003393C4 /* PlayerId.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = PlayerId.cpp; sourceTree = "<group>"; };
+		72A3BD702545379D003393C4 /* KeyMapping.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = KeyMapping.cpp; sourceTree = "<group>"; };
+		72A3BD712545379E003393C4 /* KeyMapping.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = KeyMapping.hpp; sourceTree = "<group>"; };
+		72A3BD7425455C0D003393C4 /* Button.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Button.cpp; sourceTree = "<group>"; };
+		72A3BD77254564A3003393C4 /* DPad.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = DPad.cpp; sourceTree = "<group>"; };
+		72A3BD7A25457D84003393C4 /* Axis.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Axis.cpp; sourceTree = "<group>"; };
+		72A3BD93254C6197003393C4 /* Input.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Input.cpp; sourceTree = "<group>"; };
+		72A3BD94254C6197003393C4 /* Input.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = Input.hpp; sourceTree = "<group>"; };
+		72A3BD99254D7FD5003393C4 /* JoyConDemo.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = JoyConDemo.cpp; sourceTree = "<group>"; };
+		72A3BD9A254D7FD5003393C4 /* JoyConDemo.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = JoyConDemo.hpp; sourceTree = "<group>"; };
+		72A3BD9D254D80AB003393C4 /* GamePadDemo.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = GamePadDemo.cpp; sourceTree = "<group>"; };
+		72A3BD9E254D80AB003393C4 /* GamePadDemo.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = GamePadDemo.hpp; sourceTree = "<group>"; };
+		72A3BDAB254DC082003393C4 /* BattleScene.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = BattleScene.hpp; sourceTree = "<group>"; };
+		72A3BDAC254DC083003393C4 /* BattleScene.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = BattleScene.cpp; sourceTree = "<group>"; };
+		C800DE7E253DE01800C3835B /* CharacterSelectionScene.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CharacterSelectionScene.cpp; sourceTree = "<group>"; };
+		C800DE7F253DE01900C3835B /* CharacterSelectionScene.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = CharacterSelectionScene.hpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -321,7 +374,6 @@
 		2C1778981CE0AA7C00BB8AD0 /* src */ = {
 			isa = PBXGroup;
 			children = (
-				7285A013253B251B00EB0AAD /* character */,
 				7265F08025320F8700C15F67 /* application */,
 				7265F04D2531A96400C15F67 /* scene */,
 				2C1778991CE0AA7C00BB8AD0 /* Main.cpp */,
@@ -367,6 +419,7 @@
 		7265F03E253195B800C15F67 /* dx4siv3d */ = {
 			isa = PBXGroup;
 			children = (
+				7285A01A253B2EB000EB0AAD /* input */,
 				72859F6A25388C1200EB0AAD /* ui */,
 				7265F0592531ACDC00C15F67 /* component */,
 				7265F04E2531A99100C15F67 /* application */,
@@ -406,6 +459,8 @@
 			children = (
 				7265F0652531DC0F00C15F67 /* Singleton.cpp */,
 				7265F0662531DC0F00C15F67 /* Singleton.hpp */,
+				72A3BD57254427A9003393C4 /* Misc.cpp */,
+				72A3BD58254427A9003393C4 /* Misc.hpp */,
 			);
 			path = component;
 			sourceTree = "<group>";
@@ -422,8 +477,10 @@
 		72859F6925388A3900EB0AAD /* main */ = {
 			isa = PBXGroup;
 			children = (
-				7285A015253B25B700EB0AAD /* BattleScene.cpp */,
-				7285A016253B25B700EB0AAD /* BattleScene.hpp */,
+				72A3BDAC254DC083003393C4 /* BattleScene.cpp */,
+				72A3BDAB254DC082003393C4 /* BattleScene.hpp */,
+				C800DE7E253DE01800C3835B /* CharacterSelectionScene.cpp */,
+				C800DE7F253DE01900C3835B /* CharacterSelectionScene.hpp */,
 				2C971A57239732F900E66570 /* GameScene.cpp */,
 				2C971A59239732F900E66570 /* GameScene.hpp */,
 				2C971A5A239732F900E66570 /* TitleScene.cpp */,
@@ -602,11 +659,95 @@
 			path = font;
 			sourceTree = "<group>";
 		};
-		7285A013253B251B00EB0AAD /* character */ = {
+		7285A01A253B2EB000EB0AAD /* input */ = {
 			isa = PBXGroup;
 			children = (
+				72A3BD8825459530003393C4 /* id */,
+				7285A01B253B2EB000EB0AAD /* gamepad */,
 			);
-			path = character;
+			path = input;
+			sourceTree = "<group>";
+		};
+		7285A01B253B2EB000EB0AAD /* gamepad */ = {
+			isa = PBXGroup;
+			children = (
+				72A3BD93254C6197003393C4 /* Input.cpp */,
+				72A3BD94254C6197003393C4 /* Input.hpp */,
+				72A3BD862545949C003393C4 /* legacy */,
+				72A3BD8325459464003393C4 /* key */,
+				72A3BD8225459457003393C4 /* component */,
+				7285A01C253B2EB000EB0AAD /* demo */,
+			);
+			path = gamepad;
+			sourceTree = "<group>";
+		};
+		7285A01C253B2EB000EB0AAD /* demo */ = {
+			isa = PBXGroup;
+			children = (
+				7285A01E253B2EB000EB0AAD /* texture */,
+				7285A01D253B2EB000EB0AAD /* DemoSensor.hpp */,
+				72A3BD5C25443711003393C4 /* InputDemoScene.cpp */,
+				72A3BD5D25443711003393C4 /* InputDemoScene.hpp */,
+				72A3BD99254D7FD5003393C4 /* JoyConDemo.cpp */,
+				72A3BD9A254D7FD5003393C4 /* JoyConDemo.hpp */,
+				72A3BD9D254D80AB003393C4 /* GamePadDemo.cpp */,
+				72A3BD9E254D80AB003393C4 /* GamePadDemo.hpp */,
+			);
+			path = demo;
+			sourceTree = "<group>";
+		};
+		7285A01E253B2EB000EB0AAD /* texture */ = {
+			isa = PBXGroup;
+			children = (
+				7285A01F253B2EB000EB0AAD /* Buttons.png */,
+				7285A020253B2EB000EB0AAD /* Base.png */,
+			);
+			path = texture;
+			sourceTree = "<group>";
+		};
+		72A3BD8225459457003393C4 /* component */ = {
+			isa = PBXGroup;
+			children = (
+				72A3BD7A25457D84003393C4 /* Axis.cpp */,
+				72A3BD552544233C003393C4 /* Axis.hpp */,
+				72A3BD7425455C0D003393C4 /* Button.cpp */,
+				7285A028253B2EB000EB0AAD /* Button.hpp */,
+				72A3BD77254564A3003393C4 /* DPad.cpp */,
+				72A3BD54254422F0003393C4 /* DPad.hpp */,
+				7285A029253B2EB000EB0AAD /* PlayerInput.hpp */,
+			);
+			path = component;
+			sourceTree = "<group>";
+		};
+		72A3BD8325459464003393C4 /* key */ = {
+			isa = PBXGroup;
+			children = (
+				72A3BD6625452A7B003393C4 /* KeyCode.cpp */,
+				72A3BD6725452A7B003393C4 /* KeyCode.hpp */,
+				72A3BD702545379D003393C4 /* KeyMapping.cpp */,
+				72A3BD712545379E003393C4 /* KeyMapping.hpp */,
+			);
+			path = key;
+			sourceTree = "<group>";
+		};
+		72A3BD862545949C003393C4 /* legacy */ = {
+			isa = PBXGroup;
+			children = (
+				7285A021253B2EB000EB0AAD /* UserKeyAsGP.hpp */,
+				7285A024253B2EB000EB0AAD /* GamePadDefinition.hpp */,
+				7285A025253B2EB000EB0AAD /* GamePad.hpp */,
+				7285A026253B2EB000EB0AAD /* KeyInputAsGamePad.hpp */,
+			);
+			path = legacy;
+			sourceTree = "<group>";
+		};
+		72A3BD8825459530003393C4 /* id */ = {
+			isa = PBXGroup;
+			children = (
+				72A3BD6C254536A9003393C4 /* PlayerId.cpp */,
+				7285A047253B41A800EB0AAD /* PlayerId.hpp */,
+			);
+			path = id;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -677,6 +818,7 @@
 				72859FFE253AE5A700EB0AAD /* LR_Reverse.png in Resources */,
 				7285A000253AE5A700EB0AAD /* Back_Button_Pushed.png in Resources */,
 				72859FE4253AE5A700EB0AAD /* IndexBase2.png in Resources */,
+				7285A03C253B2EB000EB0AAD /* Button.hpp in Resources */,
 				72859FD5253AE5A700EB0AAD /* Kurui.png in Resources */,
 				72859FDD253AE5A700EB0AAD /* Chars.png in Resources */,
 				7285A004253AE5A700EB0AAD /* Allow_1.png in Resources */,
@@ -697,6 +839,7 @@
 				72859FE2253AE5A700EB0AAD /* Holder_2.png in Resources */,
 				72859FFA253AE5A700EB0AAD /* Manual3.png in Resources */,
 				72859FFD253AE5A700EB0AAD /* Embargo.png in Resources */,
+				7285A03A253B2EB000EB0AAD /* KeyInputAsGamePad.hpp in Resources */,
 				7285A003253AE5A700EB0AAD /* PushCircle.png in Resources */,
 				72859FE8253AE5A700EB0AAD /* Index3.png in Resources */,
 				7285A006253AE5A700EB0AAD /* Allow_2.png in Resources */,
@@ -704,27 +847,33 @@
 				7285A00A253AE5A700EB0AAD /* ExerciseBook.png in Resources */,
 				72859FDA253AE5A700EB0AAD /* cursor.png in Resources */,
 				72859FD7253AE5A700EB0AAD /* Noroi.png in Resources */,
+				7285A038253B2EB000EB0AAD /* GamePadDefinition.hpp in Resources */,
 				72859FF5253AE5A700EB0AAD /* Manual6.png in Resources */,
 				72859FC9253AE5A700EB0AAD /* Kiri.png in Resources */,
 				72859FD1253AE5A700EB0AAD /* Kaminari.png in Resources */,
 				72859FDC253AE5A700EB0AAD /* Thumbnail_Shade.png in Resources */,
 				2C1778A31CE0B65500BB8AD0 /* icon.icns in Resources */,
 				72859FCE253AE5A700EB0AAD /* Hikari.png in Resources */,
+				7285A034253B2EB000EB0AAD /* Base.png in Resources */,
 				72859FD0253AE5A700EB0AAD /* Toki.png in Resources */,
 				72859FF2253AE5A700EB0AAD /* radical_1.png in Resources */,
 				72859FC8253AE5A700EB0AAD /* Aburi.png in Resources */,
 				72859FFB253AE5A700EB0AAD /* Logo.png in Resources */,
 				72859FCD253AE5A700EB0AAD /* Tsume.png in Resources */,
 				7285A002253AE5A700EB0AAD /* Brush.png in Resources */,
+				7285A032253B2EB000EB0AAD /* DemoSensor.hpp in Resources */,
+				7285A035253B2EB000EB0AAD /* UserKeyAsGP.hpp in Resources */,
 				72859FF9253AE5A700EB0AAD /* Manual2.png in Resources */,
 				72859FE0253AE5A700EB0AAD /* IndexBase1.png in Resources */,
 				72859FF4253AE5A700EB0AAD /* Message.png in Resources */,
 				72859FCA253AE5A700EB0AAD /* Hoshi.png in Resources */,
 				72859FEA253AE5A700EB0AAD /* HP_1.png in Resources */,
 				7285A005253AE5A700EB0AAD /* Allow_0.png in Resources */,
+				7285A039253B2EB000EB0AAD /* GamePad.hpp in Resources */,
 				72859FE9253AE5A700EB0AAD /* Index2.png in Resources */,
 				7285A001253AE5A700EB0AAD /* Controller.png in Resources */,
 				72859FF1253AE5A700EB0AAD /* radical_0.png in Resources */,
+				7285A033253B2EB000EB0AAD /* Buttons.png in Resources */,
 				72859FD8253AE5A700EB0AAD /* Background.png in Resources */,
 				72859FEF253AE5A700EB0AAD /* radical_3.png in Resources */,
 				72859FCB253AE5A700EB0AAD /* Arashi.png in Resources */,
@@ -741,6 +890,7 @@
 				7285A010253AE5A700EB0AAD /* azuki.ttf in Resources */,
 				7285A008253AE5A700EB0AAD /* Back_Button.png in Resources */,
 				72859FE3253AE5A700EB0AAD /* IndexBase3.png in Resources */,
+				7285A03D253B2EB000EB0AAD /* PlayerInput.hpp in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -751,17 +901,29 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				72A3BD9F254D80AB003393C4 /* GamePadDemo.cpp in Sources */,
 				7265F0752531E1BF00C15F67 /* SequenceManager.cpp in Sources */,
+				72A3BDAD254DC083003393C4 /* BattleScene.cpp in Sources */,
 				7265F07C2531FD6500C15F67 /* DomainGameData.cpp in Sources */,
-				7285A017253B25B700EB0AAD /* BattleScene.cpp in Sources */,
+				72A3BD5E25443711003393C4 /* InputDemoScene.cpp in Sources */,
 				7265F0712531DC1D00C15F67 /* AssetManager.cpp in Sources */,
 				2C971A5C239732F900E66570 /* TitleScene.cpp in Sources */,
+				72A3BD95254C6197003393C4 /* Input.cpp in Sources */,
+				72A3BD7525455C0D003393C4 /* Button.cpp in Sources */,
 				7265F06F2531DC1D00C15F67 /* ExecutiveManager.cpp in Sources */,
+				C800DE80253DE01900C3835B /* CharacterSelectionScene.cpp in Sources */,
 				7265F0672531DC0F00C15F67 /* Singleton.cpp in Sources */,
+				72A3BD6D254536A9003393C4 /* PlayerId.cpp in Sources */,
+				72A3BD6825452A7B003393C4 /* KeyCode.cpp in Sources */,
+				72A3BD78254564A3003393C4 /* DPad.cpp in Sources */,
 				2C17789A1CE0AA7C00BB8AD0 /* Main.cpp in Sources */,
 				7265F08325320FB000C15F67 /* MainExecutiveManager.cpp in Sources */,
+				72A3BD7B25457D84003393C4 /* Axis.cpp in Sources */,
 				72859F6D25388CA100EB0AAD /* UIComponent.cpp in Sources */,
+				72A3BD59254427A9003393C4 /* Misc.cpp in Sources */,
 				7265F0702531DC1D00C15F67 /* ApplicationManager.cpp in Sources */,
+				72A3BD9B254D7FD5003393C4 /* JoyConDemo.cpp in Sources */,
+				72A3BD722545379E003393C4 /* KeyMapping.cpp in Sources */,
 				2C971A5B239732F900E66570 /* GameScene.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

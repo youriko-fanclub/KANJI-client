@@ -26,6 +26,11 @@ void SequenceManager::initialize() {
     .add<GameScene>(State::Game)
     .setFadeColor(s3d::ColorF(1.0));
     
+  m_manager
+    .add<TitleScene>(State::Title)
+    .add<dx::di::InputDemoScene>(State::InputDemo)
+    .setFadeColor(s3d::ColorF(1.0));
+    
   // （ゲームシーンから開始する場合はコメントを外す）
   m_manager.init(State::Battle);
 }

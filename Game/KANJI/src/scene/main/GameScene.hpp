@@ -25,7 +25,7 @@ private:
 	Circle m_ball = Circle(400, 400, 8);
 
 	// パドル
-	Rect m_paddle = Rect(Arg::center(Cursor::Pos().x, 500), 60, 10);
+	RectF m_paddle = Rect(Arg::center(Cursor::Pos().x, 500), 60, 10);
 
 	// スコア
 	int32 m_score = 0;

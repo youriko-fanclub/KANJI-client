@@ -42,6 +42,9 @@ m_exit(
   Transition(0.4s, 0.2s)) {
   
   m_start.setCallback([this](){ changeScene(State::Battle); });
+  // m_start.setCallback([this](){ changeScene(State::Game); });
+  // m_start.setCallback([this](){ changeScene(State::InputDemo); });
+  // m_start.setCallback([this](){ changeScene(State::CharacterSelection); });
   m_exit.setCallback([](){ System::Exit(); });
 }
 
