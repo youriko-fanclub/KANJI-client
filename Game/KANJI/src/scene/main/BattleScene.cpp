@@ -1,20 +1,7 @@
 #include "BattleScene.hpp"
+#include <Siv3D/TOMLReader.hpp>
 #include "Input.hpp"
 #include "Misc.hpp"
-
-class Param {
-public:
-    double force_horizontal = 10.0;
-    double force_jump       = 10.0;
-    double chara_friction   = 1.3;
-    double air_resistance   = 0.9;
-    double floor_friction   = 1.3;
-    double wall_friction    = 0.2;
-};
-
-namespace {
-    Param param;
-}
 
 namespace kanji {
 namespace seq {
@@ -24,6 +11,7 @@ namespace seq {
 // static ----------------------------------------
 // public function -------------------------------
 void BattleScene::update() {
+    param->update();
     // 物理演算の精度
     static constexpr int32 velocityIterations = 12;
     static constexpr int32 positionIterations = 4;
@@ -46,12 +34,12 @@ void BattleScene::update() {
         }
         const auto& input = dx::di::Input::get(dx::di::GamePadId::_1P);
         s3d::Vec2 velocity(
-            param.force_horizontal * input.arrowL().x,
-            input.dpad().up().down() || input.buttons().b().down() ? -param.force_jump : 0.0);
+            param->force_horizontal * input.arrowL().x,
+            input.dpad().up().down() || input.buttons().b().down() ? -param->force_jump : 0.0);
         // m_chara.applyForce(force);
         const auto& v = m_chara.getVelocity();
         if (dx::misc::approximately0(velocity)) {
-            velocity.x = v.x * param.air_resistance;
+            velocity.x = v.x * param->air_resistance;
             velocity.y = v.y;
         }
         else {
@@ -61,7 +49,7 @@ void BattleScene::update() {
             if (dx::misc::approximately0(velocity.y)) {
                 velocity.y = v.y;
             }
-            velocity.x *= param.air_resistance;
+            velocity.x *= param->air_resistance;
         }
         m_chara.setVelocity(velocity);
     }
@@ -89,15 +77,16 @@ void BattleScene::draw() const {
 // ctor/dtor -------------------------------------
 BattleScene::BattleScene(const InitData& init) :
     IScene(init),
+    param(std::make_unique<dx::cmp::Param>()),
     m_start(
         Rect(Arg::center = Scene::Center().movedBy(65, 170), 300, 60), DrawableText(FontAsset(U"Menu"), U"はじめる"),
         Transition(0.4s, 0.2s)),
     m_camera(Vec2(0, -8), 20.0, s3d::Camera2DParameters::MouseOnly()),
     m_world(9.8),
-    m_chara     (m_world.createRect      (Vec2(  0, -5), SizeF(2, 3),         P2Material(1.0, 0.1, param.chara_friction))),
-    m_line      (m_world.createStaticLine(Vec2(  0,  0), Line(-25, 0, 25, 0), P2Material(1.0, 0.1, param.floor_friction))),
-    m_wall_left (m_world.createStaticLine(Vec2(-25,  0), Line(0, -30, 0, 10), P2Material(1.0, 0.1, param.wall_friction))),
-    m_wall_right(m_world.createStaticLine(Vec2( 25,  0), Line(0, -30, 0, 10), P2Material(1.0, 0.1, param.wall_friction)))
+    m_chara     (m_world.createRect      (Vec2(  0, -5), SizeF(2, 3),         P2Material(1.0, 0.1, param->chara_friction))),
+    m_line      (m_world.createStaticLine(Vec2(  0,  0), Line(-25, 0, 25, 0), P2Material(1.0, 0.1, param->floor_friction))),
+    m_wall_left (m_world.createStaticLine(Vec2(-25,  0), Line(0, -30, 0, 10), P2Material(1.0, 0.1, param->wall_friction))),
+    m_wall_right(m_world.createStaticLine(Vec2( 25,  0), Line(0, -30, 0, 10), P2Material(1.0, 0.1, param->wall_friction)))
 {
     m_chara.setFixedRotation(true);
     // 物理演算のワールド更新に 60FPS の定数時間を使う場合は true, 実時間を使う場合 false
