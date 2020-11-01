@@ -19,14 +19,16 @@ private: // field
     dui::Button m_start;
     
     // 2Dカメラ
-    Camera2D camera;
+    Camera2D m_camera;
     // 物理演算用のワールド
-    P2World world;
+    P2World m_world;
     // 物体
     P2Body m_chara;
-    Array<P2Body> bodies;
+    Array<P2Body> m_bodies;
     // 床
-    const P2Body line;
+    const P2Body m_line;
+    const P2Body m_wall_left;
+    const P2Body m_wall_right;
 private: // private function
 public: // ctor/dtor
     BattleScene(const InitData& init);
