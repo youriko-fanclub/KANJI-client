@@ -77,7 +77,7 @@ void BattleScene::draw() const {
 // ctor/dtor -------------------------------------
 BattleScene::BattleScene(const InitData& init) :
     IScene(init),
-    param(std::make_unique<dx::cmp::Param>()),
+    param(std::make_unique<param::CharaPhysics>()),
     m_start(
         Rect(Arg::center = Scene::Center().movedBy(65, 170), 300, 60), DrawableText(FontAsset(U"Menu"), U"はじめる"),
         Transition(0.4s, 0.2s)),

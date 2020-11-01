@@ -145,6 +145,7 @@
 		72A3BDB6254E5FC7003393C4 /* Physics.toml in Resources */ = {isa = PBXBuildFile; fileRef = 72A3BDB5254E5FC7003393C4 /* Physics.toml */; };
 		72A3BDBC254EDAB5003393C4 /* HotReloadableParameters.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 72A3BDBA254EDAB5003393C4 /* HotReloadableParameters.cpp */; };
 		72A3BDC0254EDB65003393C4 /* FilePath.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 72A3BDBE254EDB65003393C4 /* FilePath.cpp */; };
+		72A3BDC7254F05ED003393C4 /* CharaPhysicsParameters.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 72A3BDC5254F05ED003393C4 /* CharaPhysicsParameters.cpp */; };
 		C800DE80253DE01900C3835B /* CharacterSelectionScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C800DE7E253DE01800C3835B /* CharacterSelectionScene.cpp */; };
 /* End PBXBuildFile section */
 
@@ -316,6 +317,8 @@
 		72A3BDBE254EDB65003393C4 /* FilePath.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = FilePath.cpp; sourceTree = "<group>"; };
 		72A3BDBF254EDB65003393C4 /* FilePath.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = FilePath.hpp; sourceTree = "<group>"; };
 		72A3BDC2254EE0FA003393C4 /* Enum.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Enum.hpp; sourceTree = "<group>"; };
+		72A3BDC5254F05ED003393C4 /* CharaPhysicsParameters.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = CharaPhysicsParameters.cpp; sourceTree = "<group>"; };
+		72A3BDC6254F05ED003393C4 /* CharaPhysicsParameters.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = CharaPhysicsParameters.hpp; sourceTree = "<group>"; };
 		C800DE7E253DE01800C3835B /* CharacterSelectionScene.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CharacterSelectionScene.cpp; sourceTree = "<group>"; };
 		C800DE7F253DE01900C3835B /* CharacterSelectionScene.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = CharacterSelectionScene.hpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -383,6 +386,7 @@
 		2C1778981CE0AA7C00BB8AD0 /* src */ = {
 			isa = PBXGroup;
 			children = (
+				72A3BDC4254F05C5003393C4 /* parameter */,
 				7265F08025320F8700C15F67 /* application */,
 				7265F04D2531A96400C15F67 /* scene */,
 				2C1778991CE0AA7C00BB8AD0 /* Main.cpp */,
@@ -781,6 +785,15 @@
 			path = hot;
 			sourceTree = "<group>";
 		};
+		72A3BDC4254F05C5003393C4 /* parameter */ = {
+			isa = PBXGroup;
+			children = (
+				72A3BDC5254F05ED003393C4 /* CharaPhysicsParameters.cpp */,
+				72A3BDC6254F05ED003393C4 /* CharaPhysicsParameters.hpp */,
+			);
+			path = parameter;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -956,6 +969,7 @@
 				72859F6D25388CA100EB0AAD /* UIComponent.cpp in Sources */,
 				72A3BD59254427A9003393C4 /* Misc.cpp in Sources */,
 				7265F0702531DC1D00C15F67 /* ApplicationManager.cpp in Sources */,
+				72A3BDC7254F05ED003393C4 /* CharaPhysicsParameters.cpp in Sources */,
 				72A3BD9B254D7FD5003393C4 /* JoyConDemo.cpp in Sources */,
 				72A3BD722545379E003393C4 /* KeyMapping.cpp in Sources */,
 				2C971A5B239732F900E66570 /* GameScene.cpp in Sources */,

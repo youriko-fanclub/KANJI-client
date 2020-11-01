@@ -2,7 +2,7 @@
 
 #include "SceneStates.hpp"
 #include "UIComponent.hpp"
-#include "HotReloadableParameters.hpp"
+#include "CharaPhysicsParameters.hpp"
 
 namespace kanji {
 namespace seq {
@@ -16,7 +16,7 @@ public: // public function
     void update() override;
     void draw() const override;
 private: // field
-    std::unique_ptr<dx::cmp::Param> param;
+    std::unique_ptr<param::CharaPhysics> param;
     std::pair<s3d::DrawableText, s3d::DrawableText> m_title;
     dui::Button m_start;
     
