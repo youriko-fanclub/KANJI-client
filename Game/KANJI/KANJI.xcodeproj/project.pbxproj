@@ -146,6 +146,7 @@
 		72A3BDBC254EDAB5003393C4 /* HotReloadableParameters.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 72A3BDBA254EDAB5003393C4 /* HotReloadableParameters.cpp */; };
 		72A3BDC0254EDB65003393C4 /* FilePath.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 72A3BDBE254EDB65003393C4 /* FilePath.cpp */; };
 		72A3BDC7254F05ED003393C4 /* CharaPhysicsParameters.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 72A3BDC5254F05ED003393C4 /* CharaPhysicsParameters.cpp */; };
+		72A3BDCD254F09CF003393C4 /* HotReloadManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 72A3BDCB254F09CF003393C4 /* HotReloadManager.cpp */; };
 		C800DE80253DE01900C3835B /* CharacterSelectionScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C800DE7E253DE01800C3835B /* CharacterSelectionScene.cpp */; };
 /* End PBXBuildFile section */
 
@@ -319,6 +320,8 @@
 		72A3BDC2254EE0FA003393C4 /* Enum.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Enum.hpp; sourceTree = "<group>"; };
 		72A3BDC5254F05ED003393C4 /* CharaPhysicsParameters.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = CharaPhysicsParameters.cpp; sourceTree = "<group>"; };
 		72A3BDC6254F05ED003393C4 /* CharaPhysicsParameters.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = CharaPhysicsParameters.hpp; sourceTree = "<group>"; };
+		72A3BDCB254F09CF003393C4 /* HotReloadManager.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = HotReloadManager.cpp; sourceTree = "<group>"; };
+		72A3BDCC254F09CF003393C4 /* HotReloadManager.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = HotReloadManager.hpp; sourceTree = "<group>"; };
 		C800DE7E253DE01800C3835B /* CharacterSelectionScene.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CharacterSelectionScene.cpp; sourceTree = "<group>"; };
 		C800DE7F253DE01900C3835B /* CharacterSelectionScene.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = CharacterSelectionScene.hpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -472,12 +475,11 @@
 		7265F0592531ACDC00C15F67 /* component */ = {
 			isa = PBXGroup;
 			children = (
+				72A3BDCA254F09A9003393C4 /* parameter */,
 				7265F0652531DC0F00C15F67 /* Singleton.cpp */,
 				7265F0662531DC0F00C15F67 /* Singleton.hpp */,
 				72A3BD57254427A9003393C4 /* Misc.cpp */,
 				72A3BD58254427A9003393C4 /* Misc.hpp */,
-				72A3BDBA254EDAB5003393C4 /* HotReloadableParameters.cpp */,
-				72A3BDBB254EDAB5003393C4 /* HotReloadableParameters.hpp */,
 				72A3BDC2254EE0FA003393C4 /* Enum.hpp */,
 			);
 			path = component;
@@ -794,6 +796,17 @@
 			path = parameter;
 			sourceTree = "<group>";
 		};
+		72A3BDCA254F09A9003393C4 /* parameter */ = {
+			isa = PBXGroup;
+			children = (
+				72A3BDBA254EDAB5003393C4 /* HotReloadableParameters.cpp */,
+				72A3BDBB254EDAB5003393C4 /* HotReloadableParameters.hpp */,
+				72A3BDCB254F09CF003393C4 /* HotReloadManager.cpp */,
+				72A3BDCC254F09CF003393C4 /* HotReloadManager.hpp */,
+			);
+			path = parameter;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -952,6 +965,7 @@
 				7265F07C2531FD6500C15F67 /* DomainGameData.cpp in Sources */,
 				72A3BD5E25443711003393C4 /* InputDemoScene.cpp in Sources */,
 				7265F0712531DC1D00C15F67 /* AssetManager.cpp in Sources */,
+				72A3BDCD254F09CF003393C4 /* HotReloadManager.cpp in Sources */,
 				2C971A5C239732F900E66570 /* TitleScene.cpp in Sources */,
 				72A3BD95254C6197003393C4 /* Input.cpp in Sources */,
 				72A3BDBC254EDAB5003393C4 /* HotReloadableParameters.cpp in Sources */,
