@@ -147,6 +147,7 @@
 		72A3BDC0254EDB65003393C4 /* FilePath.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 72A3BDBE254EDB65003393C4 /* FilePath.cpp */; };
 		72A3BDC7254F05ED003393C4 /* CharaPhysicsParameters.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 72A3BDC5254F05ED003393C4 /* CharaPhysicsParameters.cpp */; };
 		72A3BDCD254F09CF003393C4 /* HotReloadManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 72A3BDCB254F09CF003393C4 /* HotReloadManager.cpp */; };
+		72A3BDD1254FBDEF003393C4 /* System.toml in Resources */ = {isa = PBXBuildFile; fileRef = 72A3BDD0254FBDEF003393C4 /* System.toml */; };
 		C800DE80253DE01900C3835B /* CharacterSelectionScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C800DE7E253DE01800C3835B /* CharacterSelectionScene.cpp */; };
 /* End PBXBuildFile section */
 
@@ -322,6 +323,7 @@
 		72A3BDC6254F05ED003393C4 /* CharaPhysicsParameters.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = CharaPhysicsParameters.hpp; sourceTree = "<group>"; };
 		72A3BDCB254F09CF003393C4 /* HotReloadManager.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = HotReloadManager.cpp; sourceTree = "<group>"; };
 		72A3BDCC254F09CF003393C4 /* HotReloadManager.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = HotReloadManager.hpp; sourceTree = "<group>"; };
+		72A3BDD0254FBDEF003393C4 /* System.toml */ = {isa = PBXFileReference; lastKnownFileType = text; path = System.toml; sourceTree = "<group>"; };
 		C800DE7E253DE01800C3835B /* CharacterSelectionScene.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CharacterSelectionScene.cpp; sourceTree = "<group>"; };
 		C800DE7F253DE01900C3835B /* CharacterSelectionScene.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = CharacterSelectionScene.hpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -783,6 +785,7 @@
 			isa = PBXGroup;
 			children = (
 				72A3BDB5254E5FC7003393C4 /* Physics.toml */,
+				72A3BDD0254FBDEF003393C4 /* System.toml */,
 			);
 			path = hot;
 			sourceTree = "<group>";
@@ -877,6 +880,7 @@
 				72859FE4253AE5A700EB0AAD /* IndexBase2.png in Resources */,
 				7285A03C253B2EB000EB0AAD /* Button.hpp in Resources */,
 				72859FD5253AE5A700EB0AAD /* Kurui.png in Resources */,
+				72A3BDD1254FBDEF003393C4 /* System.toml in Resources */,
 				72859FDD253AE5A700EB0AAD /* Chars.png in Resources */,
 				7285A004253AE5A700EB0AAD /* Allow_1.png in Resources */,
 				72859FF3253AE5A700EB0AAD /* Ray.png in Resources */,

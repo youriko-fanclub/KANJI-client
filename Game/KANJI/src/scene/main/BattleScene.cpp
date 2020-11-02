@@ -2,6 +2,7 @@
 #include <Siv3D/TOMLReader.hpp>
 #include "Input.hpp"
 #include "Misc.hpp"
+#include "HotReloadManager.hpp"
 
 namespace kanji {
 namespace seq {
@@ -38,15 +39,15 @@ void BattleScene::update() {
             input.dpad().up().down() || input.buttons().b().down() ? -param->force_jump : 0.0);
         // m_chara.applyForce(force);
         const auto& v = m_chara.getVelocity();
-        if (dx::misc::approximately0(velocity)) {
+        if (dx::misc::approximatelyZero(velocity)) {
             velocity.x = v.x * param->air_resistance;
             velocity.y = v.y;
         }
         else {
-            if (dx::misc::approximately0(velocity.x)) {
+            if (dx::misc::approximatelyZero(velocity.x)) {
                 velocity.x = v.x;
             }
-            if (dx::misc::approximately0(velocity.y)) {
+            if (dx::misc::approximatelyZero(velocity.y)) {
                 velocity.y = v.y;
             }
             velocity.x *= param->air_resistance;
@@ -77,7 +78,7 @@ void BattleScene::draw() const {
 // ctor/dtor -------------------------------------
 BattleScene::BattleScene(const InitData& init) :
     IScene(init),
-    param(std::make_unique<param::CharaPhysics>()),
+    param(dx::cmp::HotReloadManager::createParams<param::CharaPhysics>()),
     m_start(
         Rect(Arg::center = Scene::Center().movedBy(65, 170), 300, 60), DrawableText(FontAsset(U"Menu"), U"はじめる"),
         Transition(0.4s, 0.2s)),

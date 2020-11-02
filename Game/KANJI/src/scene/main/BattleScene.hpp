@@ -16,7 +16,7 @@ public: // public function
     void update() override;
     void draw() const override;
 private: // field
-    std::unique_ptr<param::CharaPhysics> param;
+    std::shared_ptr<param::CharaPhysics> param;
     std::pair<s3d::DrawableText, s3d::DrawableText> m_title;
     dui::Button m_start;
     
