@@ -61,7 +61,8 @@ void BattleScene::draw() const {
         const auto t = m_camera.createTransformer();
         
         // 床を描画
-        m_line.draw(Palette::Skyblue);
+        m_floor.draw(Palette::Skyblue);
+        m_ceiling.draw(Palette::Skyblue);
         m_wall_left.draw(Palette::Skyblue);
         m_wall_right.draw(Palette::Skyblue);
         
@@ -84,10 +85,11 @@ BattleScene::BattleScene(const InitData& init) :
         Transition(0.4s, 0.2s)),
     m_camera(Vec2(0, -8), 20.0, s3d::Camera2DParameters::MouseOnly()),
     m_world(9.8),
-    m_chara     (m_world.createRect      (Vec2(  0, -5), SizeF(2, 3),         P2Material(1.0, 0.1, param->chara_friction))),
-    m_line      (m_world.createStaticLine(Vec2(  0,  0), Line(-25, 0, 25, 0), P2Material(1.0, 0.1, param->floor_friction))),
-    m_wall_left (m_world.createStaticLine(Vec2(-25,  0), Line(0, -30, 0, 10), P2Material(1.0, 0.1, param->wall_friction))),
-    m_wall_right(m_world.createStaticLine(Vec2( 25,  0), Line(0, -30, 0, 10), P2Material(1.0, 0.1, param->wall_friction)))
+    m_chara     (m_world.createRect      (Vec2(  0, -5), SizeF(2, 3),         P2Material(1.0, 0.0, param->chara_friction))),
+    m_floor     (m_world.createStaticLine(Vec2(  0,  0), Line(-25, 0, 25, 0), P2Material(1.0, 0.0, param->floor_friction))),
+    m_ceiling   (m_world.createStaticLine(Vec2(  0,-25), Line(-25, 0, 25, 0), P2Material(1.0, 0.0, param->ceiling_friction))),
+    m_wall_left (m_world.createStaticLine(Vec2(-25,  0), Line(0, -25, 0, 10), P2Material(1.0, 0.0, param->wall_friction))),
+    m_wall_right(m_world.createStaticLine(Vec2( 25,  0), Line(0, -25, 0, 10), P2Material(1.0, 0.0, param->wall_friction)))
 {
     m_chara.setFixedRotation(true);
     // 物理演算のワールド更新に 60FPS の定数時間を使う場合は true, 実時間を使う場合 false

@@ -28,7 +28,8 @@ private: // field
     P2Body m_chara;
     Array<P2Body> m_bodies;
     // 床
-    const P2Body m_line;
+    const P2Body m_floor;
+    const P2Body m_ceiling;
     const P2Body m_wall_left;
     const P2Body m_wall_right;
 private: // private function

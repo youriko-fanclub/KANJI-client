@@ -13,6 +13,7 @@ public: // field
     double chara_friction;
     double air_resistance;
     double floor_friction;
+    double ceiling_friction;
     double wall_friction;
 private: // private function
 public: // ctor/dtor
