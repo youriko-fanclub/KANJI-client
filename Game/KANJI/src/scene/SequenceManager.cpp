@@ -34,8 +34,7 @@ void SequenceManager::initialize() {
         .setFadeColor(s3d::ColorF(1.0));
     
     const auto& params = dx::cmp::HotReloadManager::createParams<dx::app::SystemParams>(false);
-    const auto& scene_name = params->initial_scene;
-    const auto& initial_scene = dx::denum::fromString<State>(scene_name);
+    const auto& initial_scene = dx::denum::fromString<State>(params->initial_scene);
     m_manager.init(initial_scene ? *initial_scene : State::Title);
 }
 
