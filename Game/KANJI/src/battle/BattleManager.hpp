@@ -56,7 +56,7 @@ public: // setter
     void resume() override;
     void holdUp() override;
 private: // field
-    BattleTimer m_timer;
+    std::shared_ptr<BattleTimer> m_timer;
 private: // private function
 public: // ctor/dtor
     BattleManager();

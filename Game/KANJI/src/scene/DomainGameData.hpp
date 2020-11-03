@@ -27,9 +27,10 @@ public: // public function
     void setBattleResultDesc(const std::shared_ptr<battle::BattleResultDesc>& value) {
         m_battle_result_desc = value;
     }
+    bool readyToBattle() const { return m_battle_desc != nullptr; }
 private: // field
-    std::shared_ptr<battle::BattleDesc> m_battle_desc;
-    std::shared_ptr<battle::BattleResultDesc> m_battle_result_desc;
+    std::shared_ptr<battle::BattleDesc> m_battle_desc = nullptr;
+    std::shared_ptr<battle::BattleResultDesc> m_battle_result_desc = nullptr;
 private: // private function
 public: // ctor/dtor
 };

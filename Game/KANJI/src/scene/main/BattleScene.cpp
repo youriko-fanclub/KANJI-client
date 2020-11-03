@@ -1,11 +1,31 @@
 #include "BattleScene.hpp"
 #include "BattleManager.hpp"
 #include "BattleUIManager.hpp"
+#include "ParameterizedCharacter.hpp"
 
 #include <Siv3D/TOMLReader.hpp>
 #include "Input.hpp"
 #include "Misc.hpp"
 #include "HotReloadManager.hpp"
+
+
+namespace {
+
+std::shared_ptr<kanji::battle::BattleDesc> createBattleDescForDebug() {
+    auto debug_desc = std::make_shared<kanji::battle::BattleDesc>();
+    {
+        auto player_desc = std::make_shared<kanji::battle::BattlePlayerDesc>();
+        player_desc->characters().push_back(
+            std::make_shared<kanji::chara::ParameterizedCharacter>()
+        );
+        debug_desc->setPlayerDesc(dx::di::PlayerId::_1P, player_desc);
+    }
+    debug_desc->setTimeLimitSec(3);
+    debug_desc->setStageId(0);
+    return debug_desc;
+}
+
+}
 
 namespace kanji {
 namespace seq {
@@ -16,6 +36,9 @@ namespace seq {
 // public function -------------------------------
 void BattleScene::initialize() {
     m_mgr = std::make_shared<battle::BattleManager>();
+    if (!getData().readyToBattle()) { // 開発時にBattleSceneを直接開いたとき用
+        getData().setBattleDesc(createBattleDescForDebug());
+    }
     m_mgr->initialize(getData().battleDesc());
     m_ui = std::make_shared<ui::BattleUIManager>(m_mgr.get());
 }

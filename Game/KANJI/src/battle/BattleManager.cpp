@@ -4,7 +4,7 @@ namespace kanji {
 namespace battle {
 
 bool BattleManager::hasGameSet() const {
-    return m_timer.hasTimeover();
+    return m_timer->hasTimeover();
 }
 
 std::shared_ptr<BattleResultDesc> BattleManager::createResultDesc() const {
@@ -14,25 +14,25 @@ std::shared_ptr<BattleResultDesc> BattleManager::createResultDesc() const {
 }
 
 void BattleManager::initialize(const std::shared_ptr<BattleDesc>& desc) {
+    m_timer = std::make_shared<BattleTimer>(desc->timeLimitSec() * 60);
 }
 
 void BattleManager::update() {
-    m_timer.update();
+    m_timer->update();
 }
 
 void BattleManager::pause() {
-    m_timer.pause();
+    m_timer->pause();
 }
 
 void BattleManager::resume() {
-    m_timer.resume();
+    m_timer->resume();
 }
 
 void BattleManager::holdUp() {
 }
 
-BattleManager::BattleManager() :
-m_timer(60 * 3) {}
+BattleManager::BattleManager() {}
 
 }
 }
