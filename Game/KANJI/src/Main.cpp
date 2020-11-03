@@ -4,12 +4,12 @@
 
 void Main() {
 
-  const auto& mgr = dx::app::ExecutiveManager::instance();
-  mgr->initialize();
+    const auto& mgr = dx::app::ExecutiveManager::instance();
+    mgr->initialize();
 
 	while (s3d::System::Update()) {
-    if (!mgr->update()) { break; }
-    mgr->draw();
+        if (!mgr->update()) { break; }
+        mgr->draw();
 	}
   
 }

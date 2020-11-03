@@ -18,7 +18,11 @@ void SequenceManager::initialize() {
   //  .setFadeColor(s3d::ColorF(1.0));
   m_manager
     .add<TitleScene>(State::Title)
-    .add<CharacterSelectionScene>(State::CharacterSelection)
+    .add<BattleScene>(State::Battle)
+    .setFadeColor(s3d::ColorF(1.0));
+    
+  m_manager
+    .add<BattleScene>(State::Battle)
     .add<GameScene>(State::Game)
     .setFadeColor(s3d::ColorF(1.0));
     
@@ -28,7 +32,7 @@ void SequenceManager::initialize() {
     .setFadeColor(s3d::ColorF(1.0));
     
   // （ゲームシーンから開始する場合はコメントを外す）
-  //manager.init(State::Game);
+  m_manager.init(State::Battle);
 }
 
 bool SequenceManager::update() {
