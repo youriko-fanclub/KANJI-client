@@ -1,5 +1,6 @@
 #include "BattleScene.hpp"
 #include "BattleManager.hpp"
+#include "BattleUIManager.hpp"
 
 #include <Siv3D/TOMLReader.hpp>
 #include "Input.hpp"
@@ -14,7 +15,9 @@ namespace seq {
 // static ----------------------------------------
 // public function -------------------------------
 void BattleScene::initialize() {
+    m_mgr = std::make_shared<battle::BattleManager>();
     m_mgr->initialize(getData().battleDesc());
+    m_ui = std::make_shared<ui::BattleUIManager>(m_mgr.get());
 }
 void BattleScene::update() {
     // オブザーバにした方がよさそう
@@ -24,7 +27,10 @@ void BattleScene::update() {
         changeScene(State::Title); // Result
         return;
     }
-
+    m_mgr->update();
+    updateLegacy();
+}
+void BattleScene::updateLegacy() {
     // ↓ここから下は試し書きの無法地帯
     // 物理演算の精度
     static constexpr int32 velocityIterations = 12;
@@ -69,6 +75,10 @@ void BattleScene::update() {
     }
 }
 void BattleScene::draw() const {
+    m_ui->draw();
+    drawLegacy();
+}
+void BattleScene::drawLegacy() const {
     // ↓ここから下は試し書きの無法地帯
     {
         // 2D カメラの設定から Transformer2D を作成・適用
