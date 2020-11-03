@@ -1,6 +1,8 @@
 #include "SequenceManager.hpp"
 
 #include "Scenes.hpp"
+#include "HotReloadManager.hpp"
+#include "SystemParams.hpp"
 
 namespace kanji {
 namespace seq {
@@ -31,8 +33,9 @@ void SequenceManager::initialize() {
         .add<dx::di::InputDemoScene>(State::InputDemo)
         .setFadeColor(s3d::ColorF(1.0));
     
-    // （ゲームシーンから開始する場合はコメントを外す）
-    m_manager.init(State::Battle);
+    const auto& params = dx::cmp::HotReloadManager::createParams<dx::app::SystemParams>(false);
+    const auto& initial_scene = dx::denum::fromString<State>(params->initial_scene);
+    m_manager.init(initial_scene ? *initial_scene : State::Title);
 }
 
 bool SequenceManager::update() {
