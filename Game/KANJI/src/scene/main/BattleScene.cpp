@@ -12,7 +12,6 @@ namespace seq {
 // static ----------------------------------------
 // public function -------------------------------
 void BattleScene::update() {
-    param->update();
     // 物理演算の精度
     static constexpr int32 velocityIterations = 12;
     static constexpr int32 positionIterations = 4;
