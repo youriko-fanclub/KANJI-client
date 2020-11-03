@@ -72,6 +72,8 @@
 		72A3BDC0254EDB65003393C4 /* FilePath.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 72A3BDBE254EDB65003393C4 /* FilePath.cpp */; };
 		72A3BDC7254F05ED003393C4 /* CharaPhysicsParameters.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 72A3BDC5254F05ED003393C4 /* CharaPhysicsParameters.cpp */; };
 		72A3BDCD254F09CF003393C4 /* HotReloadManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 72A3BDCB254F09CF003393C4 /* HotReloadManager.cpp */; };
+		72A3BDE0255137EB003393C4 /* SceneState.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 72A3BDDF255137EB003393C4 /* SceneState.cpp */; };
+		72A3BDE52551459D003393C4 /* SystemParams.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 72A3BDE32551459D003393C4 /* SystemParams.cpp */; };
 		C800DE80253DE01900C3835B /* CharacterSelectionScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C800DE7E253DE01800C3835B /* CharacterSelectionScene.cpp */; };
 /* End PBXBuildFile section */
 
@@ -106,7 +108,7 @@
 		2C6906D72298140F00A427D0 /* engine */ = {isa = PBXFileReference; lastKnownFileType = folder; name = engine; path = App/engine; sourceTree = "<group>"; };
 		2C971A56239732F900E66570 /* TitleScene.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = TitleScene.hpp; sourceTree = "<group>"; };
 		2C971A57239732F900E66570 /* GameScene.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GameScene.cpp; sourceTree = "<group>"; };
-		2C971A58239732F900E66570 /* SceneStates.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = SceneStates.hpp; sourceTree = "<group>"; };
+		2C971A58239732F900E66570 /* SceneState.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = SceneState.hpp; sourceTree = "<group>"; };
 		2C971A59239732F900E66570 /* GameScene.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = GameScene.hpp; sourceTree = "<group>"; };
 		2C971A5A239732F900E66570 /* TitleScene.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TitleScene.cpp; sourceTree = "<group>"; };
 		2CE5C855237FDE3900082EEC /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
@@ -172,6 +174,9 @@
 		72A3BDC6254F05ED003393C4 /* CharaPhysicsParameters.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = CharaPhysicsParameters.hpp; sourceTree = "<group>"; };
 		72A3BDCB254F09CF003393C4 /* HotReloadManager.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = HotReloadManager.cpp; sourceTree = "<group>"; };
 		72A3BDCC254F09CF003393C4 /* HotReloadManager.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = HotReloadManager.hpp; sourceTree = "<group>"; };
+		72A3BDDF255137EB003393C4 /* SceneState.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = SceneState.cpp; sourceTree = "<group>"; };
+		72A3BDE32551459D003393C4 /* SystemParams.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = SystemParams.cpp; sourceTree = "<group>"; };
+		72A3BDE42551459D003393C4 /* SystemParams.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = SystemParams.hpp; sourceTree = "<group>"; };
 		C800DE7E253DE01800C3835B /* CharacterSelectionScene.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CharacterSelectionScene.cpp; sourceTree = "<group>"; };
 		C800DE7F253DE01900C3835B /* CharacterSelectionScene.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = CharacterSelectionScene.hpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -299,7 +304,8 @@
 				7265F0732531E1BF00C15F67 /* SequenceManager.cpp */,
 				7265F0742531E1BF00C15F67 /* SequenceManager.hpp */,
 				7265F0772531E5DD00C15F67 /* Scenes.hpp */,
-				2C971A58239732F900E66570 /* SceneStates.hpp */,
+				72A3BDDF255137EB003393C4 /* SceneState.cpp */,
+				2C971A58239732F900E66570 /* SceneState.hpp */,
 				7265F07A2531FD6500C15F67 /* DomainGameData.cpp */,
 				7265F07B2531FD6500C15F67 /* DomainGameData.hpp */,
 			);
@@ -317,6 +323,8 @@
 				7265F06E2531DC1D00C15F67 /* ExecutiveManager.hpp */,
 				72A3BDBE254EDB65003393C4 /* FilePath.cpp */,
 				72A3BDBF254EDB65003393C4 /* FilePath.hpp */,
+				72A3BDE32551459D003393C4 /* SystemParams.cpp */,
+				72A3BDE42551459D003393C4 /* SystemParams.hpp */,
 			);
 			path = application;
 			sourceTree = "<group>";
@@ -573,10 +581,12 @@
 				72A3BDC0254EDB65003393C4 /* FilePath.cpp in Sources */,
 				72A3BD6825452A7B003393C4 /* KeyCode.cpp in Sources */,
 				72A3BD78254564A3003393C4 /* DPad.cpp in Sources */,
+				72A3BDE52551459D003393C4 /* SystemParams.cpp in Sources */,
 				2C17789A1CE0AA7C00BB8AD0 /* Main.cpp in Sources */,
 				7265F08325320FB000C15F67 /* MainExecutiveManager.cpp in Sources */,
 				72A3BD7B25457D84003393C4 /* Axis.cpp in Sources */,
 				72859F6D25388CA100EB0AAD /* UIComponent.cpp in Sources */,
+				72A3BDE0255137EB003393C4 /* SceneState.cpp in Sources */,
 				72A3BD59254427A9003393C4 /* Misc.cpp in Sources */,
 				7265F0702531DC1D00C15F67 /* ApplicationManager.cpp in Sources */,
 				72A3BDC7254F05ED003393C4 /* CharaPhysicsParameters.cpp in Sources */,

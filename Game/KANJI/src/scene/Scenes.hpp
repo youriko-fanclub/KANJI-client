@@ -1,6 +1,6 @@
 #pragma once
 
-#include "SceneStates.hpp"
+#include "SceneState.hpp"
 
 
 // #include "SplashScene.hpp"

@@ -1,7 +1,7 @@
 #pragma once
 
 #include <Siv3D/SceneManager.hpp>
-#include "SceneStates.hpp"
+#include "SceneState.hpp"
 #include "ExecutiveManager.hpp"
 
 namespace kanji {
