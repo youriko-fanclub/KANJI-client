@@ -72,6 +72,9 @@
 		72A3BDC0254EDB65003393C4 /* FilePath.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 72A3BDBE254EDB65003393C4 /* FilePath.cpp */; };
 		72A3BDC7254F05ED003393C4 /* CharaPhysicsParameters.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 72A3BDC5254F05ED003393C4 /* CharaPhysicsParameters.cpp */; };
 		72A3BDCD254F09CF003393C4 /* HotReloadManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 72A3BDCB254F09CF003393C4 /* HotReloadManager.cpp */; };
+		72A3BDED255164D7003393C4 /* BattleManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 72A3BDEB255164D6003393C4 /* BattleManager.cpp */; };
+		72A3BDF2255167C0003393C4 /* BattleDesc.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 72A3BDF0255167C0003393C4 /* BattleDesc.cpp */; };
+		72A3BDF625516856003393C4 /* ParameterizedCharacter.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 72A3BDF425516855003393C4 /* ParameterizedCharacter.cpp */; };
 		C800DE80253DE01900C3835B /* CharacterSelectionScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C800DE7E253DE01800C3835B /* CharacterSelectionScene.cpp */; };
 /* End PBXBuildFile section */
 
@@ -172,6 +175,12 @@
 		72A3BDC6254F05ED003393C4 /* CharaPhysicsParameters.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = CharaPhysicsParameters.hpp; sourceTree = "<group>"; };
 		72A3BDCB254F09CF003393C4 /* HotReloadManager.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = HotReloadManager.cpp; sourceTree = "<group>"; };
 		72A3BDCC254F09CF003393C4 /* HotReloadManager.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = HotReloadManager.hpp; sourceTree = "<group>"; };
+		72A3BDEB255164D6003393C4 /* BattleManager.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = BattleManager.cpp; sourceTree = "<group>"; };
+		72A3BDEC255164D7003393C4 /* BattleManager.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = BattleManager.hpp; sourceTree = "<group>"; };
+		72A3BDF0255167C0003393C4 /* BattleDesc.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = BattleDesc.cpp; sourceTree = "<group>"; };
+		72A3BDF1255167C0003393C4 /* BattleDesc.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = BattleDesc.hpp; sourceTree = "<group>"; };
+		72A3BDF425516855003393C4 /* ParameterizedCharacter.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = ParameterizedCharacter.cpp; sourceTree = "<group>"; };
+		72A3BDF525516855003393C4 /* ParameterizedCharacter.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = ParameterizedCharacter.hpp; sourceTree = "<group>"; };
 		C800DE7E253DE01800C3835B /* CharacterSelectionScene.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CharacterSelectionScene.cpp; sourceTree = "<group>"; };
 		C800DE7F253DE01900C3835B /* CharacterSelectionScene.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = CharacterSelectionScene.hpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -238,8 +247,9 @@
 		2C1778981CE0AA7C00BB8AD0 /* src */ = {
 			isa = PBXGroup;
 			children = (
-				72A3BDC4254F05C5003393C4 /* parameter */,
 				7265F08025320F8700C15F67 /* application */,
+				72A3BDEA255164BA003393C4 /* battle */,
+				72A3BDC4254F05C5003393C4 /* parameter */,
 				7265F04D2531A96400C15F67 /* scene */,
 				2C1778991CE0AA7C00BB8AD0 /* Main.cpp */,
 			);
@@ -478,6 +488,19 @@
 			path = parameter;
 			sourceTree = "<group>";
 		};
+		72A3BDEA255164BA003393C4 /* battle */ = {
+			isa = PBXGroup;
+			children = (
+				72A3BDEB255164D6003393C4 /* BattleManager.cpp */,
+				72A3BDEC255164D7003393C4 /* BattleManager.hpp */,
+				72A3BDF0255167C0003393C4 /* BattleDesc.cpp */,
+				72A3BDF1255167C0003393C4 /* BattleDesc.hpp */,
+				72A3BDF425516855003393C4 /* ParameterizedCharacter.cpp */,
+				72A3BDF525516855003393C4 /* ParameterizedCharacter.hpp */,
+			);
+			path = battle;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -560,7 +583,9 @@
 				72A3BDAD254DC083003393C4 /* BattleScene.cpp in Sources */,
 				7265F07C2531FD6500C15F67 /* DomainGameData.cpp in Sources */,
 				72A3BD5E25443711003393C4 /* InputDemoScene.cpp in Sources */,
+				72A3BDED255164D7003393C4 /* BattleManager.cpp in Sources */,
 				7265F0712531DC1D00C15F67 /* AssetManager.cpp in Sources */,
+				72A3BDF625516856003393C4 /* ParameterizedCharacter.cpp in Sources */,
 				72A3BDCD254F09CF003393C4 /* HotReloadManager.cpp in Sources */,
 				2C971A5C239732F900E66570 /* TitleScene.cpp in Sources */,
 				72A3BD95254C6197003393C4 /* Input.cpp in Sources */,
@@ -576,6 +601,7 @@
 				2C17789A1CE0AA7C00BB8AD0 /* Main.cpp in Sources */,
 				7265F08325320FB000C15F67 /* MainExecutiveManager.cpp in Sources */,
 				72A3BD7B25457D84003393C4 /* Axis.cpp in Sources */,
+				72A3BDF2255167C0003393C4 /* BattleDesc.cpp in Sources */,
 				72859F6D25388CA100EB0AAD /* UIComponent.cpp in Sources */,
 				72A3BD59254427A9003393C4 /* Misc.cpp in Sources */,
 				7265F0702531DC1D00C15F67 /* ApplicationManager.cpp in Sources */,

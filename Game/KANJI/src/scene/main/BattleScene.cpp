@@ -1,4 +1,6 @@
 #include "BattleScene.hpp"
+#include "BattleManager.hpp"
+
 #include <Siv3D/TOMLReader.hpp>
 #include "Input.hpp"
 #include "Misc.hpp"
@@ -11,7 +13,19 @@ namespace seq {
 
 // static ----------------------------------------
 // public function -------------------------------
+void BattleScene::initialize() {
+    m_mgr->initialize(getData().battleDesc());
+}
 void BattleScene::update() {
+    // オブザーバにした方がよさそう
+    // ほんとは試合終了後遷移前に演出入れる
+    if (m_mgr->hasGameSet()) {
+        getData().setBattleResultDesc(m_mgr->createResultDesc());
+        changeScene(State::Title); // Result
+        return;
+    }
+
+    // ↓ここから下は試し書きの無法地帯
     // 物理演算の精度
     static constexpr int32 velocityIterations = 12;
     static constexpr int32 positionIterations = 4;
@@ -55,6 +69,7 @@ void BattleScene::update() {
     }
 }
 void BattleScene::draw() const {
+    // ↓ここから下は試し書きの無法地帯
     {
         // 2D カメラの設定から Transformer2D を作成・適用
         const auto t = m_camera.createTransformer();
@@ -78,6 +93,7 @@ void BattleScene::draw() const {
 // ctor/dtor -------------------------------------
 BattleScene::BattleScene(const InitData& init) :
     IScene(init),
+    // ↓ここから下は試し書きの無法地帯
     param(dx::cmp::HotReloadManager::createParams<param::CharaPhysics>()),
     m_start(
         Rect(Arg::center = Scene::Center().movedBy(65, 170), 300, 60), DrawableText(FontAsset(U"Menu"), U"はじめる"),
@@ -97,6 +113,7 @@ BattleScene::BattleScene(const InitData& init) :
         Graphics::SetTargetFrameRateHz(60);
     }
 
+    initialize();
 }
 
 }

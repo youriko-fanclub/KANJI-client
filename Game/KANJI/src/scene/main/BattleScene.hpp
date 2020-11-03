@@ -5,6 +5,9 @@
 #include "CharaPhysicsParameters.hpp"
 
 namespace kanji {
+namespace battle {
+    class IBattleManager;
+}
 namespace seq {
 
 
@@ -13,9 +16,12 @@ class BattleScene : public KanjiScene {
 public: // static_const/enum
 public: // static
 public: // public function
+    void initialize();
     void update() override;
     void draw() const override;
 private: // field
+    std::shared_ptr<battle::IBattleManager> m_mgr;
+    // ↓ここから下は試し書きの無法地帯
     std::shared_ptr<param::CharaPhysics> param;
     std::pair<s3d::DrawableText, s3d::DrawableText> m_title;
     dui::Button m_start;
