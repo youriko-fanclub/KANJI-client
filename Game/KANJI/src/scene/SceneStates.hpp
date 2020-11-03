@@ -11,6 +11,7 @@ enum class State {
     Splash,
     Title,
     CharacterSelection,
+    Battle,
     Game,
  
     InputDemo,
