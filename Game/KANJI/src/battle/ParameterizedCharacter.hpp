@@ -42,6 +42,19 @@ private: // private function
     Kanji m_kanji;
     CharaParameters m_params;
 public: // ctor/dtor
+    ParameterizedCharacter(int id, const s3d::String& kanji) :
+    m_kanji({
+        .id = id,
+        .kanji = kanji
+    }),
+    m_params({
+        .hp = 100,
+        .attack = 100,
+        .defence = 100,
+        .speed = 100,
+        .jump = 100,
+        .weight = 100,
+    }) {}
     ParameterizedCharacter() :
     m_kanji({
         .id = 0,

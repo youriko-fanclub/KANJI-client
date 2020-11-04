@@ -16,9 +16,54 @@ std::shared_ptr<kanji::battle::BattleDesc> createBattleDescForDebug() {
     {
         auto player_desc = std::make_shared<kanji::battle::BattlePlayerDesc>();
         player_desc->characters().push_back(
-            std::make_shared<kanji::chara::ParameterizedCharacter>()
+            std::make_shared<kanji::chara::ParameterizedCharacter>(0, U"山")
+        );
+        player_desc->characters().push_back(
+            std::make_shared<kanji::chara::ParameterizedCharacter>(1, U"斬")
+        );
+        player_desc->characters().push_back(
+            std::make_shared<kanji::chara::ParameterizedCharacter>(2, U"王")
         );
         debug_desc->setPlayerDesc(dx::di::PlayerId::_1P, player_desc);
+    }
+    {
+        auto player_desc = std::make_shared<kanji::battle::BattlePlayerDesc>();
+        player_desc->characters().push_back(
+            std::make_shared<kanji::chara::ParameterizedCharacter>(3, U"包")
+        );
+        player_desc->characters().push_back(
+            std::make_shared<kanji::chara::ParameterizedCharacter>(4, U"分")
+        );
+        player_desc->characters().push_back(
+            std::make_shared<kanji::chara::ParameterizedCharacter>(5, U"鬼")
+        );
+        debug_desc->setPlayerDesc(dx::di::PlayerId::_2P, player_desc);
+    }
+    {
+        auto player_desc = std::make_shared<kanji::battle::BattlePlayerDesc>();
+        player_desc->characters().push_back(
+            std::make_shared<kanji::chara::ParameterizedCharacter>(6, U"工")
+        );
+        player_desc->characters().push_back(
+            std::make_shared<kanji::chara::ParameterizedCharacter>(7, U"詛")
+        );
+        player_desc->characters().push_back(
+            std::make_shared<kanji::chara::ParameterizedCharacter>(8, U"寺")
+        );
+        debug_desc->setPlayerDesc(dx::di::PlayerId::_3P, player_desc);
+    }
+    {
+        auto player_desc = std::make_shared<kanji::battle::BattlePlayerDesc>();
+        player_desc->characters().push_back(
+            std::make_shared<kanji::chara::ParameterizedCharacter>(9, U"白")
+        );
+        player_desc->characters().push_back(
+            std::make_shared<kanji::chara::ParameterizedCharacter>(10, U"生")
+        );
+        player_desc->characters().push_back(
+            std::make_shared<kanji::chara::ParameterizedCharacter>(11, U"田")
+        );
+        debug_desc->setPlayerDesc(dx::di::PlayerId::_4P, player_desc);
     }
     debug_desc->setTimeLimitSec(3);
     debug_desc->setStageId(0);

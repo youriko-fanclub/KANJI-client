@@ -17,6 +17,7 @@ public: // public function
     std::vector<std::shared_ptr<chara::IParameterizedCharacter>>& characters() {
         return m_characters;
     }
+    s3d::String toString() const;
 private: // field
     std::vector<std::shared_ptr<chara::IParameterizedCharacter>> m_characters;
 };
@@ -32,6 +33,7 @@ public: // public function
     void setTimeLimitSec(int value) { m_timeLimit_sec = value; }
     int stageId() const { return m_stage_id; }
     void setStageId(int value) { m_stage_id = value; }
+    void dump() const;
 private: // field
     std::unordered_map<dx::di::PlayerId, std::shared_ptr<BattlePlayerDesc>> m_players;
     int m_timeLimit_sec;

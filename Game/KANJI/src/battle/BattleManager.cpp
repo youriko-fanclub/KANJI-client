@@ -1,4 +1,5 @@
 #include "BattleManager.hpp"
+#include <Siv3D/Print.hpp>
 
 namespace kanji {
 namespace battle {
@@ -15,6 +16,9 @@ std::shared_ptr<BattleResultDesc> BattleManager::createResultDesc() const {
 
 void BattleManager::initialize(const std::shared_ptr<BattleDesc>& desc) {
     m_timer = std::make_shared<BattleTimer>(desc->timeLimitSec() * 60);
+    s3d::Print
+        << U"// Battle Start --------------------";
+    desc->dump();
 }
 
 void BattleManager::update() {
