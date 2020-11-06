@@ -67,7 +67,6 @@ void GameScene::update()
 	if (m_ball.y > Scene::Height())
 	{
 		changeScene(State::Title);
-		getData().highScore = Max(getData().highScore, m_score);
 	}
 
 	// 左右の壁にぶつかったらはね返る
