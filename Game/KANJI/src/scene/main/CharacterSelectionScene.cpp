@@ -10,6 +10,8 @@ namespace seq {
 // public function -------------------------------
 void CharacterSelectionScene::update() {
     m_next.update();
+    
+    m_cursorManager.update();
 }
 
 void CharacterSelectionScene::draw() const {
@@ -17,6 +19,8 @@ void CharacterSelectionScene::draw() const {
   
     Rect(0, 500, Scene::Width(), Scene::Height() - 500)
       .draw(Arg::top = ColorF(0.0, 0.0), Arg::bottom = ColorF(0.0, 0.5));
+    
+    m_cursorManager.draw();
 }
 
 // private function ------------------------------
@@ -26,7 +30,8 @@ IScene(init),
 m_next(
     Rect(Arg::center = Scene::Center().movedBy(0, 170), 300, 60),
     DrawableText(FontAsset(U"Menu"), U"次へ"),
-    Transition(0.4s, 0.2s)) {
+    Transition(0.4s, 0.2s)),
+m_cursorManager() {
     m_next.setCallback([this](){ changeScene(State::Game); });
 }
 

@@ -75,6 +75,8 @@
 		72A3BDE0255137EB003393C4 /* SceneState.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 72A3BDDF255137EB003393C4 /* SceneState.cpp */; };
 		72A3BDE52551459D003393C4 /* SystemParams.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 72A3BDE32551459D003393C4 /* SystemParams.cpp */; };
 		C800DE80253DE01900C3835B /* CharacterSelectionScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C800DE7E253DE01800C3835B /* CharacterSelectionScene.cpp */; };
+		C88988C72555B272001F340B /* PlayerCursor.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C88988C62555B272001F340B /* PlayerCursor.cpp */; };
+		C88988CB2555C85C001F340B /* PlayerCursorManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C88988C92555C85C001F340B /* PlayerCursorManager.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -179,6 +181,10 @@
 		72A3BDE42551459D003393C4 /* SystemParams.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = SystemParams.hpp; sourceTree = "<group>"; };
 		C800DE7E253DE01800C3835B /* CharacterSelectionScene.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CharacterSelectionScene.cpp; sourceTree = "<group>"; };
 		C800DE7F253DE01900C3835B /* CharacterSelectionScene.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = CharacterSelectionScene.hpp; sourceTree = "<group>"; };
+		C88988C52555B272001F340B /* PlayerCursor.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = PlayerCursor.hpp; sourceTree = "<group>"; };
+		C88988C62555B272001F340B /* PlayerCursor.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = PlayerCursor.cpp; sourceTree = "<group>"; };
+		C88988C92555C85C001F340B /* PlayerCursorManager.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = PlayerCursorManager.cpp; sourceTree = "<group>"; };
+		C88988CA2555C85C001F340B /* PlayerCursorManager.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = PlayerCursorManager.hpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -369,8 +375,12 @@
 		72859F6A25388C1200EB0AAD /* ui */ = {
 			isa = PBXGroup;
 			children = (
+				C88988C62555B272001F340B /* PlayerCursor.cpp */,
+				C88988C52555B272001F340B /* PlayerCursor.hpp */,
 				72859F6B25388CA100EB0AAD /* UIComponent.cpp */,
 				72859F6C25388CA100EB0AAD /* UIComponent.hpp */,
+				C88988C92555C85C001F340B /* PlayerCursorManager.cpp */,
+				C88988CA2555C85C001F340B /* PlayerCursorManager.hpp */,
 			);
 			path = ui;
 			sourceTree = "<group>";
@@ -577,6 +587,7 @@
 				7265F06F2531DC1D00C15F67 /* ExecutiveManager.cpp in Sources */,
 				C800DE80253DE01900C3835B /* CharacterSelectionScene.cpp in Sources */,
 				7265F0672531DC0F00C15F67 /* Singleton.cpp in Sources */,
+				C88988CB2555C85C001F340B /* PlayerCursorManager.cpp in Sources */,
 				72A3BD6D254536A9003393C4 /* PlayerId.cpp in Sources */,
 				72A3BDC0254EDB65003393C4 /* FilePath.cpp in Sources */,
 				72A3BD6825452A7B003393C4 /* KeyCode.cpp in Sources */,
@@ -589,6 +600,7 @@
 				72A3BDE0255137EB003393C4 /* SceneState.cpp in Sources */,
 				72A3BD59254427A9003393C4 /* Misc.cpp in Sources */,
 				7265F0702531DC1D00C15F67 /* ApplicationManager.cpp in Sources */,
+				C88988C72555B272001F340B /* PlayerCursor.cpp in Sources */,
 				72A3BDC7254F05ED003393C4 /* CharaPhysicsParameters.cpp in Sources */,
 				72A3BD9B254D7FD5003393C4 /* JoyConDemo.cpp in Sources */,
 				72A3BD722545379E003393C4 /* KeyMapping.cpp in Sources */,
