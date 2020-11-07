@@ -46,6 +46,10 @@
 		7265F0752531E1BF00C15F67 /* SequenceManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7265F0732531E1BF00C15F67 /* SequenceManager.cpp */; };
 		7265F07C2531FD6500C15F67 /* DomainGameData.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7265F07A2531FD6500C15F67 /* DomainGameData.cpp */; };
 		7265F08325320FB000C15F67 /* MainExecutiveManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7265F08125320FB000C15F67 /* MainExecutiveManager.cpp */; };
+		726F87D12555E1EA003FAC77 /* Log.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 726F87C72555E1EA003FAC77 /* Log.cpp */; };
+		726F87D22555E1EA003FAC77 /* LogETL.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 726F87CC2555E1EA003FAC77 /* LogETL.cpp */; };
+		726F87D32555E1EA003FAC77 /* LogDefinition.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 726F87CD2555E1EA003FAC77 /* LogDefinition.cpp */; };
+		726F87D42555E1EA003FAC77 /* LogDestination.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 726F87CE2555E1EA003FAC77 /* LogDestination.cpp */; };
 		72859F6D25388CA100EB0AAD /* UIComponent.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 72859F6B25388CA100EB0AAD /* UIComponent.cpp */; };
 		7285A032253B2EB000EB0AAD /* DemoSensor.hpp in Resources */ = {isa = PBXBuildFile; fileRef = 7285A01D253B2EB000EB0AAD /* DemoSensor.hpp */; };
 		7285A033253B2EB000EB0AAD /* Buttons.png in Resources */ = {isa = PBXBuildFile; fileRef = 7285A01F253B2EB000EB0AAD /* Buttons.png */; };
@@ -135,6 +139,14 @@
 		7265F07B2531FD6500C15F67 /* DomainGameData.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = DomainGameData.hpp; sourceTree = "<group>"; };
 		7265F08125320FB000C15F67 /* MainExecutiveManager.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = MainExecutiveManager.cpp; sourceTree = "<group>"; };
 		7265F08225320FB000C15F67 /* MainExecutiveManager.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = MainExecutiveManager.hpp; sourceTree = "<group>"; };
+		726F87C72555E1EA003FAC77 /* Log.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Log.cpp; sourceTree = "<group>"; };
+		726F87C82555E1EA003FAC77 /* LogETL.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = LogETL.hpp; sourceTree = "<group>"; };
+		726F87CA2555E1EA003FAC77 /* LogDefinition.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = LogDefinition.hpp; sourceTree = "<group>"; };
+		726F87CB2555E1EA003FAC77 /* LogDestination.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = LogDestination.hpp; sourceTree = "<group>"; };
+		726F87CC2555E1EA003FAC77 /* LogETL.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = LogETL.cpp; sourceTree = "<group>"; };
+		726F87CD2555E1EA003FAC77 /* LogDefinition.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = LogDefinition.cpp; sourceTree = "<group>"; };
+		726F87CE2555E1EA003FAC77 /* LogDestination.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = LogDestination.cpp; sourceTree = "<group>"; };
+		726F87CF2555E1EA003FAC77 /* Log.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = Log.hpp; sourceTree = "<group>"; };
 		72859F6B25388CA100EB0AAD /* UIComponent.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = UIComponent.cpp; sourceTree = "<group>"; };
 		72859F6C25388CA100EB0AAD /* UIComponent.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = UIComponent.hpp; sourceTree = "<group>"; };
 		7285A01D253B2EB000EB0AAD /* DemoSensor.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = DemoSensor.hpp; sourceTree = "<group>"; };
@@ -302,6 +314,7 @@
 		7265F03E253195B800C15F67 /* dx4siv3d */ = {
 			isa = PBXGroup;
 			children = (
+				726F87C42555E1EA003FAC77 /* dbg */,
 				7285A01A253B2EB000EB0AAD /* input */,
 				72859F6A25388C1200EB0AAD /* ui */,
 				7265F0592531ACDC00C15F67 /* component */,
@@ -362,6 +375,29 @@
 				7265F08225320FB000C15F67 /* MainExecutiveManager.hpp */,
 			);
 			path = application;
+			sourceTree = "<group>";
+		};
+		726F87C42555E1EA003FAC77 /* dbg */ = {
+			isa = PBXGroup;
+			children = (
+				726F87C52555E1EA003FAC77 /* logger */,
+			);
+			path = dbg;
+			sourceTree = "<group>";
+		};
+		726F87C52555E1EA003FAC77 /* logger */ = {
+			isa = PBXGroup;
+			children = (
+				726F87C72555E1EA003FAC77 /* Log.cpp */,
+				726F87CF2555E1EA003FAC77 /* Log.hpp */,
+				726F87CD2555E1EA003FAC77 /* LogDefinition.cpp */,
+				726F87CA2555E1EA003FAC77 /* LogDefinition.hpp */,
+				726F87CB2555E1EA003FAC77 /* LogDestination.hpp */,
+				726F87CE2555E1EA003FAC77 /* LogDestination.cpp */,
+				726F87CC2555E1EA003FAC77 /* LogETL.cpp */,
+				726F87C82555E1EA003FAC77 /* LogETL.hpp */,
+			);
+			path = logger;
 			sourceTree = "<group>";
 		};
 		72859F6925388A3900EB0AAD /* main */ = {
@@ -602,7 +638,9 @@
 				72A3BDCD254F09CF003393C4 /* HotReloadManager.cpp in Sources */,
 				2C971A5C239732F900E66570 /* TitleScene.cpp in Sources */,
 				72A3BD95254C6197003393C4 /* Input.cpp in Sources */,
+				726F87D12555E1EA003FAC77 /* Log.cpp in Sources */,
 				72A3BDBC254EDAB5003393C4 /* HotReloadableParameters.cpp in Sources */,
+				726F87D32555E1EA003FAC77 /* LogDefinition.cpp in Sources */,
 				72A3BD7525455C0D003393C4 /* Button.cpp in Sources */,
 				7265F06F2531DC1D00C15F67 /* ExecutiveManager.cpp in Sources */,
 				C800DE80253DE01900C3835B /* CharacterSelectionScene.cpp in Sources */,
@@ -610,6 +648,7 @@
 				72A3BD6D254536A9003393C4 /* PlayerId.cpp in Sources */,
 				72A3BDC0254EDB65003393C4 /* FilePath.cpp in Sources */,
 				72A3BD6825452A7B003393C4 /* KeyCode.cpp in Sources */,
+				726F87D42555E1EA003FAC77 /* LogDestination.cpp in Sources */,
 				72A3BD78254564A3003393C4 /* DPad.cpp in Sources */,
 				72A3BDE52551459D003393C4 /* SystemParams.cpp in Sources */,
 				2C17789A1CE0AA7C00BB8AD0 /* Main.cpp in Sources */,
@@ -624,6 +663,7 @@
 				72A3BDC7254F05ED003393C4 /* CharaPhysicsParameters.cpp in Sources */,
 				72A3BD9B254D7FD5003393C4 /* JoyConDemo.cpp in Sources */,
 				72A3BD722545379E003393C4 /* KeyMapping.cpp in Sources */,
+				726F87D22555E1EA003FAC77 /* LogETL.cpp in Sources */,
 				2C971A5B239732F900E66570 /* GameScene.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
