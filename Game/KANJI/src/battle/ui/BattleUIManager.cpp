@@ -3,8 +3,11 @@
 #include <Siv3D/Circle.hpp>
 #include <Siv3D/Rectangle.hpp>
 #include <Siv3D/Color.hpp>
+#include <Siv3D/FormatLiteral.hpp>
 #include "BattleManager.hpp"
 #include "HotReloadManager.hpp"
+
+using namespace s3d::Literals::FormatLiterals;
 
 namespace kanji {
 namespace ui {
@@ -40,25 +43,28 @@ public:
 // static ----------------------------------------
 // public function -------------------------------
 void BattleUIManager::draw() const {
-    for (int i = 0; i < 4; ++i) {
-        drawHolder(i, 4, dx::di::PlayerId::_1P);
+    const int player_num = 4;
+    for (int i = 0; i < player_num; ++i) {
+        drawHolder(i, player_num, static_cast<dx::di::PlayerId>(i));
     }
 }
 void BattleUIManager::drawHolder(int index, int player_num, dx::di::PlayerId pid) const {
     
     static auto param = dx::cmp::HotReloadManager::createParamsWithLoad(U"Battle");
     { // Holder
-        s3d::ColorF base(0.86, 0.47, 0.35);
-        s3d::ColorF gray(0.30, 0.30, 0.30);
-        s3d::ColorF highlight(0.96, 0.82, 0.57);
-        s3d::ColorF red(1.00, 0.30, 0.30);
-        
+        const s3d::String holder = U"battle.ui.object.holder";
+        s3d::ColorF base(param->getColorF(
+            holder + U".color.{}.base"_fmt(dx::denum::toString<dx::di::PlayerId>(pid))));
+        s3d::ColorF gray(param->getColorF(
+            holder + U".color.{}.radical"_fmt(dx::denum::toString<dx::di::PlayerId>(pid))));
+        s3d::ColorF highlight(param->getColorF(
+            holder + U".color.{}.circle"_fmt(dx::denum::toString<dx::di::PlayerId>(pid))));
+
         RelativePosition pos = {
-            .center = param->getVec2(U"battle.ui.object.holder.base.center")
-                + s3d::Vec2(index * param->get<int>(U"battle.ui.object.holder.interval"), 0),
+            .center = param->getVec2(holder + U".base.center.{}"_fmt(player_num))
+                + s3d::Vec2(index * param->get<int>(holder + U".interval.{}"_fmt(player_num)), 0),
             .scale = param->get<float>(U"battle.ui.base.scale"),
         };
-        const s3d::String holder = U"battle.ui.object.holder";
         s3d::RectF frame(
             s3d::Arg::center(pos.center),
             pos.size(param->getSize(holder + U".base.size")));
