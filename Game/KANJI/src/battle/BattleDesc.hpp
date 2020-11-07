@@ -27,7 +27,10 @@ public: // static_const/enum
 public: // static
 public: // public function
     const std::shared_ptr<BattlePlayerDesc>& playerDesc(dx::di::PlayerId id) { return m_players.at(id); }
-    const std::shared_ptr<BattlePlayerDesc>& playerDesc(dx::di::PlayerId id) const { return m_players.at(id); }
+    // const std::shared_ptr<BattlePlayerDesc>& playerDesc(dx::di::PlayerId id) const { return m_players.at(id); }
+    const std::unordered_map<dx::di::PlayerId, std::shared_ptr<BattlePlayerDesc>>& playerDescs() const {
+        return m_players;
+    }
     void setPlayerDesc(dx::di::PlayerId id, const std::shared_ptr<BattlePlayerDesc>& value);
     int timeLimitSec() const { return m_timeLimit_sec; }
     void setTimeLimitSec(int value) { m_timeLimit_sec = value; }

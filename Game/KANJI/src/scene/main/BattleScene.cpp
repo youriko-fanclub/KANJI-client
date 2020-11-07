@@ -65,8 +65,9 @@ std::shared_ptr<kanji::battle::BattleDesc> createBattleDescForDebug() {
         );
         debug_desc->setPlayerDesc(dx::di::PlayerId::_4P, player_desc);
     }
-    debug_desc->setTimeLimitSec(3);
-    debug_desc->setStageId(0);
+    static auto param = dx::cmp::HotReloadManager::createParamsWithLoad(U"Battle");
+    debug_desc->setTimeLimitSec(param->get<int>(U"battle.debug_desc.timelimit"));
+    debug_desc->setStageId(param->get<int>(U"battle.debug_desc.stage_id"));
     return debug_desc;
 }
 

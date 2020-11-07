@@ -50,6 +50,8 @@
 		726F87D22555E1EA003FAC77 /* LogETL.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 726F87CC2555E1EA003FAC77 /* LogETL.cpp */; };
 		726F87D32555E1EA003FAC77 /* LogDefinition.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 726F87CD2555E1EA003FAC77 /* LogDefinition.cpp */; };
 		726F87D42555E1EA003FAC77 /* LogDestination.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 726F87CE2555E1EA003FAC77 /* LogDestination.cpp */; };
+		726F87E02556BAE2003FAC77 /* BattlePlayerManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 726F87DE2556BAE2003FAC77 /* BattlePlayerManager.cpp */; };
+		726F87E52556BAF0003FAC77 /* BattlePlayer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 726F87E32556BAF0003FAC77 /* BattlePlayer.cpp */; };
 		72859F6D25388CA100EB0AAD /* UIComponent.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 72859F6B25388CA100EB0AAD /* UIComponent.cpp */; };
 		7285A032253B2EB000EB0AAD /* DemoSensor.hpp in Resources */ = {isa = PBXBuildFile; fileRef = 7285A01D253B2EB000EB0AAD /* DemoSensor.hpp */; };
 		7285A033253B2EB000EB0AAD /* Buttons.png in Resources */ = {isa = PBXBuildFile; fileRef = 7285A01F253B2EB000EB0AAD /* Buttons.png */; };
@@ -147,6 +149,10 @@
 		726F87CD2555E1EA003FAC77 /* LogDefinition.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = LogDefinition.cpp; sourceTree = "<group>"; };
 		726F87CE2555E1EA003FAC77 /* LogDestination.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = LogDestination.cpp; sourceTree = "<group>"; };
 		726F87CF2555E1EA003FAC77 /* Log.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = Log.hpp; sourceTree = "<group>"; };
+		726F87DE2556BAE2003FAC77 /* BattlePlayerManager.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = BattlePlayerManager.cpp; sourceTree = "<group>"; };
+		726F87DF2556BAE2003FAC77 /* BattlePlayerManager.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = BattlePlayerManager.hpp; sourceTree = "<group>"; };
+		726F87E32556BAF0003FAC77 /* BattlePlayer.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = BattlePlayer.cpp; sourceTree = "<group>"; };
+		726F87E42556BAF0003FAC77 /* BattlePlayer.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = BattlePlayer.hpp; sourceTree = "<group>"; };
 		72859F6B25388CA100EB0AAD /* UIComponent.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = UIComponent.cpp; sourceTree = "<group>"; };
 		72859F6C25388CA100EB0AAD /* UIComponent.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = UIComponent.hpp; sourceTree = "<group>"; };
 		7285A01D253B2EB000EB0AAD /* DemoSensor.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = DemoSensor.hpp; sourceTree = "<group>"; };
@@ -400,6 +406,26 @@
 			path = logger;
 			sourceTree = "<group>";
 		};
+		726F87DD2556BABC003FAC77 /* player */ = {
+			isa = PBXGroup;
+			children = (
+				726F87E32556BAF0003FAC77 /* BattlePlayer.cpp */,
+				726F87E42556BAF0003FAC77 /* BattlePlayer.hpp */,
+				726F87DE2556BAE2003FAC77 /* BattlePlayerManager.cpp */,
+				726F87DF2556BAE2003FAC77 /* BattlePlayerManager.hpp */,
+			);
+			path = player;
+			sourceTree = "<group>";
+		};
+		726F87E82556C20E003FAC77 /* ui */ = {
+			isa = PBXGroup;
+			children = (
+				72A3BDFA255175C8003393C4 /* BattleUIManager.cpp */,
+				72A3BDFB255175C8003393C4 /* BattleUIManager.hpp */,
+			);
+			path = ui;
+			sourceTree = "<group>";
+		};
 		72859F6925388A3900EB0AAD /* main */ = {
 			isa = PBXGroup;
 			children = (
@@ -538,14 +564,14 @@
 		72A3BDEA255164BA003393C4 /* battle */ = {
 			isa = PBXGroup;
 			children = (
+				726F87DD2556BABC003FAC77 /* player */,
+				726F87E82556C20E003FAC77 /* ui */,
 				72A3BDEB255164D6003393C4 /* BattleManager.cpp */,
 				72A3BDEC255164D7003393C4 /* BattleManager.hpp */,
 				72A3BDF0255167C0003393C4 /* BattleDesc.cpp */,
 				72A3BDF1255167C0003393C4 /* BattleDesc.hpp */,
 				72A3BDF425516855003393C4 /* ParameterizedCharacter.cpp */,
 				72A3BDF525516855003393C4 /* ParameterizedCharacter.hpp */,
-				72A3BDFA255175C8003393C4 /* BattleUIManager.cpp */,
-				72A3BDFB255175C8003393C4 /* BattleUIManager.hpp */,
 			);
 			path = battle;
 			sourceTree = "<group>";
@@ -636,6 +662,7 @@
 				7265F0712531DC1D00C15F67 /* AssetManager.cpp in Sources */,
 				72A3BDF625516856003393C4 /* ParameterizedCharacter.cpp in Sources */,
 				72A3BDCD254F09CF003393C4 /* HotReloadManager.cpp in Sources */,
+				726F87E02556BAE2003FAC77 /* BattlePlayerManager.cpp in Sources */,
 				2C971A5C239732F900E66570 /* TitleScene.cpp in Sources */,
 				72A3BD95254C6197003393C4 /* Input.cpp in Sources */,
 				726F87D12555E1EA003FAC77 /* Log.cpp in Sources */,
@@ -660,6 +687,7 @@
 				72A3BDE0255137EB003393C4 /* SceneState.cpp in Sources */,
 				72A3BD59254427A9003393C4 /* Misc.cpp in Sources */,
 				7265F0702531DC1D00C15F67 /* ApplicationManager.cpp in Sources */,
+				726F87E52556BAF0003FAC77 /* BattlePlayer.cpp in Sources */,
 				72A3BDC7254F05ED003393C4 /* CharaPhysicsParameters.cpp in Sources */,
 				72A3BD9B254D7FD5003393C4 /* JoyConDemo.cpp in Sources */,
 				72A3BD722545379E003393C4 /* KeyMapping.cpp in Sources */,

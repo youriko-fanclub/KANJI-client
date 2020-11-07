@@ -4,6 +4,8 @@
 namespace kanji {
 namespace battle {
 
+class BattlePlayerManager;
+
 class BattleTimer {
 public: // static_const/enum
 public: // static
@@ -57,6 +59,7 @@ public: // setter
     void holdUp() override;
 private: // field
     std::shared_ptr<BattleTimer> m_timer;
+    std::shared_ptr<BattlePlayerManager> m_player_mgr;
 private: // private function
 public: // ctor/dtor
     BattleManager();

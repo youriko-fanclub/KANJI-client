@@ -1,5 +1,6 @@
 #include "BattleManager.hpp"
 #include <Siv3D/Print.hpp>
+#include "BattlePlayerManager.hpp"
 #include "Log.hpp"
 
 namespace kanji {
@@ -27,6 +28,7 @@ void BattleManager::initialize(const std::shared_ptr<BattleDesc>& desc) {
     s3d::Print
         << U"// TEST ********************";
     desc->dump();
+    m_player_mgr = std::make_shared<BattlePlayerManager>(desc->playerDescs());
 }
 
 void BattleManager::update() {
