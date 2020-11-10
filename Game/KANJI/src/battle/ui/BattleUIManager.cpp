@@ -47,9 +47,18 @@ public:
 // public function -------------------------------
 void BattleUIManager::update() {
     const s3d::String holder = U"battle.ui.object.holder";
-    const int fontsize = m_params->get<int>(holder + U".circle.above.font.size");
-    if (!m_font_holder_above || m_font_holder_above->fontSize() != fontsize) {
-        m_font_holder_above = m_params->getFontPtr(holder + U".circle.above.font");
+    {
+        const int fontsize = m_params->get<int>(holder + U".circle.above.font.size");
+        if (!m_font_holder_above || m_font_holder_above->fontSize() != fontsize) {
+            m_font_holder_above = m_params->getFontPtr(holder + U".circle.above.font");
+        }
+    }
+    {
+        // とりあえず下段の2つはフォント同じ前提、代表してleftを読み出す
+        const int fontsize = m_params->get<int>(holder + U".circle.left.font.size");
+        if (!m_font_holder_bottom || m_font_holder_bottom->fontSize() != fontsize) {
+            m_font_holder_bottom = m_params->getFontPtr(holder + U".circle.left.font");
+        }
     }
 }
 
@@ -100,6 +109,10 @@ void BattleUIManager::drawHolder(int index, int player_num, const std::shared_pt
     
     if (m_font_holder_above) {
         (*m_font_holder_above)(U"山").draw(s3d::Arg::center = circle_above.center, s3d::Palette::Black);
+    }
+    if (m_font_holder_bottom) {
+        (*m_font_holder_bottom)(U"百").draw(s3d::Arg::center = circle_left.center, s3d::Palette::Black);
+        (*m_font_holder_bottom)(U"合").draw(s3d::Arg::center = circle_right.center, s3d::Palette::Black);
     }
 
 }
