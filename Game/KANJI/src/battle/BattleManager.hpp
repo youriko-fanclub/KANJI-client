@@ -33,6 +33,7 @@ class IBattleManager {
 public: // getter
     virtual bool hasGameSet() const = 0;
     virtual std::shared_ptr<BattleResultDesc> createResultDesc() const = 0;
+    virtual const std::shared_ptr<BattlePlayerManager>& playerMgr() const = 0;
 public: // setter
     virtual void initialize(const std::shared_ptr<BattleDesc>& desc) = 0;
     virtual void update() = 0;
@@ -51,6 +52,9 @@ public: // static
 public: // getter
     bool hasGameSet() const override;
     std::shared_ptr<BattleResultDesc> createResultDesc() const override;
+    const std::shared_ptr<BattlePlayerManager>& playerMgr() const override {
+        return m_player_mgr;
+    }
 public: // setter
     void initialize(const std::shared_ptr<BattleDesc>& desc) override;
     void update() override;

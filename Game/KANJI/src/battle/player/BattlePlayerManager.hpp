@@ -12,6 +12,9 @@ class BattlePlayerManager {
 public: // static_const/enum
 public: // static
 public: // public function
+    const std::unordered_map<dx::di::PlayerId, std::shared_ptr<BattlePlayer>>& players() const {
+        return m_players;
+    }
 private: // field
     std::unordered_map<dx::di::PlayerId, std::shared_ptr<BattlePlayer>> m_players;
 private: // private function

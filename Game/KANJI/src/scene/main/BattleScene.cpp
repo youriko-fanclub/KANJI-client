@@ -98,6 +98,7 @@ void BattleScene::update() {
     }
     m_mgr->update();
     updateLegacy();
+    m_ui->update();
 }
 void BattleScene::updateLegacy() {
     // ↓ここから下は試し書きの無法地帯

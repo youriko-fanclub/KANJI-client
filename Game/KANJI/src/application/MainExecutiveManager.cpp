@@ -18,6 +18,7 @@ dx::app::ExecutiveManager::Desc createExecutiveDesc() {
     fontDescs.emplace_back(U"Title", 120, U"KouzanMouhituFontOTF.otf");
     fontDescs.emplace_back(U"Menu" ,  40, U"azuki.ttf");
     fontDescs.emplace_back(U"Score",  36, s3d::Typeface::Bold);
+    fontDescs.emplace_back(U"Holder::Above", 20, U"KouzanMouhituFontOTF.otf");
     
     std::vector<dx::app::AssetManager::TextureDesc> textureDescs;
     textureDescs.reserve(5);
