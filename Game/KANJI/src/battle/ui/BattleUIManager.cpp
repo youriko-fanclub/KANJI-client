@@ -9,6 +9,7 @@
 #include "BattleManager.hpp"
 #include "BattlePlayerManager.hpp"
 #include "BattlePlayer.hpp"
+#include "ParameterizedCharacter.hpp"
 
 using namespace s3d::Literals::FormatLiterals;
 
@@ -108,11 +109,14 @@ void BattleUIManager::drawHolder(int index, int player_num, const std::shared_pt
     radical.draw(gray);
     
     if (m_font_holder_above) {
-        (*m_font_holder_above)(U"山").draw(s3d::Arg::center = circle_above.center, s3d::Palette::Black);
+        (*m_font_holder_above)(player->characters().at(0)->kanji().kanji)
+            .draw(s3d::Arg::center = circle_above.center, s3d::Palette::Black);
     }
     if (m_font_holder_bottom) {
-        (*m_font_holder_bottom)(U"百").draw(s3d::Arg::center = circle_left.center, s3d::Palette::Black);
-        (*m_font_holder_bottom)(U"合").draw(s3d::Arg::center = circle_right.center, s3d::Palette::Black);
+        (*m_font_holder_bottom)(player->characters().at(1)->kanji().kanji)
+            .draw(s3d::Arg::center = circle_left.center, s3d::Palette::Black);
+        (*m_font_holder_bottom)(player->characters().at(2)->kanji().kanji)
+            .draw(s3d::Arg::center = circle_right.center, s3d::Palette::Black);
     }
 
 }
