@@ -26,6 +26,7 @@ private: // field
     std::shared_ptr<dx::cmp::HotReloadableParameters> m_params;
     std::shared_ptr<s3d::Font> m_font_holder_above;
     std::shared_ptr<s3d::Font> m_font_holder_bottom;
+    std::shared_ptr<s3d::Font> m_font_holder_radical;
 private: // private function
     // index : 参加者のうちId若い順、 0 origin
     // player_num : 参加者数

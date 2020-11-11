@@ -61,6 +61,12 @@ void BattleUIManager::update() {
             m_font_holder_bottom = m_params->getFontPtr(holder + U".circle.left.font");
         }
     }
+    {
+        const int fontsize = m_params->get<int>(holder + U".radical.font.size");
+        if (!m_font_holder_radical || m_font_holder_radical->fontSize() != fontsize) {
+            m_font_holder_radical = m_params->getFontPtr(holder + U".radical.font");
+        }
+    }
 }
 
 void BattleUIManager::draw() const {
@@ -91,6 +97,8 @@ void BattleUIManager::drawHolder(int index, int player_num, const std::shared_pt
         s3d::Arg::center(pos.center),
         pos.size(m_params->getSize(holder + U".base.size")));
     frame.draw(base);
+    
+    // 円
     s3d::Circle circle_above(
         pos.offset(m_params->getVec2(holder + U".circle.above.center")),
         pos.size(m_params->get<int>(holder + U".circle.above.r")));
@@ -103,11 +111,7 @@ void BattleUIManager::drawHolder(int index, int player_num, const std::shared_pt
         pos.offset(m_params->getVec2(holder + U".circle.right.center")),
         pos.size(m_params->get<int>(holder + U".circle.right.r")));
     circle_right.draw(highlight);
-    s3d::RectF radical(
-        s3d::Arg::center(pos.offset(m_params->getVec2(holder + U".radical.base.center"))),
-        pos.size(m_params->getSize(holder + U".radical.base.size")));
-    radical.draw(gray);
-    
+
     if (m_font_holder_above) {
         (*m_font_holder_above)(player->characters().at(0)->kanji().kanji)
             .draw(s3d::Arg::center = circle_above.center, s3d::Palette::Black);
@@ -117,6 +121,17 @@ void BattleUIManager::drawHolder(int index, int player_num, const std::shared_pt
             .draw(s3d::Arg::center = circle_left.center, s3d::Palette::Black);
         (*m_font_holder_bottom)(player->characters().at(2)->kanji().kanji)
             .draw(s3d::Arg::center = circle_right.center, s3d::Palette::Black);
+    }
+    
+    // 部首
+    s3d::RectF radical(
+        s3d::Arg::center(pos.offset(m_params->getVec2(holder + U".radical.base.center"))),
+        pos.size(m_params->getSize(holder + U".radical.base.size")));
+    radical.draw(gray);
+    
+    if (m_font_holder_radical && player->hasRadical()) {
+        (*m_font_holder_radical)(player->radical())
+            .draw(s3d::Arg::center = radical.center(), s3d::Palette::White);
     }
 
 }

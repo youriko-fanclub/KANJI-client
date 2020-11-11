@@ -1,6 +1,7 @@
 #include "BattleManager.hpp"
 #include <Siv3D/Print.hpp>
 #include "BattlePlayerManager.hpp"
+#include "BattlePlayer.hpp"
 #include "Log.hpp"
 
 namespace kanji {
@@ -29,6 +30,10 @@ void BattleManager::initialize(const std::shared_ptr<BattleDesc>& desc) {
         << U"// TEST ********************";
     desc->dump();
     m_player_mgr = std::make_shared<BattlePlayerManager>(desc->playerDescs());
+    m_player_mgr->players().at(dx::di::PlayerId::_1P)->setRadical(U"風");
+    m_player_mgr->players().at(dx::di::PlayerId::_2P)->setRadical(U"土");
+    m_player_mgr->players().at(dx::di::PlayerId::_3P)->setRadical(U"雨");
+    m_player_mgr->players().at(dx::di::PlayerId::_4P)->setRadical(U"獣");
 }
 
 void BattleManager::update() {
