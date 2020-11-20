@@ -1,4 +1,5 @@
 #include "BattleUIManager.hpp"
+#include <algorithm>
 #include <Siv3D/Vector2D.hpp>
 #include <Siv3D/Circle.hpp>
 #include <Siv3D/Rectangle.hpp>
@@ -10,6 +11,7 @@
 #include "BattlePlayerManager.hpp"
 #include "BattlePlayer.hpp"
 #include "ParameterizedCharacter.hpp"
+#include "Input.hpp"
 
 using namespace s3d::Literals::FormatLiterals;
 
@@ -47,6 +49,9 @@ public:
 // static ----------------------------------------
 // public function -------------------------------
 void BattleUIManager::update() {
+    if (dx::di::Input::get(dx::di::GamePadId::_1P).buttons().a().down()) {
+        m_battle_manager->playerMgr()->players().at(dx::di::PlayerId::_1P)->characters().at(0)->damage(5);
+    }
     const s3d::String holder = U"battle.ui.object.holder";
     {
         const int fontsize = m_params->get<int>(holder + U".circle.above.font.size");
@@ -83,10 +88,9 @@ void BattleUIManager::drawHolder(int index, int player_num, const std::shared_pt
     
     const s3d::String holder = U"battle.ui.object.holder";
     s3d::ColorF base(m_params->getColorF(holder + U".color.{}.base"_fmt(pid_str)));
-    s3d::ColorF gray(m_params->getColorF(
-        holder + U".color.{}.radical"_fmt(pid_str)));
-    s3d::ColorF highlight(m_params->getColorF(
-        holder + U".color.{}.circle"_fmt(pid_str)));
+    s3d::ColorF gray(m_params->getColorF(holder + U".color.{}.radical"_fmt(pid_str)));
+    s3d::ColorF highlight(m_params->getColorF(holder + U".color.{}.circle"_fmt(pid_str)));
+    s3d::ColorF damage_fill(m_params->getColorF(holder + U".color.{}.damage"_fmt(pid_str)));
 
     RelativePosition pos = {
         .center = m_params->getVec2(holder + U".base.center.{}"_fmt(player_num))
@@ -113,8 +117,13 @@ void BattleUIManager::drawHolder(int index, int player_num, const std::shared_pt
     circle_right.draw(highlight);
 
     if (m_font_holder_above) {
-        (*m_font_holder_above)(player->characters().at(0)->kanji().kanji)
+        const auto& chara0 = player->characters().at(0);
+        (*m_font_holder_above)(chara0->kanji().kanji)
             .draw(s3d::Arg::center = circle_above.center, s3d::Palette::Black);
+        s3d::Circle damage_above(
+            circle_above.center,
+            circle_above.r * (1 - chara0->hpRate()));
+        damage_above.draw(damage_fill);
     }
     if (m_font_holder_bottom) {
         (*m_font_holder_bottom)(player->characters().at(1)->kanji().kanji)

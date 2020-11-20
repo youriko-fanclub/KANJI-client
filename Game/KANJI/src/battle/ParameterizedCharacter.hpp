@@ -27,6 +27,9 @@ public:
     virtual const Kanji& kanji() const = 0;
     virtual const CharaParameters& params() const = 0;
     virtual const CharaParameters& initialParams() const = 0;
+    virtual float hpRate() const = 0;
+    
+    virtual void damage(int amount) = 0;
 protected:
     IParameterizedCharacter() = default;
     virtual ~IParameterizedCharacter() = default;
@@ -39,6 +42,14 @@ public: // public function
     const Kanji& kanji() const override { return m_kanji; }
     const CharaParameters& params() const override { return m_params; }
     const CharaParameters& initialParams() const override { return m_initialParams; }
+    float hpRate() const override {
+        return static_cast<float>(m_params.hp) / static_cast<float>(m_initialParams.hp);
+    }
+
+    void damage(int amount) {
+        if (amount <= 0) { return; }
+        m_params.hp = std::max(m_params.hp - amount, 0);
+    }
 private: // field
 private: // private function
     Kanji m_kanji;
