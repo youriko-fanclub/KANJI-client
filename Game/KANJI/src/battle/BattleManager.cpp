@@ -3,6 +3,7 @@
 #include "BattlePlayerManager.hpp"
 #include "BattlePlayer.hpp"
 #include "ParameterizedCharacter.hpp"
+#include "PhysicalWorldManager.hpp"
 #include "Log.hpp"
 #include "Input.hpp"
 
@@ -36,6 +37,7 @@ void BattleManager::initialize(const std::shared_ptr<BattleDesc>& desc) {
     m_player_mgr->players().at(dx::di::PlayerId::_2P)->setRadical(U"土");
     m_player_mgr->players().at(dx::di::PlayerId::_3P)->setRadical(U"雨");
     m_player_mgr->players().at(dx::di::PlayerId::_4P)->setRadical(U"獣");
+    m_world_mgr = std::make_shared<PhysicalWorldManager>();
 }
 
 void BattleManager::update() {
@@ -49,6 +51,7 @@ void BattleManager::update() {
     if (dx::di::Input::get(dx::di::GamePadId::_1P).buttons().x().down()) {
         m_player_mgr->players().at(dx::di::PlayerId::_1P)->characters().at(2)->damage(5);
     }
+    m_world_mgr->update();
     // debug  -----------------
     m_timer->update();
 }

@@ -2,6 +2,7 @@
 #include "BattleManager.hpp"
 #include "BattlePlayerManager.hpp"
 #include "BattlePlayer.hpp"
+#include "PhysicalWorldManager.hpp"
 #include "HolderUI.hpp"
 
 namespace kanji {
@@ -22,6 +23,7 @@ void BattleUIManager::drawImpl() const {
     for (const auto& holder : m_holders) {
         holder.second->draw();
     }
+    m_battle_manager->worldMgr()->drawLegacy();
 }
 
 // private function ------------------------------

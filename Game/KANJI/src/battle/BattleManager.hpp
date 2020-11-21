@@ -5,6 +5,7 @@ namespace kanji {
 namespace battle {
 
 class BattlePlayerManager;
+class PhysicalWorldManager;
 
 class BattleTimer {
 public: // static_const/enum
@@ -34,6 +35,7 @@ public: // getter
     virtual bool hasGameSet() const = 0;
     virtual std::shared_ptr<BattleResultDesc> createResultDesc() const = 0;
     virtual const std::shared_ptr<BattlePlayerManager>& playerMgr() const = 0;
+    virtual const std::shared_ptr<PhysicalWorldManager>& worldMgr() const = 0;
 public: // setter
     virtual void initialize(const std::shared_ptr<BattleDesc>& desc) = 0;
     virtual void update() = 0;
@@ -55,6 +57,9 @@ public: // getter
     const std::shared_ptr<BattlePlayerManager>& playerMgr() const override {
         return m_player_mgr;
     }
+    const std::shared_ptr<PhysicalWorldManager>& worldMgr() const override {
+        return m_world_mgr;
+    }
 public: // setter
     void initialize(const std::shared_ptr<BattleDesc>& desc) override;
     void update() override;
@@ -64,6 +69,7 @@ public: // setter
 private: // field
     std::shared_ptr<BattleTimer> m_timer;
     std::shared_ptr<BattlePlayerManager> m_player_mgr;
+    std::shared_ptr<PhysicalWorldManager> m_world_mgr;
 private: // private function
 public: // ctor/dtor
     BattleManager();
