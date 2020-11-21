@@ -38,6 +38,7 @@ void BattleManager::initialize(const std::shared_ptr<BattleDesc>& desc) {
     m_player_mgr->players().at(dx::di::PlayerId::_3P)->setRadical(U"雨");
     m_player_mgr->players().at(dx::di::PlayerId::_4P)->setRadical(U"獣");
     m_world_mgr = std::make_shared<PhysicalWorldManager>();
+    m_world_mgr->initializeCharacters(m_player_mgr->players());
 }
 
 void BattleManager::update() {
