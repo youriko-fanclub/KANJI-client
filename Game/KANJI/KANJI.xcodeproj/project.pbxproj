@@ -88,6 +88,8 @@
 		72A3BDFC255175C8003393C4 /* BattleUIManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 72A3BDFA255175C8003393C4 /* BattleUIManager.cpp */; };
 		72DB89942568D97000BF7CC5 /* HolderUI.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 72DB89922568D97000BF7CC5 /* HolderUI.cpp */; };
 		72DB899A2568F13D00BF7CC5 /* PhysicalWorldManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 72DB89982568F13D00BF7CC5 /* PhysicalWorldManager.cpp */; };
+		72DB89A1256916B200BF7CC5 /* PhysicalStage.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 72DB899E256916B100BF7CC5 /* PhysicalStage.cpp */; };
+		72DB89A2256916B200BF7CC5 /* PhysicalCharacter.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 72DB89A0256916B100BF7CC5 /* PhysicalCharacter.cpp */; };
 		C800DE80253DE01900C3835B /* CharacterSelectionScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C800DE7E253DE01800C3835B /* CharacterSelectionScene.cpp */; };
 /* End PBXBuildFile section */
 
@@ -219,6 +221,10 @@
 		72DB89932568D97000BF7CC5 /* HolderUI.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = HolderUI.hpp; sourceTree = "<group>"; };
 		72DB89982568F13D00BF7CC5 /* PhysicalWorldManager.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = PhysicalWorldManager.cpp; sourceTree = "<group>"; };
 		72DB89992568F13D00BF7CC5 /* PhysicalWorldManager.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = PhysicalWorldManager.hpp; sourceTree = "<group>"; };
+		72DB899D256916B100BF7CC5 /* PhysicalStage.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = PhysicalStage.hpp; sourceTree = "<group>"; };
+		72DB899E256916B100BF7CC5 /* PhysicalStage.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = PhysicalStage.cpp; sourceTree = "<group>"; };
+		72DB899F256916B100BF7CC5 /* PhysicalCharacter.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = PhysicalCharacter.hpp; sourceTree = "<group>"; };
+		72DB89A0256916B100BF7CC5 /* PhysicalCharacter.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = PhysicalCharacter.cpp; sourceTree = "<group>"; };
 		C800DE7E253DE01800C3835B /* CharacterSelectionScene.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CharacterSelectionScene.cpp; sourceTree = "<group>"; };
 		C800DE7F253DE01900C3835B /* CharacterSelectionScene.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = CharacterSelectionScene.hpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -614,6 +620,10 @@
 		72DB89972568F11000BF7CC5 /* physics */ = {
 			isa = PBXGroup;
 			children = (
+				72DB89A0256916B100BF7CC5 /* PhysicalCharacter.cpp */,
+				72DB899F256916B100BF7CC5 /* PhysicalCharacter.hpp */,
+				72DB899E256916B100BF7CC5 /* PhysicalStage.cpp */,
+				72DB899D256916B100BF7CC5 /* PhysicalStage.hpp */,
 				72DB89982568F13D00BF7CC5 /* PhysicalWorldManager.cpp */,
 				72DB89992568F13D00BF7CC5 /* PhysicalWorldManager.hpp */,
 			);
@@ -707,6 +717,7 @@
 				7247BB462568AB070052A75F /* Palette.cpp in Sources */,
 				72A3BDF625516856003393C4 /* ParameterizedCharacter.cpp in Sources */,
 				72A3BDCD254F09CF003393C4 /* HotReloadManager.cpp in Sources */,
+				72DB89A2256916B200BF7CC5 /* PhysicalCharacter.cpp in Sources */,
 				726F87E02556BAE2003FAC77 /* BattlePlayerManager.cpp in Sources */,
 				2C971A5C239732F900E66570 /* TitleScene.cpp in Sources */,
 				72A3BD95254C6197003393C4 /* Input.cpp in Sources */,
@@ -731,6 +742,7 @@
 				72A3BD7B25457D84003393C4 /* Axis.cpp in Sources */,
 				72A3BDF2255167C0003393C4 /* BattleDesc.cpp in Sources */,
 				72DB899A2568F13D00BF7CC5 /* PhysicalWorldManager.cpp in Sources */,
+				72DB89A1256916B200BF7CC5 /* PhysicalStage.cpp in Sources */,
 				72859F6D25388CA100EB0AAD /* UIComponent.cpp in Sources */,
 				72A3BDE0255137EB003393C4 /* SceneState.cpp in Sources */,
 				72A3BD59254427A9003393C4 /* Misc.cpp in Sources */,
