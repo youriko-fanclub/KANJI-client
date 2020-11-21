@@ -20,7 +20,7 @@ void PhysicalWorldManager::update() {
     m_bodies.remove_if([](const P2Body& body) { return body.getPos().y > 10; });
 
     // 物理演算のワールドを更新
-    m_world.update(true ? (1.0 / 60.0) : Scene::DeltaTime(), velocityIterations, positionIterations);
+    m_world.update(Scene::DeltaTime(), velocityIterations, positionIterations);
         
 
     m_camera.update();
@@ -87,11 +87,6 @@ m_wall_left (m_world.createStaticLine(Vec2(-25,  0), Line(0, -25, 0, 10), P2Mate
 m_wall_right(m_world.createStaticLine(Vec2( 25,  0), Line(0, -25, 0, 10), P2Material(1.0, 0.0, param->wall_friction)))
 {
     m_chara.setFixedRotation(true);
-    // 物理演算のワールド更新に 60FPS の定数時間を使う場合は true, 実時間を使う場合 false
-    constexpr bool useConstantDeltaTime = true;
-    if (useConstantDeltaTime) { // フレームレート上限を 60 FPS に
-        Graphics::SetTargetFrameRateHz(60);
-    }
 }
     
 }
