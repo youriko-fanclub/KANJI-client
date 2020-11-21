@@ -53,12 +53,7 @@ void BattleManager::update() {
         const auto pid = player.first;
         if (dx::di::Input::get(pid).buttons().a().down()) {
             const auto& physical = player.second->physical();
-            m_move_mgr->createMove(pid,
-                physical->isRight(),
-                physical->position(),
-                0);
-                // player.second->activeCharacter()->);
-            // player->activeCharacter()->damage(5);
+            m_move_mgr->createMove(pid, physical, 0);
         }
         if (dx::di::Input::get(pid).buttons().b().down()) {
             m_player_mgr->players().at(pid)->characters().at(1)->damage(5);

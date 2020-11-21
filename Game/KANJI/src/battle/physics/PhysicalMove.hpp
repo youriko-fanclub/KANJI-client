@@ -4,6 +4,7 @@
 #include <Siv3D/Rectangle.hpp>
 #include "PlayerId.hpp"
 #include "Move.hpp"
+#include "PhysicalCharacter.hpp"
 #include "Log.hpp"
 
 namespace kanji {
@@ -56,7 +57,7 @@ public: // public function
         // if (index < 0) { return; }
         return MomentaryMove::divideLinear(time, m_moments.at(index - 1), m_moments.at(index), is_right, origin);
     }
-    s3d::RectF momentaryHitbox(float time, bool is_right, const s3d::Vec2 origin) const {
+    s3d::RectF momentaryHitbox(float time, bool is_right, const s3d::Vec2& origin) const {
         int index = -1;
         for (int i = 0; i < m_moments.size(); ++i) {
             if (time <= m_moments.at(i).time) {
@@ -83,10 +84,10 @@ public: // static
 public: // public function
     dx::di::PlayerId owner() const { return m_owner; }
     MomentaryMove currentMoment() const {
-        return m_md->trajectory->momentary(m_timer, m_is_right, m_origin);
+        return m_md->trajectory->momentary(m_timer, m_is_right, m_ownerChara->position());
     }
     s3d::RectF currentHitBox() const {
-        return m_md->trajectory->momentaryHitbox(m_timer, m_is_right, m_origin);
+        return m_md->trajectory->momentaryHitbox(m_timer, m_is_right, m_ownerChara->position());
     }
     
     // 終了したらtrueを返す
@@ -98,15 +99,15 @@ private: // field
     float m_timer;
     dx::di::PlayerId m_owner;
     bool m_is_right;
-    s3d::Vec2 m_origin;
+    std::shared_ptr<PhysicalCharacter> m_ownerChara;
     const std::shared_ptr<Move>& m_md;
 private: // private function
 public: // ctor/dtor
-    PhysicalMove(dx::di::PlayerId owner, bool is_right, const s3d::Vec2& origin, md::MoveId moveId) :
+    PhysicalMove(dx::di::PlayerId owner, const std::shared_ptr<battle::PhysicalCharacter>& ownerChara, md::MoveId moveId) :
         m_timer(0),
         m_owner(owner),
-        m_is_right(is_right),
-        m_origin(origin),
+        m_is_right(ownerChara->isRight()),
+        m_ownerChara(ownerChara),
         m_md(md::MasterRepository::instance()->get(moveId)) {}
 };
 
@@ -115,8 +116,8 @@ class PhysicalMoveManager {
 public: // static_const/enum
 public: // static
 public: // public function
-    const std::shared_ptr<PhysicalMove>& createMove(dx::di::PlayerId owner, bool is_right, const s3d::Vec2& origin, md::MoveId moveId) {
-        m_moves.push_back(std::make_shared<PhysicalMove>(owner, is_right, origin, moveId));
+    const std::shared_ptr<PhysicalMove>& createMove(dx::di::PlayerId owner, const std::shared_ptr<PhysicalCharacter>& ownerChara, md::MoveId moveId) {
+        m_moves.push_back(std::make_shared<PhysicalMove>(owner, ownerChara, moveId));
         return m_moves.back();
     }
     void update(float dt) {

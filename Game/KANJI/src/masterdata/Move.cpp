@@ -13,7 +13,7 @@ namespace md {
 MasterRepository::MasterRepository() {
     // TOdO: デバッグ用
     std::vector<battle::MomentaryMove> moments;
-    const s3d::Size size(3, 3);
+    const s3d::Vec2 size(2.5, 2.5);
     float t = 0.f;
     t += 0.0f / 40.f; moments.emplace_back(t, 50.f, s3d::Circular(-35, 500), s3d::RectF(s3d::Arg::center(0.5, 0), size));
     t += 2.0f / 40.f; moments.emplace_back(t, 50.f, s3d::Circular(-35, 500), s3d::RectF(s3d::Arg::center(1.5, 0), size));
