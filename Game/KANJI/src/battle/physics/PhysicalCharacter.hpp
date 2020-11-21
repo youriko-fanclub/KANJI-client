@@ -14,11 +14,14 @@ class PhysicalCharacter {
 public: // static_const/enum
 public: // static
 public: // public function
+    bool isRight() const { return m_is_right; }
+    s3d::Vec2 position() const { return m_body.getPos(); }
     void update();
     void drawLegacy() const; // 近いうちに消す
 private: // field
     dx::di::PlayerId m_pid;
     P2Body m_body;
+    bool m_is_right; // 右向きか否か
     const std::shared_ptr<chara::IParameterizedCharacter> m_status;
     std::shared_ptr<param::CharaPhysics> m_param;
 private: // private function
@@ -26,6 +29,7 @@ public: // ctor/dtor
     PhysicalCharacter(
         s3d::P2World* world,
         dx::di::PlayerId pid,
+        bool is_right,
         const std::shared_ptr<chara::IParameterizedCharacter>& status,
         const std::shared_ptr<param::CharaPhysics>& param);
 };

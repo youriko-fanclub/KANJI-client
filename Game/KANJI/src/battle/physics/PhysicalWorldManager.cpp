@@ -18,6 +18,7 @@ void PhysicalWorldManager::initializeCharacters(const std::unordered_map<dx::di:
             std::make_shared<PhysicalCharacter>(
                 &m_world,
                 player.first,
+                true,
                 player.second->activeCharacter(),
                 m_param)
             ));
@@ -29,14 +30,12 @@ void PhysicalWorldManager::update() {
     static constexpr int32 velocityIterations = 12;
     static constexpr int32 positionIterations = 4;
     m_world.update(Scene::DeltaTime(), velocityIterations, positionIterations);
+    for (auto& chara : m_characters) {
+        chara.second->update();
+    }
     m_camera.update();
-    {
-        // 2D カメラの設定から Transformer2D を作成・適用
+    { // 2D カメラの設定から Transformer2D を作成・適用
         const auto t = m_camera.createTransformer();
-        for (auto& chara : m_characters) {
-            chara.second->update();
-        }
-        
         if (MouseL.down()) {
             // クリックした場所にボールを作成
             m_bodies << m_world.createCircle(Cursor::PosF(), 0.5);
