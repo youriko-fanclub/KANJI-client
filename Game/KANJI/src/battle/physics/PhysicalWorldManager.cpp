@@ -46,67 +46,70 @@ m_param(param) {
 }
 
 
+/* ---------- PhysicalStage ---------- */
+
+// static ----------------------------------------
+// public function -------------------------------
+void PhysicalStage::drawLegacy() const {
+    m_floor.draw(Palette::Skyblue);
+    m_ceiling.draw(Palette::Skyblue);
+    m_wall_left.draw(Palette::Skyblue);
+    m_wall_right.draw(Palette::Skyblue);
+}
+// private function ------------------------------
+// ctor/dtor -------------------------------------
+PhysicalStage::PhysicalStage(s3d::P2World* world, const std::shared_ptr<param::CharaPhysics>& param) :
+m_floor     (world->createStaticLine(Vec2(  0,  0), Line(-25, 0, 25, 0), P2Material(1.0, 0.0, param->floor_friction))),
+m_ceiling   (world->createStaticLine(Vec2(  0,-25), Line(-25, 0, 25, 0), P2Material(1.0, 0.0, param->ceiling_friction))),
+m_wall_left (world->createStaticLine(Vec2(-25,  0), Line(0, -25, 0, 10), P2Material(1.0, 0.0, param->wall_friction))),
+m_wall_right(world->createStaticLine(Vec2( 25,  0), Line(0, -25, 0, 10), P2Material(1.0, 0.0, param->wall_friction))) {}
+
 /* ---------- PhysicalWorldManager ---------- */
 
 // static ----------------------------------------
 // public function -------------------------------
 void PhysicalWorldManager::update() {
-    // ↓ここから下は試し書きの無法地帯
     // 物理演算の精度
     static constexpr int32 velocityIterations = 12;
     static constexpr int32 positionIterations = 4;
-    
-    // (y > 10) まで落下した P2Body は削除
-    m_bodies.remove_if([](const P2Body& body) { return body.getPos().y > 10; });
-
-    // 物理演算のワールドを更新
     m_world.update(Scene::DeltaTime(), velocityIterations, positionIterations);
-        
-
     m_camera.update();
     {
         // 2D カメラの設定から Transformer2D を作成・適用
         const auto t = m_camera.createTransformer();
+        m_chara->update();
         
         if (MouseL.down()) {
             // クリックした場所にボールを作成
             m_bodies << m_world.createCircle(Cursor::PosF(), 0.5);
         }
-        m_chara->update();
     }
+    // (y > 10) まで落下した P2Body は削除
+    m_bodies.remove_if([](const P2Body& body) { return body.getPos().y > 10; });
 }
 
 void PhysicalWorldManager::drawLegacy() const {
     {
         // 2D カメラの設定から Transformer2D を作成・適用
         const auto t = m_camera.createTransformer();
-        
-        // 床を描画
-        m_floor.draw(Palette::Skyblue);
-        m_ceiling.draw(Palette::Skyblue);
-        m_wall_left.draw(Palette::Skyblue);
-        m_wall_right.draw(Palette::Skyblue);
+        m_stage->drawLegacy();
+        m_chara->drawLegacy();
         
         // 物体を描画
         for (const auto& body : m_bodies) {
             body.draw(HSV(body.id() * 10, 0.7, 0.9));
         }
-        m_chara->drawLegacy();
     }
     m_camera.draw();
 }
 // private function ------------------------------
 // ctor/dtor -------------------------------------
 PhysicalWorldManager::PhysicalWorldManager() :
-param(dx::cmp::HotReloadManager::createParams<param::CharaPhysics>()),
+m_param(dx::cmp::HotReloadManager::createParams<param::CharaPhysics>()),
 m_camera(Vec2(0, -8), 20.0, s3d::Camera2DParameters::MouseOnly()),
-m_world(9.8),
-m_floor     (m_world.createStaticLine(Vec2(  0,  0), Line(-25, 0, 25, 0), P2Material(1.0, 0.0, param->floor_friction))),
-m_ceiling   (m_world.createStaticLine(Vec2(  0,-25), Line(-25, 0, 25, 0), P2Material(1.0, 0.0, param->ceiling_friction))),
-m_wall_left (m_world.createStaticLine(Vec2(-25,  0), Line(0, -25, 0, 10), P2Material(1.0, 0.0, param->wall_friction))),
-m_wall_right(m_world.createStaticLine(Vec2( 25,  0), Line(0, -25, 0, 10), P2Material(1.0, 0.0, param->wall_friction)))
-{
-    m_chara = std::make_shared<PhysicalCharacter>(&m_world, param);
+m_world(9.8) {
+    m_chara = std::make_shared<PhysicalCharacter>(&m_world, m_param);
+    m_stage = std::make_shared<PhysicalStage>(&m_world, m_param);
 }
     
 }
