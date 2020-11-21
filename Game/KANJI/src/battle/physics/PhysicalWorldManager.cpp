@@ -6,6 +6,46 @@
 namespace kanji {
 namespace battle {
 
+/* ---------- PhysicalCharacter ---------- */
+
+// static ----------------------------------------
+// public function -------------------------------
+void PhysicalCharacter::update() {
+    const auto& input = dx::di::Input::get(dx::di::GamePadId::_1P);
+    s3d::Vec2 velocity(
+        m_param->force_horizontal * input.arrowL().x,
+        input.dpad().up().down() || input.buttons().b().down() ? -m_param->force_jump : 0.0);
+    // m_body.applyForce(force);
+    const auto& v = m_body.getVelocity();
+    if (dx::misc::approximatelyZero(velocity)) {
+        velocity.x = v.x * m_param->air_resistance;
+        velocity.y = v.y;
+    }
+    else {
+        if (dx::misc::approximatelyZero(velocity.x)) {
+            velocity.x = v.x;
+        }
+        if (dx::misc::approximatelyZero(velocity.y)) {
+            velocity.y = v.y;
+        }
+        velocity.x *= m_param->air_resistance;
+    }
+    m_body.setVelocity(velocity);
+}
+
+void PhysicalCharacter::drawLegacy() const {
+    m_body.draw();
+}
+    
+// private function ------------------------------
+// ctor/dtor -------------------------------------
+PhysicalCharacter::PhysicalCharacter(s3d::P2World* world, const std::shared_ptr<param::CharaPhysics>& param) :
+m_body(world->createRect(Vec2(0, -5), SizeF(2, 3), P2Material(1.0, 0.0, param->chara_friction))),
+m_param(param) {
+    m_body.setFixedRotation(true);
+}
+
+
 /* ---------- PhysicalWorldManager ---------- */
 
 // static ----------------------------------------
@@ -32,26 +72,7 @@ void PhysicalWorldManager::update() {
             // クリックした場所にボールを作成
             m_bodies << m_world.createCircle(Cursor::PosF(), 0.5);
         }
-        const auto& input = dx::di::Input::get(dx::di::GamePadId::_1P);
-        s3d::Vec2 velocity(
-            param->force_horizontal * input.arrowL().x,
-            input.dpad().up().down() || input.buttons().b().down() ? -param->force_jump : 0.0);
-        // m_chara.applyForce(force);
-        const auto& v = m_chara.getVelocity();
-        if (dx::misc::approximatelyZero(velocity)) {
-            velocity.x = v.x * param->air_resistance;
-            velocity.y = v.y;
-        }
-        else {
-            if (dx::misc::approximatelyZero(velocity.x)) {
-                velocity.x = v.x;
-            }
-            if (dx::misc::approximatelyZero(velocity.y)) {
-                velocity.y = v.y;
-            }
-            velocity.x *= param->air_resistance;
-        }
-        m_chara.setVelocity(velocity);
+        m_chara->update();
     }
 }
 
@@ -70,7 +91,7 @@ void PhysicalWorldManager::drawLegacy() const {
         for (const auto& body : m_bodies) {
             body.draw(HSV(body.id() * 10, 0.7, 0.9));
         }
-        m_chara.draw();
+        m_chara->drawLegacy();
     }
     m_camera.draw();
 }
@@ -80,13 +101,12 @@ PhysicalWorldManager::PhysicalWorldManager() :
 param(dx::cmp::HotReloadManager::createParams<param::CharaPhysics>()),
 m_camera(Vec2(0, -8), 20.0, s3d::Camera2DParameters::MouseOnly()),
 m_world(9.8),
-m_chara     (m_world.createRect      (Vec2(  0, -5), SizeF(2, 3),         P2Material(1.0, 0.0, param->chara_friction))),
 m_floor     (m_world.createStaticLine(Vec2(  0,  0), Line(-25, 0, 25, 0), P2Material(1.0, 0.0, param->floor_friction))),
 m_ceiling   (m_world.createStaticLine(Vec2(  0,-25), Line(-25, 0, 25, 0), P2Material(1.0, 0.0, param->ceiling_friction))),
 m_wall_left (m_world.createStaticLine(Vec2(-25,  0), Line(0, -25, 0, 10), P2Material(1.0, 0.0, param->wall_friction))),
 m_wall_right(m_world.createStaticLine(Vec2( 25,  0), Line(0, -25, 0, 10), P2Material(1.0, 0.0, param->wall_friction)))
 {
-    m_chara.setFixedRotation(true);
+    m_chara = std::make_shared<PhysicalCharacter>(&m_world, param);
 }
     
 }
