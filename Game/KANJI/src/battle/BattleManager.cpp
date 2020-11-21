@@ -2,7 +2,9 @@
 #include <Siv3D/Print.hpp>
 #include "BattlePlayerManager.hpp"
 #include "BattlePlayer.hpp"
+#include "ParameterizedCharacter.hpp"
 #include "Log.hpp"
+#include "Input.hpp"
 
 namespace kanji {
 namespace battle {
@@ -37,6 +39,17 @@ void BattleManager::initialize(const std::shared_ptr<BattleDesc>& desc) {
 }
 
 void BattleManager::update() {
+    // debug  -----------------
+    if (dx::di::Input::get(dx::di::GamePadId::_1P).buttons().a().down()) {
+        m_player_mgr->players().at(dx::di::PlayerId::_1P)->characters().at(0)->damage(5);
+    }
+    if (dx::di::Input::get(dx::di::GamePadId::_1P).buttons().b().down()) {
+        m_player_mgr->players().at(dx::di::PlayerId::_1P)->characters().at(1)->damage(5);
+    }
+    if (dx::di::Input::get(dx::di::GamePadId::_1P).buttons().x().down()) {
+        m_player_mgr->players().at(dx::di::PlayerId::_1P)->characters().at(2)->damage(5);
+    }
+    // debug  -----------------
     m_timer->update();
 }
 
