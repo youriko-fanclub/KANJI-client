@@ -24,7 +24,6 @@ public: // public function
 private: // field
     std::shared_ptr<param::CharaPhysics> m_param;
 
-    Camera2D m_camera;
     P2World m_world;
     std::unordered_map<dx::di::PlayerId, std::shared_ptr<PhysicalCharacter>> m_characters;
     std::shared_ptr<PhysicalStage> m_stage;

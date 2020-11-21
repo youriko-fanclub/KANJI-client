@@ -4,6 +4,7 @@
 #include <Siv3D/Rectangle.hpp>
 #include "PlayerId.hpp"
 #include "Move.hpp"
+#include "Log.hpp"
 
 namespace kanji {
 namespace battle {
@@ -13,7 +14,7 @@ public: // field
     const float time;
     const int damage;
     const s3d::Circular shoot_force;
-    const s3d::Rect hitbox;
+    const s3d::RectF hitbox;
 public: // static
     static MomentaryMove divideLinear(float t, const MomentaryMove& from, const MomentaryMove& to, bool is_right, const s3d::Vec2& origin) {
         const float s = t / (to.time - from.time);
@@ -28,16 +29,15 @@ public: // static
         );
     }
     static s3d::RectF divideHitboxLinear(float t, const MomentaryMove& from, const MomentaryMove& to, bool is_right, const s3d::Vec2& origin) {
-        const float s = t / (to.time - from.time);
-        return s3d::RectF(
-            s3d::Arg::center(origin + (is_right ? 1 : -1) *
-                (s * to.hitbox.center() + (1-s) * from.hitbox.center())),
-            s3d::Size(
-                static_cast<int>(s * to.hitbox.w + (1-s) * from.hitbox.w),
-                static_cast<int>(s * to.hitbox.h + (1-s) * from.hitbox.h)));
+        const float s = (t - from.time) / (to.time - from.time);
+        return s3d::RectF(s3d::Arg::center(
+            (s * to.hitbox.center().x + (1.f-s) * from.hitbox.center().x) * (is_right ? 1.f : -1.f) + origin.x,
+            s * to.hitbox.center().y + (1.f-s) * from.hitbox.center().y + origin.y),
+            s * to.hitbox.w + (1.f-s) * from.hitbox.w,
+            s * to.hitbox.h + (1.f-s) * from.hitbox.h);
     }
 public: // ctor/dtor
-    MomentaryMove(float time, int damage, const s3d::Circular& shoot_force, const s3d::Rect& hitbox) :
+    MomentaryMove(float time, int damage, const s3d::Circular& shoot_force, const s3d::RectF& hitbox) :
     time(time), damage(damage), shoot_force(shoot_force), hitbox(hitbox) {}
 };
 
@@ -56,11 +56,12 @@ public: // public function
         // if (index < 0) { return; }
         return MomentaryMove::divideLinear(time, m_moments.at(index - 1), m_moments.at(index), is_right, origin);
     }
-    s3d::RectF momentaryHitbox(float time, bool is_right, const s3d::Vec2& origin) const {
+    s3d::RectF momentaryHitbox(float time, bool is_right, const s3d::Vec2 origin) const {
         int index = -1;
         for (int i = 0; i < m_moments.size(); ++i) {
             if (time <= m_moments.at(i).time) {
                 index = i;
+                break;
             }
         }
         // if (index < 0) { return; }
