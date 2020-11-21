@@ -7,6 +7,7 @@ namespace chara {
 class IParameterizedCharacter;
 }
 namespace battle {
+class PhysicalCharacter;
 class BattlePlayerDesc;
 
 class BattlePlayer {
@@ -27,12 +28,17 @@ public: // public function
     bool hasRadical() const { return m_radical != U""; }
     const Radical& radical() const { return m_radical; }
     void setRadical(const Radical& value) { m_radical = value; }
+    const std::shared_ptr<PhysicalCharacter>& physical() { return m_physical; }
+    void initializePhysical(const std::shared_ptr<PhysicalCharacter>& physical) {
+        m_physical = physical;
+    }
     
 private: // field
     dx::di::PlayerId m_pid;
     int m_activeIndex;
     std::vector<std::shared_ptr<chara::IParameterizedCharacter>> m_characters;
     Radical m_radical;
+    std::shared_ptr<PhysicalCharacter> m_physical;
 private: // private function
 public: // ctor/dtor
     BattlePlayer(dx::di::PlayerId pid, const std::shared_ptr<BattlePlayerDesc>& desc);

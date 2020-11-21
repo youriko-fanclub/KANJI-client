@@ -6,6 +6,7 @@ namespace battle {
 
 class BattlePlayerManager;
 class PhysicalWorldManager;
+class PhysicalMoveManager;
 
 class BattleTimer {
 public: // static_const/enum
@@ -36,6 +37,7 @@ public: // getter
     virtual std::shared_ptr<BattleResultDesc> createResultDesc() const = 0;
     virtual const std::shared_ptr<BattlePlayerManager>& playerMgr() const = 0;
     virtual const std::shared_ptr<PhysicalWorldManager>& worldMgr() const = 0;
+    virtual const std::shared_ptr<PhysicalMoveManager>& moveMgr() const = 0;
 public: // setter
     virtual void initialize(const std::shared_ptr<BattleDesc>& desc) = 0;
     virtual void update() = 0;
@@ -60,6 +62,9 @@ public: // getter
     const std::shared_ptr<PhysicalWorldManager>& worldMgr() const override {
         return m_world_mgr;
     }
+    const std::shared_ptr<PhysicalMoveManager>& moveMgr() const override {
+        return m_move_mgr;
+    }
 public: // setter
     void initialize(const std::shared_ptr<BattleDesc>& desc) override;
     void update() override;
@@ -70,6 +75,7 @@ private: // field
     std::shared_ptr<BattleTimer> m_timer;
     std::shared_ptr<BattlePlayerManager> m_player_mgr;
     std::shared_ptr<PhysicalWorldManager> m_world_mgr;
+    std::shared_ptr<PhysicalMoveManager> m_move_mgr;
 private: // private function
 public: // ctor/dtor
     BattleManager();

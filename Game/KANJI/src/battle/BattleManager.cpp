@@ -4,6 +4,8 @@
 #include "BattlePlayer.hpp"
 #include "ParameterizedCharacter.hpp"
 #include "PhysicalWorldManager.hpp"
+#include "PhysicalMove.hpp"
+#include "PhysicalCharacter.hpp"
 #include "Log.hpp"
 #include "Input.hpp"
 
@@ -39,20 +41,34 @@ void BattleManager::initialize(const std::shared_ptr<BattleDesc>& desc) {
     m_player_mgr->players().at(dx::di::PlayerId::_4P)->setRadical(U"獣");
     m_world_mgr = std::make_shared<PhysicalWorldManager>();
     m_world_mgr->initializeCharacters(m_player_mgr->players());
+    m_move_mgr = std::make_shared<PhysicalMoveManager>();
+    for (auto& player : m_player_mgr->players()) {
+        player.second->initializePhysical(m_world_mgr->characters().at(player.first));
+    }
 }
 
 void BattleManager::update() {
     // debug  -----------------
-    if (dx::di::Input::get(dx::di::GamePadId::_1P).buttons().a().down()) {
-        m_player_mgr->players().at(dx::di::PlayerId::_1P)->characters().at(0)->damage(5);
-    }
-    if (dx::di::Input::get(dx::di::GamePadId::_1P).buttons().b().down()) {
-        m_player_mgr->players().at(dx::di::PlayerId::_1P)->characters().at(1)->damage(5);
-    }
-    if (dx::di::Input::get(dx::di::GamePadId::_1P).buttons().x().down()) {
-        m_player_mgr->players().at(dx::di::PlayerId::_1P)->characters().at(2)->damage(5);
+    for (auto& player : m_player_mgr->players()) {
+        const auto pid = player.first;
+        if (dx::di::Input::get(pid).buttons().a().down()) {
+            const auto& physical = player.second->physical();
+            m_move_mgr->createMove(pid,
+                physical->isRight(),
+                physical->position(),
+                0);
+                // player.second->activeCharacter()->);
+            // player->activeCharacter()->damage(5);
+        }
+        if (dx::di::Input::get(pid).buttons().b().down()) {
+            m_player_mgr->players().at(pid)->characters().at(1)->damage(5);
+        }
+        if (dx::di::Input::get(pid).buttons().x().down()) {
+            m_player_mgr->players().at(pid)->characters().at(2)->damage(5);
+        }
     }
     m_world_mgr->update();
+    m_move_mgr->update(Scene::DeltaTime());
     // debug  -----------------
     m_timer->update();
 }
