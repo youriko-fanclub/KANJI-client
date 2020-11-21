@@ -1,6 +1,5 @@
 #include "BattleUIManager.hpp"
 #include <algorithm>
-#include <Siv3D/Vector2D.hpp>
 #include <Siv3D/Circle.hpp>
 #include <Siv3D/Rectangle.hpp>
 #include <Siv3D/Color.hpp>
@@ -18,31 +17,84 @@ using namespace s3d::Literals::FormatLiterals;
 namespace kanji {
 namespace ui {
 
-struct RelativePosition {
-public:
-    const s3d::Vec2 center;
-    const float scale;
-public:
-    s3d::Vec2 offset(float x, float y) const {
-        return center + s3d::Vec2(x, y) * scale;
+/* ---------- HolderUI ---------- */
+
+// static ----------------------------------------
+// public function -------------------------------
+void HolderUI::update() {
+    m_pos.set(
+        m_params->getVec2(m_toml_key + U".base.center.{}"_fmt(m_player_num))
+            + s3d::Vec2(m_player_index * m_params->get<int>(m_toml_key + U".interval.{}"_fmt(m_player_num)), 0),
+        m_params->get<float>(U"battle.ui.base.scale"));
+    for (const auto& key : { U"above", U"left", U"right" }) {
+        const int fontsize = m_params->get<int>(m_toml_key + U".circle.{}.font.size"_fmt(key));
+        if (!m_fonts.contains(key) || m_fonts.at(key).fontSize() != fontsize) {
+            m_fonts.insert(key, m_params->getFont(m_toml_key + U".circle.{}.font"_fmt(key)));
+        }
     }
-    s3d::Vec2 offset(const s3d::Vec2 vec) const {
-        return center + vec * scale;
+    {
+        const auto key = U"radical";
+        const int fontsize = m_params->get<int>(m_toml_key + U".{}.font.size"_fmt(key));
+        if (!m_fonts.contains(key) || m_fonts.at(key).fontSize() != fontsize) {
+            m_fonts.insert(key, m_params->getFont(m_toml_key + U".{}.font"_fmt(key)));
+        }
     }
-    s3d::Size size(float w, float h) const {
-        return s3d::Size(
-            static_cast<int>(w * scale),
-            static_cast<int>(h * scale));
+}
+
+void HolderUI::draw() const {
+    s3d::RectF frame(
+        s3d::Arg::center(m_pos.center()),
+        m_pos.size(m_params->getSize(m_toml_key + U".base.size")));
+    frame.draw(m_colors.at(U"Base"));
+    
+    drawCircle(U"above", 0);
+    drawCircle(U"left", 1);
+    drawCircle(U"right", 2);
+    drawRadical();
+}
+
+// private function ------------------------------
+void HolderUI::drawCircle(const s3d::String& key, const int charaIndex) const {
+    s3d::Circle circle(
+        m_pos.offset(m_params->getVec2(m_toml_key + U".circle.{}.center"_fmt(key))),
+        m_pos.size(m_params->get<int>(m_toml_key + U".circle.{}.r"_fmt(key))));
+    circle.draw(m_colors.at(U"Highlight"));
+    
+    const auto& chara = m_player->characters().at(charaIndex);
+    m_fonts.at(key)(chara->kanji().kanji)
+        .draw(s3d::Arg::center = circle.center, s3d::Palette::Black);
+    s3d::Circle damage(circle.center, circle.r * (1 - chara->hpRate()));
+    damage.draw(m_colors.at(U"DamageFill"));
+}
+void HolderUI::drawRadical() const {
+    s3d::RectF radical(
+        s3d::Arg::center(m_pos.offset(m_params->getVec2(m_toml_key + U".radical.base.center"))),
+        m_pos.size(m_params->getSize(m_toml_key + U".radical.base.size")));
+    radical.draw(m_colors.at(U"Gray"));
+    
+    if (m_player->hasRadical()) {
+        m_fonts.at(U"radical")(m_player->radical())
+            .draw(s3d::Arg::center = radical.center(), s3d::Palette::White);
     }
-    s3d::Size size(const s3d::Size size) const {
-        return s3d::Size(
-            static_cast<int>(size.x * scale),
-            static_cast<int>(size.y * scale));
-    }
-    float size(float x) const {
-        return x * scale;
-    }
-};
+}
+
+// ctor/dtor -------------------------------------
+HolderUI::HolderUI(int player_index, int player_num, const std::shared_ptr<battle::BattlePlayer>& player) :
+m_player_index(player_index),
+m_player_num(player_num),
+m_params(dx::cmp::HotReloadManager::createParamsWithLoad(U"Battle")),
+m_player(player) {
+    const auto pid_str = dx::denum::toString<dx::di::PlayerId>(m_player->pid());
+    m_colors.insert(
+        U"Base", m_params->getColorF(m_toml_key + U".color.{}.base"_fmt(pid_str)));
+    m_colors.insert(
+        U"Gray", m_params->getColorF(m_toml_key + U".color.{}.radical"_fmt(pid_str)));
+    m_colors.insert(
+        U"Highlight", m_params->getColorF(m_toml_key + U".color.{}.circle"_fmt(pid_str)));
+    m_colors.insert(
+        U"DamageFill", m_params->getColorF(m_toml_key + U".color.{}.damage"_fmt(pid_str)));
+}
+
 
 /* ---------- BattleUIManager ---------- */
 
@@ -52,103 +104,35 @@ void BattleUIManager::update() {
     if (dx::di::Input::get(dx::di::GamePadId::_1P).buttons().a().down()) {
         m_battle_manager->playerMgr()->players().at(dx::di::PlayerId::_1P)->characters().at(0)->damage(5);
     }
-    const s3d::String holder = U"battle.ui.object.holder";
-    {
-        const int fontsize = m_params->get<int>(holder + U".circle.above.font.size");
-        if (!m_font_holder_above || m_font_holder_above->fontSize() != fontsize) {
-            m_font_holder_above = m_params->getFontPtr(holder + U".circle.above.font");
-        }
+    if (dx::di::Input::get(dx::di::GamePadId::_1P).buttons().b().down()) {
+        m_battle_manager->playerMgr()->players().at(dx::di::PlayerId::_1P)->characters().at(1)->damage(5);
     }
-    {
-        // とりあえず下段の2つはフォント同じ前提、代表してleftを読み出す
-        const int fontsize = m_params->get<int>(holder + U".circle.left.font.size");
-        if (!m_font_holder_bottom || m_font_holder_bottom->fontSize() != fontsize) {
-            m_font_holder_bottom = m_params->getFontPtr(holder + U".circle.left.font");
-        }
+    if (dx::di::Input::get(dx::di::GamePadId::_1P).buttons().x().down()) {
+        m_battle_manager->playerMgr()->players().at(dx::di::PlayerId::_1P)->characters().at(2)->damage(5);
     }
-    {
-        const int fontsize = m_params->get<int>(holder + U".radical.font.size");
-        if (!m_font_holder_radical || m_font_holder_radical->fontSize() != fontsize) {
-            m_font_holder_radical = m_params->getFontPtr(holder + U".radical.font");
-        }
+    for (auto& holder : m_holders) {
+        holder.second->update();
     }
 }
 
 void BattleUIManager::draw() const {
-    const auto& players = m_battle_manager->playerMgr()->players();
-    const int player_num = static_cast<int>(players.size());
-    for (int i = 0; const auto& player : players) {
-        drawHolder(i, player_num, player.second);
-        ++i;
+    for (const auto& holder : m_holders) {
+        holder.second->draw();
     }
 }
-void BattleUIManager::drawHolder(int index, int player_num, const std::shared_ptr<battle::BattlePlayer>& player) const {
-    
-    const auto pid_str = dx::denum::toString<dx::di::PlayerId>(player->pid());
-    
-    const s3d::String holder = U"battle.ui.object.holder";
-    s3d::ColorF base(m_params->getColorF(holder + U".color.{}.base"_fmt(pid_str)));
-    s3d::ColorF gray(m_params->getColorF(holder + U".color.{}.radical"_fmt(pid_str)));
-    s3d::ColorF highlight(m_params->getColorF(holder + U".color.{}.circle"_fmt(pid_str)));
-    s3d::ColorF damage_fill(m_params->getColorF(holder + U".color.{}.damage"_fmt(pid_str)));
 
-    RelativePosition pos = {
-        .center = m_params->getVec2(holder + U".base.center.{}"_fmt(player_num))
-            + s3d::Vec2(index * m_params->get<int>(holder + U".interval.{}"_fmt(player_num)), 0),
-        .scale = m_params->get<float>(U"battle.ui.base.scale"),
-    };
-    s3d::RectF frame(
-        s3d::Arg::center(pos.center),
-        pos.size(m_params->getSize(holder + U".base.size")));
-    frame.draw(base);
-    
-    // 円
-    s3d::Circle circle_above(
-        pos.offset(m_params->getVec2(holder + U".circle.above.center")),
-        pos.size(m_params->get<int>(holder + U".circle.above.r")));
-    circle_above.draw(highlight);
-    s3d::Circle circle_left(
-        pos.offset(m_params->getVec2(holder + U".circle.left.center")),
-        pos.size(m_params->get<int>(holder + U".circle.left.r")));
-    circle_left.draw(highlight);
-    s3d::Circle circle_right(
-        pos.offset(m_params->getVec2(holder + U".circle.right.center")),
-        pos.size(m_params->get<int>(holder + U".circle.right.r")));
-    circle_right.draw(highlight);
-
-    if (m_font_holder_above) {
-        const auto& chara0 = player->characters().at(0);
-        (*m_font_holder_above)(chara0->kanji().kanji)
-            .draw(s3d::Arg::center = circle_above.center, s3d::Palette::Black);
-        s3d::Circle damage_above(
-            circle_above.center,
-            circle_above.r * (1 - chara0->hpRate()));
-        damage_above.draw(damage_fill);
-    }
-    if (m_font_holder_bottom) {
-        (*m_font_holder_bottom)(player->characters().at(1)->kanji().kanji)
-            .draw(s3d::Arg::center = circle_left.center, s3d::Palette::Black);
-        (*m_font_holder_bottom)(player->characters().at(2)->kanji().kanji)
-            .draw(s3d::Arg::center = circle_right.center, s3d::Palette::Black);
-    }
-    
-    // 部首
-    s3d::RectF radical(
-        s3d::Arg::center(pos.offset(m_params->getVec2(holder + U".radical.base.center"))),
-        pos.size(m_params->getSize(holder + U".radical.base.size")));
-    radical.draw(gray);
-    
-    if (m_font_holder_radical && player->hasRadical()) {
-        (*m_font_holder_radical)(player->radical())
-            .draw(s3d::Arg::center = radical.center(), s3d::Palette::White);
-    }
-
-}
 // private function ------------------------------
 // ctor/dtor -------------------------------------
 BattleUIManager::BattleUIManager(const battle::IBattleManager* battle_manager) :
-m_battle_manager(battle_manager),
-m_params(dx::cmp::HotReloadManager::createParamsWithLoad(U"Battle")) {}
+m_battle_manager(battle_manager) {
+    const auto& players = m_battle_manager->playerMgr()->players();
+    const int player_num = static_cast<int>(players.size());
+    for (int i = 0; const auto& player : players) {
+        m_holders.insert(std::make_pair(player.first,
+            std::make_shared<HolderUI>(i, player_num, player.second)));
+        ++i;
+    }
+}
 
 
 }

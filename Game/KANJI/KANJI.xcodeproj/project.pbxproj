@@ -39,6 +39,8 @@
 		2CE5C85B237FDE6000082EEC /* OpenAL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2C6906B12298123200A427D0 /* OpenAL.framework */; };
 		2CEACB67233A61C900C6EE98 /* libgif.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2CEACB65233A61C900C6EE98 /* libgif.a */; };
 		2CEACB68233A61C900C6EE98 /* libutil.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2CEACB66233A61C900C6EE98 /* libutil.a */; };
+		7247BB4225689E850052A75F /* RelativePosition.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7247BB4025689E840052A75F /* RelativePosition.cpp */; };
+		7247BB462568AB070052A75F /* Palette.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7247BB442568AB070052A75F /* Palette.cpp */; };
 		7265F0672531DC0F00C15F67 /* Singleton.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7265F0652531DC0F00C15F67 /* Singleton.cpp */; };
 		7265F06F2531DC1D00C15F67 /* ExecutiveManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7265F0692531DC1D00C15F67 /* ExecutiveManager.cpp */; };
 		7265F0702531DC1D00C15F67 /* ApplicationManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7265F06A2531DC1D00C15F67 /* ApplicationManager.cpp */; };
@@ -126,6 +128,10 @@
 		2CE5C859237FDE5100082EEC /* CoreMedia.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMedia.framework; path = System/Library/Frameworks/CoreMedia.framework; sourceTree = SDKROOT; };
 		2CEACB65233A61C900C6EE98 /* libgif.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libgif.a; path = ../../lib/macOS/libgif/libgif.a; sourceTree = "<group>"; };
 		2CEACB66233A61C900C6EE98 /* libutil.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libutil.a; path = ../../lib/macOS/libgif/libutil.a; sourceTree = "<group>"; };
+		7247BB4025689E840052A75F /* RelativePosition.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = RelativePosition.cpp; sourceTree = "<group>"; };
+		7247BB4125689E850052A75F /* RelativePosition.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = RelativePosition.hpp; sourceTree = "<group>"; };
+		7247BB442568AB070052A75F /* Palette.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Palette.cpp; sourceTree = "<group>"; };
+		7247BB452568AB070052A75F /* Palette.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Palette.hpp; sourceTree = "<group>"; };
 		7265F0652531DC0F00C15F67 /* Singleton.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Singleton.cpp; sourceTree = "<group>"; };
 		7265F0662531DC0F00C15F67 /* Singleton.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = Singleton.hpp; sourceTree = "<group>"; };
 		7265F0692531DC1D00C15F67 /* ExecutiveManager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ExecutiveManager.cpp; sourceTree = "<group>"; };
@@ -446,6 +452,10 @@
 			children = (
 				72859F6B25388CA100EB0AAD /* UIComponent.cpp */,
 				72859F6C25388CA100EB0AAD /* UIComponent.hpp */,
+				7247BB4025689E840052A75F /* RelativePosition.cpp */,
+				7247BB4125689E850052A75F /* RelativePosition.hpp */,
+				7247BB442568AB070052A75F /* Palette.cpp */,
+				7247BB452568AB070052A75F /* Palette.hpp */,
 			);
 			path = ui;
 			sourceTree = "<group>";
@@ -660,6 +670,7 @@
 				72A3BD5E25443711003393C4 /* InputDemoScene.cpp in Sources */,
 				72A3BDED255164D7003393C4 /* BattleManager.cpp in Sources */,
 				7265F0712531DC1D00C15F67 /* AssetManager.cpp in Sources */,
+				7247BB462568AB070052A75F /* Palette.cpp in Sources */,
 				72A3BDF625516856003393C4 /* ParameterizedCharacter.cpp in Sources */,
 				72A3BDCD254F09CF003393C4 /* HotReloadManager.cpp in Sources */,
 				726F87E02556BAE2003FAC77 /* BattlePlayerManager.cpp in Sources */,
@@ -676,6 +687,7 @@
 				72A3BDC0254EDB65003393C4 /* FilePath.cpp in Sources */,
 				72A3BD6825452A7B003393C4 /* KeyCode.cpp in Sources */,
 				726F87D42555E1EA003FAC77 /* LogDestination.cpp in Sources */,
+				7247BB4225689E850052A75F /* RelativePosition.cpp in Sources */,
 				72A3BD78254564A3003393C4 /* DPad.cpp in Sources */,
 				72A3BDE52551459D003393C4 /* SystemParams.cpp in Sources */,
 				2C17789A1CE0AA7C00BB8AD0 /* Main.cpp in Sources */,

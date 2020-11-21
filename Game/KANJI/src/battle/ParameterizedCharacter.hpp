@@ -46,7 +46,7 @@ public: // public function
         return static_cast<float>(m_params.hp) / static_cast<float>(m_initialParams.hp);
     }
 
-    void damage(int amount) {
+    void damage(int amount) override {
         if (amount <= 0) { return; }
         m_params.hp = std::max(m_params.hp - amount, 0);
     }
