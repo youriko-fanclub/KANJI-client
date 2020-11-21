@@ -1,5 +1,4 @@
 #include "HolderUI.hpp"
-#include <Siv3D/Circle.hpp>
 #include <Siv3D/FormatLiteral.hpp>
 #include "HotReloadManager.hpp"
 #include "PlayerId.hpp"
@@ -20,7 +19,14 @@ void HolderUI::update() {
         m_params->getVec2(m_toml_key + U".base.center.{}"_fmt(m_player_num))
             + s3d::Vec2(m_player_index * m_params->get<int>(m_toml_key + U".interval.{}"_fmt(m_player_num)), 0),
         m_params->get<float>(U"battle.ui.base.scale"));
-    for (const auto& key : { U"above", U"left", U"right" }) {
+    for (const auto position : dx::denum::elems<CirclePosition>()) {
+        const auto key = dx::denum::toLower(position);
+        // circle
+        m_circles.insert_or_assign(position, s3d::Circle(
+            m_pos.offset(m_params->getVec2(m_toml_key + U".circle.{}.center"_fmt(key))),
+            m_pos.size(m_params->get<int>(m_toml_key + U".circle.{}.r"_fmt(key)))));
+
+        // font
         const int fontsize = m_params->get<int>(m_toml_key + U".circle.{}.font.size"_fmt(key));
         if (!m_fonts.contains(key) || m_fonts.at(key).fontSize() != fontsize) {
             m_fonts.insert(key, m_params->getFont(m_toml_key + U".circle.{}.font"_fmt(key)));
@@ -42,19 +48,18 @@ void HolderUI::drawImpl() const {
         m_pos.size(m_params->getSize(m_toml_key + U".base.size")));
     frame.draw(m_colors.at(U"Base"));
     
-    drawCircle(U"above", 0);
-    drawCircle(U"left", 1);
-    drawCircle(U"right", 2);
+    drawCircle(CirclePosition::Above, 0);
+    drawCircle(CirclePosition::Left, 1);
+    drawCircle(CirclePosition::Right, 2);
     drawRadical();
 }
 
 // private function ------------------------------
-void HolderUI::drawCircle(const s3d::String& key, const int charaIndex) const {
-    s3d::Circle circle(
-        m_pos.offset(m_params->getVec2(m_toml_key + U".circle.{}.center"_fmt(key))),
-        m_pos.size(m_params->get<int>(m_toml_key + U".circle.{}.r"_fmt(key))));
+void HolderUI::drawCircle(const CirclePosition position, const int charaIndex) const {
+    const auto& circle = m_circles.at(position);
     circle.draw(m_colors.at(U"Highlight"));
     
+    const auto key = dx::denum::toLower(position);
     const auto& chara = m_player->characters().at(charaIndex);
     m_fonts.at(key)(chara->kanji().kanji)
         .draw(s3d::Arg::center = circle.center, s3d::Palette::Black);
@@ -88,6 +93,32 @@ m_player(player) {
         U"Highlight", m_params->getColorF(m_toml_key + U".color.{}.circle"_fmt(pid_str)));
     m_colors.insert(
         U"DamageFill", m_params->getColorF(m_toml_key + U".color.{}.damage"_fmt(pid_str)));
+    update();
+}
+
+}
+}
+
+using CirclePosition = kanji::ui::HolderUI::CirclePosition;
+
+namespace dx {
+namespace denum {
+
+template <>
+std::vector<CirclePosition> elems() {
+    return {
+        CirclePosition::Above,
+        CirclePosition::Left,
+        CirclePosition::Right,
+    };
+}
+template <>
+s3d::String toLower(CirclePosition value) {
+    switch (value) {
+    case CirclePosition::Above: return U"above";
+    case CirclePosition::Left: return U"left";
+    case CirclePosition::Right: return U"right";
+    }
 }
 
 }

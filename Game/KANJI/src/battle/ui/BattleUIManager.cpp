@@ -1,13 +1,8 @@
 #include "BattleUIManager.hpp"
-#include <algorithm>
-#include <Siv3D/Color.hpp>
-#include <Siv3D/FormatLiteral.hpp>
 #include "BattleManager.hpp"
 #include "BattlePlayerManager.hpp"
 #include "BattlePlayer.hpp"
 #include "HolderUI.hpp"
-
-using namespace s3d::Literals::FormatLiterals;
 
 namespace kanji {
 namespace ui {
