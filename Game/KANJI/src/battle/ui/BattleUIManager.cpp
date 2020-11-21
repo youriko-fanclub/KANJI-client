@@ -17,7 +17,10 @@ namespace ui {
 void MoveUIManager::update() {}
 // protected function ------------------------------
 void MoveUIManager::drawImpl() const {
-    m_move_mgr->drawLegacy();
+    for (const auto& move : m_move_mgr->moves()) {
+        const auto box = move->currentHitBox();
+        box.draw(dx::di::Id::ToColor(move->owner()));
+    }
 }
 // private function ------------------------------
 // ctor/dtor -------------------------------------

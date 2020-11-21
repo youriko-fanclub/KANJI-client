@@ -128,12 +128,9 @@ public: // public function
             else { ++it; }
         }
     }
-    void drawLegacy() const {
-        for (const auto& move : m_moves) {
-            const auto box = move->currentHitBox();
-            box.draw(s3d::Palette::Red);
-            // move->currentHitBox().draw(s3d::Palette::Red);
-        }
+    
+    const std::vector<std::shared_ptr<PhysicalMove>>& moves() const {
+        return m_moves;
     }
 private: // field
     std::vector<std::shared_ptr<PhysicalMove>> m_moves;
