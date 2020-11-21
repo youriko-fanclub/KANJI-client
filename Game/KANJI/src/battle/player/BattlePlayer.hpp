@@ -9,6 +9,7 @@ class IParameterizedCharacter;
 namespace battle {
 class PhysicalCharacter;
 class BattlePlayerDesc;
+class MomentaryMove;
 
 class BattlePlayer {
 public: // static_const/enum
@@ -16,12 +17,7 @@ public: // static_const/enum
 public: // static
 public: // public function
     dx::di::PlayerId pid() const { return m_pid; }
-    std::shared_ptr<chara::IParameterizedCharacter> activeCharacter() {
-        if (0 <= m_activeIndex && m_activeIndex < m_characters.size()) {
-            return m_characters.at(m_activeIndex);
-        }
-        else { return nullptr; }
-    }
+    std::shared_ptr<chara::IParameterizedCharacter> activeCharacter();
     const std::vector<std::shared_ptr<chara::IParameterizedCharacter>>& characters() const {
         return m_characters;
     }
@@ -32,6 +28,7 @@ public: // public function
     void initializePhysical(const std::shared_ptr<PhysicalCharacter>& physical) {
         m_physical = physical;
     }
+    void damage(const MomentaryMove& move);
     
 private: // field
     dx::di::PlayerId m_pid;

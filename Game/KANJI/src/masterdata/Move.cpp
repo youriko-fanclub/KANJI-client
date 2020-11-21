@@ -15,16 +15,16 @@ MasterRepository::MasterRepository() {
     std::vector<battle::MomentaryMove> moments;
     const s3d::Vec2 size(2.5, 2.5);
     float t = 0.f;
-    t += 0.0f / 40.f; moments.emplace_back(t, 50.f, s3d::Circular(-35, 500), s3d::RectF(s3d::Arg::center(0.5, 0), size));
-    t += 2.0f / 40.f; moments.emplace_back(t, 50.f, s3d::Circular(-35, 500), s3d::RectF(s3d::Arg::center(1.5, 0), size));
-    t += 2.0f / 40.f; moments.emplace_back(t, 50.f, s3d::Circular(-35, 500), s3d::RectF(s3d::Arg::center(2.5, 0), size));
-    t += 0.5f / 40.f; moments.emplace_back(t, 50.f, s3d::Circular(-35, 500), s3d::RectF(s3d::Arg::center(3.5, 0), size));
-    t += 0.5f / 40.f; moments.emplace_back(t, 50.f, s3d::Circular(-35, 500), s3d::RectF(s3d::Arg::center(4.0, 0), size));
-    t += 7.0f / 40.f; moments.emplace_back(t, 50.f, s3d::Circular(-35, 500), s3d::RectF(s3d::Arg::center(3.5, 0), size));
-    t += 8.0f / 40.f; moments.emplace_back(t, 50.f, s3d::Circular(-35, 500), s3d::RectF(s3d::Arg::center(2.5, 0), size));
-    t += 3.0f / 40.f; moments.emplace_back(t, 50.f, s3d::Circular(-35, 500), s3d::RectF(s3d::Arg::center(2.0, 0), size));
-    t += 2.0f / 40.f; moments.emplace_back(t, 50.f, s3d::Circular(-35, 500), s3d::RectF(s3d::Arg::center(1.0, 0), size));
-    t += 1.0f / 40.f; moments.emplace_back(t, 50.f, s3d::Circular(-35, 500), s3d::RectF(s3d::Arg::center(0.5, 0), size));
+    t += 0.0f / 40.f; moments.emplace_back(t, 1.f, s3d::Circular(-35, 500), s3d::RectF(s3d::Arg::center(0.5, 0), size));
+    t += 2.0f / 40.f; moments.emplace_back(t, 1.f, s3d::Circular(-35, 500), s3d::RectF(s3d::Arg::center(1.5, 0), size));
+    t += 2.0f / 40.f; moments.emplace_back(t, 1.f, s3d::Circular(-35, 500), s3d::RectF(s3d::Arg::center(2.5, 0), size));
+    t += 0.5f / 40.f; moments.emplace_back(t, 1.f, s3d::Circular(-35, 500), s3d::RectF(s3d::Arg::center(3.5, 0), size));
+    t += 0.5f / 40.f; moments.emplace_back(t, 1.f, s3d::Circular(-35, 500), s3d::RectF(s3d::Arg::center(4.0, 0), size));
+    t += 7.0f / 40.f; moments.emplace_back(t, 1.f, s3d::Circular(-35, 500), s3d::RectF(s3d::Arg::center(3.5, 0), size));
+    t += 8.0f / 40.f; moments.emplace_back(t, 1.f, s3d::Circular(-35, 500), s3d::RectF(s3d::Arg::center(2.5, 0), size));
+    t += 3.0f / 40.f; moments.emplace_back(t, 1.f, s3d::Circular(-35, 500), s3d::RectF(s3d::Arg::center(2.0, 0), size));
+    t += 2.0f / 40.f; moments.emplace_back(t, 1.f, s3d::Circular(-35, 500), s3d::RectF(s3d::Arg::center(1.0, 0), size));
+    t += 1.0f / 40.f; moments.emplace_back(t, 1.f, s3d::Circular(-35, 500), s3d::RectF(s3d::Arg::center(0.5, 0), size));
     const MoveId id = 0;
     m_masterdata.insert(std::make_pair(id,
         std::make_shared<Move>(id, U"拳", std::make_shared<battle::Trajectory>(moments))));

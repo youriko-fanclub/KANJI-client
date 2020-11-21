@@ -62,9 +62,20 @@ void BattleManager::update() {
             m_player_mgr->players().at(pid)->characters().at(2)->damage(5);
         }
     }
+    // debug  -----------------
     m_world_mgr->update();
     m_move_mgr->update(Scene::DeltaTime());
-    // debug  -----------------
+    
+    { // 技とキャラの衝突判定
+        for (const auto& move : m_move_mgr->moves()) {
+            for (auto& player : m_player_mgr->players()) {
+                if (move->owner() == player.first) { continue; } // 発動者本人には影響なし
+                if (move->currentHitBox().intersects(player.second->physical()->rect())) {
+                    player.second->damage(move->currentMoment());
+                }
+            }
+        }
+    }
     m_timer->update();
 }
 

@@ -16,6 +16,7 @@ public: // static
 public: // public function
     bool isRight() const { return m_is_right; }
     s3d::Vec2 position() const { return m_body.getPos(); }
+    s3d::Quad rect() const { return m_body.as<s3d::P2Rect>(0)->getQuad(); }
     void update();
     void drawLegacy() const; // 近いうちに消す
 private: // field
