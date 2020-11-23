@@ -23,6 +23,7 @@ public: // public function
     const std::shared_ptr<PhysicalStage>& stage() const {
         return m_stage;
     }
+    void lose(dx::di::PlayerId pid);
 private: // field
     std::shared_ptr<param::CharaPhysics> m_param;
 

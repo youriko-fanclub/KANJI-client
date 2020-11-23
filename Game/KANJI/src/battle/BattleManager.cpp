@@ -48,7 +48,7 @@ void BattleManager::initialize(const std::shared_ptr<BattleDesc>& desc) {
 }
 
 void BattleManager::update() {
-    for (auto& player : m_player_mgr->players()) {
+    for (auto& player : m_player_mgr->alivePlayers()) {
         const auto pid = player.first;
         if (dx::di::Input::get(pid).buttons().a().down()) {
             const auto& physical = player.second->physical();
@@ -61,12 +61,18 @@ void BattleManager::update() {
     m_world_mgr->update();
     m_move_mgr->update(Scene::DeltaTime());
     
-    { // 技とキャラの衝突判定
-        for (const auto& move : m_move_mgr->moves()) {
-            for (auto& player : m_player_mgr->players()) {
-                if (move->owner() == player.first) { continue; } // 発動者本人には影響なし
-                if (move->currentHitBox().intersects(player.second->physical()->rect())) {
-                    player.second->damage(move->currentMoment());
+    // 技とキャラの衝突判定
+    for (const auto& move : m_move_mgr->moves()) {
+        for (auto& player : m_player_mgr->players()) {
+            if (player.second->isLost()
+                || move->owner() == player.first) {  // 発動者本人には影響なし
+                continue;
+            }
+            if (move->currentHitBox().intersects(player.second->physical()->rect())) {
+                player.second->damage(move->currentMoment());
+                if (player.second->isLost()) {
+                    m_player_mgr->lose(player.first);
+                    m_world_mgr->lose(player.first);
                 }
             }
         }

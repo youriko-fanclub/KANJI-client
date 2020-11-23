@@ -22,7 +22,8 @@ public: // public function
     const std::vector<std::shared_ptr<chara::IParameterizedCharacter>>& characters() const {
         return m_characters;
     }
-    void changeActiveCharacter();
+    // 変更先が無かった(生存キャラが1体以下)場合falseを返す
+    bool changeActiveCharacter();
 
     bool hasRadical() const { return m_radical != U""; }
     const Radical& radical() const { return m_radical; }
@@ -34,6 +35,7 @@ public: // public function
     }
     
     void damage(const MomentaryMove& move);
+    bool isLost() const { return m_is_lost; }
     
 private: // field
     dx::di::PlayerId m_pid;
@@ -41,7 +43,9 @@ private: // field
     std::vector<std::shared_ptr<chara::IParameterizedCharacter>> m_characters;
     Radical m_radical;
     std::shared_ptr<PhysicalCharacter> m_physical;
+    bool m_is_lost;
 private: // private function
+    void lose();
 public: // ctor/dtor
     BattlePlayer(dx::di::PlayerId pid, const std::shared_ptr<BattlePlayerDesc>& desc);
 };

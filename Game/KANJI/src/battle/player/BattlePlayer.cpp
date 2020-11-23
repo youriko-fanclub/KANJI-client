@@ -18,28 +18,37 @@ std::shared_ptr<chara::IParameterizedCharacter> BattlePlayer::activeCharacter() 
     else { return nullptr; }
 }
 
-void BattlePlayer::changeActiveCharacter() {
+bool BattlePlayer::changeActiveCharacter() {
     const int source_index = m_activeIndex;
     while (true) {
         m_activeIndex = (m_activeIndex + 1) % m_characters.size();
-        if (m_activeIndex == source_index) { return; }
-        if (!m_characters.at(m_activeIndex)->isBurnedOut()) { return; }
+        if (m_activeIndex == source_index) { return false; }
+        if (!m_characters.at(m_activeIndex)->isBurnedOut()) { return true; }
     }
 }
 
 void BattlePlayer::damage(const MomentaryMove& move) {
     activeCharacter()->damage(move.damage);
     if (activeCharacter()->isBurnedOut()) {
-        changeActiveCharacter();
+        if (!changeActiveCharacter()) {
+            lose();
+        }
     }
 }
     
 // private function ------------------------------
+void BattlePlayer::lose() {
+    if (m_is_lost) { return; }
+    m_is_lost = true;
+    m_physical.reset();
+}
+
 // ctor/dtor -------------------------------------
 BattlePlayer::BattlePlayer(dx::di::PlayerId pid, const std::shared_ptr<BattlePlayerDesc>& desc) :
 m_pid(pid),
 m_activeIndex(0),
-m_characters(desc->characters()) {}
+m_characters(desc->characters()),
+m_is_lost(false) {}
 
 
 }

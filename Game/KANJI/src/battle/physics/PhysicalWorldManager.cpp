@@ -49,6 +49,10 @@ void PhysicalWorldManager::update() {
     m_bodies.remove_if([](const P2Body& body) { return body.getPos().y > 10; });
 }
 
+void PhysicalWorldManager::lose(dx::di::PlayerId pid) {
+    m_characters.erase(pid);
+}
+
 // private function ------------------------------
 // ctor/dtor -------------------------------------
 PhysicalWorldManager::PhysicalWorldManager() :
