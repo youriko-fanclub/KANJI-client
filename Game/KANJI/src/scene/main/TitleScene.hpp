@@ -18,6 +18,7 @@ private: // field
   std::pair<s3d::DrawableText, s3d::DrawableText> m_title;
   dui::Button m_start;
   dui::Button m_exit;
+  dui::Button m_battle4debug;
 private: // private function
 public: // ctor/dtor
   TitleScene(const InitData& init);

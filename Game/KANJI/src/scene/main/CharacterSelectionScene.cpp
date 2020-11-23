@@ -27,7 +27,7 @@ m_next(
     Rect(Arg::center = Scene::Center().movedBy(0, 170), 300, 60),
     DrawableText(FontAsset(U"Menu"), U"次へ"),
     Transition(0.4s, 0.2s)) {
-    m_next.setCallback([this](){ changeScene(State::Battle); });
+    m_next.setCallback([this](){ changeScene(State::StageSelection); });
 }
 
 

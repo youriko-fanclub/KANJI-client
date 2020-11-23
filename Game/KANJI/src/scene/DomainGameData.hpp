@@ -3,12 +3,11 @@
 
 namespace kanji {
 namespace battle {
-    class BattleDesc;
-    class BattleResultDesc;
+class BattleDesc;
+class BattleResultDesc;
 }
 
 namespace seq {
-
 
 // 各Scene間で共有するデータ
 class DomainGameData {
@@ -16,6 +15,9 @@ public: // static_const/enum
 public: // static
 public: // public function
     const std::shared_ptr<battle::BattleDesc>& battleDesc() {
+        if (!m_battle_desc) {
+            m_battle_desc = std::make_shared<kanji::battle::BattleDesc>();
+        }
         return m_battle_desc;
     }
     const std::shared_ptr<battle::BattleResultDesc>& battleResultDesc() {
