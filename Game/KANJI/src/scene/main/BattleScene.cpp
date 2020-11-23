@@ -89,7 +89,7 @@ void BattleScene::initialize() {
     m_ui = std::make_shared<ui::BattleUIManager>(m_mgr.get());
 }
 void BattleScene::update() {
-    // オブザーバにした方がよさそう
+    // TOdO: オブザーバにした方がよさそう
     // ほんとは試合終了後遷移前に演出入れる
     if (m_mgr->hasGameSet()) {
         getData().setBattleResultDesc(m_mgr->createResultDesc());

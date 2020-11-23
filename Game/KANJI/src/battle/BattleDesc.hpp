@@ -45,9 +45,16 @@ private: // private function
 public: // ctor/dtor
 };
 
-struct BattleResultDesc {
-public:
+class BattleResultDesc {
+public: // static_const/enum
+public: // static
+public: // public function
+    std::vector<dx::di::PlayerId>* ranking() { return &m_ranking; }
+private: // field
+    // 順位低い順
     std::vector<dx::di::PlayerId> m_ranking;
+private: // private function
+public: // ctor/dtor
 };
 
 

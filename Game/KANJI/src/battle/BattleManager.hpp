@@ -72,11 +72,15 @@ public: // setter
     void resume() override;
     void holdUp() override;
 private: // field
-    std::shared_ptr<BattleTimer> m_timer;
-    std::shared_ptr<BattlePlayerManager> m_player_mgr;
-    std::shared_ptr<PhysicalWorldManager> m_world_mgr;
-    std::shared_ptr<PhysicalMoveManager> m_move_mgr;
+    std::shared_ptr<BattleTimer> m_timer = nullptr;
+    std::shared_ptr<BattlePlayerManager> m_player_mgr = nullptr;
+    std::shared_ptr<PhysicalWorldManager> m_world_mgr = nullptr;
+    std::shared_ptr<PhysicalMoveManager> m_move_mgr = nullptr;
+    
+    std::shared_ptr<BattleResultDesc> m_result_desc = nullptr;
+    bool m_has_gameset = false;
 private: // private function
+    void lose(dx::di::PlayerId pid);
 public: // ctor/dtor
     BattleManager();
 };

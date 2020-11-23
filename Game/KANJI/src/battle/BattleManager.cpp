@@ -12,39 +12,40 @@
 namespace kanji {
 namespace battle {
 
+/* ---------- BattleManager ---------- */
+
+// static ----------------------------------------
+// public function -------------------------------
 bool BattleManager::hasGameSet() const {
-    return m_timer->hasTimeover();
+    return m_has_gameset;
 }
 
 std::shared_ptr<BattleResultDesc> BattleManager::createResultDesc() const {
-    auto desc = std::make_shared<BattleResultDesc>();
     /* program here */
-    return desc;
+    return m_result_desc;
 }
 
 void BattleManager::initialize(const std::shared_ptr<BattleDesc>& desc) {
-    m_timer = std::make_shared<BattleTimer>(desc->timeLimitSec() * 60);
-    s3d::Print
-        << U"// Battle Start --------------------";
-    s3d::Print
-        << U"// TEST ********************";
-    dx::dbg::Log::info(U"Category01",U"msg{}-{}-{}",U"1",U"2.5",U"hoge");
-    dx::dbg::Log::debug(U"Hoge.Fuga",U"msg{}-{}-{}",U"1",U"2.5",U"hoge");
-    dx::dbg::Log::error(U"You.Riko",U"msg{}-{}-{}",U"1",U"2.5",U"hoge");
-    s3d::Print
-        << U"// TEST ********************";
     desc->dump();
+    
+    m_timer = std::make_shared<BattleTimer>(desc->timeLimitSec() * 60);
+    
     m_player_mgr = std::make_shared<BattlePlayerManager>(desc->playerDescs());
     m_player_mgr->players().at(dx::di::PlayerId::_1P)->setRadical(U"風");
     m_player_mgr->players().at(dx::di::PlayerId::_2P)->setRadical(U"土");
     m_player_mgr->players().at(dx::di::PlayerId::_3P)->setRadical(U"雨");
     m_player_mgr->players().at(dx::di::PlayerId::_4P)->setRadical(U"獣");
+    
     m_world_mgr = std::make_shared<PhysicalWorldManager>();
     m_world_mgr->initializeCharacters(m_player_mgr->players());
+    
     m_move_mgr = std::make_shared<PhysicalMoveManager>();
+    
     for (auto& player : m_player_mgr->players()) {
         player.second->initializePhysical(m_world_mgr->characters().at(player.first));
     }
+    
+    m_result_desc = std::make_shared<BattleResultDesc>();
 }
 
 void BattleManager::update() {
@@ -71,13 +72,18 @@ void BattleManager::update() {
             if (move->currentHitBox().intersects(player.second->physical()->rect())) {
                 player.second->damage(move->currentMoment());
                 if (player.second->isLost()) {
-                    m_player_mgr->lose(player.first);
-                    m_world_mgr->lose(player.first);
+                    lose(player.first);
+                    if (m_player_mgr->alivePlayers().size() <= 1) {
+                        m_has_gameset = true;
+                    }
                 }
             }
         }
     }
     m_timer->update();
+    if (m_timer->hasTimeover()) {
+        m_has_gameset = true;
+    }
 }
 
 void BattleManager::pause() {
@@ -91,6 +97,14 @@ void BattleManager::resume() {
 void BattleManager::holdUp() {
 }
 
+// private function ------------------------------
+void BattleManager::lose(dx::di::PlayerId pid) {
+    m_player_mgr->lose(pid);
+    m_world_mgr->lose(pid);
+    m_result_desc->ranking()->push_back(pid);
+}
+
+// ctor/dtor -------------------------------------
 BattleManager::BattleManager() {}
 
 }
