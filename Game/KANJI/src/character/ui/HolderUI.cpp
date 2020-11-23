@@ -49,8 +49,8 @@ void HolderUI::drawImpl() const {
     frame.draw(m_colors.at(U"Base"));
     
     drawCircle(CirclePosition::Above, 0);
-    drawCircle(CirclePosition::Left, 1);
-    drawCircle(CirclePosition::Right, 2);
+    drawCircle(CirclePosition::Right, 1);
+    drawCircle(CirclePosition::Left, 2);
     drawRadical();
 }
 
