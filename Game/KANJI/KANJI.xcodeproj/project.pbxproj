@@ -31,7 +31,6 @@
 		2C6906D42298131500A427D0 /* libopencv_imgproc.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2C6906CE2298131500A427D0 /* libopencv_imgproc.a */; };
 		2C6906D62298131800A427D0 /* libz.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2C6906D52298131800A427D0 /* libz.a */; };
 		2C6906D82298140F00A427D0 /* engine in Resources */ = {isa = PBXBuildFile; fileRef = 2C6906D72298140F00A427D0 /* engine */; };
-		2C971A5B239732F900E66570 /* GameScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2C971A57239732F900E66570 /* GameScene.cpp */; };
 		2C971A5C239732F900E66570 /* TitleScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2C971A5A239732F900E66570 /* TitleScene.cpp */; };
 		2CE5C856237FDE3900082EEC /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2CE5C855237FDE3900082EEC /* AVFoundation.framework */; };
 		2CE5C858237FDE4600082EEC /* CoreAudio.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2CE5C857237FDE4600082EEC /* CoreAudio.framework */; };
@@ -126,9 +125,7 @@
 		2C6906D52298131800A427D0 /* libz.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libz.a; path = ../../lib/macOS/zlib/libz.a; sourceTree = "<group>"; };
 		2C6906D72298140F00A427D0 /* engine */ = {isa = PBXFileReference; lastKnownFileType = folder; name = engine; path = App/engine; sourceTree = "<group>"; };
 		2C971A56239732F900E66570 /* TitleScene.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = TitleScene.hpp; sourceTree = "<group>"; };
-		2C971A57239732F900E66570 /* GameScene.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GameScene.cpp; sourceTree = "<group>"; };
 		2C971A58239732F900E66570 /* SceneState.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = SceneState.hpp; sourceTree = "<group>"; };
-		2C971A59239732F900E66570 /* GameScene.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = GameScene.hpp; sourceTree = "<group>"; };
 		2C971A5A239732F900E66570 /* TitleScene.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TitleScene.cpp; sourceTree = "<group>"; };
 		2CE5C855237FDE3900082EEC /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		2CE5C857237FDE4600082EEC /* CoreAudio.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreAudio.framework; path = System/Library/Frameworks/CoreAudio.framework; sourceTree = SDKROOT; };
@@ -462,8 +459,6 @@
 				72A3BDAB254DC082003393C4 /* BattleScene.hpp */,
 				C800DE7E253DE01800C3835B /* CharacterSelectionScene.cpp */,
 				C800DE7F253DE01900C3835B /* CharacterSelectionScene.hpp */,
-				2C971A57239732F900E66570 /* GameScene.cpp */,
-				2C971A59239732F900E66570 /* GameScene.hpp */,
 				2C971A5A239732F900E66570 /* TitleScene.cpp */,
 				2C971A56239732F900E66570 /* TitleScene.hpp */,
 				729EEF9E256C116F002A3696 /* ResultScene.cpp */,
@@ -778,7 +773,6 @@
 				72A3BD9B254D7FD5003393C4 /* JoyConDemo.cpp in Sources */,
 				72A3BD722545379E003393C4 /* KeyMapping.cpp in Sources */,
 				726F87D22555E1EA003FAC77 /* LogETL.cpp in Sources */,
-				2C971A5B239732F900E66570 /* GameScene.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

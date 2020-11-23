@@ -14,8 +14,7 @@ enum class State {
     CharacterSelection,
     Battle,
     Result,
-    Game,
- 
+
     InputDemo,
 };
 
