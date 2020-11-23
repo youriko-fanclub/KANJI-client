@@ -48,7 +48,6 @@ void BattleManager::initialize(const std::shared_ptr<BattleDesc>& desc) {
 }
 
 void BattleManager::update() {
-    // debug  -----------------
     for (auto& player : m_player_mgr->players()) {
         const auto pid = player.first;
         if (dx::di::Input::get(pid).buttons().a().down()) {
@@ -58,11 +57,7 @@ void BattleManager::update() {
         if (dx::di::Input::get(pid).buttons().x().down()) {
             player.second->changeActiveCharacter();
         }
-        if (dx::di::Input::get(pid).buttons().b().down()) {
-            m_player_mgr->players().at(pid)->characters().at(1)->damage(5);
-        }
     }
-    // debug  -----------------
     m_world_mgr->update();
     m_move_mgr->update(Scene::DeltaTime());
     
