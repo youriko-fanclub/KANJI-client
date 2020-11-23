@@ -13,15 +13,25 @@ namespace battle {
 // static ----------------------------------------
 // public function -------------------------------
 void PhysicalWorldManager::initializeCharacters(const std::unordered_map<dx::di::PlayerId, std::shared_ptr<BattlePlayer>>& players) {
-    for (const auto& player : players) {
+    auto initial_positions = m_stage->initialCharaPositions(static_cast<int>(players.size()));
+    std::vector<int> random_indices(players.size());
+    { // 初期位置をランダムに
+        std::iota(random_indices.begin(), random_indices.end(), 0);
+        std::random_device seed;
+        std::mt19937 engine(seed());
+        std::shuffle(random_indices.begin(), random_indices.end(), engine);
+    }
+    for (int index = 0; const auto& player : players) {
         m_characters.insert(std::make_pair(player.first,
             std::make_shared<PhysicalCharacter>(
                 &m_world,
                 player.first,
+                initial_positions.at(random_indices.at(index)),
                 true,
                 player.second->activeCharacter(),
                 m_param)
             ));
+        ++index;
     }
 }
 

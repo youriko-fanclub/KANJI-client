@@ -33,6 +33,7 @@ public: // ctor/dtor
     PhysicalCharacter(
         s3d::P2World* world,
         dx::di::PlayerId pid,
+        const s3d::Vec2& initial_pos,
         bool is_right,
         const std::shared_ptr<chara::IParameterizedCharacter>& status,
         const std::shared_ptr<param::CharaPhysics>& param);
