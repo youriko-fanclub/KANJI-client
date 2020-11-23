@@ -79,7 +79,7 @@ void BattleUIManager::drawImpl() const {
     }
     m_camera.draw();
     
-    auto param = dx::cmp::HotReloadManager::createParams(U"Battle");
+    auto param = dx::cmp::HotReloadManager::createParamsWithLoad(U"Battle");
     static s3d::Font font = param->getFont(U"battle.ui.object.physical.chara.font");
     if (font.fontSize() != param->get<int>(U"battle.ui.object.physical.chara.font.size")) {
         font = param->getFont(U"battle.ui.object.physical.chara.font");
