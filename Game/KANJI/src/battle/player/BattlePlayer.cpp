@@ -29,6 +29,9 @@ void BattlePlayer::changeActiveCharacter() {
 
 void BattlePlayer::damage(const MomentaryMove& move) {
     activeCharacter()->damage(move.damage);
+    if (activeCharacter()->isBurnedOut()) {
+        changeActiveCharacter();
+    }
 }
     
 // private function ------------------------------

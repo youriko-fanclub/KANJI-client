@@ -55,6 +55,7 @@ public: // public function
         }
         else {
             m_params.hp = 0.f;
+            m_isBurnedOut = true;
         }
     }
 private: // field
