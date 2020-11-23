@@ -21,7 +21,34 @@ bool BattleManager::hasGameSet() const {
 }
 
 std::shared_ptr<BattleResultDesc> BattleManager::createResultDesc() const {
-    /* program here */
+    auto* ranking = m_result_desc->ranking(); // 順位低い順
+    if (m_player_mgr->alivePlayers().size() == 1) {
+        for (const auto& winner : m_player_mgr->alivePlayers()) {
+            ranking->push_back(winner.first);
+        }
+    }
+    else if (m_player_mgr->alivePlayers().size() > 1) {
+        std::vector<std::pair<BattlePlayer::Score, dx::di::PlayerId>> survivors;
+        for (const auto& survivor : m_player_mgr->alivePlayers()) {
+            survivors.emplace_back(survivor.second->scoreForRanked(), survivor.first);
+        }
+        std::sort(survivors.begin(), survivors.end(),
+            [](const std::pair<BattlePlayer::Score, dx::di::PlayerId>& a, const std::pair<BattlePlayer::Score, dx::di::PlayerId>& b) {
+            return a.first.left_hp_rate < b.first.left_hp_rate;
+        });
+        for (const auto& survivor : survivors) {
+            ranking->emplace_back(survivor.second);
+        }
+    }
+    // log -----
+    s3d::String log = U"";
+    int rank = 1;
+    for (auto it = ranking->rbegin();
+        it != ranking->rend(); ++rank, ++it) {
+        log += U"{}位.{}, "_fmt(rank, dx::denum::toString(*it));
+    }
+    dx::dbg::Log::info(U"Battle", log);
+    // ----------
     return m_result_desc;
 }
 
@@ -70,9 +97,14 @@ void BattleManager::update() {
                 continue;
             }
             if (move->currentHitBox().intersects(player.second->physical()->rect())) {
-                player.second->damage(move->currentMoment());
+                const auto& move_moment = move->currentMoment();
+                player.second->damage(move_moment);
+                auto& move_owner = m_player_mgr->players().at(move->owner());
+                // TOdO: オーバーキル分も与ダメとして計算しているが良いか
+                move_owner->addGaveDamage(move_moment.damage);
                 if (player.second->isLost()) {
                     lose(player.first);
+                    move_owner->addKOCount();
                     if (m_player_mgr->alivePlayers().size() <= 1) {
                         m_has_gameset = true;
                     }

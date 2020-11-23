@@ -14,6 +14,14 @@ class MomentaryMove;
 class BattlePlayer {
 public: // static_const/enum
     using Radical = s3d::String;
+    struct Score {
+    public:
+        int ko_count = 0;
+        int dead_count = 0;
+        int gave_damage = 0; // 与ダメ
+        int given_damage = 0; // 被ダメ
+        float left_hp_rate = 0.f;
+    };
 public: // static
 public: // public function
     dx::di::PlayerId pid() const { return m_pid; }
@@ -34,9 +42,12 @@ public: // public function
         m_physical = physical;
     }
     
+    void addGaveDamage(int amount) { m_score.gave_damage += amount; }
     void damage(const MomentaryMove& move);
     bool isLost() const { return m_is_lost; }
-    
+    const Score& scoreForRanked();
+    void addKOCount() { ++m_score.ko_count; }
+
 private: // field
     dx::di::PlayerId m_pid;
     int m_activeIndex;
@@ -44,6 +55,7 @@ private: // field
     Radical m_radical;
     std::shared_ptr<PhysicalCharacter> m_physical;
     bool m_is_lost;
+    Score m_score;
 private: // private function
     void lose();
 public: // ctor/dtor

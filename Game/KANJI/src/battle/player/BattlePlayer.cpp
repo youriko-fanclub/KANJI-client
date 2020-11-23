@@ -29,11 +29,22 @@ bool BattlePlayer::changeActiveCharacter() {
 
 void BattlePlayer::damage(const MomentaryMove& move) {
     activeCharacter()->damage(move.damage);
+    m_score.given_damage = move.damage;
     if (activeCharacter()->isBurnedOut()) {
+        ++m_score.dead_count;
         if (!changeActiveCharacter()) {
             lose();
         }
     }
+}
+
+const BattlePlayer::Score& BattlePlayer::scoreForRanked() {
+    m_score.left_hp_rate = 0.f;
+    if (m_is_lost) { return m_score; }
+    for (const auto& chara : m_characters) {
+        m_score.left_hp_rate += chara->hpRate();
+    }
+    return m_score;
 }
     
 // private function ------------------------------
