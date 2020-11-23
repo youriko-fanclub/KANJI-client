@@ -37,6 +37,10 @@ void BattleDesc::setPlayerDesc(dx::di::PlayerId id, const std::shared_ptr<Battle
     }
 }
 
+bool BattleDesc::readyToBattle() const {
+    return !m_players.empty(); // TOdO:
+}
+
 void BattleDesc::dump() const {
     for (auto pid : dx::denum::elems<dx::di::PlayerId>()) {
         // std::cout

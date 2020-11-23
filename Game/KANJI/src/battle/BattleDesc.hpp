@@ -37,11 +37,12 @@ public: // public function
     void setTimeLimitSec(int value) { m_timeLimit_sec = value; }
     StageId stageId() const { return m_stage_id; }
     void setStageId(StageId value) { m_stage_id = value; }
+    bool readyToBattle() const;
     void dump() const;
 private: // field
     std::unordered_map<dx::di::PlayerId, std::shared_ptr<BattlePlayerDesc>> m_players;
     int m_timeLimit_sec;
-    int m_stage_id;
+    StageId m_stage_id;
 private: // private function
 public: // ctor/dtor
 };

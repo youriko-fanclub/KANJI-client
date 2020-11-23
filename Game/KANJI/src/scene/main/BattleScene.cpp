@@ -11,7 +11,7 @@
 
 namespace {
 
-std::shared_ptr<kanji::battle::BattleDesc> createBattleDescForDebug(std::shared_ptr<kanji::battle::BattleDesc>& battle_desc) {
+std::shared_ptr<kanji::battle::BattleDesc> createBattleDescForDebug(const std::shared_ptr<kanji::battle::BattleDesc>& battle_desc) {
     {
         auto player_desc = std::make_shared<kanji::battle::BattlePlayerDesc>();
         player_desc->characters().push_back(
