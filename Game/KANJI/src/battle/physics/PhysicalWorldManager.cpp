@@ -39,17 +39,6 @@ void PhysicalWorldManager::update() {
     m_bodies.remove_if([](const P2Body& body) { return body.getPos().y > 10; });
 }
 
-void PhysicalWorldManager::drawLegacy() const {
-    m_stage->drawLegacy();
-    for (const auto& chara : m_characters) {
-        chara.second->drawLegacy();
-    }
-
-    // 物体を描画
-    // for (const auto& body : m_bodies) {
-    //     body.draw(HSV(body.id() * 10, 0.7, 0.9));
-    // }
-}
 // private function ------------------------------
 // ctor/dtor -------------------------------------
 PhysicalWorldManager::PhysicalWorldManager() :

@@ -16,10 +16,12 @@ public: // static
 public: // public function
     void initializeCharacters(const std::unordered_map<dx::di::PlayerId, std::shared_ptr<BattlePlayer>>& players);
     void update();
-    void drawLegacy() const; // 近いうちに消す
-    
+
     const std::unordered_map<dx::di::PlayerId, std::shared_ptr<PhysicalCharacter>>& characters() const {
         return m_characters;
+    }
+    const std::shared_ptr<PhysicalStage>& stage() const {
+        return m_stage;
     }
 private: // field
     std::shared_ptr<param::CharaPhysics> m_param;

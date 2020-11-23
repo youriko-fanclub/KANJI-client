@@ -51,7 +51,7 @@ PhysicalCharacter::PhysicalCharacter(
     const std::shared_ptr<chara::IParameterizedCharacter>& status,
     const std::shared_ptr<param::CharaPhysics>& param) :
 m_pid(pid),
-m_body(world->createRect(Vec2(0, -5), SizeF(2, 3), P2Material(1.0, 0.0, param->chara_friction))),
+m_body(world->createRect(Vec2(0, -5), SizeF(3, 3), P2Material(1.0, 0.0, param->chara_friction))),
 m_is_right(is_right),
 m_status(status),
 m_param(param) {

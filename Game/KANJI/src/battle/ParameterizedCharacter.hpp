@@ -25,6 +25,7 @@ public:
 class IParameterizedCharacter {
 public:
     virtual const Kanji& kanji() const = 0;
+    virtual bool isBurnedOut() const = 0;
     virtual const CharaParameters& params() const = 0;
     virtual const CharaParameters& initialParams() const = 0;
     virtual float hpRate() const = 0;
@@ -40,6 +41,7 @@ public: // static_const/enum
 public: // static
 public: // public function
     const Kanji& kanji() const override { return m_kanji; }
+    bool isBurnedOut() const override { return m_isBurnedOut; }
     const CharaParameters& params() const override { return m_params; }
     const CharaParameters& initialParams() const override { return m_initialParams; }
     float hpRate() const override {
@@ -48,11 +50,17 @@ public: // public function
 
     void damage(int amount) override {
         if (amount <= 0) { return; }
-        m_params.hp = std::max(m_params.hp - amount, 0);
+        if (m_params.hp > amount) {
+            m_params.hp -= amount;
+        }
+        else {
+            m_params.hp = 0.f;
+        }
     }
 private: // field
 private: // private function
     Kanji m_kanji;
+    bool m_isBurnedOut;
     const CharaParameters m_initialParams;
     CharaParameters m_params;
 public: // ctor/dtor

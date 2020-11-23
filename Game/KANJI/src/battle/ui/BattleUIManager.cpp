@@ -2,9 +2,14 @@
 #include "BattleManager.hpp"
 #include "BattlePlayerManager.hpp"
 #include "BattlePlayer.hpp"
+#include "PhysicalStage.hpp"
 #include "PhysicalWorldManager.hpp"
 #include "PhysicalMove.hpp"
+#include "ParameterizedCharacter.hpp"
 #include "HolderUI.hpp"
+#include "Log.hpp"
+#include "AssetManager.hpp"
+#include "HotReloadManager.hpp"
 
 namespace kanji {
 namespace ui {
@@ -36,7 +41,14 @@ m_move_mgr(move_mgr) {}
 void PhysicalWorldUIManager::update() {}
 // protected function ------------------------------
 void PhysicalWorldUIManager::drawImpl() const {
-    m_world_mgr->drawLegacy();
+    m_world_mgr->stage()->drawLegacy();
+    for (const auto& chara : m_world_mgr->characters()) {
+        const auto& color = dx::di::Id::ToColor(chara.first);
+        chara.second->rect()
+            .drawFrame(0.2f, 0.2f, s3d::Palette::Black)
+            .drawFrame(0.1f, 0.1f, color)
+            .draw(s3d::ColorF(1.f, 1.f, 1.f, 0.5f));
+    }
 }
 // private function ------------------------------
 // ctor/dtor -------------------------------------
@@ -66,6 +78,18 @@ void BattleUIManager::drawImpl() const {
         m_moves->draw();
     }
     m_camera.draw();
+    
+    static auto param = dx::cmp::HotReloadManager::createParamsWithLoad(U"Battle");
+    static s3d::Font font = param->getFont(U"battle.ui.object.physical.chara.font");
+    if (font.fontSize() != param->get<int>(U"battle.ui.object.physical.chara.font.size")) {
+        font = param->getFont(U"battle.ui.object.physical.chara.font");
+    }
+    for (const auto& chara : m_battle_manager->worldMgr()->characters()) {
+        const auto& kanji = chara.second->status()->kanji().kanji;
+        const auto& pos = m_camera.getMat3x2().transform(chara.second->position());
+        const auto& color = dx::di::Id::ToColorDark(chara.first);
+        font(kanji).draw(s3d::Arg::center(pos), color);
+    }
 }
 
 // private function ------------------------------
