@@ -17,17 +17,22 @@ public: // static_const/enum
 public: // static
 public: // public function
     dx::di::PlayerId pid() const { return m_pid; }
+    
     std::shared_ptr<chara::IParameterizedCharacter> activeCharacter();
     const std::vector<std::shared_ptr<chara::IParameterizedCharacter>>& characters() const {
         return m_characters;
     }
+    void changeActiveCharacter();
+
     bool hasRadical() const { return m_radical != U""; }
     const Radical& radical() const { return m_radical; }
     void setRadical(const Radical& value) { m_radical = value; }
+    
     const std::shared_ptr<PhysicalCharacter>& physical() { return m_physical; }
     void initializePhysical(const std::shared_ptr<PhysicalCharacter>& physical) {
         m_physical = physical;
     }
+    
     void damage(const MomentaryMove& move);
     
 private: // field

@@ -5,17 +5,15 @@
 #include "CharaPhysicsParameters.hpp"
 
 namespace kanji {
-namespace chara {
-class IParameterizedCharacter;
-}
 namespace battle {
+class BattlePlayer;
 
 class PhysicalCharacter {
 public: // static_const/enum
 public: // static
 public: // public function
     bool isRight() const { return m_is_right; }
-    const std::shared_ptr<chara::IParameterizedCharacter>& status() const {
+    const std::shared_ptr<battle::BattlePlayer>& status() const {
         return m_status;
     }
     s3d::Vec2 position() const { return m_body.getPos(); }
@@ -26,7 +24,7 @@ private: // field
     dx::di::PlayerId m_pid;
     P2Body m_body;
     bool m_is_right; // 右向きか否か
-    const std::shared_ptr<chara::IParameterizedCharacter> m_status;
+    const std::shared_ptr<battle::BattlePlayer> m_status;
     std::shared_ptr<param::CharaPhysics> m_param;
 private: // private function
 public: // ctor/dtor
@@ -35,7 +33,7 @@ public: // ctor/dtor
         dx::di::PlayerId pid,
         const s3d::Vec2& initial_pos,
         bool is_right,
-        const std::shared_ptr<chara::IParameterizedCharacter>& status,
+        const std::shared_ptr<battle::BattlePlayer>& player,
         const std::shared_ptr<param::CharaPhysics>& param);
 };
 

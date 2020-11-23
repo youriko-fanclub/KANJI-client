@@ -28,7 +28,7 @@ void PhysicalWorldManager::initializeCharacters(const std::unordered_map<dx::di:
                 player.first,
                 initial_positions.at(random_indices.at(index)),
                 true,
-                player.second->activeCharacter(),
+                player.second,
                 m_param)
             ));
         ++index;

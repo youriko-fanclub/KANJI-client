@@ -18,6 +18,15 @@ std::shared_ptr<chara::IParameterizedCharacter> BattlePlayer::activeCharacter() 
     else { return nullptr; }
 }
 
+void BattlePlayer::changeActiveCharacter() {
+    const int source_index = m_activeIndex;
+    while (true) {
+        m_activeIndex = (m_activeIndex + 1) % m_characters.size();
+        if (m_activeIndex == source_index) { return; }
+        if (!m_characters.at(m_activeIndex)->isBurnedOut()) { return; }
+    }
+}
+
 void BattlePlayer::damage(const MomentaryMove& move) {
     activeCharacter()->damage(move.damage);
 }
