@@ -53,7 +53,7 @@ private: // field
     float m_timer;
     dx::di::PlayerId m_owner;
     bool m_is_right;
-    std::shared_ptr<PhysicalCharacter> m_ownerChara;
+    std::shared_ptr<PhysicalCharacter> m_owner_chara;
     const std::shared_ptr<Move>& m_md;
 private: // private function
 public: // ctor/dtor

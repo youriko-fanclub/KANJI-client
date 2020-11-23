@@ -37,9 +37,9 @@ void PhysicalWorldManager::initializeCharacters(const std::unordered_map<dx::di:
 
 void PhysicalWorldManager::update() {
     // 物理演算の精度
-    static constexpr int32 velocityIterations = 12;
-    static constexpr int32 positionIterations = 4;
-    m_world.update(Scene::DeltaTime(), velocityIterations, positionIterations);
+    static constexpr int32 velocity_iterations = 12;
+    static constexpr int32 position_iterations = 4;
+    m_world.update(Scene::DeltaTime(), velocity_iterations, position_iterations);
     for (auto& chara : m_characters) {
         chara.second->update();
     }

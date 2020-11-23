@@ -50,7 +50,7 @@ public: // public function
 
 private: // field
     dx::di::PlayerId m_pid;
-    int m_activeIndex;
+    int m_active_index;
     std::vector<std::shared_ptr<chara::IParameterizedCharacter>> m_characters;
     Radical m_radical;
     std::shared_ptr<PhysicalCharacter> m_physical;

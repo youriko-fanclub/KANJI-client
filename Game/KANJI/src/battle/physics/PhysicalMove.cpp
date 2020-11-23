@@ -69,10 +69,10 @@ s3d::RectF Trajectory::momentaryHitbox(float time, bool is_right, const s3d::Vec
 // static ----------------------------------------
 // public function -------------------------------
 MomentaryMove PhysicalMove::currentMoment() const {
-    return m_md->trajectory->momentary(m_timer, m_is_right, m_ownerChara->position());
+    return m_md->trajectory->momentary(m_timer, m_is_right, m_owner_chara->position());
 }
 s3d::RectF PhysicalMove::currentHitBox() const {
-    return m_md->trajectory->momentaryHitbox(m_timer, m_is_right, m_ownerChara->position());
+    return m_md->trajectory->momentaryHitbox(m_timer, m_is_right, m_owner_chara->position());
 }
 
 bool PhysicalMove::update(float dt) {
@@ -81,11 +81,11 @@ bool PhysicalMove::update(float dt) {
 }
 // private function ------------------------------
 // ctor/dtor -------------------------------------
-PhysicalMove::PhysicalMove(dx::di::PlayerId owner, const std::shared_ptr<battle::PhysicalCharacter>& ownerChara, md::MoveId moveId) :
+PhysicalMove::PhysicalMove(dx::di::PlayerId owner, const std::shared_ptr<battle::PhysicalCharacter>& owner_chara, md::MoveId moveId) :
     m_timer(0),
     m_owner(owner),
-    m_is_right(ownerChara->isRight()),
-    m_ownerChara(ownerChara),
+    m_is_right(owner_chara->isRight()),
+    m_owner_chara(owner_chara),
     m_md(md::MasterRepository::instance()->get(moveId)) {}
 
 
