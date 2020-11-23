@@ -48,6 +48,11 @@ void PhysicalWorldUIManager::drawImpl() const {
             .drawFrame(0.2f, 0.2f, s3d::Palette::Black)
             .drawFrame(0.1f, 0.1f, color)
             .draw(s3d::ColorF(1.f, 1.f, 1.f, 0.5f));
+        s3d::Shape2D::Arrow(
+            chara.second->position() + s3d::Vec2((chara.second->isRight() ? 1 : -1) * 2.00, 0),
+            chara.second->position() + s3d::Vec2((chara.second->isRight() ? 1 : -1) * 3.75, 0),
+            1.2,
+            s3d::Vec2::One()).draw(color);
     }
 }
 // private function ------------------------------
