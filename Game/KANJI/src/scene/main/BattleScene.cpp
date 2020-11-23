@@ -93,7 +93,7 @@ void BattleScene::update() {
     // ほんとは試合終了後遷移前に演出入れる
     if (m_mgr->hasGameSet()) {
         getData().setBattleResultDesc(m_mgr->createResultDesc());
-        changeScene(State::Title); // Result
+        changeScene(State::Result);
         return;
     }
     m_mgr->update();

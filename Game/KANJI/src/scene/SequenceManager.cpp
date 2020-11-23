@@ -14,22 +14,11 @@ namespace seq {
 // public function -------------------------------
 void SequenceManager::initialize() {
     // シーンと遷移時の色を設定
-    //m_manager
+    m_manager
     //  .add<SplashScene>(State::Splash)
-    //  .add<TitleScene>(State::Title)
-    //  .setFadeColor(s3d::ColorF(1.0));
-    m_manager
         .add<TitleScene>(State::Title)
         .add<BattleScene>(State::Battle)
-        .setFadeColor(s3d::ColorF(1.0));
-    
-    m_manager
-        .add<BattleScene>(State::Battle)
-        .add<GameScene>(State::Game)
-        .setFadeColor(s3d::ColorF(1.0));
-    
-    m_manager
-        .add<TitleScene>(State::Title)
+        .add<ResultScene>(State::Result)
         .add<dx::di::InputDemoScene>(State::InputDemo)
         .setFadeColor(s3d::ColorF(1.0));
     

@@ -13,6 +13,7 @@ enum class State {
     Title,
     CharacterSelection,
     Battle,
+    Result,
     Game,
  
     InputDemo,
