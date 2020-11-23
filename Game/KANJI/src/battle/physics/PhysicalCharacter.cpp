@@ -34,8 +34,9 @@ void PhysicalCharacter::update() {
     }
     m_body.setVelocity(velocity);
     
-    if (m_is_right && velocity.x < 0) { m_is_right = false; }
-    else if (!m_is_right && velocity.x > 0) { m_is_right = true; }
+    constexpr float threshold = 0.1f;
+    if (m_is_right && velocity.x < -threshold) { m_is_right = false; }
+    else if (!m_is_right && velocity.x > threshold) { m_is_right = true; }
 }
 
 void PhysicalCharacter::drawLegacy() const {
