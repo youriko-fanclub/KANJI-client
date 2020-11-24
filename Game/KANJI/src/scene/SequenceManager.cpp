@@ -17,6 +17,8 @@ void SequenceManager::initialize() {
     m_manager
     //  .add<SplashScene>(State::Splash)
         .add<TitleScene>(State::Title)
+        .add<CharacterSelectionScene>(State::CharacterSelection)
+        .add<StageSelectionScene>(State::StageSelection)
         .add<BattleScene>(State::Battle)
         .add<ResultScene>(State::Result)
         .add<dx::di::InputDemoScene>(State::InputDemo)

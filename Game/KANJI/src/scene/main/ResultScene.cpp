@@ -39,10 +39,12 @@ m_title(
     DrawableText(FontAsset(U"Menu"), U"タイトルに戻る"),
     Transition(0.4s, 0.2s)),
 m_battle_result_desc(getData().battleResultDesc()) {
-    // TOdO: キャラ選実装待ち
-    // m_chara_select.setCallback([this](){ changeScene(State::CharacterSelection); });
-    m_chara_select.setCallback([this](){ changeScene(State::Title); });
+    m_chara_select.setCallback([this](){ changeScene(State::CharacterSelection); });
     m_title.setCallback([this](){ changeScene(State::Title); });
+}
+
+ResultScene::~ResultScene() {
+    getData().clearBattleData();
 }
 
 

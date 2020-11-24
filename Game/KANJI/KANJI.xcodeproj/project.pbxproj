@@ -64,6 +64,7 @@
 		7285A03C253B2EB000EB0AAD /* Button.hpp in Resources */ = {isa = PBXBuildFile; fileRef = 7285A028253B2EB000EB0AAD /* Button.hpp */; };
 		7285A03D253B2EB000EB0AAD /* PlayerInput.hpp in Resources */ = {isa = PBXBuildFile; fileRef = 7285A029253B2EB000EB0AAD /* PlayerInput.hpp */; };
 		729EEFA0256C116F002A3696 /* ResultScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 729EEF9E256C116F002A3696 /* ResultScene.cpp */; };
+		729EEFA5256C29DD002A3696 /* StageSelectionScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 729EEFA3256C29DD002A3696 /* StageSelectionScene.cpp */; };
 		72A3BD59254427A9003393C4 /* Misc.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 72A3BD57254427A9003393C4 /* Misc.cpp */; };
 		72A3BD5E25443711003393C4 /* InputDemoScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 72A3BD5C25443711003393C4 /* InputDemoScene.cpp */; };
 		72A3BD6825452A7B003393C4 /* KeyCode.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 72A3BD6625452A7B003393C4 /* KeyCode.cpp */; };
@@ -177,6 +178,8 @@
 		7285A047253B41A800EB0AAD /* PlayerId.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = PlayerId.hpp; sourceTree = "<group>"; };
 		729EEF9E256C116F002A3696 /* ResultScene.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = ResultScene.cpp; sourceTree = "<group>"; };
 		729EEF9F256C116F002A3696 /* ResultScene.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = ResultScene.hpp; sourceTree = "<group>"; };
+		729EEFA3256C29DD002A3696 /* StageSelectionScene.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = StageSelectionScene.cpp; sourceTree = "<group>"; };
+		729EEFA4256C29DD002A3696 /* StageSelectionScene.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = StageSelectionScene.hpp; sourceTree = "<group>"; };
 		72A3BD54254422F0003393C4 /* DPad.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = DPad.hpp; sourceTree = "<group>"; };
 		72A3BD552544233C003393C4 /* Axis.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Axis.hpp; sourceTree = "<group>"; };
 		72A3BD57254427A9003393C4 /* Misc.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Misc.cpp; sourceTree = "<group>"; };
@@ -463,6 +466,8 @@
 				2C971A56239732F900E66570 /* TitleScene.hpp */,
 				729EEF9E256C116F002A3696 /* ResultScene.cpp */,
 				729EEF9F256C116F002A3696 /* ResultScene.hpp */,
+				729EEFA3256C29DD002A3696 /* StageSelectionScene.cpp */,
+				729EEFA4256C29DD002A3696 /* StageSelectionScene.hpp */,
 			);
 			path = main;
 			sourceTree = "<group>";
@@ -764,6 +769,7 @@
 				72DB899A2568F13D00BF7CC5 /* PhysicalWorldManager.cpp in Sources */,
 				72DB89A1256916B200BF7CC5 /* PhysicalStage.cpp in Sources */,
 				72859F6D25388CA100EB0AAD /* UIComponent.cpp in Sources */,
+				729EEFA5256C29DD002A3696 /* StageSelectionScene.cpp in Sources */,
 				72A3BDE0255137EB003393C4 /* SceneState.cpp in Sources */,
 				72A3BD59254427A9003393C4 /* Misc.cpp in Sources */,
 				7265F0702531DC1D00C15F67 /* ApplicationManager.cpp in Sources */,

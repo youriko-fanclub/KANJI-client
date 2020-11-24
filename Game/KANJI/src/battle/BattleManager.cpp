@@ -34,6 +34,10 @@ std::shared_ptr<BattleResultDesc> BattleManager::createResultDesc() const {
         }
         std::sort(survivors.begin(), survivors.end(),
             [](const std::pair<BattlePlayer::Score, dx::di::PlayerId>& a, const std::pair<BattlePlayer::Score, dx::di::PlayerId>& b) {
+            // TOdO: 勝敗決定 (要仕様確認)
+            // 全滅→全滅したのが早いほど下位
+            // 生存→残りHPの割合が多いほど上位
+            // 同率→要実装 (ひとまずPlayerId降順になってるはず)
             return a.first.left_hp_rate < b.first.left_hp_rate;
         });
         for (const auto& survivor : survivors) {

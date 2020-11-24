@@ -15,8 +15,8 @@ public: // public function
     void update() override;
     void draw() const override;
 private: // field
-    std::pair<s3d::DrawableText, s3d::DrawableText> m_title;
     dui::Button m_next;
+    dui::Button m_back;
 private: // private function
 public: // ctor/dtor
     CharacterSelectionScene(const InitData& init);
