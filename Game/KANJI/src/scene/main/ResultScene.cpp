@@ -43,6 +43,10 @@ m_battle_result_desc(getData().battleResultDesc()) {
     m_title.setCallback([this](){ changeScene(State::Title); });
 }
 
+ResultScene::~ResultScene() {
+    getData().clearBattleData();
+}
+
 
 }
 }

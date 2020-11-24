@@ -20,6 +20,7 @@ private: // field
 private: // private function
 public: // ctor/dtor
     ResultScene(const InitData& init);
+    ~ResultScene();
 };
     
     

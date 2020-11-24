@@ -19,7 +19,10 @@ public: // public function
     void setBattleDesc(const std::shared_ptr<battle::BattleDesc>& value);
     void setBattleResultDesc(const std::shared_ptr<battle::BattleResultDesc>& value);
     bool readyToBattle() const;
-    void clearBattleData() { m_battle_desc.reset(); }
+    void clearBattleData() {
+        m_battle_desc.reset();
+        m_battle_result_desc.reset();
+    }
 private: // field
     std::shared_ptr<battle::BattleDesc> m_battle_desc = nullptr;
     std::shared_ptr<battle::BattleResultDesc> m_battle_result_desc = nullptr;
