@@ -35,11 +35,11 @@ void TitleScene::draw() const {
 TitleScene::TitleScene(const InitData& init) :
 IScene(init),
 m_start(
-    Rect(Arg::center = Scene::Center().movedBy(65, 170), 300, 60),
+    Rect(Arg::center = Scene::Center().movedBy(-165, 170), 300, 60),
     DrawableText(FontAsset(U"Menu"), U"はじめる"),
     Transition(0.4s, 0.2s)),
 m_exit(
-    Rect(Arg::center = Scene::Center().movedBy(65, 250), 300, 60),
+    Rect(Arg::center = Scene::Center().movedBy(-165, 250), 300, 60),
     DrawableText(FontAsset(U"Menu"), U"おわる"),
     Transition(0.4s, 0.2s)),
 m_battle4debug(

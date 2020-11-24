@@ -15,6 +15,7 @@ void StageSelectionScene::update() {
 }
 
 void StageSelectionScene::draw() const {
+    s3d::FontAsset(U"Title")(U"StageSelection").draw(0, 0);
     m_battle_start.draw();
     m_back.draw();
 }

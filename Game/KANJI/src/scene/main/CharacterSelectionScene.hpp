@@ -16,6 +16,7 @@ public: // public function
     void draw() const override;
 private: // field
     dui::Button m_next;
+    dui::Button m_back;
 private: // private function
 public: // ctor/dtor
     CharacterSelectionScene(const InitData& init);
