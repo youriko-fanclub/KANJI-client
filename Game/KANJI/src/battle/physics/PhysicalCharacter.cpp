@@ -12,27 +12,30 @@ namespace battle {
 
 // static ----------------------------------------
 // public function -------------------------------
+void PhysicalCharacter::shoot(const s3d::Circular& force) {
+    // TOdO: 要検討: 力の与え方
+    m_body.applyLinearImpulse(force.toVec2());
+    // m_body.setVelocity(force.toVec2());
+    // m_body.applyForce(force.toVec2());
+}
+
 void PhysicalCharacter::update() {
     const auto& input = dx::di::Input::get(m_pid);
-    s3d::Vec2 velocity(
+    s3d::Vec2 force(
         m_param->force_horizontal * input.arrowL().x,
         input.dpad().up().down() || input.buttons().b().down() ? -m_param->force_jump : 0.0);
-    // m_body.applyForce(force);
-    const auto& v = m_body.getVelocity();
-    if (dx::misc::approximatelyZero(velocity)) {
-        velocity.x = v.x * m_param->air_resistance;
-        velocity.y = v.y;
+    m_body.applyLinearImpulse(force); // 入力による速度変化
+    
+    auto velocity = m_body.getVelocity();
+    constexpr float vx_max = 15;
+    if (velocity.x > vx_max) {
+        m_body.setVelocity(s3d::Vec2(vx_max, velocity.y));
     }
-    else {
-        if (dx::misc::approximatelyZero(velocity.x)) {
-            velocity.x = v.x;
-        }
-        if (dx::misc::approximatelyZero(velocity.y)) {
-            velocity.y = v.y;
-        }
-        velocity.x *= m_param->air_resistance;
+    if (velocity.x < -vx_max) {
+        m_body.setVelocity(s3d::Vec2(-vx_max, velocity.y));
     }
-    m_body.setVelocity(velocity);
+    m_body.applyForce(-m_param->air_resistance * velocity); // 空気抵抗
+    m_body.applyForce(s3d::Vec2(0, 9.80665)); // 重力
     
     constexpr float threshold = 0.1f;
     if (m_is_right && velocity.x < -threshold) { m_is_right = false; }

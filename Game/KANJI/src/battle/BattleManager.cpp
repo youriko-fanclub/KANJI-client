@@ -102,7 +102,7 @@ void BattleManager::update() {
             }
             if (move->currentHitBox().intersects(player.second->physical()->rect())) {
                 const auto& move_moment = move->currentMoment();
-                player.second->damage(move_moment);
+                player.second->attack(move_moment, move->isToRight());
                 auto& move_owner = m_player_mgr->players().at(move->owner());
                 // TOdO: オーバーキル分も与ダメとして計算しているが良いか
                 move_owner->addGaveDamage(move_moment.damage);

@@ -1,5 +1,6 @@
 #pragma once
 #include <Siv3D/String.hpp>
+#include <Siv3D/Circular.hpp>
 
 namespace kanji {
 namespace chara {
@@ -48,16 +49,7 @@ public: // public function
         return static_cast<float>(m_params.hp) / static_cast<float>(m_initialParams.hp);
     }
 
-    void damage(int amount) override {
-        if (amount <= 0) { return; }
-        if (m_params.hp > amount) {
-            m_params.hp -= amount;
-        }
-        else {
-            m_params.hp = 0.f;
-            m_isBurnedOut = true;
-        }
-    }
+    void damage(int amount) override;
 private: // field
 private: // private function
     Kanji m_kanji;

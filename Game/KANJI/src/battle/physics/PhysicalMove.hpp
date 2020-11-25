@@ -46,13 +46,14 @@ public: // public function
     dx::di::PlayerId owner() const { return m_owner; }
     MomentaryMove currentMoment() const;
     s3d::RectF currentHitBox() const;
+    bool isToRight() const { return m_is_to_right; }
     
     // 終了したらtrueを返す
     bool update(float dt);
 private: // field
     float m_timer;
     dx::di::PlayerId m_owner;
-    bool m_is_right;
+    bool m_is_to_right;
     std::shared_ptr<PhysicalCharacter> m_owner_chara;
     const std::shared_ptr<Move>& m_md;
 private: // private function

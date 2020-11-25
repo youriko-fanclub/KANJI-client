@@ -27,8 +27,15 @@ bool BattlePlayer::changeActiveCharacter() {
     }
 }
 
-void BattlePlayer::damage(const MomentaryMove& move) {
+void BattlePlayer::attack(const MomentaryMove& move, bool is_from_left) {
     activeCharacter()->damage(move.damage);
+    if (is_from_left) { // 左側から被弾したならそのまま
+        m_physical->shoot(move.shoot_force);
+    }
+    else { // 右側からならy軸対称
+        // y軸の正の方向が0[rad]
+        m_physical->shoot(s3d::Circular(move.shoot_force.r, -move.shoot_force.theta));
+    }
     m_score.given_damage = move.damage;
     if (activeCharacter()->isBurnedOut()) {
         ++m_score.dead_count;

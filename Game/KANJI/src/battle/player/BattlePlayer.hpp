@@ -43,7 +43,7 @@ public: // public function
     }
     
     void addGaveDamage(int amount) { m_score.gave_damage += amount; }
-    void damage(const MomentaryMove& move);
+    void attack(const MomentaryMove& move, bool is_from_left);
     bool isLost() const { return m_is_lost; }
     const Score& scoreForRanked();
     void addKOCount() { ++m_score.ko_count; }

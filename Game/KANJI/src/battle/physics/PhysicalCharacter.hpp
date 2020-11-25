@@ -18,6 +18,9 @@ public: // public function
     }
     s3d::Vec2 position() const { return m_body.getPos(); }
     s3d::Quad rect() const { return m_body.as<s3d::P2Rect>(0)->getQuad(); }
+    
+    void shoot(const s3d::Circular& force);
+    
     void update();
     void drawLegacy() const; // 近いうちに消す
 private: // field
