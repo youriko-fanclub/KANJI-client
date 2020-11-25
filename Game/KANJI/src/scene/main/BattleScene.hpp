@@ -19,9 +19,7 @@ public: // static
 public: // public function
     void initialize();
     void update() override;
-    void updateLegacy(); // 近いうちに消す
     void draw() const override;
-    void drawLegacy() const; // 近いうちに消す
 private: // field
     std::shared_ptr<battle::IBattleManager> m_mgr;
     std::shared_ptr<ui::BattleUIManager> m_ui;

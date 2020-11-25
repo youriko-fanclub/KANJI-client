@@ -14,7 +14,7 @@ void ParameterizedCharacter::damage(int amount) {
     }
     else {
         m_params.hp = 0.f;
-        m_isBurnedOut = true;
+        m_is_burned_out = true;
     }
 }
 

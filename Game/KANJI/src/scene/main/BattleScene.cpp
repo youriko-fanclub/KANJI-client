@@ -96,15 +96,11 @@ void BattleScene::update() {
         return;
     }
     m_mgr->update();
-    updateLegacy();
     m_ui->update();
 }
-void BattleScene::updateLegacy() {}
 void BattleScene::draw() const {
     m_ui->draw();
-    drawLegacy();
 }
-void BattleScene::drawLegacy() const {}
 
 // private function ------------------------------
 // ctor/dtor -------------------------------------

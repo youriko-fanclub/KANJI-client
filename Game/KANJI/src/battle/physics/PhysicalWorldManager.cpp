@@ -43,10 +43,6 @@ void PhysicalWorldManager::update() {
     for (auto& chara : m_characters) {
         chara.second->update();
     }
-    // クリックした場所にボールを作成
-    // m_bodies << m_world.createCircle(Cursor::PosF(), 0.5);
-    // (y > 10) まで落下した P2Body は削除
-    m_bodies.remove_if([](const P2Body& body) { return body.getPos().y > 10; });
 }
 
 void PhysicalWorldManager::lose(dx::di::PlayerId pid) {
