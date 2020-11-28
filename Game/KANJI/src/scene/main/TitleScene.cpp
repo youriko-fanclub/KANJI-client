@@ -51,6 +51,8 @@ m_battle4debug(
     m_battle4debug.setCallback([this](){ changeScene(State::Battle); });
     m_exit.setCallback([](){ System::Exit(); });
     getData().clearBattleData();
+    
+    s3d::AudioAsset(U"BGM::Title").play();
 }
 
 
