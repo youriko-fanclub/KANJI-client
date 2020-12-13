@@ -6,7 +6,8 @@
 // #include "SplashScene.hpp"
 #include "TitleScene.hpp"
 #include "CharacterSelectionScene.hpp"
+#include "StageSelectionScene.hpp"
 #include "BattleScene.hpp"
-#include "GameScene.hpp" // テスト用ブロックくずし
+#include "ResultScene.hpp"
 
 #include "InputDemoScene.hpp"

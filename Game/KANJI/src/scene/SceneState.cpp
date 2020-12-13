@@ -38,7 +38,7 @@ std::optional<State> fromString(const s3d::String& str) {
         { U"Title"             , State::Title              },
         { U"CharacterSelection", State::CharacterSelection },
         { U"Battle"            , State::Battle             },
-        { U"Game"              , State::Game               },
+        { U"Result"            , State::Result             },
         { U"InputDemo"         , State::InputDemo          },
     };
     if (map.contains(str)) {

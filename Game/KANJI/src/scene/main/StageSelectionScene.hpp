@@ -7,24 +7,23 @@ namespace kanji {
 namespace seq {
 
 
-// タイトルシーン
-class TitleScene : public KanjiScene {
+class StageSelectionScene : public KanjiScene {
 public: // static_const/enum
 public: // static
 public: // public function
     void update() override;
     void draw() const override;
 private: // field
-    std::pair<s3d::DrawableText, s3d::DrawableText> m_title;
-    dui::Button m_start;
-    dui::Button m_exit;
-    dui::Button m_battle4debug;
+    dui::Button m_battle_start;
+    dui::Button m_back;
 private: // private function
+    void selectStage() const;
 public: // ctor/dtor
-    TitleScene(const InitData& init);
-
+    StageSelectionScene(const InitData& init);
 };
-
-
+    
+    
 }
 }
+
+

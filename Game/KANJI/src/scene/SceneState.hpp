@@ -12,9 +12,10 @@ enum class State {
     Splash,
     Title,
     CharacterSelection,
+    StageSelection,
     Battle,
-    Game,
- 
+    Result,
+
     InputDemo,
 };
 

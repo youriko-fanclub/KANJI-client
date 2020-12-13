@@ -24,27 +24,39 @@ private: // field
 
 class BattleDesc {
 public: // static_const/enum
+    using StageId = int;
 public: // static
 public: // public function
     const std::shared_ptr<BattlePlayerDesc>& playerDesc(dx::di::PlayerId id) { return m_players.at(id); }
-    const std::shared_ptr<BattlePlayerDesc>& playerDesc(dx::di::PlayerId id) const { return m_players.at(id); }
+    // const std::shared_ptr<BattlePlayerDesc>& playerDesc(dx::di::PlayerId id) const { return m_players.at(id); }
+    const std::unordered_map<dx::di::PlayerId, std::shared_ptr<BattlePlayerDesc>>& playerDescs() const {
+        return m_players;
+    }
     void setPlayerDesc(dx::di::PlayerId id, const std::shared_ptr<BattlePlayerDesc>& value);
     int timeLimitSec() const { return m_timeLimit_sec; }
     void setTimeLimitSec(int value) { m_timeLimit_sec = value; }
-    int stageId() const { return m_stage_id; }
-    void setStageId(int value) { m_stage_id = value; }
+    StageId stageId() const { return m_stage_id; }
+    void setStageId(StageId value) { m_stage_id = value; }
+    bool readyToBattle() const;
     void dump() const;
 private: // field
     std::unordered_map<dx::di::PlayerId, std::shared_ptr<BattlePlayerDesc>> m_players;
     int m_timeLimit_sec;
-    int m_stage_id;
+    StageId m_stage_id;
 private: // private function
 public: // ctor/dtor
 };
 
-struct BattleResultDesc {
-public:
+class BattleResultDesc {
+public: // static_const/enum
+public: // static
+public: // public function
+    std::vector<dx::di::PlayerId>* ranking() { return &m_ranking; }
+private: // field
+    // 順位低い順
     std::vector<dx::di::PlayerId> m_ranking;
+private: // private function
+public: // ctor/dtor
 };
 
 

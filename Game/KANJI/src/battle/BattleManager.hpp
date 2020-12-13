@@ -4,6 +4,10 @@
 namespace kanji {
 namespace battle {
 
+class BattlePlayerManager;
+class PhysicalWorldManager;
+class PhysicalMoveManager;
+
 class BattleTimer {
 public: // static_const/enum
 public: // static
@@ -31,6 +35,9 @@ class IBattleManager {
 public: // getter
     virtual bool hasGameSet() const = 0;
     virtual std::shared_ptr<BattleResultDesc> createResultDesc() const = 0;
+    virtual const std::shared_ptr<BattlePlayerManager>& playerMgr() const = 0;
+    virtual const std::shared_ptr<PhysicalWorldManager>& worldMgr() const = 0;
+    virtual const std::shared_ptr<PhysicalMoveManager>& moveMgr() const = 0;
 public: // setter
     virtual void initialize(const std::shared_ptr<BattleDesc>& desc) = 0;
     virtual void update() = 0;
@@ -49,6 +56,15 @@ public: // static
 public: // getter
     bool hasGameSet() const override;
     std::shared_ptr<BattleResultDesc> createResultDesc() const override;
+    const std::shared_ptr<BattlePlayerManager>& playerMgr() const override {
+        return m_player_mgr;
+    }
+    const std::shared_ptr<PhysicalWorldManager>& worldMgr() const override {
+        return m_world_mgr;
+    }
+    const std::shared_ptr<PhysicalMoveManager>& moveMgr() const override {
+        return m_move_mgr;
+    }
 public: // setter
     void initialize(const std::shared_ptr<BattleDesc>& desc) override;
     void update() override;
@@ -56,8 +72,15 @@ public: // setter
     void resume() override;
     void holdUp() override;
 private: // field
-    std::shared_ptr<BattleTimer> m_timer;
+    std::shared_ptr<BattleTimer> m_timer = nullptr;
+    std::shared_ptr<BattlePlayerManager> m_player_mgr = nullptr;
+    std::shared_ptr<PhysicalWorldManager> m_world_mgr = nullptr;
+    std::shared_ptr<PhysicalMoveManager> m_move_mgr = nullptr;
+    
+    std::shared_ptr<BattleResultDesc> m_result_desc = nullptr;
+    bool m_has_gameset = false;
 private: // private function
+    void lose(dx::di::PlayerId pid);
 public: // ctor/dtor
     BattleManager();
 };

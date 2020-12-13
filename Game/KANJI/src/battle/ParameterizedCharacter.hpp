@@ -1,5 +1,6 @@
 #pragma once
 #include <Siv3D/String.hpp>
+#include <Siv3D/Circular.hpp>
 
 namespace kanji {
 namespace chara {
@@ -25,7 +26,12 @@ public:
 class IParameterizedCharacter {
 public:
     virtual const Kanji& kanji() const = 0;
+    virtual bool isBurnedOut() const = 0;
     virtual const CharaParameters& params() const = 0;
+    virtual const CharaParameters& initialParams() const = 0;
+    virtual float hpRate() const = 0;
+    
+    virtual void damage(int amount) = 0;
 protected:
     IParameterizedCharacter() = default;
     virtual ~IParameterizedCharacter() = default;
@@ -36,10 +42,19 @@ public: // static_const/enum
 public: // static
 public: // public function
     const Kanji& kanji() const override { return m_kanji; }
+    bool isBurnedOut() const override { return m_isBurnedOut; }
     const CharaParameters& params() const override { return m_params; }
+    const CharaParameters& initialParams() const override { return m_initialParams; }
+    float hpRate() const override {
+        return static_cast<float>(m_params.hp) / static_cast<float>(m_initialParams.hp);
+    }
+
+    void damage(int amount) override;
 private: // field
 private: // private function
     Kanji m_kanji;
+    bool m_isBurnedOut;
+    const CharaParameters m_initialParams;
     CharaParameters m_params;
 public: // ctor/dtor
     ParameterizedCharacter(int id, const s3d::String& kanji) :
@@ -47,27 +62,29 @@ public: // ctor/dtor
         .id = id,
         .kanji = kanji
     }),
-    m_params({
+    m_initialParams({
         .hp = 100,
         .attack = 100,
         .defence = 100,
         .speed = 100,
         .jump = 100,
         .weight = 100,
-    }) {}
+    }),
+    m_params(m_initialParams) {}
     ParameterizedCharacter() :
     m_kanji({
         .id = 0,
         .kanji = U"山"
     }),
-    m_params({
+    m_initialParams({
         .hp = 100,
         .attack = 100,
         .defence = 100,
         .speed = 100,
         .jump = 100,
         .weight = 100,
-    }) {}
+    }),
+    m_params(m_initialParams) {}
 };
 
 
