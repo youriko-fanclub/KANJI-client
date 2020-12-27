@@ -39,7 +39,6 @@
 		2CEACB67233A61C900C6EE98 /* libgif.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2CEACB65233A61C900C6EE98 /* libgif.a */; };
 		2CEACB68233A61C900C6EE98 /* libutil.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2CEACB66233A61C900C6EE98 /* libutil.a */; };
 		722D9B072572ACCE00FD30FD /* KanjiScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 722D9B052572ACCE00FD30FD /* KanjiScene.cpp */; };
-		722D9B0C2572C15F00FD30FD /* Audio.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 722D9B0A2572C15F00FD30FD /* Audio.cpp */; };
 		7247BB4225689E850052A75F /* RelativePosition.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7247BB4025689E840052A75F /* RelativePosition.cpp */; };
 		7247BB462568AB070052A75F /* Palette.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7247BB442568AB070052A75F /* Palette.cpp */; };
 		7265F0672531DC0F00C15F67 /* Singleton.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7265F0652531DC0F00C15F67 /* Singleton.cpp */; };
@@ -89,11 +88,12 @@
 		72A3BDF2255167C0003393C4 /* BattleDesc.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 72A3BDF0255167C0003393C4 /* BattleDesc.cpp */; };
 		72A3BDF625516856003393C4 /* ParameterizedCharacter.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 72A3BDF425516855003393C4 /* ParameterizedCharacter.cpp */; };
 		72A3BDFC255175C8003393C4 /* BattleUIManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 72A3BDFA255175C8003393C4 /* BattleUIManager.cpp */; };
-		72B1DCD82598444100BC3D6C /* AudioVolume.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 72B1DCD32598444000BC3D6C /* AudioVolume.cpp */; };
-		72B1DCD92598444100BC3D6C /* AudioSource.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 72B1DCD52598444000BC3D6C /* AudioSource.cpp */; };
-		72B1DCDA2598444100BC3D6C /* AudioProxy.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 72B1DCD62598444100BC3D6C /* AudioProxy.cpp */; };
-		72B1DCE225984DDA00BC3D6C /* AudioType.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 72B1DCE025984DDA00BC3D6C /* AudioType.cpp */; };
 		72B1DCE72598515400BC3D6C /* RangedValue.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 72B1DCE52598515400BC3D6C /* RangedValue.cpp */; };
+		72B1DCF82598B90800BC3D6C /* AudioSource.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 72B1DCEE2598B90700BC3D6C /* AudioSource.cpp */; };
+		72B1DCF92598B90800BC3D6C /* AudioVolume.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 72B1DCEF2598B90700BC3D6C /* AudioVolume.cpp */; };
+		72B1DCFA2598B90800BC3D6C /* Audio.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 72B1DCF22598B90800BC3D6C /* Audio.cpp */; };
+		72B1DCFB2598B90800BC3D6C /* AudioType.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 72B1DCF52598B90800BC3D6C /* AudioType.cpp */; };
+		72B1DCFC2598B90800BC3D6C /* AudioProxy.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 72B1DCF72598B90800BC3D6C /* AudioProxy.cpp */; };
 		72DB89942568D97000BF7CC5 /* HolderUI.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 72DB89922568D97000BF7CC5 /* HolderUI.cpp */; };
 		72DB899A2568F13D00BF7CC5 /* PhysicalWorldManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 72DB89982568F13D00BF7CC5 /* PhysicalWorldManager.cpp */; };
 		72DB89A1256916B200BF7CC5 /* PhysicalStage.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 72DB899E256916B100BF7CC5 /* PhysicalStage.cpp */; };
@@ -142,8 +142,6 @@
 		2CEACB66233A61C900C6EE98 /* libutil.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libutil.a; path = ../../lib/macOS/libgif/libutil.a; sourceTree = "<group>"; };
 		722D9B052572ACCE00FD30FD /* KanjiScene.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = KanjiScene.cpp; sourceTree = "<group>"; };
 		722D9B062572ACCE00FD30FD /* KanjiScene.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = KanjiScene.hpp; sourceTree = "<group>"; };
-		722D9B0A2572C15F00FD30FD /* Audio.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Audio.cpp; sourceTree = "<group>"; };
-		722D9B0B2572C15F00FD30FD /* Audio.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Audio.hpp; sourceTree = "<group>"; };
 		7247BB4025689E840052A75F /* RelativePosition.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = RelativePosition.cpp; sourceTree = "<group>"; };
 		7247BB4125689E850052A75F /* RelativePosition.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = RelativePosition.hpp; sourceTree = "<group>"; };
 		7247BB442568AB070052A75F /* Palette.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Palette.cpp; sourceTree = "<group>"; };
@@ -234,16 +232,18 @@
 		72A3BDF525516855003393C4 /* ParameterizedCharacter.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = ParameterizedCharacter.hpp; sourceTree = "<group>"; };
 		72A3BDFA255175C8003393C4 /* BattleUIManager.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = BattleUIManager.cpp; sourceTree = "<group>"; };
 		72A3BDFB255175C8003393C4 /* BattleUIManager.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = BattleUIManager.hpp; sourceTree = "<group>"; };
-		72B1DCD22598444000BC3D6C /* AudioProxy.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = AudioProxy.hpp; sourceTree = "<group>"; };
-		72B1DCD32598444000BC3D6C /* AudioVolume.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = AudioVolume.cpp; sourceTree = "<group>"; };
-		72B1DCD42598444000BC3D6C /* AudioVolume.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = AudioVolume.hpp; sourceTree = "<group>"; };
-		72B1DCD52598444000BC3D6C /* AudioSource.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = AudioSource.cpp; sourceTree = "<group>"; };
-		72B1DCD62598444100BC3D6C /* AudioProxy.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = AudioProxy.cpp; sourceTree = "<group>"; };
-		72B1DCD72598444100BC3D6C /* AudioSource.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = AudioSource.hpp; sourceTree = "<group>"; };
-		72B1DCE025984DDA00BC3D6C /* AudioType.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = AudioType.cpp; sourceTree = "<group>"; };
-		72B1DCE125984DDA00BC3D6C /* AudioType.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = AudioType.hpp; sourceTree = "<group>"; };
 		72B1DCE52598515400BC3D6C /* RangedValue.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = RangedValue.cpp; sourceTree = "<group>"; };
 		72B1DCE62598515400BC3D6C /* RangedValue.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = RangedValue.hpp; sourceTree = "<group>"; };
+		72B1DCEE2598B90700BC3D6C /* AudioSource.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = AudioSource.cpp; sourceTree = "<group>"; };
+		72B1DCEF2598B90700BC3D6C /* AudioVolume.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = AudioVolume.cpp; sourceTree = "<group>"; };
+		72B1DCF02598B90700BC3D6C /* AudioType.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = AudioType.hpp; sourceTree = "<group>"; };
+		72B1DCF12598B90700BC3D6C /* Audio.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = Audio.hpp; sourceTree = "<group>"; };
+		72B1DCF22598B90800BC3D6C /* Audio.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Audio.cpp; sourceTree = "<group>"; };
+		72B1DCF32598B90800BC3D6C /* AudioVolume.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = AudioVolume.hpp; sourceTree = "<group>"; };
+		72B1DCF42598B90800BC3D6C /* AudioProxy.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = AudioProxy.hpp; sourceTree = "<group>"; };
+		72B1DCF52598B90800BC3D6C /* AudioType.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = AudioType.cpp; sourceTree = "<group>"; };
+		72B1DCF62598B90800BC3D6C /* AudioSource.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = AudioSource.hpp; sourceTree = "<group>"; };
+		72B1DCF72598B90800BC3D6C /* AudioProxy.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = AudioProxy.cpp; sourceTree = "<group>"; };
 		72D960342594638B00236386 /* DB.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = DB.hpp; sourceTree = "<group>"; };
 		72D960352594638B00236386 /* Id.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = Id.hpp; sourceTree = "<group>"; };
 		72DB89922568D97000BF7CC5 /* HolderUI.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = HolderUI.cpp; sourceTree = "<group>"; };
@@ -662,16 +662,16 @@
 		72B1DCD12598440300BC3D6C /* audio */ = {
 			isa = PBXGroup;
 			children = (
-				722D9B0A2572C15F00FD30FD /* Audio.cpp */,
-				722D9B0B2572C15F00FD30FD /* Audio.hpp */,
-				72B1DCD62598444100BC3D6C /* AudioProxy.cpp */,
-				72B1DCD22598444000BC3D6C /* AudioProxy.hpp */,
-				72B1DCD52598444000BC3D6C /* AudioSource.cpp */,
-				72B1DCD72598444100BC3D6C /* AudioSource.hpp */,
-				72B1DCE025984DDA00BC3D6C /* AudioType.cpp */,
-				72B1DCE125984DDA00BC3D6C /* AudioType.hpp */,
-				72B1DCD32598444000BC3D6C /* AudioVolume.cpp */,
-				72B1DCD42598444000BC3D6C /* AudioVolume.hpp */,
+				72B1DCF22598B90800BC3D6C /* Audio.cpp */,
+				72B1DCF12598B90700BC3D6C /* Audio.hpp */,
+				72B1DCF72598B90800BC3D6C /* AudioProxy.cpp */,
+				72B1DCF42598B90800BC3D6C /* AudioProxy.hpp */,
+				72B1DCEE2598B90700BC3D6C /* AudioSource.cpp */,
+				72B1DCF62598B90800BC3D6C /* AudioSource.hpp */,
+				72B1DCF52598B90800BC3D6C /* AudioType.cpp */,
+				72B1DCF02598B90700BC3D6C /* AudioType.hpp */,
+				72B1DCEF2598B90700BC3D6C /* AudioVolume.cpp */,
+				72B1DCF32598B90800BC3D6C /* AudioVolume.hpp */,
 			);
 			path = audio;
 			sourceTree = "<group>";
@@ -806,10 +806,11 @@
 				72DB89AC2569321000BF7CC5 /* Move.cpp in Sources */,
 				72A3BD9F254D80AB003393C4 /* GamePadDemo.cpp in Sources */,
 				7265F0752531E1BF00C15F67 /* SequenceManager.cpp in Sources */,
+				72B1DCFC2598B90800BC3D6C /* AudioProxy.cpp in Sources */,
+				72B1DCF82598B90800BC3D6C /* AudioSource.cpp in Sources */,
 				72A3BDAD254DC083003393C4 /* BattleScene.cpp in Sources */,
 				7265F07C2531FD6500C15F67 /* DomainGameData.cpp in Sources */,
 				72A3BD5E25443711003393C4 /* InputDemoScene.cpp in Sources */,
-				72B1DCD82598444100BC3D6C /* AudioVolume.cpp in Sources */,
 				72A3BDED255164D7003393C4 /* BattleManager.cpp in Sources */,
 				7265F0712531DC1D00C15F67 /* AssetManager.cpp in Sources */,
 				72DB89A6256929F100BF7CC5 /* PhysicalMove.cpp in Sources */,
@@ -833,8 +834,8 @@
 				72A3BD6825452A7B003393C4 /* KeyCode.cpp in Sources */,
 				726F87D42555E1EA003FAC77 /* LogDestination.cpp in Sources */,
 				7247BB4225689E850052A75F /* RelativePosition.cpp in Sources */,
+				72B1DCFB2598B90800BC3D6C /* AudioType.cpp in Sources */,
 				72B1DCE72598515400BC3D6C /* RangedValue.cpp in Sources */,
-				72B1DCE225984DDA00BC3D6C /* AudioType.cpp in Sources */,
 				72A3BD78254564A3003393C4 /* DPad.cpp in Sources */,
 				72A3BDE52551459D003393C4 /* SystemParams.cpp in Sources */,
 				2C17789A1CE0AA7C00BB8AD0 /* Main.cpp in Sources */,
@@ -842,22 +843,21 @@
 				72A3BDFC255175C8003393C4 /* BattleUIManager.cpp in Sources */,
 				722D9B072572ACCE00FD30FD /* KanjiScene.cpp in Sources */,
 				72A3BD7B25457D84003393C4 /* Axis.cpp in Sources */,
+				72B1DCFA2598B90800BC3D6C /* Audio.cpp in Sources */,
 				72A3BDF2255167C0003393C4 /* BattleDesc.cpp in Sources */,
 				72DB899A2568F13D00BF7CC5 /* PhysicalWorldManager.cpp in Sources */,
 				72DB89A1256916B200BF7CC5 /* PhysicalStage.cpp in Sources */,
 				72859F6D25388CA100EB0AAD /* UIComponent.cpp in Sources */,
 				729EEFA5256C29DD002A3696 /* StageSelectionScene.cpp in Sources */,
+				72B1DCF92598B90800BC3D6C /* AudioVolume.cpp in Sources */,
 				72A3BDE0255137EB003393C4 /* SceneState.cpp in Sources */,
 				72A3BD59254427A9003393C4 /* Misc.cpp in Sources */,
 				7265F0702531DC1D00C15F67 /* ApplicationManager.cpp in Sources */,
 				729EEFA0256C116F002A3696 /* ResultScene.cpp in Sources */,
 				726F87E52556BAF0003FAC77 /* BattlePlayer.cpp in Sources */,
 				72A3BDC7254F05ED003393C4 /* CharaPhysicsParameters.cpp in Sources */,
-				722D9B0C2572C15F00FD30FD /* Audio.cpp in Sources */,
 				72A3BD9B254D7FD5003393C4 /* JoyConDemo.cpp in Sources */,
 				72A3BD722545379E003393C4 /* KeyMapping.cpp in Sources */,
-				72B1DCDA2598444100BC3D6C /* AudioProxy.cpp in Sources */,
-				72B1DCD92598444100BC3D6C /* AudioSource.cpp in Sources */,
 				726F87D22555E1EA003FAC77 /* LogETL.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
