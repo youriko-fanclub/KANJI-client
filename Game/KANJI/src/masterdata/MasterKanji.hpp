@@ -8,6 +8,8 @@ class MasterKanji {
 public: // static_const/enum
 public: // static
 public: // public function
+    chara::KanjiID id() const { return m_id; }
+    const s3d::String& character() const { return m_character; }
 private: // field
     chara::KanjiID m_id;
     s3d::String m_character;
