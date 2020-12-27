@@ -25,42 +25,8 @@ dx::app::ExecutiveManager::Desc createExecutiveDesc() {
     texture_descs.emplace_back(U"Title::Logo", U"Title/Logo");
     texture_descs.emplace_back(U"Title::Bg", U"Title/Bg");
     
-    std::vector<dx::app::AssetManager::AudioDesc> audio_descs;
-    audio_descs.reserve(30);
-    using AudioType = dx::app::AssetManager::AudioDesc::Type;
-    audio_descs.emplace_back(AudioType::BGM, U"Title");
-    audio_descs.emplace_back(AudioType::BGM, U"CharaSelect");
-    audio_descs.emplace_back(AudioType::BGM, U"Battle01");
-    audio_descs.emplace_back(AudioType::BGM, U"Battle02");
-    audio_descs.emplace_back(AudioType::BGM, U"Battle03");
-    audio_descs.emplace_back(AudioType::BGM, U"Result");
-    audio_descs.emplace_back(AudioType::SE, U"System/Decide");
-    audio_descs.emplace_back(AudioType::SE, U"System/Cancel");
-    audio_descs.emplace_back(AudioType::SE, U"System/Choose");
-    audio_descs.emplace_back(AudioType::SE, U"Battle/Game/GameStart");
-    audio_descs.emplace_back(AudioType::SE, U"Battle/Game/GameSet");
-    audio_descs.emplace_back(AudioType::SE, U"Battle/Chara/Appear");
-    audio_descs.emplace_back(AudioType::SE, U"Battle/Chara/BurnOut");
-    audio_descs.emplace_back(AudioType::SE, U"Battle/Chara/CharaRotation");
-    audio_descs.emplace_back(AudioType::SE, U"Battle/Chara/Damage");
-    audio_descs.emplace_back(AudioType::SE, U"Battle/Chara/GetRadicalSimple");
-    audio_descs.emplace_back(AudioType::SE, U"Battle/Chara/GetRadicalGorgeous");
-    audio_descs.emplace_back(AudioType::SE, U"Battle/Move/Normal");
-    audio_descs.emplace_back(AudioType::SE, U"Battle/Move/NormalWithRadical");
-    audio_descs.emplace_back(AudioType::SE, U"Battle/Move/Special");
-    audio_descs.emplace_back(AudioType::SE, U"Battle/Move/Special/Aburu");
-    audio_descs.emplace_back(AudioType::SE, U"Battle/Move/Special/Arashi");
-    audio_descs.emplace_back(AudioType::SE, U"Battle/Move/Special/Hoshi");
-    audio_descs.emplace_back(AudioType::SE, U"Battle/Move/Special/Ikaduchi");
-    audio_descs.emplace_back(AudioType::SE, U"Battle/Move/Special/KatamariRolling");
-    audio_descs.emplace_back(AudioType::SE, U"Battle/Move/Special/KatamariScrape");
-    audio_descs.emplace_back(AudioType::SE, U"Battle/Move/Special/Kiri");
-    audio_descs.emplace_back(AudioType::SE, U"Battle/Move/Special/KomainuBark");
-    audio_descs.emplace_back(AudioType::SE, U"Battle/Move/Special/KomainuGrowl");
-    audio_descs.emplace_back(AudioType::SE, U"Battle/Move/Special/Kuruu");
-    audio_descs.emplace_back(AudioType::SE, U"Battle/Move/Special/Noroi");
-    audio_descs.emplace_back(AudioType::SE, U"Battle/Move/Special/Tagane");
-    audio_descs.emplace_back(AudioType::SE, U"Battle/Move/Special/Toki");
+    std::vector<dx::app::AssetManager::AudioDesc> audio_descs
+        = dx::app::AssetManager::AudioDesc::loadFromToml();
 
     return dx::app::ExecutiveManager::Desc{
         .application = app_desc,
