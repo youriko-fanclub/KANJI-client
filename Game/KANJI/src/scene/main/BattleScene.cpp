@@ -86,6 +86,12 @@ void BattleScene::initialize() {
     }
     m_mgr->initialize(getData().battleDesc());
     m_ui = std::make_shared<ui::BattleUIManager>(m_mgr.get());
+    
+    auto* battle_audio = dx::aud::Audio::masterSource()->addSource(U"Battle");
+    battle_audio->addClip(dx::aud::AudioType::BGM, U"BGM::Battle02", true);
+    setOnDestructCallback([](State next){
+        dx::aud::Audio::masterSource()->removeSource(U"Battle");
+    });
 }
 void BattleScene::update() {
     // TOdO: オブザーバにした方がよさそう
@@ -104,7 +110,7 @@ void BattleScene::draw() const {
 
 // private function ------------------------------
 // ctor/dtor -------------------------------------
-BattleScene::BattleScene(const InitData& init) : IScene(init) {
+BattleScene::BattleScene(const InitData& init) : KanjiScene(init, U"Battle") {
     initialize();
 }
 

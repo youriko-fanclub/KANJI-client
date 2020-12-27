@@ -1,6 +1,6 @@
 #pragma once
 
-#include "SceneState.hpp"
+#include "KanjiScene.hpp"
 #include "UIComponent.hpp"
 
 namespace kanji {
