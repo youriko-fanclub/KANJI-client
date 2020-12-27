@@ -94,6 +94,8 @@
 		72B1DCFA2598B90800BC3D6C /* Audio.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 72B1DCF22598B90800BC3D6C /* Audio.cpp */; };
 		72B1DCFB2598B90800BC3D6C /* AudioType.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 72B1DCF52598B90800BC3D6C /* AudioType.cpp */; };
 		72B1DCFC2598B90800BC3D6C /* AudioProxy.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 72B1DCF72598B90800BC3D6C /* AudioProxy.cpp */; };
+		72B1DD0F2598D5FA00BC3D6C /* MasterKanjiRepository.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 72B1DD0D2598D5FA00BC3D6C /* MasterKanjiRepository.cpp */; };
+		72B1DD152598D6AE00BC3D6C /* MasterKanji.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 72B1DD132598D6AE00BC3D6C /* MasterKanji.cpp */; };
 		72DB89942568D97000BF7CC5 /* HolderUI.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 72DB89922568D97000BF7CC5 /* HolderUI.cpp */; };
 		72DB899A2568F13D00BF7CC5 /* PhysicalWorldManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 72DB89982568F13D00BF7CC5 /* PhysicalWorldManager.cpp */; };
 		72DB89A1256916B200BF7CC5 /* PhysicalStage.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 72DB899E256916B100BF7CC5 /* PhysicalStage.cpp */; };
@@ -247,6 +249,10 @@
 		72B1DD0A2598CFD400BC3D6C /* UserDataRepository.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = UserDataRepository.hpp; sourceTree = "<group>"; };
 		72B1DD0B2598CFD400BC3D6C /* MasterDataRepository.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = MasterDataRepository.hpp; sourceTree = "<group>"; };
 		72B1DD0C2598CFD400BC3D6C /* Repository.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = Repository.hpp; sourceTree = "<group>"; };
+		72B1DD0D2598D5FA00BC3D6C /* MasterKanjiRepository.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = MasterKanjiRepository.cpp; sourceTree = "<group>"; };
+		72B1DD0E2598D5FA00BC3D6C /* MasterKanjiRepository.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = MasterKanjiRepository.hpp; sourceTree = "<group>"; };
+		72B1DD132598D6AE00BC3D6C /* MasterKanji.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = MasterKanji.cpp; sourceTree = "<group>"; };
+		72B1DD142598D6AE00BC3D6C /* MasterKanji.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = MasterKanji.hpp; sourceTree = "<group>"; };
 		72D960352594638B00236386 /* Id.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = Id.hpp; sourceTree = "<group>"; };
 		72DB89922568D97000BF7CC5 /* HolderUI.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = HolderUI.cpp; sourceTree = "<group>"; };
 		72DB89932568D97000BF7CC5 /* HolderUI.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = HolderUI.hpp; sourceTree = "<group>"; };
@@ -576,6 +582,8 @@
 			isa = PBXGroup;
 			children = (
 				72906991259726E3004B732E /* IDs.hpp */,
+				72B1DD0D2598D5FA00BC3D6C /* MasterKanjiRepository.cpp */,
+				72B1DD0E2598D5FA00BC3D6C /* MasterKanjiRepository.hpp */,
 			);
 			path = identity;
 			sourceTree = "<group>";
@@ -726,6 +734,8 @@
 			children = (
 				72DB89AA2569321000BF7CC5 /* Move.cpp */,
 				72DB89AB2569321000BF7CC5 /* Move.hpp */,
+				72B1DD132598D6AE00BC3D6C /* MasterKanji.cpp */,
+				72B1DD142598D6AE00BC3D6C /* MasterKanji.hpp */,
 			);
 			path = masterdata;
 			sourceTree = "<group>";
@@ -832,12 +842,14 @@
 				7265F06F2531DC1D00C15F67 /* ExecutiveManager.cpp in Sources */,
 				C800DE80253DE01900C3835B /* CharacterSelectionScene.cpp in Sources */,
 				7265F0672531DC0F00C15F67 /* Singleton.cpp in Sources */,
+				72B1DD152598D6AE00BC3D6C /* MasterKanji.cpp in Sources */,
 				72DB89942568D97000BF7CC5 /* HolderUI.cpp in Sources */,
 				72A3BD6D254536A9003393C4 /* PlayerId.cpp in Sources */,
 				72A3BDC0254EDB65003393C4 /* FilePath.cpp in Sources */,
 				72A3BD6825452A7B003393C4 /* KeyCode.cpp in Sources */,
 				726F87D42555E1EA003FAC77 /* LogDestination.cpp in Sources */,
 				7247BB4225689E850052A75F /* RelativePosition.cpp in Sources */,
+				72B1DD0F2598D5FA00BC3D6C /* MasterKanjiRepository.cpp in Sources */,
 				72B1DCFB2598B90800BC3D6C /* AudioType.cpp in Sources */,
 				72B1DCE72598515400BC3D6C /* RangedValue.cpp in Sources */,
 				72A3BD78254564A3003393C4 /* DPad.cpp in Sources */,
