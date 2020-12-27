@@ -1,15 +1,14 @@
 #pragma once
 #include <Siv3D/String.hpp>
 #include <Siv3D/Circular.hpp>
+#include "IDs.hpp"
 
 namespace kanji {
 namespace chara {
 
-using KanjiId = int;
-
 struct Kanji {
 public:
-    KanjiId id;
+    KanjiID id;
     s3d::String kanji;
 };
 
@@ -57,7 +56,7 @@ private: // private function
     const CharaParameters m_initial_params;
     CharaParameters m_params;
 public: // ctor/dtor
-    ParameterizedCharacter(int id, const s3d::String& kanji) :
+    ParameterizedCharacter(const KanjiID id, const s3d::String& kanji) :
     m_kanji({
         .id = id,
         .kanji = kanji
@@ -73,7 +72,7 @@ public: // ctor/dtor
     m_params(m_initial_params) {}
     ParameterizedCharacter() :
     m_kanji({
-        .id = 0,
+        .id = KanjiID(0),
         .kanji = U"山"
     }),
     m_initial_params({

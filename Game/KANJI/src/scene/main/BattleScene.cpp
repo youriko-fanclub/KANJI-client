@@ -7,60 +7,63 @@
 #include "Input.hpp"
 #include "Misc.hpp"
 #include "HotReloadManager.hpp"
+#include "IDs.hpp"
+#include "Audio.hpp"
 
 
 namespace {
 
+using KanjiID = kanji::chara::KanjiID;
 std::shared_ptr<kanji::battle::BattleDesc> createBattleDescForDebug(const std::shared_ptr<kanji::battle::BattleDesc>& battle_desc) {
     {
         auto player_desc = std::make_shared<kanji::battle::BattlePlayerDesc>();
         player_desc->characters().push_back(
-            std::make_shared<kanji::chara::ParameterizedCharacter>(0, U"山")
+            std::make_shared<kanji::chara::ParameterizedCharacter>(KanjiID(0), U"山")
         );
         player_desc->characters().push_back(
-            std::make_shared<kanji::chara::ParameterizedCharacter>(1, U"斬")
+            std::make_shared<kanji::chara::ParameterizedCharacter>(KanjiID(1), U"斬")
         );
         player_desc->characters().push_back(
-            std::make_shared<kanji::chara::ParameterizedCharacter>(2, U"王")
+            std::make_shared<kanji::chara::ParameterizedCharacter>(KanjiID(2), U"王")
         );
         battle_desc->setPlayerDesc(dx::di::PlayerId::_1P, player_desc);
     }
     {
         auto player_desc = std::make_shared<kanji::battle::BattlePlayerDesc>();
         player_desc->characters().push_back(
-            std::make_shared<kanji::chara::ParameterizedCharacter>(3, U"包")
+            std::make_shared<kanji::chara::ParameterizedCharacter>(KanjiID(3), U"包")
         );
         player_desc->characters().push_back(
-            std::make_shared<kanji::chara::ParameterizedCharacter>(4, U"分")
+            std::make_shared<kanji::chara::ParameterizedCharacter>(KanjiID(4), U"分")
         );
         player_desc->characters().push_back(
-            std::make_shared<kanji::chara::ParameterizedCharacter>(5, U"鬼")
+            std::make_shared<kanji::chara::ParameterizedCharacter>(KanjiID(5), U"鬼")
         );
         battle_desc->setPlayerDesc(dx::di::PlayerId::_2P, player_desc);
     }
     {
         auto player_desc = std::make_shared<kanji::battle::BattlePlayerDesc>();
         player_desc->characters().push_back(
-            std::make_shared<kanji::chara::ParameterizedCharacter>(6, U"工")
+            std::make_shared<kanji::chara::ParameterizedCharacter>(KanjiID(6), U"工")
         );
         player_desc->characters().push_back(
-            std::make_shared<kanji::chara::ParameterizedCharacter>(7, U"詛")
+            std::make_shared<kanji::chara::ParameterizedCharacter>(KanjiID(7), U"詛")
         );
         player_desc->characters().push_back(
-            std::make_shared<kanji::chara::ParameterizedCharacter>(8, U"寺")
+            std::make_shared<kanji::chara::ParameterizedCharacter>(KanjiID(8), U"寺")
         );
         battle_desc->setPlayerDesc(dx::di::PlayerId::_3P, player_desc);
     }
     {
         auto player_desc = std::make_shared<kanji::battle::BattlePlayerDesc>();
         player_desc->characters().push_back(
-            std::make_shared<kanji::chara::ParameterizedCharacter>(9, U"白")
+            std::make_shared<kanji::chara::ParameterizedCharacter>(KanjiID(9), U"白")
         );
         player_desc->characters().push_back(
-            std::make_shared<kanji::chara::ParameterizedCharacter>(10, U"生")
+            std::make_shared<kanji::chara::ParameterizedCharacter>(KanjiID(10), U"生")
         );
         player_desc->characters().push_back(
-            std::make_shared<kanji::chara::ParameterizedCharacter>(11, U"田")
+            std::make_shared<kanji::chara::ParameterizedCharacter>(KanjiID(11), U"田")
         );
         battle_desc->setPlayerDesc(dx::di::PlayerId::_4P, player_desc);
     }

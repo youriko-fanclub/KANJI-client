@@ -8,6 +8,7 @@
 #include "PhysicalCharacter.hpp"
 #include "Log.hpp"
 #include "Input.hpp"
+#include "Audio.hpp"
 
 namespace kanji {
 namespace battle {
@@ -67,6 +68,9 @@ void BattleManager::initialize(const std::shared_ptr<BattleDesc>& desc) {
     m_player_mgr->players().at(dx::di::PlayerId::_3P)->setRadical(U"雨");
     m_player_mgr->players().at(dx::di::PlayerId::_4P)->setRadical(U"獣");
     
+    dx::aud::Audio::masterSource()->addSource(U"Battle");
+    dx::aud::Audio::source(U"Battle")->addClip(dx::aud::AudioType::SE, U"SE::Battle::Move::Normal"/* + s3d::ToString(move_id)*/);
+    
     m_world_mgr = std::make_shared<PhysicalWorldManager>();
     m_world_mgr->initializeCharacters(m_player_mgr->players());
     
@@ -84,7 +88,9 @@ void BattleManager::update() {
         const auto pid = player.first;
         if (dx::di::Input::get(pid).buttons().a().down()) {
             const auto& physical = player.second->physical();
-            m_move_mgr->createMove(pid, physical, 0);
+            const md::MoveID move_id(0); // TOdO
+            m_move_mgr->createMove(pid, physical, move_id);
+            dx::aud::Audio::source(U"Battle")->playOneShot(U"SE::Battle::Move::Normal"/* + s3d::ToString(move_id)*/);
         }
         if (dx::di::Input::get(pid).buttons().x().down()) {
             player.second->changeActiveCharacter();
