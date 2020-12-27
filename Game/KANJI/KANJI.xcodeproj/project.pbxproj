@@ -244,7 +244,9 @@
 		72B1DCF52598B90800BC3D6C /* AudioType.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = AudioType.cpp; sourceTree = "<group>"; };
 		72B1DCF62598B90800BC3D6C /* AudioSource.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = AudioSource.hpp; sourceTree = "<group>"; };
 		72B1DCF72598B90800BC3D6C /* AudioProxy.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = AudioProxy.cpp; sourceTree = "<group>"; };
-		72D960342594638B00236386 /* DB.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = DB.hpp; sourceTree = "<group>"; };
+		72B1DD0A2598CFD400BC3D6C /* UserDataRepository.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = UserDataRepository.hpp; sourceTree = "<group>"; };
+		72B1DD0B2598CFD400BC3D6C /* MasterDataRepository.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = MasterDataRepository.hpp; sourceTree = "<group>"; };
+		72B1DD0C2598CFD400BC3D6C /* Repository.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = Repository.hpp; sourceTree = "<group>"; };
 		72D960352594638B00236386 /* Id.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = Id.hpp; sourceTree = "<group>"; };
 		72DB89922568D97000BF7CC5 /* HolderUI.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = HolderUI.cpp; sourceTree = "<group>"; };
 		72DB89932568D97000BF7CC5 /* HolderUI.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = HolderUI.hpp; sourceTree = "<group>"; };
@@ -679,8 +681,10 @@
 		72D960332594637400236386 /* identity */ = {
 			isa = PBXGroup;
 			children = (
-				72D960342594638B00236386 /* DB.hpp */,
 				72D960352594638B00236386 /* Id.hpp */,
+				72B1DD0B2598CFD400BC3D6C /* MasterDataRepository.hpp */,
+				72B1DD0C2598CFD400BC3D6C /* Repository.hpp */,
+				72B1DD0A2598CFD400BC3D6C /* UserDataRepository.hpp */,
 			);
 			path = identity;
 			sourceTree = "<group>";
