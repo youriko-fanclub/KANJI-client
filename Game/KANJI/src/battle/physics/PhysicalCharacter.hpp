@@ -22,7 +22,6 @@ public: // public function
     void shoot(const s3d::Circular& force);
     
     void update();
-    void drawLegacy() const; // 近いうちに消す
 private: // field
     dx::di::PlayerId m_pid;
     P2Body m_body;

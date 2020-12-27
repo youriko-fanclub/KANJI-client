@@ -58,7 +58,7 @@ private: // field
     const std::shared_ptr<Move>& m_md;
 private: // private function
 public: // ctor/dtor
-    PhysicalMove(dx::di::PlayerId owner, const std::shared_ptr<battle::PhysicalCharacter>& ownerChara, md::MoveId moveId);
+    PhysicalMove(dx::di::PlayerId owner, const std::shared_ptr<battle::PhysicalCharacter>& owner_chara, md::MoveId move_id);
 };
 
 
@@ -66,7 +66,7 @@ class PhysicalMoveManager {
 public: // static_const/enum
 public: // static
 public: // public function
-    const std::shared_ptr<PhysicalMove>& createMove(dx::di::PlayerId owner, const std::shared_ptr<PhysicalCharacter>& ownerChara, md::MoveId moveId);
+    const std::shared_ptr<PhysicalMove>& createMove(dx::di::PlayerId owner, const std::shared_ptr<PhysicalCharacter>& owner_chara, md::MoveId move_id);
     void update(float dt);
     
     const std::vector<std::shared_ptr<PhysicalMove>>& moves() const;

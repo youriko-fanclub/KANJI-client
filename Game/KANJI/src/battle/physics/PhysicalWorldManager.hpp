@@ -30,9 +30,6 @@ private: // field
     P2World m_world;
     std::unordered_map<dx::di::PlayerId, std::shared_ptr<PhysicalCharacter>> m_characters;
     std::shared_ptr<PhysicalStage> m_stage;
-    
-    // テスト用剛体球
-    Array<P2Body> m_bodies;
 private: // private function
 public: // ctor/dtor
     PhysicalWorldManager();

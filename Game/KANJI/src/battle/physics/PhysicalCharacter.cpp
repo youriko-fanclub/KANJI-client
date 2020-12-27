@@ -42,10 +42,6 @@ void PhysicalCharacter::update() {
     else if (!m_is_right && velocity.x > threshold) { m_is_right = true; }
 }
 
-void PhysicalCharacter::drawLegacy() const {
-    m_body.draw();
-}
-    
 // private function ------------------------------
 // ctor/dtor -------------------------------------
 PhysicalCharacter::PhysicalCharacter(

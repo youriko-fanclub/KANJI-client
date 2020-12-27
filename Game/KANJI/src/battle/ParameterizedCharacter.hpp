@@ -42,19 +42,19 @@ public: // static_const/enum
 public: // static
 public: // public function
     const Kanji& kanji() const override { return m_kanji; }
-    bool isBurnedOut() const override { return m_isBurnedOut; }
+    bool isBurnedOut() const override { return m_is_burned_out; }
     const CharaParameters& params() const override { return m_params; }
-    const CharaParameters& initialParams() const override { return m_initialParams; }
+    const CharaParameters& initialParams() const override { return m_initial_params; }
     float hpRate() const override {
-        return static_cast<float>(m_params.hp) / static_cast<float>(m_initialParams.hp);
+        return static_cast<float>(m_params.hp) / static_cast<float>(m_initial_params.hp);
     }
 
     void damage(int amount) override;
 private: // field
 private: // private function
     Kanji m_kanji;
-    bool m_isBurnedOut;
-    const CharaParameters m_initialParams;
+    bool m_is_burned_out;
+    const CharaParameters m_initial_params;
     CharaParameters m_params;
 public: // ctor/dtor
     ParameterizedCharacter(int id, const s3d::String& kanji) :
@@ -62,7 +62,7 @@ public: // ctor/dtor
         .id = id,
         .kanji = kanji
     }),
-    m_initialParams({
+    m_initial_params({
         .hp = 100,
         .attack = 100,
         .defence = 100,
@@ -70,13 +70,13 @@ public: // ctor/dtor
         .jump = 100,
         .weight = 100,
     }),
-    m_params(m_initialParams) {}
+    m_params(m_initial_params) {}
     ParameterizedCharacter() :
     m_kanji({
         .id = 0,
         .kanji = U"山"
     }),
-    m_initialParams({
+    m_initial_params({
         .hp = 100,
         .attack = 100,
         .defence = 100,
@@ -84,7 +84,7 @@ public: // ctor/dtor
         .jump = 100,
         .weight = 100,
     }),
-    m_params(m_initialParams) {}
+    m_params(m_initial_params) {}
 };
 
 
