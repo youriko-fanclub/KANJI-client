@@ -3,6 +3,7 @@
 #include "SceneState.hpp"
 #include "UIComponent.hpp"
 #include "PlayerCursorManager.hpp"
+#include "CharacterSelectionManager.hpp"
 
 namespace kanji {
 namespace seq {
@@ -18,7 +19,7 @@ public: // public function
 private: // field
     std::pair<s3d::DrawableText, s3d::DrawableText> m_title;
     dui::Button m_next;
-    dui::PlayerCursorManager m_cursorManager;
+    cs::CharacterSelectionManager m_csm;
 private: // private function
 public: // ctor/dtor
     CharacterSelectionScene(const InitData& init);

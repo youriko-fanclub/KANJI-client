@@ -74,6 +74,7 @@
 		72A3BDCD254F09CF003393C4 /* HotReloadManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 72A3BDCB254F09CF003393C4 /* HotReloadManager.cpp */; };
 		72A3BDE0255137EB003393C4 /* SceneState.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 72A3BDDF255137EB003393C4 /* SceneState.cpp */; };
 		72A3BDE52551459D003393C4 /* SystemParams.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 72A3BDE32551459D003393C4 /* SystemParams.cpp */; };
+		82B25F60259DD9AA00CB11AA /* CharacterSelectionManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 82B25F5E259DD9AA00CB11AA /* CharacterSelectionManager.cpp */; };
 		C800DE80253DE01900C3835B /* CharacterSelectionScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C800DE7E253DE01800C3835B /* CharacterSelectionScene.cpp */; };
 		C88988C72555B272001F340B /* PlayerCursor.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C88988C62555B272001F340B /* PlayerCursor.cpp */; };
 		C88988CB2555C85C001F340B /* PlayerCursorManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C88988C92555C85C001F340B /* PlayerCursorManager.cpp */; };
@@ -179,6 +180,8 @@
 		72A3BDDF255137EB003393C4 /* SceneState.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = SceneState.cpp; sourceTree = "<group>"; };
 		72A3BDE32551459D003393C4 /* SystemParams.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = SystemParams.cpp; sourceTree = "<group>"; };
 		72A3BDE42551459D003393C4 /* SystemParams.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = SystemParams.hpp; sourceTree = "<group>"; };
+		82B25F5E259DD9AA00CB11AA /* CharacterSelectionManager.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = CharacterSelectionManager.cpp; sourceTree = "<group>"; };
+		82B25F5F259DD9AA00CB11AA /* CharacterSelectionManager.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = CharacterSelectionManager.hpp; sourceTree = "<group>"; };
 		C800DE7E253DE01800C3835B /* CharacterSelectionScene.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CharacterSelectionScene.cpp; sourceTree = "<group>"; };
 		C800DE7F253DE01900C3835B /* CharacterSelectionScene.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = CharacterSelectionScene.hpp; sourceTree = "<group>"; };
 		C88988C52555B272001F340B /* PlayerCursor.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = PlayerCursor.hpp; sourceTree = "<group>"; };
@@ -249,6 +252,7 @@
 		2C1778981CE0AA7C00BB8AD0 /* src */ = {
 			isa = PBXGroup;
 			children = (
+				82B25F5D259DCE2A00CB11AA /* characterselection */,
 				72A3BDC4254F05C5003393C4 /* parameter */,
 				7265F08025320F8700C15F67 /* application */,
 				7265F04D2531A96400C15F67 /* scene */,
@@ -496,6 +500,15 @@
 			path = parameter;
 			sourceTree = "<group>";
 		};
+		82B25F5D259DCE2A00CB11AA /* characterselection */ = {
+			isa = PBXGroup;
+			children = (
+				82B25F5E259DD9AA00CB11AA /* CharacterSelectionManager.cpp */,
+				82B25F5F259DD9AA00CB11AA /* CharacterSelectionManager.hpp */,
+			);
+			path = characterselection;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -587,6 +600,7 @@
 				7265F06F2531DC1D00C15F67 /* ExecutiveManager.cpp in Sources */,
 				C800DE80253DE01900C3835B /* CharacterSelectionScene.cpp in Sources */,
 				7265F0672531DC0F00C15F67 /* Singleton.cpp in Sources */,
+				82B25F60259DD9AA00CB11AA /* CharacterSelectionManager.cpp in Sources */,
 				C88988CB2555C85C001F340B /* PlayerCursorManager.cpp in Sources */,
 				72A3BD6D254536A9003393C4 /* PlayerId.cpp in Sources */,
 				72A3BDC0254EDB65003393C4 /* FilePath.cpp in Sources */,
