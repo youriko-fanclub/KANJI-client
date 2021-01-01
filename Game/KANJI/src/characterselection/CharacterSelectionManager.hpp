@@ -1,6 +1,7 @@
 #pragma once
 
 #include "PlayerCursorManager.hpp"
+#include "PanelGrid.hpp"
 
 namespace kanji {
 namespace cs {
@@ -14,7 +15,8 @@ public:
     void draw() const;
     
 private:
-    dui::PlayerCursorManager m_cursorManager;
+    dui::PanelGrid m_panel_grid;
+    dui::PlayerCursorManager m_cursor_manager;
 };
 
 }
