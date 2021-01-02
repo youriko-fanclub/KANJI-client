@@ -81,7 +81,7 @@ bool PhysicalMove::update(float dt) {
 }
 // private function ------------------------------
 // ctor/dtor -------------------------------------
-PhysicalMove::PhysicalMove(dx::di::PlayerId owner, const std::shared_ptr<battle::PhysicalCharacter>& owner_chara, md::MoveID move_id) :
+PhysicalMove::PhysicalMove(dx::di::PlayerId owner, const std::shared_ptr<battle::PhysicalCharacter>& owner_chara, MoveID move_id) :
     m_timer(0),
     m_owner(owner),
     m_is_to_right(owner_chara->isRight()),
@@ -93,7 +93,7 @@ PhysicalMove::PhysicalMove(dx::di::PlayerId owner, const std::shared_ptr<battle:
 
 // static ----------------------------------------
 // public function -------------------------------
-const std::shared_ptr<PhysicalMove>& PhysicalMoveManager::createMove(dx::di::PlayerId owner, const std::shared_ptr<PhysicalCharacter>& owner_chara, md::MoveID move_id) {
+const std::shared_ptr<PhysicalMove>& PhysicalMoveManager::createMove(dx::di::PlayerId owner, const std::shared_ptr<PhysicalCharacter>& owner_chara, MoveID move_id) {
     m_moves.push_back(std::make_shared<PhysicalMove>(owner, owner_chara, move_id));
     return m_moves.back();
 }

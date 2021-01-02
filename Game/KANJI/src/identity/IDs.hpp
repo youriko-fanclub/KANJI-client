@@ -3,7 +3,8 @@
 
 namespace kanji {
 
-ID_DEFINITION_NS(chara, Kanji)
-ID_DEFINITION_NS(md, Move)
+ID_DEFINITION(Kanji)
+ID_DEFINITION(Radical)
+ID_DEFINITION(Move)
 
 }

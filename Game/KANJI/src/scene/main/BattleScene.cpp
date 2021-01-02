@@ -14,7 +14,7 @@
 
 namespace {
 
-using KanjiID = kanji::chara::KanjiID;
+using KanjiID = kanji::KanjiID;
 void createAndPushCharacter(
     const std::shared_ptr<kanji::battle::BattlePlayerDesc>& desc,
     const std::unique_ptr<kanji::md::MasterKanjiRepository>& repo,

@@ -88,7 +88,7 @@ void BattleManager::update() {
         const auto pid = player.first;
         if (dx::di::Input::get(pid).buttons().a().down()) {
             const auto& physical = player.second->physical();
-            const md::MoveID move_id(0); // TOdO
+            const MoveID move_id(0); // TOdO
             m_move_mgr->createMove(pid, physical, move_id);
             dx::aud::Audio::source(U"Battle")->playOneShot(U"SE::Battle::Move::Normal"/* + s3d::ToString(move_id)*/);
         }
