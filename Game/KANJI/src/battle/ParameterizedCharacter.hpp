@@ -2,7 +2,7 @@
 #include <Siv3D/String.hpp>
 #include <Siv3D/Circular.hpp>
 #include "IDs.hpp"
-#include "MasterKanji.hpp"
+#include "MasterKanjiParam.hpp"
 
 namespace kanji {
 namespace chara {
@@ -40,7 +40,7 @@ protected:
 class ParameterizedCharacter : public IParameterizedCharacter {
 public: // static_const/enum
 public: // static
-    static std::shared_ptr<ParameterizedCharacter> createShared(const md::MasterKanji* md) {
+    static std::shared_ptr<ParameterizedCharacter> createShared(const md::MasterKanjiParam* md) {
         return std::make_shared<ParameterizedCharacter>(md->id(), md->character());
     }
 public: // public function

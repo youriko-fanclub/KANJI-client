@@ -94,8 +94,12 @@
 		72B1DCFA2598B90800BC3D6C /* Audio.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 72B1DCF22598B90800BC3D6C /* Audio.cpp */; };
 		72B1DCFB2598B90800BC3D6C /* AudioType.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 72B1DCF52598B90800BC3D6C /* AudioType.cpp */; };
 		72B1DCFC2598B90800BC3D6C /* AudioProxy.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 72B1DCF72598B90800BC3D6C /* AudioProxy.cpp */; };
-		72B1DD0F2598D5FA00BC3D6C /* MasterKanjiRepository.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 72B1DD0D2598D5FA00BC3D6C /* MasterKanjiRepository.cpp */; };
-		72B1DD152598D6AE00BC3D6C /* MasterKanji.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 72B1DD132598D6AE00BC3D6C /* MasterKanji.cpp */; };
+		72B1DD19259DDDC500BC3D6C /* Radical.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 72B1DD17259DDDC400BC3D6C /* Radical.cpp */; };
+		72CB2B4A259FF92400201366 /* MasterKanjiParamRepository.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 72CB2B40259FF92400201366 /* MasterKanjiParamRepository.cpp */; };
+		72CB2B4B259FF92400201366 /* MasterKanjiConsistRepository.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 72CB2B41259FF92400201366 /* MasterKanjiConsistRepository.cpp */; };
+		72CB2B4C259FF92400201366 /* MasterRadicalParamRepository.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 72CB2B43259FF92400201366 /* MasterRadicalParamRepository.cpp */; };
+		72CB2B4D259FF92400201366 /* MasterKanjiDictionaryRepository.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 72CB2B45259FF92400201366 /* MasterKanjiDictionaryRepository.cpp */; };
+		72CB2B4E259FF92400201366 /* MasterRadicalDictionaryRepository.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 72CB2B47259FF92400201366 /* MasterRadicalDictionaryRepository.cpp */; };
 		72DB89942568D97000BF7CC5 /* HolderUI.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 72DB89922568D97000BF7CC5 /* HolderUI.cpp */; };
 		72DB899A2568F13D00BF7CC5 /* PhysicalWorldManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 72DB89982568F13D00BF7CC5 /* PhysicalWorldManager.cpp */; };
 		72DB89A1256916B200BF7CC5 /* PhysicalStage.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 72DB899E256916B100BF7CC5 /* PhysicalStage.cpp */; };
@@ -249,10 +253,23 @@
 		72B1DD0A2598CFD400BC3D6C /* UserDataRepository.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = UserDataRepository.hpp; sourceTree = "<group>"; };
 		72B1DD0B2598CFD400BC3D6C /* MasterDataRepository.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = MasterDataRepository.hpp; sourceTree = "<group>"; };
 		72B1DD0C2598CFD400BC3D6C /* Repository.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = Repository.hpp; sourceTree = "<group>"; };
-		72B1DD0D2598D5FA00BC3D6C /* MasterKanjiRepository.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = MasterKanjiRepository.cpp; sourceTree = "<group>"; };
-		72B1DD0E2598D5FA00BC3D6C /* MasterKanjiRepository.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = MasterKanjiRepository.hpp; sourceTree = "<group>"; };
-		72B1DD132598D6AE00BC3D6C /* MasterKanji.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = MasterKanji.cpp; sourceTree = "<group>"; };
-		72B1DD142598D6AE00BC3D6C /* MasterKanji.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = MasterKanji.hpp; sourceTree = "<group>"; };
+		72B1DD17259DDDC400BC3D6C /* Radical.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Radical.cpp; sourceTree = "<group>"; };
+		72B1DD18259DDDC400BC3D6C /* Radical.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Radical.hpp; sourceTree = "<group>"; };
+		72CB2B39259FF92400201366 /* MasterRadicalDictionary.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = MasterRadicalDictionary.hpp; sourceTree = "<group>"; };
+		72CB2B3A259FF92400201366 /* MasterKanjiConsist.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = MasterKanjiConsist.hpp; sourceTree = "<group>"; };
+		72CB2B3B259FF92400201366 /* MasterKanjiParam.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = MasterKanjiParam.hpp; sourceTree = "<group>"; };
+		72CB2B3C259FF92400201366 /* MasterKanjiDictionary.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = MasterKanjiDictionary.hpp; sourceTree = "<group>"; };
+		72CB2B3D259FF92400201366 /* MasterRadicalParam.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = MasterRadicalParam.hpp; sourceTree = "<group>"; };
+		72CB2B40259FF92400201366 /* MasterKanjiParamRepository.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MasterKanjiParamRepository.cpp; sourceTree = "<group>"; };
+		72CB2B41259FF92400201366 /* MasterKanjiConsistRepository.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MasterKanjiConsistRepository.cpp; sourceTree = "<group>"; };
+		72CB2B42259FF92400201366 /* MasterKanjiDictionaryRepository.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = MasterKanjiDictionaryRepository.hpp; sourceTree = "<group>"; };
+		72CB2B43259FF92400201366 /* MasterRadicalParamRepository.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MasterRadicalParamRepository.cpp; sourceTree = "<group>"; };
+		72CB2B44259FF92400201366 /* MasterRadicalDictionaryRepository.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = MasterRadicalDictionaryRepository.hpp; sourceTree = "<group>"; };
+		72CB2B45259FF92400201366 /* MasterKanjiDictionaryRepository.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MasterKanjiDictionaryRepository.cpp; sourceTree = "<group>"; };
+		72CB2B46259FF92400201366 /* MasterRadicalParamRepository.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = MasterRadicalParamRepository.hpp; sourceTree = "<group>"; };
+		72CB2B47259FF92400201366 /* MasterRadicalDictionaryRepository.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MasterRadicalDictionaryRepository.cpp; sourceTree = "<group>"; };
+		72CB2B48259FF92400201366 /* MasterKanjiParamRepository.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = MasterKanjiParamRepository.hpp; sourceTree = "<group>"; };
+		72CB2B49259FF92400201366 /* MasterKanjiConsistRepository.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = MasterKanjiConsistRepository.hpp; sourceTree = "<group>"; };
 		72D960352594638B00236386 /* Id.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = Id.hpp; sourceTree = "<group>"; };
 		72DB89922568D97000BF7CC5 /* HolderUI.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = HolderUI.cpp; sourceTree = "<group>"; };
 		72DB89932568D97000BF7CC5 /* HolderUI.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = HolderUI.hpp; sourceTree = "<group>"; };
@@ -311,6 +328,7 @@
 		2C1778791CE0A9D800BB8AD0 = {
 			isa = PBXGroup;
 			children = (
+				72CB2B03259DED0900201366 /* asset */,
 				7265F03E253195B800C15F67 /* dx4siv3d */,
 				2C6906D72298140F00A427D0 /* engine */,
 				2C1778921CE0A9EA00BB8AD0 /* Info.plist */,
@@ -582,8 +600,6 @@
 			isa = PBXGroup;
 			children = (
 				72906991259726E3004B732E /* IDs.hpp */,
-				72B1DD0D2598D5FA00BC3D6C /* MasterKanjiRepository.cpp */,
-				72B1DD0E2598D5FA00BC3D6C /* MasterKanjiRepository.hpp */,
 			);
 			path = identity;
 			sourceTree = "<group>";
@@ -686,6 +702,77 @@
 			path = audio;
 			sourceTree = "<group>";
 		};
+		72CB2B03259DED0900201366 /* asset */ = {
+			isa = PBXGroup;
+			children = (
+				72CB2B04259DED1700201366 /* schema */,
+			);
+			name = asset;
+			sourceTree = "<group>";
+		};
+		72CB2B04259DED1700201366 /* schema */ = {
+			isa = PBXGroup;
+			children = (
+				72CB2B05259DED1700201366 /* master_header */,
+			);
+			name = schema;
+			path = "KANJI-asset/schema";
+			sourceTree = "<group>";
+		};
+		72CB2B05259DED1700201366 /* master_header */ = {
+			isa = PBXGroup;
+			children = (
+				72CB2B37259FF92400201366 /* class */,
+				72CB2B3E259FF92400201366 /* repository */,
+			);
+			path = master_header;
+			sourceTree = "<group>";
+		};
+		72CB2B37259FF92400201366 /* class */ = {
+			isa = PBXGroup;
+			children = (
+				72CB2B38259FF92400201366 /* kanji */,
+			);
+			path = class;
+			sourceTree = "<group>";
+		};
+		72CB2B38259FF92400201366 /* kanji */ = {
+			isa = PBXGroup;
+			children = (
+				72CB2B3A259FF92400201366 /* MasterKanjiConsist.hpp */,
+				72CB2B3C259FF92400201366 /* MasterKanjiDictionary.hpp */,
+				72CB2B3B259FF92400201366 /* MasterKanjiParam.hpp */,
+				72CB2B39259FF92400201366 /* MasterRadicalDictionary.hpp */,
+				72CB2B3D259FF92400201366 /* MasterRadicalParam.hpp */,
+			);
+			path = kanji;
+			sourceTree = "<group>";
+		};
+		72CB2B3E259FF92400201366 /* repository */ = {
+			isa = PBXGroup;
+			children = (
+				72CB2B3F259FF92400201366 /* kanji */,
+			);
+			path = repository;
+			sourceTree = "<group>";
+		};
+		72CB2B3F259FF92400201366 /* kanji */ = {
+			isa = PBXGroup;
+			children = (
+				72CB2B41259FF92400201366 /* MasterKanjiConsistRepository.cpp */,
+				72CB2B49259FF92400201366 /* MasterKanjiConsistRepository.hpp */,
+				72CB2B45259FF92400201366 /* MasterKanjiDictionaryRepository.cpp */,
+				72CB2B42259FF92400201366 /* MasterKanjiDictionaryRepository.hpp */,
+				72CB2B40259FF92400201366 /* MasterKanjiParamRepository.cpp */,
+				72CB2B48259FF92400201366 /* MasterKanjiParamRepository.hpp */,
+				72CB2B47259FF92400201366 /* MasterRadicalDictionaryRepository.cpp */,
+				72CB2B44259FF92400201366 /* MasterRadicalDictionaryRepository.hpp */,
+				72CB2B43259FF92400201366 /* MasterRadicalParamRepository.cpp */,
+				72CB2B46259FF92400201366 /* MasterRadicalParamRepository.hpp */,
+			);
+			path = kanji;
+			sourceTree = "<group>";
+		};
 		72D960332594637400236386 /* identity */ = {
 			isa = PBXGroup;
 			children = (
@@ -701,6 +788,8 @@
 			isa = PBXGroup;
 			children = (
 				72DB89912568D96300BF7CC5 /* ui */,
+				72B1DD17259DDDC400BC3D6C /* Radical.cpp */,
+				72B1DD18259DDDC400BC3D6C /* Radical.hpp */,
 			);
 			path = character;
 			sourceTree = "<group>";
@@ -734,8 +823,6 @@
 			children = (
 				72DB89AA2569321000BF7CC5 /* Move.cpp */,
 				72DB89AB2569321000BF7CC5 /* Move.hpp */,
-				72B1DD132598D6AE00BC3D6C /* MasterKanji.cpp */,
-				72B1DD142598D6AE00BC3D6C /* MasterKanji.hpp */,
 			);
 			path = masterdata;
 			sourceTree = "<group>";
@@ -817,6 +904,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				72CB2B4B259FF92400201366 /* MasterKanjiConsistRepository.cpp in Sources */,
 				72DB89AC2569321000BF7CC5 /* Move.cpp in Sources */,
 				72A3BD9F254D80AB003393C4 /* GamePadDemo.cpp in Sources */,
 				7265F0752531E1BF00C15F67 /* SequenceManager.cpp in Sources */,
@@ -824,6 +912,7 @@
 				72B1DCF82598B90800BC3D6C /* AudioSource.cpp in Sources */,
 				72A3BDAD254DC083003393C4 /* BattleScene.cpp in Sources */,
 				7265F07C2531FD6500C15F67 /* DomainGameData.cpp in Sources */,
+				72CB2B4E259FF92400201366 /* MasterRadicalDictionaryRepository.cpp in Sources */,
 				72A3BD5E25443711003393C4 /* InputDemoScene.cpp in Sources */,
 				72A3BDED255164D7003393C4 /* BattleManager.cpp in Sources */,
 				7265F0712531DC1D00C15F67 /* AssetManager.cpp in Sources */,
@@ -838,18 +927,19 @@
 				726F87D12555E1EA003FAC77 /* Log.cpp in Sources */,
 				72A3BDBC254EDAB5003393C4 /* HotReloadableParameters.cpp in Sources */,
 				726F87D32555E1EA003FAC77 /* LogDefinition.cpp in Sources */,
+				72CB2B4A259FF92400201366 /* MasterKanjiParamRepository.cpp in Sources */,
 				72A3BD7525455C0D003393C4 /* Button.cpp in Sources */,
 				7265F06F2531DC1D00C15F67 /* ExecutiveManager.cpp in Sources */,
 				C800DE80253DE01900C3835B /* CharacterSelectionScene.cpp in Sources */,
+				72CB2B4C259FF92400201366 /* MasterRadicalParamRepository.cpp in Sources */,
 				7265F0672531DC0F00C15F67 /* Singleton.cpp in Sources */,
-				72B1DD152598D6AE00BC3D6C /* MasterKanji.cpp in Sources */,
 				72DB89942568D97000BF7CC5 /* HolderUI.cpp in Sources */,
 				72A3BD6D254536A9003393C4 /* PlayerId.cpp in Sources */,
 				72A3BDC0254EDB65003393C4 /* FilePath.cpp in Sources */,
 				72A3BD6825452A7B003393C4 /* KeyCode.cpp in Sources */,
+				72B1DD19259DDDC500BC3D6C /* Radical.cpp in Sources */,
 				726F87D42555E1EA003FAC77 /* LogDestination.cpp in Sources */,
 				7247BB4225689E850052A75F /* RelativePosition.cpp in Sources */,
-				72B1DD0F2598D5FA00BC3D6C /* MasterKanjiRepository.cpp in Sources */,
 				72B1DCFB2598B90800BC3D6C /* AudioType.cpp in Sources */,
 				72B1DCE72598515400BC3D6C /* RangedValue.cpp in Sources */,
 				72A3BD78254564A3003393C4 /* DPad.cpp in Sources */,
@@ -861,6 +951,7 @@
 				72A3BD7B25457D84003393C4 /* Axis.cpp in Sources */,
 				72B1DCFA2598B90800BC3D6C /* Audio.cpp in Sources */,
 				72A3BDF2255167C0003393C4 /* BattleDesc.cpp in Sources */,
+				72CB2B4D259FF92400201366 /* MasterKanjiDictionaryRepository.cpp in Sources */,
 				72DB899A2568F13D00BF7CC5 /* PhysicalWorldManager.cpp in Sources */,
 				72DB89A1256916B200BF7CC5 /* PhysicalStage.cpp in Sources */,
 				72859F6D25388CA100EB0AAD /* UIComponent.cpp in Sources */,

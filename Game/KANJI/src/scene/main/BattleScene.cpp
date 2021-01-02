@@ -9,7 +9,7 @@
 #include "HotReloadManager.hpp"
 #include "IDs.hpp"
 #include "Audio.hpp"
-#include "MasterKanjiRepository.hpp"
+#include "MasterKanjiParamRepository.hpp"
 
 
 namespace {
@@ -17,14 +17,14 @@ namespace {
 using KanjiID = kanji::KanjiID;
 void createAndPushCharacter(
     const std::shared_ptr<kanji::battle::BattlePlayerDesc>& desc,
-    const std::unique_ptr<kanji::md::MasterKanjiRepository>& repo,
+    const std::unique_ptr<kanji::md::MasterKanjiParamRepository>& repo,
     KanjiID id) {
     desc->characters().push_back(
         kanji::chara::ParameterizedCharacter::createShared(repo->at(KanjiID(id)))
     );
 }
 std::shared_ptr<kanji::battle::BattleDesc> createBattleDescForDebug(const std::shared_ptr<kanji::battle::BattleDesc>& battle_desc) {
-    const auto& repo = kanji::md::MasterKanjiRepository::instance();
+    const auto& repo = kanji::md::MasterKanjiParamRepository::instance();
     {
         auto player_desc = std::make_shared<kanji::battle::BattlePlayerDesc>();
         createAndPushCharacter(player_desc, repo, KanjiID(0));
