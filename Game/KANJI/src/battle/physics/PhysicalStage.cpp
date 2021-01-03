@@ -55,9 +55,9 @@ void PhysicalStage::initialize() {
 PhysicalStage::PhysicalStage(s3d::P2World* world, const dx::toml::TomlAsset& toml) :
 m_desc(PhysicalStageDesc::createFromToml(U"notebook")),
 m_floor     (world->createStaticLine(s3d::Vec2(  0,  0), s3d::Line(-25, 0, 25, 0), s3d::P2Material(1.0, 0.0, toml[dx::toml::TomlKey(U"physics.floor.friction")].get<double>()))),
-m_ceiling   (world->createStaticLine(s3d::Vec2(  0,-25), s3d::Line(-25, 0, 25, 0), s3d::P2Material(1.0, 0.0, toml[dx::toml::TomlKey(U"physics.floor.friction")].get<double>()))),
-m_wall_left (world->createStaticLine(s3d::Vec2(-25,  0), s3d::Line(0, -25, 0, 10), s3d::P2Material(1.0, 0.0, toml[dx::toml::TomlKey(U"physics.floor.friction")].get<double>()))),
-m_wall_right(world->createStaticLine(s3d::Vec2( 25,  0), s3d::Line(0, -25, 0, 10), s3d::P2Material(1.0, 0.0, toml[dx::toml::TomlKey(U"physics.floor.friction")].get<double>()))) {
+m_ceiling   (world->createStaticLine(s3d::Vec2(  0,-25), s3d::Line(-25, 0, 25, 0), s3d::P2Material(1.0, 0.0, toml[dx::toml::TomlKey(U"physics.ceiling.friction")].get<double>()))),
+m_wall_left (world->createStaticLine(s3d::Vec2(-25,  0), s3d::Line(0, -25, 0, 10), s3d::P2Material(1.0, 0.0, toml[dx::toml::TomlKey(U"physics.wall.friction")].get<double>()))),
+m_wall_right(world->createStaticLine(s3d::Vec2( 25,  0), s3d::Line(0, -25, 0, 10), s3d::P2Material(1.0, 0.0, toml[dx::toml::TomlKey(U"physics.wall.friction")].get<double>()))) {
     initialize();
 }
 
