@@ -9,7 +9,6 @@
 #include "HolderUI.hpp"
 #include "Log.hpp"
 #include "AssetManager.hpp"
-#include "HotReloadManager.hpp"
 #include "TomlAsset.hpp"
 
 namespace kanji {

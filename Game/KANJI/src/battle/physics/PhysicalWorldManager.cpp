@@ -1,5 +1,4 @@
 #include "PhysicalWorldManager.hpp"
-#include "HotReloadManager.hpp"
 #include "BattlePlayer.hpp"
 #include "PhysicalCharacter.hpp"
 #include "PhysicalStage.hpp"

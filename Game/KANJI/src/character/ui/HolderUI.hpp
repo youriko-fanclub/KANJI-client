@@ -6,12 +6,6 @@
 #include "UIComponent.hpp"
 #include "TomlAsset.hpp"
 
-namespace dx {
-namespace cmp {
-class HotReloadableParameters;
-}
-}
-
 namespace kanji {
 namespace battle {
 class BattlePlayer;

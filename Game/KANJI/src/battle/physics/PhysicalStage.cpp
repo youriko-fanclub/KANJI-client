@@ -1,8 +1,7 @@
 #include "PhysicalStage.hpp"
 #include <Siv3D/FormatLiteral.hpp>
-#include "HotReloadManager.hpp"
-using namespace s3d::Literals::FormatLiterals;
 
+using namespace s3d::Literals::FormatLiterals;
 
 namespace kanji {
 namespace battle {

@@ -1,8 +1,5 @@
 #include "SequenceManager.hpp"
-
 #include "Scenes.hpp"
-#include "HotReloadManager.hpp"
-#include "SystemParams.hpp"
 #include "TomlAsset.hpp"
 
 namespace kanji {

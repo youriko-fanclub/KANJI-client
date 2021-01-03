@@ -2,7 +2,6 @@
 #include <unordered_map>
 #include <Siv3D.hpp>
 #include "PlayerId.hpp"
-#include "CharaPhysicsParameters.hpp"
 #include "TomlAsset.hpp"
 
 namespace kanji {

@@ -1,6 +1,5 @@
 #include "HolderUI.hpp"
 #include <Siv3D/FormatLiteral.hpp>
-#include "HotReloadManager.hpp"
 #include "PlayerId.hpp"
 #include "BattlePlayer.hpp"
 #include "ParameterizedCharacter.hpp"

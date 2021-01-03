@@ -6,7 +6,6 @@
 #include <Siv3D/TOMLReader.hpp>
 #include "Input.hpp"
 #include "Misc.hpp"
-#include "HotReloadManager.hpp"
 #include "IDs.hpp"
 #include "Audio.hpp"
 #include "MasterKanjiParamRepository.hpp"

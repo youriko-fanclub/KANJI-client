@@ -1,5 +1,4 @@
 #include "PhysicalCharacter.hpp"
-#include "HotReloadManager.hpp"
 #include "Input.hpp"
 #include "Misc.hpp"
 #include "BattlePlayer.hpp"
