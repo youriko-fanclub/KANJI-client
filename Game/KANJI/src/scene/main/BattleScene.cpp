@@ -3,7 +3,6 @@
 #include "BattleUIManager.hpp"
 #include "ParameterizedCharacter.hpp"
 
-#include <Siv3D/TOMLReader.hpp>
 #include "Input.hpp"
 #include "Misc.hpp"
 #include "IDs.hpp"

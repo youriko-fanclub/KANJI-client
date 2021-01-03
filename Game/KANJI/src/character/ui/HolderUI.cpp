@@ -17,8 +17,8 @@ namespace ui {
 void HolderUI::update() {
     const auto player_nums = s3d::ToString(m_player_num);
     m_pos.set(
-        m_toml.getVec2(m_toml_key + U"base.center" + player_nums)
-            + s3d::Vec2(m_player_index * m_toml[m_toml_key + U"interval" + player_nums].get<int>(), 0),
+        dx::cmp::toml::getVec2(m_toml[m_toml_key + U"base.center" + player_nums])
+            + s3d::Vec2(m_player_index * dx::cmp::toml::getInt(m_toml[m_toml_key + U"interval" + player_nums]), 0),
         m_toml[dx::cmp::TomlKey(U"battle.ui.base.scale")].get<float>());
     
     for (const auto position : dx::denum::elems<CirclePosition>()) {
@@ -26,20 +26,20 @@ void HolderUI::update() {
         const auto key_circle = m_toml_key + U"circle" + key;
         // circle
         m_circles.insert_or_assign(position, s3d::Circle(
-            m_pos.offset(m_toml.getVec2(key_circle + U"center")),
+            m_pos.offset(dx::cmp::toml::getVec2(m_toml[key_circle + U"center"])),
             m_pos.size(m_toml[key_circle + U"r"].get<int>())));
 
         // font
         const int fontsize = m_toml[key_circle + U"font.size"].get<int>();
         if (!m_fonts.contains(key) || m_fonts.at(key).fontSize() != fontsize) {
-            m_fonts.insert(key, m_toml.getFont(key_circle + U"font"));
+            m_fonts.insert(key, dx::cmp::toml::getFont(m_toml[key_circle + U"font"]));
         }
     }
     {
         const auto key = U"radical";
         const int fontsize = m_toml[m_toml_key + key + U"font.size"].get<int>();
         if (!m_fonts.contains(key) || m_fonts.at(key).fontSize() != fontsize) {
-            m_fonts.insert(key, m_toml.getFont(m_toml_key + key + U"font"));
+            m_fonts.insert(key, dx::cmp::toml::getFont(m_toml[m_toml_key + key + U"font"]));
         }
     }
 }
@@ -48,7 +48,7 @@ void HolderUI::update() {
 void HolderUI::drawImpl() const {
     s3d::RectF frame(
         s3d::Arg::center(m_pos.center()),
-        m_pos.size(m_toml.getSize(m_toml_key + U"base.size")));
+        m_pos.size(dx::cmp::toml::getSize(m_toml[m_toml_key + U"base.size"])));
     frame.draw(m_colors.at(U"Base"));
     
     drawCircle(CirclePosition::Above, 0);
@@ -71,8 +71,8 @@ void HolderUI::drawCircle(const CirclePosition position, const int charaIndex) c
 }
 void HolderUI::drawRadical() const {
     s3d::RectF radical(
-        s3d::Arg::center(m_pos.offset(m_toml.getVec2(m_toml_key + U"radical.base.center"))),
-        m_pos.size(m_toml.getSize(m_toml_key + U"radical.base.size")));
+        s3d::Arg::center(m_pos.offset(dx::cmp::toml::getVec2(m_toml[m_toml_key + U"radical.base.center"]))),
+        m_pos.size(dx::cmp::toml::getSize(m_toml[m_toml_key + U"radical.base.size"])));
     radical.draw(m_colors.at(U"Gray"));
     
     if (m_player->hasRadical()) {
@@ -92,10 +92,10 @@ m_player(player) {
     key += U"color";
     key += dx::denum::toString<dx::di::PlayerId>(m_player->pid());
 
-    m_colors.insert(U"Base", m_toml.getColorF(key + U"base"));
-    m_colors.insert(U"Gray", m_toml.getColorF(key + U"radical"));
-    m_colors.insert(U"Highlight", m_toml.getColorF(key + U"circle"));
-    m_colors.insert(U"DamageFill", m_toml.getColorF(key + U"damage"));
+    m_colors.insert(U"Base"      , dx::cmp::toml::getColorF(m_toml[key + U"base"]));
+    m_colors.insert(U"Gray"      , dx::cmp::toml::getColorF(m_toml[key + U"radical"]));
+    m_colors.insert(U"Highlight" , dx::cmp::toml::getColorF(m_toml[key + U"circle"]));
+    m_colors.insert(U"DamageFill", dx::cmp::toml::getColorF(m_toml[key + U"damage"]));
     update();
 }
 

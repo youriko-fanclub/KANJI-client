@@ -20,8 +20,8 @@ PhysicalStageDesc PhysicalStageDesc::createFromToml(const s3d::String& name) {
     for (int player_num = 1; player_num <= 4; ++player_num) {
         desc.initial_positions.insert(std::make_pair(player_num, std::make_shared<std::vector<s3d::Vec2>>()));
         for (int i = 0; i < player_num; ++i) {
-            desc.initial_positions.at(player_num)->push_back(toml.getVec2(
-                key + U"initialposition.{}players.{}"_fmt(player_num, i)
+            desc.initial_positions.at(player_num)->push_back(dx::cmp::toml::getVec2(toml[
+                key + U"initialposition.{}players.{}"_fmt(player_num, i)]
             ));
         }
     }
