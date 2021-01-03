@@ -84,11 +84,11 @@ void BattleUIManager::drawImpl() const {
     }
     m_camera.draw();
     
-    dx::cmp::TomlKey key(U"battle.ui.object.physical.chara.font");
-    dx::cmp::TomlAsset toml(U"Battle");
-    static s3d::Font font = dx::cmp::toml::getFont(toml[key]);
+    dx::toml::TomlKey key(U"battle.ui.object.physical.chara.font");
+    dx::toml::TomlAsset toml(U"Battle");
+    static s3d::Font font = dx::toml::font(toml[key]);
     if (font.fontSize() != toml[key + U"size"].get<int>()) {
-        font = dx::cmp::toml::getFont(toml[key]);
+        font = dx::toml::font(toml[key]);
     }
     for (const auto& chara : m_battle_manager->worldMgr()->characters()) {
         const auto& kanji = chara.second->status()->activeCharacter()->kanji().kanji;

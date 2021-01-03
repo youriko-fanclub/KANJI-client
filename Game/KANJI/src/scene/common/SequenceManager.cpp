@@ -22,8 +22,8 @@ void SequenceManager::initialize() {
         .add<dx::di::InputDemoScene>(State::InputDemo)
         .setFadeColor(s3d::ColorF(1.0));
     
-    const dx::cmp::TomlAsset toml(U"System");
-    const auto& initial_scene = dx::denum::fromString<State>(toml[dx::cmp::TomlKey(U"system.scene.initial")].getString());
+    const dx::toml::TomlAsset toml(U"System");
+    const auto& initial_scene = dx::denum::fromString<State>(toml[dx::toml::TomlKey(U"system.scene.initial")].getString());
     m_manager.init(initial_scene ? *initial_scene : State::Title);
 }
 

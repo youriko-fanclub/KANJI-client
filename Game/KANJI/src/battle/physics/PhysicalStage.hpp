@@ -38,7 +38,7 @@ private: // field
 private: // private function
     void initialize();
 public: // ctor/dtor
-    PhysicalStage(s3d::P2World* world, const dx::cmp::TomlAsset& toml);
+    PhysicalStage(s3d::P2World* world, const dx::toml::TomlAsset& toml);
 };
 
 }

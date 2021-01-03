@@ -26,8 +26,8 @@ public: // static_const/enum
         Above = 0, Left = 1, Right = 2,
     };
 public: // static
-    const dx::cmp::TomlKey m_toml_key;
-    dx::cmp::TomlAsset m_toml;
+    const dx::toml::TomlKey m_toml_key;
+    dx::toml::TomlAsset m_toml;
 public: // public function
     void update() override;
 protected: // protected function

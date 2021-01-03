@@ -20,7 +20,7 @@ void PhysicalCharacter::shoot(const s3d::Circular& force) {
 
 void PhysicalCharacter::update() {
     const auto& input = dx::di::Input::get(m_pid);
-    const dx::cmp::TomlKey key(U"physics.chara");
+    const dx::toml::TomlKey key(U"physics.chara");
     s3d::Vec2 force(
         m_toml[key + U"force.horizontal"].get<double>() * input.arrowL().x,
         input.dpad().up().down() || input.buttons().b().down() ? -m_toml[key + U"force.jump"].get<double>() : 0.0);
@@ -50,9 +50,9 @@ PhysicalCharacter::PhysicalCharacter(
     const s3d::Vec2& initial_pos,
     bool is_right,
     const std::shared_ptr<battle::BattlePlayer>& player,
-    const dx::cmp::TomlAsset& toml) :
+    const dx::toml::TomlAsset& toml) :
 m_pid(pid),
-m_body(world->createRect(initial_pos, SizeF(3, 3), P2Material(1.0, 0.0, toml[dx::cmp::TomlKey(U"physics.chara.friction")].get<double>()))),
+m_body(world->createRect(initial_pos, SizeF(3, 3), P2Material(1.0, 0.0, toml[dx::toml::TomlKey(U"physics.chara.friction")].get<double>()))),
 m_is_right(is_right),
 m_status(player),
 m_toml(toml) {
