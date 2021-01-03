@@ -3,6 +3,7 @@
 #include <Siv3D.hpp>
 #include "PlayerId.hpp"
 #include "CharaPhysicsParameters.hpp"
+#include "TomlAsset.hpp"
 
 namespace kanji {
 namespace battle {
@@ -25,7 +26,7 @@ public: // public function
     }
     void lose(dx::di::PlayerId pid);
 private: // field
-    std::shared_ptr<param::CharaPhysics> m_param;
+    dx::cmp::TomlAsset m_toml;
 
     P2World m_world;
     std::unordered_map<dx::di::PlayerId, std::shared_ptr<PhysicalCharacter>> m_characters;

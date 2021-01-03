@@ -10,6 +10,8 @@
 #include "IDs.hpp"
 #include "Audio.hpp"
 #include "MasterKanjiParamRepository.hpp"
+#include "TomlAsset.hpp"
+#include "Path.hpp"
 
 
 namespace {
@@ -53,9 +55,12 @@ std::shared_ptr<kanji::battle::BattleDesc> createBattleDescForDebug(const std::s
         createAndPushCharacter(player_desc, repo, KanjiID(11));
         battle_desc->setPlayerDesc(dx::di::PlayerId::_4P, player_desc);
     }
-    static auto param = dx::cmp::HotReloadManager::createParamsWithLoad(U"Battle");
-    battle_desc->setTimeLimitSec(param->get<int>(U"battle.debug_desc.timelimit"));
-    battle_desc->setStageId(param->get<int>(U"battle.debug_desc.stage_id"));
+    static dx::cmp::TomlAsset toml(U"Battle");
+    dx::cmp::TomlKey key(U"battle.debug_desc");
+    battle_desc->setTimeLimitSec(toml[key + U"timelimit"].get<int>());
+    battle_desc->setStageId(toml[key + U"stage_id"].get<int>());
+    // battle_desc->setTimeLimitSec(param[U"battle"][U"debug_desc"][U"timelimit"].get<int>());
+    // battle_desc->setStageId(param[U"battle"][U"debug_desc"][U"stage_id"].get<int>());
     return battle_desc;
 }
 

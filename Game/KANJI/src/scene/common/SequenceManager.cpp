@@ -3,6 +3,7 @@
 #include "Scenes.hpp"
 #include "HotReloadManager.hpp"
 #include "SystemParams.hpp"
+#include "TomlAsset.hpp"
 
 namespace kanji {
 namespace seq {
@@ -24,8 +25,8 @@ void SequenceManager::initialize() {
         .add<dx::di::InputDemoScene>(State::InputDemo)
         .setFadeColor(s3d::ColorF(1.0));
     
-    const auto& params = dx::cmp::HotReloadManager::createParams<dx::app::SystemParams>(false);
-    const auto& initial_scene = dx::denum::fromString<State>(params->initial_scene);
+    const dx::cmp::TomlAsset toml(U"System");
+    const auto& initial_scene = dx::denum::fromString<State>(toml[dx::cmp::TomlKey(U"system.scene.initial")].getString());
     m_manager.init(initial_scene ? *initial_scene : State::Title);
 }
 

@@ -3,6 +3,7 @@
 #include <Siv3D.hpp>
 #include "PlayerId.hpp"
 #include "CharaPhysicsParameters.hpp"
+#include "TomlAsset.hpp"
 
 namespace kanji {
 namespace battle {
@@ -27,7 +28,7 @@ private: // field
     P2Body m_body;
     bool m_is_right; // 右向きか否か
     const std::shared_ptr<battle::BattlePlayer> m_status;
-    std::shared_ptr<param::CharaPhysics> m_param;
+    dx::cmp::TomlAsset m_toml;
 private: // private function
 public: // ctor/dtor
     PhysicalCharacter(
@@ -36,7 +37,7 @@ public: // ctor/dtor
         const s3d::Vec2& initial_pos,
         bool is_right,
         const std::shared_ptr<battle::BattlePlayer>& player,
-        const std::shared_ptr<param::CharaPhysics>& param);
+        const dx::cmp::TomlAsset& toml);
 };
 
 }

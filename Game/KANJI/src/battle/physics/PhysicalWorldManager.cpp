@@ -29,7 +29,7 @@ void PhysicalWorldManager::initializeCharacters(const std::unordered_map<dx::di:
                 initial_positions.at(random_indices.at(index)),
                 true,
                 player.second,
-                m_param)
+                m_toml)
             ));
         ++index;
     }
@@ -52,9 +52,9 @@ void PhysicalWorldManager::lose(dx::di::PlayerId pid) {
 // private function ------------------------------
 // ctor/dtor -------------------------------------
 PhysicalWorldManager::PhysicalWorldManager() :
-m_param(dx::cmp::HotReloadManager::createParams<param::CharaPhysics>()),
+m_toml(U"Physics"),
 m_world(9.8) {
-    m_stage = std::make_shared<PhysicalStage>(&m_world, m_param);
+    m_stage = std::make_shared<PhysicalStage>(&m_world, m_toml);
 }
     
 }
