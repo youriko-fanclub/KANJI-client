@@ -75,8 +75,9 @@ void BattleManager::initialize(const std::shared_ptr<BattleDesc>& desc) {
     m_stage = std::make_shared<Stage>(desc->stageId());
     m_stage->initialize();
     m_world_mgr = std::make_shared<PhysicalWorldManager>();
+    m_world_mgr->initializeStage(desc->stageId());
     m_world_mgr->initializeCharacters(m_player_mgr->players());
-    
+
     m_move_mgr = std::make_shared<PhysicalMoveManager>();
     
     for (auto& player : m_player_mgr->players()) {

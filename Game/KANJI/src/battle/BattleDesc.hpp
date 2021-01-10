@@ -45,7 +45,7 @@ private: // field
     StageID m_stage_id;
 private: // private function
 public: // ctor/dtor
-    BattleDesc() : m_stage_id(300000) {}
+    BattleDesc() : m_stage_id(0) {}
 };
 
 class BattleResultDesc {
