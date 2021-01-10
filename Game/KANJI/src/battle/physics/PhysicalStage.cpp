@@ -12,6 +12,8 @@ namespace battle {
 
 // static ----------------------------------------
 // public function -------------------------------
+const s3d::String& PhysicalStage::name() const { return m_md->name(); }
+
 void PhysicalStage::drawLegacy() const {
     m_floor.draw(s3d::Palette::Skyblue);
     m_ceiling.draw(s3d::Palette::Skyblue);

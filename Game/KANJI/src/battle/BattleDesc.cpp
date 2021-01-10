@@ -55,7 +55,7 @@ void BattleDesc::dump() const {
     s3d::Print
         << U"TimeLimit : " << m_timeLimit_sec ;// << std::endl
     s3d::Print
-        << U"StageId : " << m_stage_id ;// << std::endl;
+        << U"StageId : " << m_stage_id.toInt() ;// << std::endl;
 }
 // private function ------------------------------
 // ctor/dtor -------------------------------------

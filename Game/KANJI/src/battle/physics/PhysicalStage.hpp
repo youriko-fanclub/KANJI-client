@@ -16,6 +16,7 @@ class PhysicalStage {
 public: // static_const/enum
 public: // static
 public: // public function
+    const s3d::String& name() const;
     void drawLegacy() const; // 近いうちに消す
     
     // player_num: 参加者人数 [1, 4]
