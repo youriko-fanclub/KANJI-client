@@ -76,7 +76,7 @@ void HolderUI::drawRadical() const {
     radical.draw(m_colors.at(U"Gray"));
     
     if (m_player->hasRadical()) {
-        m_fonts.at(U"radical")(m_player->radical())
+        m_fonts.at(U"radical")(m_player->radical()->chara())
             .draw(s3d::Arg::center = radical.center(), s3d::Palette::White);
     }
 }

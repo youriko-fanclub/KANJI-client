@@ -2,6 +2,7 @@
 #include "BattleDesc.hpp"
 #include "ParameterizedCharacter.hpp"
 #include "PhysicalMove.hpp"
+#include "Radical.hpp"
 
 namespace kanji {
 namespace battle {
@@ -25,6 +26,16 @@ bool BattlePlayer::changeActiveCharacter() {
         if (m_active_index == source_index) { return false; }
         if (!m_characters.at(m_active_index)->isBurnedOut()) { return true; }
     }
+}
+
+bool BattlePlayer::hasRadical() const {
+    return m_radical != nullptr;
+}
+const std::unique_ptr<chara::Radical>& BattlePlayer::radical() const {
+    return m_radical;
+}
+void BattlePlayer::setRadical(RadicalID radical_id) {
+    m_radical = std::make_unique<chara::Radical>(radical_id);
 }
 
 void BattlePlayer::attack(const MomentaryMove& move, bool is_from_left) {
