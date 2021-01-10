@@ -56,7 +56,7 @@ std::shared_ptr<kanji::battle::BattleDesc> createBattleDescForDebug(const std::s
     static dx::toml::TomlAsset toml(U"Battle");
     dx::toml::TomlKey key(U"battle.debug_desc");
     battle_desc->setTimeLimitSec(toml[key + U"timelimit"].get<int>());
-    battle_desc->setStageId(toml[key + U"stage_id"].get<int>());
+    battle_desc->setStageId(kanji::StageID(300000));
     // battle_desc->setTimeLimitSec(param[U"battle"][U"debug_desc"][U"timelimit"].get<int>());
     // battle_desc->setStageId(param[U"battle"][U"debug_desc"][U"stage_id"].get<int>());
     return battle_desc;
@@ -79,8 +79,7 @@ void BattleScene::initialize() {
     m_mgr->initialize(getData().battleDesc());
     m_ui = std::make_shared<ui::BattleUIManager>(m_mgr.get());
     
-    auto* battle_audio = dx::aud::Audio::masterSource()->addSource(U"Battle");
-    battle_audio->addClip(dx::aud::AudioType::BGM, U"BGM::Battle02", true);
+    dx::aud::Audio::masterSource()->addSource(U"Battle");
     setOnDestructCallback([](State next){
         dx::aud::Audio::masterSource()->removeSource(U"Battle");
     });

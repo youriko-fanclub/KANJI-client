@@ -9,6 +9,7 @@
 #include "Log.hpp"
 #include "Input.hpp"
 #include "Audio.hpp"
+#include "Stage.hpp"
 
 namespace kanji {
 namespace battle {
@@ -71,6 +72,8 @@ void BattleManager::initialize(const std::shared_ptr<BattleDesc>& desc) {
     dx::aud::Audio::masterSource()->addSource(U"Battle");
     dx::aud::Audio::source(U"Battle")->addClip(dx::aud::AudioType::SE, U"SE::Battle::Move::Normal"/* + s3d::ToString(move_id)*/);
     
+    m_stage = std::make_shared<Stage>(desc->stageId());
+    m_stage->initialize();
     m_world_mgr = std::make_shared<PhysicalWorldManager>();
     m_world_mgr->initializeCharacters(m_player_mgr->players());
     
