@@ -53,7 +53,7 @@ void PhysicalWorldManager::lose(dx::di::PlayerId pid) {
 PhysicalWorldManager::PhysicalWorldManager() :
 m_toml(U"Physics"),
 m_world(9.8) {
-    m_stage = std::make_shared<PhysicalStage>(&m_world, m_toml);
+    m_stage = std::make_shared<PhysicalStage>(&m_world, StageID(300000), m_toml);
 }
     
 }
