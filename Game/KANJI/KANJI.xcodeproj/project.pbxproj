@@ -97,6 +97,8 @@
 		72CB2B4E259FF92400201366 /* MasterRadicalDictionaryRepository.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 72CB2B47259FF92400201366 /* MasterRadicalDictionaryRepository.cpp */; };
 		72CB2B5625A01BDD00201366 /* TomlAsset.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 72CB2B5425A01BDD00201366 /* TomlAsset.cpp */; };
 		72CB2B5A25A01DE000201366 /* TomlAssetRepository.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 72CB2B5825A01DE000201366 /* TomlAssetRepository.cpp */; };
+		72CB2B7E25A9EFE600201366 /* Stage.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 72CB2B7C25A9EFE600201366 /* Stage.cpp */; };
+		72CB2BA325AA151D00201366 /* MasterStageRepository.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 72CB2BA225AA151D00201366 /* MasterStageRepository.cpp */; };
 		72DB89942568D97000BF7CC5 /* HolderUI.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 72DB89922568D97000BF7CC5 /* HolderUI.cpp */; };
 		72DB899A2568F13D00BF7CC5 /* PhysicalWorldManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 72DB89982568F13D00BF7CC5 /* PhysicalWorldManager.cpp */; };
 		72DB89A1256916B200BF7CC5 /* PhysicalStage.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 72DB899E256916B100BF7CC5 /* PhysicalStage.cpp */; };
@@ -262,6 +264,11 @@
 		72CB2B5525A01BDD00201366 /* TomlAsset.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = TomlAsset.hpp; sourceTree = "<group>"; };
 		72CB2B5825A01DE000201366 /* TomlAssetRepository.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = TomlAssetRepository.cpp; sourceTree = "<group>"; };
 		72CB2B5925A01DE000201366 /* TomlAssetRepository.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = TomlAssetRepository.hpp; sourceTree = "<group>"; };
+		72CB2B7C25A9EFE600201366 /* Stage.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Stage.cpp; sourceTree = "<group>"; };
+		72CB2B7D25A9EFE600201366 /* Stage.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Stage.hpp; sourceTree = "<group>"; };
+		72CB2BA025AA151000201366 /* MasterStage.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = MasterStage.hpp; sourceTree = "<group>"; };
+		72CB2BA125AA151D00201366 /* MasterStageRepository.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = MasterStageRepository.hpp; sourceTree = "<group>"; };
+		72CB2BA225AA151D00201366 /* MasterStageRepository.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MasterStageRepository.cpp; sourceTree = "<group>"; };
 		72D960352594638B00236386 /* Id.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = Id.hpp; sourceTree = "<group>"; };
 		72DB89922568D97000BF7CC5 /* HolderUI.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = HolderUI.cpp; sourceTree = "<group>"; };
 		72DB89932568D97000BF7CC5 /* HolderUI.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = HolderUI.hpp; sourceTree = "<group>"; };
@@ -651,6 +658,7 @@
 		72A3BDEA255164BA003393C4 /* battle */ = {
 			isa = PBXGroup;
 			children = (
+				72CB2B7B25A9EFC400201366 /* stage */,
 				72DB89972568F11000BF7CC5 /* physics */,
 				726F87E82556C20E003FAC77 /* ui */,
 				726F87DD2556BABC003FAC77 /* player */,
@@ -710,6 +718,7 @@
 		72CB2B37259FF92400201366 /* class */ = {
 			isa = PBXGroup;
 			children = (
+				72CB2BA025AA151000201366 /* MasterStage.hpp */,
 				72CB2B38259FF92400201366 /* kanji */,
 			);
 			path = class;
@@ -730,6 +739,8 @@
 		72CB2B3E259FF92400201366 /* repository */ = {
 			isa = PBXGroup;
 			children = (
+				72CB2BA225AA151D00201366 /* MasterStageRepository.cpp */,
+				72CB2BA125AA151D00201366 /* MasterStageRepository.hpp */,
 				72CB2B3F259FF92400201366 /* kanji */,
 			);
 			path = repository;
@@ -750,6 +761,15 @@
 				72CB2B46259FF92400201366 /* MasterRadicalParamRepository.hpp */,
 			);
 			path = kanji;
+			sourceTree = "<group>";
+		};
+		72CB2B7B25A9EFC400201366 /* stage */ = {
+			isa = PBXGroup;
+			children = (
+				72CB2B7C25A9EFE600201366 /* Stage.cpp */,
+				72CB2B7D25A9EFE600201366 /* Stage.hpp */,
+			);
+			path = stage;
 			sourceTree = "<group>";
 		};
 		72D960332594637400236386 /* identity */ = {
@@ -885,6 +905,7 @@
 			files = (
 				72CB2B4B259FF92400201366 /* MasterKanjiConsistRepository.cpp in Sources */,
 				72DB89AC2569321000BF7CC5 /* Move.cpp in Sources */,
+				72CB2B7E25A9EFE600201366 /* Stage.cpp in Sources */,
 				72A3BD9F254D80AB003393C4 /* GamePadDemo.cpp in Sources */,
 				7265F0752531E1BF00C15F67 /* SequenceManager.cpp in Sources */,
 				72B1DCFC2598B90800BC3D6C /* AudioProxy.cpp in Sources */,
@@ -916,6 +937,7 @@
 				72A3BD6825452A7B003393C4 /* KeyCode.cpp in Sources */,
 				72B1DD19259DDDC500BC3D6C /* Radical.cpp in Sources */,
 				726F87D42555E1EA003FAC77 /* LogDestination.cpp in Sources */,
+				72CB2BA325AA151D00201366 /* MasterStageRepository.cpp in Sources */,
 				7247BB4225689E850052A75F /* RelativePosition.cpp in Sources */,
 				72CB2B5A25A01DE000201366 /* TomlAssetRepository.cpp in Sources */,
 				72B1DCFB2598B90800BC3D6C /* AudioType.cpp in Sources */,

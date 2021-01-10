@@ -4,20 +4,24 @@
 #include <Siv3D/Physics2D.hpp>
 #include "PlayerId.hpp"
 #include "TomlAsset.hpp"
+#include "IDs.hpp"
 
 namespace kanji {
+namespace md {
+class MasterStage;
+}
 namespace battle {
 
-using StageId = int; // TOdO
 struct PhysicalStageDesc {
 public:
-    StageId id;
+    StageID id;
     s3d::String name;
     std::unordered_map<int, std::shared_ptr<std::vector<s3d::Vec2>>> initial_positions;
 public:
-    static PhysicalStageDesc createFromToml(const s3d::String& name);
+    static PhysicalStageDesc createFromToml(StageID id);
+    // static PhysicalStageDesc createFromToml(const s3d::String& name);
 private:
-    PhysicalStageDesc() = default;
+    PhysicalStageDesc(const md::MasterStage* md);
 };
 
 
