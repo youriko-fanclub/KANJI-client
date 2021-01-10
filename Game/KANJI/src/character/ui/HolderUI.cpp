@@ -1,11 +1,30 @@
 #include "HolderUI.hpp"
 #include <Siv3D/FormatLiteral.hpp>
+#include <Siv3D/Circular.hpp>
+#include <Siv3D/MathConstants.hpp>
 #include "PlayerId.hpp"
 #include "BattlePlayer.hpp"
 #include "ParameterizedCharacter.hpp"
 #include "TomlAsset.hpp"
 
 using namespace s3d::Literals::FormatLiterals;
+using s3d::operator""_deg;
+
+namespace {
+
+std::unique_ptr<s3d::Polygon> createAbilityIndicator(const kanji::chara::CharaParameters& ability) {
+    const float angle = s3d::Math::Constants::TwoPiF / 5.f;
+    const float factor = 0.3f;
+    return std::unique_ptr<s3d::Polygon>(new s3d::Polygon({
+        s3d::Circular(factor * ability.attack , angle * 0).toVec2(),
+        s3d::Circular(factor * ability.defence, angle * 1).toVec2(),
+        s3d::Circular(factor * ability.speed  , angle * 2).toVec2(),
+        s3d::Circular(factor * ability.jump   , angle * 3).toVec2(),
+        s3d::Circular(factor * ability.weight , angle * 4).toVec2()
+    }));
+}
+
+}
 
 namespace kanji {
 namespace ui {
@@ -62,6 +81,10 @@ void HolderUI::drawCircle(const CirclePosition position, const int charaIndex) c
     const auto& circle = m_circles.at(position);
     circle.draw(m_colors.at(U"Highlight"));
     
+    if (position == CirclePosition::Above) {
+        drawPolygon();
+    }
+    
     const auto key = dx::denum::toLower(position);
     const auto& chara = m_player->characters().at(charaIndex);
     m_fonts.at(key)(chara->kanji().kanji)
@@ -80,6 +103,10 @@ void HolderUI::drawRadical() const {
             .draw(s3d::Arg::center = radical.center(), s3d::Palette::White);
     }
 }
+void HolderUI::drawPolygon() const {
+    m_ability->draw(m_circles.at(CirclePosition::Above).center, dx::di::Id::ToColorLight(m_player->pid()));
+    m_default_ability->drawFrame(m_circles.at(CirclePosition::Above).center, 2.0, dx::di::Id::ToColorDark(m_player->pid()));
+}
 
 // ctor/dtor -------------------------------------
 HolderUI::HolderUI(int player_index, int player_num, const std::shared_ptr<battle::BattlePlayer>& player) :
@@ -96,6 +123,10 @@ m_player(player) {
     m_colors.insert(U"Gray"      , dx::toml::colorF(m_toml[key + U"radical"]));
     m_colors.insert(U"Highlight" , dx::toml::colorF(m_toml[key + U"circle"]));
     m_colors.insert(U"DamageFill", dx::toml::colorF(m_toml[key + U"damage"]));
+    
+    m_ability = createAbilityIndicator(m_player->activeCharacter()->params());
+    m_default_ability = createAbilityIndicator(m_player->activeCharacter()->params());
+    
     update();
 }
 

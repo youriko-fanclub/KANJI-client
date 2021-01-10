@@ -67,11 +67,11 @@ public: // ctor/dtor
     }),
     m_initial_params({
         .hp = 100,
-        .attack = 100,
-        .defence = 100,
-        .speed = 100,
+        .attack = 160,
+        .defence = 80,
+        .speed = 120,
         .jump = 100,
-        .weight = 100,
+        .weight = 20,
     }),
     m_params(m_initial_params) {}
     ParameterizedCharacter() :
