@@ -126,7 +126,7 @@ void BattleManager::update() {
             }
         }
     }
-    m_timer->update();
+    m_timer->update(Scene::DeltaTime());
     if (m_timer->hasTimeover()) {
         m_has_gameset = true;
     }

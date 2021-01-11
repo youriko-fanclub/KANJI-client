@@ -5,30 +5,31 @@
 #include "PlayerId.hpp"
 #include "Move.hpp"
 #include "PhysicalCharacter.hpp"
+#include "Timer.hpp"
 
 namespace kanji {
 namespace battle {
 
 struct MomentaryMove {
 public: // field
-    const float time;
+    const dx::Time time;
     const int damage;
     const s3d::Circular shoot_force;
     const s3d::RectF hitbox;
 public: // static
-    static MomentaryMove divideLinear(float t, const MomentaryMove& from, const MomentaryMove& to, bool is_right, const s3d::Vec2& origin);
-    static s3d::RectF divideHitboxLinear(float t, const MomentaryMove& from, const MomentaryMove& to, bool is_right, const s3d::Vec2& origin);
+    static MomentaryMove divideLinear(dx::Time t, const MomentaryMove& from, const MomentaryMove& to, bool is_right, const s3d::Vec2& origin);
+    static s3d::RectF divideHitboxLinear(dx::Time t, const MomentaryMove& from, const MomentaryMove& to, bool is_right, const s3d::Vec2& origin);
 public: // ctor/dtor
-    MomentaryMove(float time, int damage, const s3d::Circular& shoot_force, const s3d::RectF& hitbox);
+    MomentaryMove(dx::Time time, int damage, const s3d::Circular& shoot_force, const s3d::RectF& hitbox);
 };
 
 class Trajectory {
 public: // static_const/enum
 public: // static
 public: // public function
-    float totalTime() const { return m_moments.back().time; }
-    MomentaryMove momentary(float time, bool is_right, const s3d::Vec2& origin) const;
-    s3d::RectF momentaryHitbox(float time, bool is_right, const s3d::Vec2& origin) const;
+    dx::Time totalTime() const { return m_moments.back().time; }
+    MomentaryMove momentary(dx::Time time, bool is_right, const s3d::Vec2& origin) const;
+    s3d::RectF momentaryHitbox(dx::Time time, bool is_right, const s3d::Vec2& origin) const;
 private: // field
     std::vector<MomentaryMove> m_moments;
 private: // private function
@@ -49,9 +50,9 @@ public: // public function
     bool isToRight() const { return m_is_to_right; }
     
     // 終了したらtrueを返す
-    bool update(float dt);
+    bool update(dx::Time dt);
 private: // field
-    float m_timer;
+    dx::Time m_timer;
     dx::di::PlayerId m_owner;
     bool m_is_to_right;
     std::shared_ptr<PhysicalCharacter> m_owner_chara;
@@ -67,7 +68,7 @@ public: // static_const/enum
 public: // static
 public: // public function
     const std::shared_ptr<PhysicalMove>& createMove(dx::di::PlayerId owner, const std::shared_ptr<PhysicalCharacter>& owner_chara, MoveID move_id);
-    void update(float dt);
+    void update(dx::Time dt);
     
     const std::vector<std::shared_ptr<PhysicalMove>>& moves() const;
 private: // field

@@ -10,6 +10,7 @@ namespace battle {
 class BattlePlayer;
 class PhysicalCharacter;
 class PhysicalStage;
+class PhysicalRadicalManager;
 
 class PhysicalWorldManager {
 public: // static_const/enum
@@ -32,6 +33,7 @@ private: // field
     P2World m_world;
     std::unordered_map<dx::di::PlayerId, std::shared_ptr<PhysicalCharacter>> m_characters;
     std::shared_ptr<PhysicalStage> m_stage;
+    std::shared_ptr<PhysicalRadicalManager> m_radical_mgr;
 private: // private function
 public: // ctor/dtor
     PhysicalWorldManager();

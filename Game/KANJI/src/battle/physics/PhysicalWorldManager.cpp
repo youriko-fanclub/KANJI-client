@@ -2,6 +2,7 @@
 #include "BattlePlayer.hpp"
 #include "PhysicalCharacter.hpp"
 #include "PhysicalStage.hpp"
+#include "PhysicalRadicalManager.hpp"
 
 namespace kanji {
 namespace battle {
@@ -43,6 +44,7 @@ void PhysicalWorldManager::update() {
     static constexpr int32 velocity_iterations = 12;
     static constexpr int32 position_iterations = 4;
     m_world.update(Scene::DeltaTime(), velocity_iterations, position_iterations);
+    m_radical_mgr->update(Scene::DeltaTime());
     for (auto& chara : m_characters) {
         chara.second->update();
     }
@@ -56,7 +58,8 @@ void PhysicalWorldManager::lose(dx::di::PlayerId pid) {
 // ctor/dtor -------------------------------------
 PhysicalWorldManager::PhysicalWorldManager() :
 m_toml(U"Physics"),
-m_world(9.8) {}
+m_world(9.8),
+m_radical_mgr(std::make_shared<PhysicalRadicalManager>(&m_world)) {}
     
 }
 }
