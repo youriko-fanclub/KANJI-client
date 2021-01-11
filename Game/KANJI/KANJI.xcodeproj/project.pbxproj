@@ -100,6 +100,7 @@
 		72CB2B7E25A9EFE600201366 /* Stage.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 72CB2B7C25A9EFE600201366 /* Stage.cpp */; };
 		72CB2BA325AA151D00201366 /* MasterStageRepository.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 72CB2BA225AA151D00201366 /* MasterStageRepository.cpp */; };
 		72CB2BA925ABED3D00201366 /* Ability.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 72CB2BA725ABED3D00201366 /* Ability.cpp */; };
+		72CB2BAD25AC249A00201366 /* Status.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 72CB2BAB25AC249900201366 /* Status.cpp */; };
 		72DB89942568D97000BF7CC5 /* HolderUI.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 72DB89922568D97000BF7CC5 /* HolderUI.cpp */; };
 		72DB899A2568F13D00BF7CC5 /* PhysicalWorldManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 72DB89982568F13D00BF7CC5 /* PhysicalWorldManager.cpp */; };
 		72DB89A1256916B200BF7CC5 /* PhysicalStage.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 72DB899E256916B100BF7CC5 /* PhysicalStage.cpp */; };
@@ -272,6 +273,8 @@
 		72CB2BA225AA151D00201366 /* MasterStageRepository.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MasterStageRepository.cpp; sourceTree = "<group>"; };
 		72CB2BA725ABED3D00201366 /* Ability.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Ability.cpp; sourceTree = "<group>"; };
 		72CB2BA825ABED3D00201366 /* Ability.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Ability.hpp; sourceTree = "<group>"; };
+		72CB2BAB25AC249900201366 /* Status.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Status.cpp; sourceTree = "<group>"; };
+		72CB2BAC25AC249A00201366 /* Status.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Status.hpp; sourceTree = "<group>"; };
 		72D960352594638B00236386 /* Id.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = Id.hpp; sourceTree = "<group>"; };
 		72DB89922568D97000BF7CC5 /* HolderUI.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = HolderUI.cpp; sourceTree = "<group>"; };
 		72DB89932568D97000BF7CC5 /* HolderUI.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = HolderUI.hpp; sourceTree = "<group>"; };
@@ -794,6 +797,8 @@
 				72B1DD18259DDDC400BC3D6C /* Radical.hpp */,
 				72CB2BA725ABED3D00201366 /* Ability.cpp */,
 				72CB2BA825ABED3D00201366 /* Ability.hpp */,
+				72CB2BAB25AC249900201366 /* Status.cpp */,
+				72CB2BAC25AC249A00201366 /* Status.hpp */,
 			);
 			path = character;
 			sourceTree = "<group>";
@@ -968,6 +973,7 @@
 				729EEFA0256C116F002A3696 /* ResultScene.cpp in Sources */,
 				726F87E52556BAF0003FAC77 /* BattlePlayer.cpp in Sources */,
 				72A3BD9B254D7FD5003393C4 /* JoyConDemo.cpp in Sources */,
+				72CB2BAD25AC249A00201366 /* Status.cpp in Sources */,
 				72A3BD722545379E003393C4 /* KeyMapping.cpp in Sources */,
 				726F87D22555E1EA003FAC77 /* LogETL.cpp in Sources */,
 			);

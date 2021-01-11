@@ -4,6 +4,7 @@
 #include "IDs.hpp"
 #include "MasterKanjiParam.hpp"
 #include "Ability.hpp"
+#include "Status.hpp"
 
 namespace kanji {
 namespace chara {
@@ -31,12 +32,10 @@ public: // static
     }
 public: // public function
     const s3d::String& chara() const override { return m_md->character(); }
-    bool isBurnedOut() const override { return m_is_burned_out; }
     const std::unique_ptr<IAbility>& ability() const override { return m_ability; }
     const std::unique_ptr<IAbility>& initialAbility() const override { return m_initial_ability; }
-    float hpRate() const override {
-        return static_cast<float>(m_hp) / static_cast<float>(m_initial_hp);
-    }
+    float hpRate() const override { return m_status.hpRate(); }
+    bool isBurnedOut() const override { return m_status.isBurnedOut(); }
 
     void damage(int amount) override;
     
@@ -44,13 +43,16 @@ public: // public function
     // const ud::UserKanjiParam* udKanji() const;
 private: // field
 private: // private function
-    bool m_is_burned_out = false;
-    const md::MasterKanjiParam* m_md;
-    ud::UserKanjiParam m_ud;
-    int m_hp = 100;
-    const int m_initial_hp = 100;
+    // 戦闘中に変化しない値、攻撃力/防御力などの基礎値
+    const md::MasterKanjiParam* m_md; // 種族値
+    ud::UserKanjiParam m_ud; // 努力値
+    
+    // 動的能力値、基礎値×状態変化
     std::unique_ptr<IAbility> m_ability;
     const std::unique_ptr<IAbility> m_initial_ability;
+    
+    // 戦闘中に変化する値、HP/状態変化
+    Status m_status;
 
 public: // ctor/dtor
     ParameterizedCharacter(const KanjiID id);

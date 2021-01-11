@@ -1,17 +1,30 @@
 #pragma once
 #include "MasterKanjiParam.hpp"
+#include "MasterRadicalParam.hpp"
 
 namespace kanji {
 namespace chara {
 
-struct CharaParameters {
+class CharaParameters {
+private:
+    int m_attack;
+    int m_defence;
+    int m_speed;
+    int m_jump;
+    int m_weight;
 public:
-    int hp;
-    int attack;
-    int defence;
-    int speed;
-    int jump;
-    int weight;
+    int attack () const { return m_attack ; }
+    int defence() const { return m_defence; }
+    int speed  () const { return m_speed  ; }
+    int jump   () const { return m_jump   ; }
+    int weight () const { return m_weight ; }
+public:
+    CharaParameters(KanjiID id, int attack, int defence, int speed, int jump, int weight) :
+    m_attack(attack),
+    m_defence(defence),
+    m_speed(speed),
+    m_jump(jump),
+    m_weight(weight) {}
 };
 
 }
@@ -20,6 +33,7 @@ class MasterKanjiParam;
 }
 namespace ud {
 using UserKanjiParam = chara::CharaParameters;
+using UserRadicalParam = chara::CharaParameters;
 }
 namespace chara {
 
@@ -71,9 +85,7 @@ public: // ctor/dtor
 };
 
 
-class ParameterizedCharacter;
-
-class Ability : public IAbility {
+class KanjiAbility : public IAbility {
 public: // static_const/enum
 public: // static
 public: // public function
@@ -92,10 +104,62 @@ private: // field
     const ud::UserKanjiParam* m_ud;
 private: // private function
 public: // ctor/dtor
-    Ability(const md::MasterKanjiParam* md, const ud::UserKanjiParam* ud) :
+    KanjiAbility(const md::MasterKanjiParam* md, const ud::UserKanjiParam* ud) :
     m_md(md), m_ud(ud) {}
-    virtual ~Ability() = default;
+    virtual ~KanjiAbility() = default;
 };
+
+
+class RadicalAbility : public IAbility {
+public: // static_const/enum
+public: // static
+public: // public function
+    int attack() const override;
+    int defence() const override;
+    int speed() const override;
+    int jump() const override;
+    int weight() const override;
+    
+    // void set(const md::MasterKanjiParam* md, const ud::UserKanjiParam* ud) {
+    //     m_md = md;
+    //     u_ud = ud;
+    // }
+private: // field
+    const md::MasterRadicalParam* m_md;
+    const ud::UserRadicalParam* m_ud;
+private: // private function
+public: // ctor/dtor
+    RadicalAbility(const md::MasterRadicalParam* md, const ud::UserRadicalParam* ud) :
+    m_md(md), m_ud(ud) {}
+    virtual ~RadicalAbility() = default;
+};
+
+
+#if false
+class CharacterAbility : public IAbility {
+public: // static_const/enum
+public: // static
+public: // public function
+    int attack() const override;
+    int defence() const override;
+    int speed() const override;
+    int jump() const override;
+    int weight() const override;
+    
+    // void set(const md::MasterKanjiParam* md, const ud::UserKanjiParam* ud) {
+    //     m_md = md;
+    //     u_ud = ud;
+    // }
+private: // field
+    const md::MasterCharacterParam* m_md;
+    const ud::UserCharacterParam* m_ud;
+private: // private function
+public: // ctor/dtor
+    CharacterAbility(const md::MasterCharacterParam* md, const ud::UserCharacterParam* ud) :
+    m_md(md), m_ud(ud) {}
+    virtual ~CharacterAbility() = default;
+};
+#endif
 
 
 }

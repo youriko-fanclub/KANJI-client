@@ -14,7 +14,8 @@ const s3d::String& Radical::chara() const {
 // private function ------------------------------
 // ctor/dtor -------------------------------------
 Radical::Radical(RadicalID id) :
-m_md(md::MasterRadicalParamRepository::instance()->at(id)) {}
+m_md(md::MasterRadicalParamRepository::instance()->at(id)),
+m_ability() {}
 
 }
 }
