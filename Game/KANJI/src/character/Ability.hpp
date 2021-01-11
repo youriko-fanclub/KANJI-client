@@ -30,10 +30,11 @@ public:
 }
 namespace md {
 class MasterKanjiParam;
+class MasterRadicalParam;
 }
 namespace ud {
-using UserKanjiParam = chara::CharaParameters;
-using UserRadicalParam = chara::CharaParameters;
+using UserKanjiParam = md::MasterKanjiParam;
+using UserRadicalParam = md::MasterRadicalParam;
 }
 namespace chara {
 

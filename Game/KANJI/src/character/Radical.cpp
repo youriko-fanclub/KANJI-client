@@ -15,7 +15,7 @@ s3d::String Radical::chara() const {
 // ctor/dtor -------------------------------------
 Radical::Radical(RadicalID id) :
 m_md(md::MasterRadicalParamRepository::instance()->at(id)),
-m_ud(KanjiID(0), 30, 30, 30, 30, 30),
+m_ud(id, U"", 30, 30, 30, 30, 30),
 m_ability(m_md, &m_ud) {}
 
 

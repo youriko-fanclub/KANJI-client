@@ -28,7 +28,7 @@ void ParameterizedCharacter::setRadical(const RadicalHolder* radical_holder) {
 // ctor/dtor -------------------------------------
 ParameterizedCharacter::ParameterizedCharacter(const KanjiID id) :
 m_md(md::MasterKanjiParamRepository::instance()->at(id)),
-m_ud(id, 10, 10, 10, 10, 10),
+m_ud(id, U"", 10, 10, 10, 10, 10),
 m_ability(std::make_unique<ConstantAbility>(
     m_md->attack() + m_ud.attack(),
     m_md->defence() + m_ud.defence(),
