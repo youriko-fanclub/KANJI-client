@@ -84,6 +84,7 @@ public: // ctor/dtor
     virtual ~ConstantAbility() = default;
 };
 
+class RadicalHolder;
 
 class KanjiAbility : public IAbility {
 public: // static_const/enum
@@ -95,17 +96,17 @@ public: // public function
     int jump() const override;
     int weight() const override;
     
-    // void set(const md::MasterKanjiParam* md, const ud::UserKanjiParam* ud) {
-    //     m_md = md;
-    //     u_ud = ud;
+    // void set(const RadicalHolder* radical_holder) {
+    //     m_radical_holder = radical_holder;
     // }
 private: // field
     const md::MasterKanjiParam* m_md;
     const ud::UserKanjiParam* m_ud;
+    const RadicalHolder* m_radical_holder;
 private: // private function
 public: // ctor/dtor
-    KanjiAbility(const md::MasterKanjiParam* md, const ud::UserKanjiParam* ud) :
-    m_md(md), m_ud(ud) {}
+    KanjiAbility(const md::MasterKanjiParam* md, const ud::UserKanjiParam* ud, const RadicalHolder* radical_holder) :
+    m_md(md), m_ud(ud), m_radical_holder(radical_holder) {}
     virtual ~KanjiAbility() = default;
 };
 

@@ -54,7 +54,7 @@ private: // field
     dx::di::PlayerId m_pid;
     int m_active_index;
     std::vector<std::shared_ptr<chara::IParameterizedCharacter>> m_characters;
-    std::unique_ptr<chara::Radical> m_radical;
+    chara::RadicalHolder m_radical;
     std::shared_ptr<PhysicalCharacter> m_physical;
     bool m_is_lost;
     Score m_score;

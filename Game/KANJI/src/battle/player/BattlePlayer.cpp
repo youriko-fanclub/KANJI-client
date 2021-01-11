@@ -29,14 +29,12 @@ bool BattlePlayer::changeActiveCharacter() {
 }
 
 bool BattlePlayer::hasRadical() const {
-    return m_radical != nullptr;
+    return m_radical.hasRadical();
 }
 const std::unique_ptr<chara::Radical>& BattlePlayer::radical() const {
-    return m_radical;
+    return m_radical.radical();
 }
-void BattlePlayer::setRadical(RadicalID radical_id) {
-    m_radical = std::make_unique<chara::Radical>(radical_id);
-}
+void BattlePlayer::setRadical(RadicalID id) { m_radical.add(id); }
 
 void BattlePlayer::attack(const MomentaryMove& move, bool is_from_left) {
     activeCharacter()->damage(move.damage);
@@ -77,7 +75,11 @@ BattlePlayer::BattlePlayer(dx::di::PlayerId pid, const std::shared_ptr<BattlePla
 m_pid(pid),
 m_active_index(0),
 m_characters(desc->characters()),
-m_is_lost(false) {}
+m_is_lost(false) {
+    for (auto& chara : m_characters) {
+        chara->setRadical(&m_radical);
+    }
+}
 
 
 }

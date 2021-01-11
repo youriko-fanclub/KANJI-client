@@ -10,24 +10,19 @@ namespace chara {
 // static ----------------------------------------
 // public function -------------------------------
 int KanjiAbility::attack() const {
-    Radical radical(RadicalID(100000));
-    return m_md->attack() + m_ud->attack();// + radical.attack();
+    return m_md->attack() + m_ud->attack() + m_radical_holder->ability()->attack();
 }
 int KanjiAbility::defence() const {
-    Radical radical(RadicalID(100000));
-    return m_md->defence() + m_ud->defence();// + radical.defence();
+    return m_md->defence() + m_ud->defence() + m_radical_holder->ability()->defence();
 }
 int KanjiAbility::speed() const {
-    Radical radical(RadicalID(100000));
-    return m_md->speed() + m_ud->speed();// + radical.speed();
+    return m_md->speed() + m_ud->speed() + m_radical_holder->ability()->speed();
 }
 int KanjiAbility::jump() const {
-    Radical radical(RadicalID(100000));
-    return m_md->jump() + m_ud->jump();// + radical.jump();
+    return m_md->jump() + m_ud->jump() + m_radical_holder->ability()->jump();
 }
 int KanjiAbility::weight() const {
-    Radical radical(RadicalID(100000));
-    return m_md->weight() + m_ud->weight();// + radical.weight();
+    return m_md->weight() + m_ud->weight() + m_radical_holder->ability()->weight();
 }
 
 // private function ------------------------------
@@ -39,24 +34,19 @@ int KanjiAbility::weight() const {
 // static ----------------------------------------
 // public function -------------------------------
 int RadicalAbility::attack() const {
-    Radical radical(RadicalID(100000));
-    return m_md->attack() + m_ud->attack();// + radical.attack();
+    return m_md->attack() + m_ud->attack();
 }
 int RadicalAbility::defence() const {
-    Radical radical(RadicalID(100000));
-    return m_md->defence() + m_ud->defence();// + radical.defence();
+    return m_md->defence() + m_ud->defence();
 }
 int RadicalAbility::speed() const {
-    Radical radical(RadicalID(100000));
-    return m_md->speed() + m_ud->speed();// + radical.speed();
+    return m_md->speed() + m_ud->speed();
 }
 int RadicalAbility::jump() const {
-    Radical radical(RadicalID(100000));
-    return m_md->jump() + m_ud->jump();// + radical.jump();
+    return m_md->jump() + m_ud->jump();
 }
 int RadicalAbility::weight() const {
-    Radical radical(RadicalID(100000));
-    return m_md->weight() + m_ud->weight();// + radical.weight();
+    return m_md->weight() + m_ud->weight();
 }
 
 // private function ------------------------------

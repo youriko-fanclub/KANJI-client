@@ -9,6 +9,7 @@
 namespace kanji {
 namespace chara {
 
+class RadicalHolder;
 
 class IParameterizedCharacter {
 public:
@@ -19,6 +20,7 @@ public:
     virtual float hpRate() const = 0;
     
     virtual void damage(int amount) = 0;
+    virtual void setRadical(const RadicalHolder* radical) = 0;
 protected:
     IParameterizedCharacter() = default;
     virtual ~IParameterizedCharacter() = default;
@@ -38,6 +40,7 @@ public: // public function
     bool isBurnedOut() const override { return m_status.isBurnedOut(); }
 
     void damage(int amount) override;
+    void setRadical(const RadicalHolder* radical_holder) override;
     
     // const md::MasterKanjiParam* mdKanji() const;
     // const ud::UserKanjiParam* udKanji() const;
