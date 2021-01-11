@@ -12,15 +12,15 @@ using s3d::operator""_deg;
 
 namespace {
 
-std::unique_ptr<s3d::Polygon> createAbilityIndicator(const kanji::chara::CharaParameters& ability) {
+std::unique_ptr<s3d::Polygon> createAbilityIndicator(const std::unique_ptr<kanji::chara::IAbility>& ability) {
     const float angle = s3d::Math::Constants::TwoPiF / 5.f;
     const float factor = 0.3f;
     return std::unique_ptr<s3d::Polygon>(new s3d::Polygon({
-        s3d::Circular(factor * ability.attack , angle * 0).toVec2(),
-        s3d::Circular(factor * ability.defence, angle * 1).toVec2(),
-        s3d::Circular(factor * ability.speed  , angle * 2).toVec2(),
-        s3d::Circular(factor * ability.jump   , angle * 3).toVec2(),
-        s3d::Circular(factor * ability.weight , angle * 4).toVec2()
+        s3d::Circular(factor * ability->attack (), angle * 0).toVec2(),
+        s3d::Circular(factor * ability->defence(), angle * 1).toVec2(),
+        s3d::Circular(factor * ability->speed  (), angle * 2).toVec2(),
+        s3d::Circular(factor * ability->jump   (), angle * 3).toVec2(),
+        s3d::Circular(factor * ability->weight (), angle * 4).toVec2()
     }));
 }
 
@@ -87,7 +87,7 @@ void HolderUI::drawCircle(const CirclePosition position, const int charaIndex) c
     
     const auto key = dx::denum::toLower(position);
     const auto& chara = m_player->characters().at(charaIndex);
-    m_fonts.at(key)(chara->kanji().kanji)
+    m_fonts.at(key)(chara->chara())
         .draw(s3d::Arg::center = circle.center, s3d::Palette::Black);
     s3d::Circle damage(circle.center, circle.r * (1 - chara->hpRate()));
     damage.draw(m_colors.at(U"DamageFill"));
@@ -124,8 +124,8 @@ m_player(player) {
     m_colors.insert(U"Highlight" , dx::toml::colorF(m_toml[key + U"circle"]));
     m_colors.insert(U"DamageFill", dx::toml::colorF(m_toml[key + U"damage"]));
     
-    m_ability = createAbilityIndicator(m_player->activeCharacter()->params());
-    m_default_ability = createAbilityIndicator(m_player->activeCharacter()->params());
+    m_ability = createAbilityIndicator(m_player->activeCharacter()->ability());
+    m_default_ability = createAbilityIndicator(m_player->activeCharacter()->initialAbility());
     
     update();
 }
