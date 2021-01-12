@@ -40,11 +40,12 @@ void PhysicalWorldManager::initializeStage(StageID id) {
 }
     
 void PhysicalWorldManager::update() {
+    const dx::Time dt = Scene::DeltaTime();
     // 物理演算の精度
     static constexpr int32 velocity_iterations = 12;
     static constexpr int32 position_iterations = 4;
-    m_world.update(Scene::DeltaTime(), velocity_iterations, position_iterations);
-    m_radical_mgr->update(Scene::DeltaTime());
+    m_world.update(dt, velocity_iterations, position_iterations);
+    m_radical_mgr->update(dt);
     for (auto& chara : m_characters) {
         chara.second->update();
     }

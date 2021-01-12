@@ -36,7 +36,7 @@ s3d::Vec2 PhysicalRadicalManager::randomCreatePos() {
 }
 // public function -------------------------------
 const std::shared_ptr<PhysicalRadical>& PhysicalRadicalManager::createRadical(RadicalID id) {
-    m_radicals.push_back(std::make_shared<PhysicalRadical>(id, nullptr, randomCreatePos())); // TOdO: P2Worldを引っ張ってくる
+    m_radicals.push_back(std::make_shared<PhysicalRadical>(id, m_p2world, randomCreatePos()));
     return m_radicals.back();
 }
 void PhysicalRadicalManager::update(dx::Time dt) {

@@ -26,6 +26,9 @@ public: // public function
     const std::shared_ptr<PhysicalStage>& stage() const {
         return m_stage;
     }
+    const std::shared_ptr<PhysicalRadicalManager>& radicalMgr() const {
+        return m_radical_mgr;
+    }
     void lose(dx::di::PlayerId pid);
 private: // field
     dx::toml::TomlAsset m_toml;

@@ -16,6 +16,7 @@ public: // static_const/enum
 public: // static
 public: // public function
     s3d::RectF currentHitBox() const;
+    const s3d::P2Body& body() const { return m_body; }
 
     // 終了したらtrueを返す
     bool update(dx::Time dt);
