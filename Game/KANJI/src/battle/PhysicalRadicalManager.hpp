@@ -12,18 +12,23 @@ namespace battle {
 
 
 class PhysicalRadical {
-public: // static_const/enum
+private: // static_const/enum
+    static constexpr dx::Time c_timelimit = 10.f;
 public: // static
 public: // public function
+    RadicalID id() const;
     s3d::RectF currentHitBox() const;
     const s3d::P2Body& body() const { return m_body; }
 
     // 終了したらtrueを返す
     bool update(dx::Time dt);
+    void vanish() { m_has_vanished = true; } // 自然消滅
+    void taken() { vanish(); } // プレイヤーに拾われる
 private: // field
     dx::Time m_timer;
     const md::MasterRadicalParam* m_md;
     s3d::P2Body m_body;
+    bool m_has_vanished = false;
 private: // private function
 public: // ctor/dtor
     PhysicalRadical(
@@ -40,6 +45,7 @@ public: // static
 public: // public function
     const std::shared_ptr<PhysicalRadical>& createRadical(RadicalID id);
     void update(dx::Time dt);
+    void takenRadical(int i) { m_radicals.erase(m_radicals.begin() + i); }
     
     const std::vector<std::shared_ptr<PhysicalRadical>>& radicals() const;
 private: // field

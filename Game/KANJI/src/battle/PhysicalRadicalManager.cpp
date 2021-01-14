@@ -9,13 +9,14 @@ namespace battle {
 
 // static ----------------------------------------
 // public function -------------------------------
+RadicalID PhysicalRadical::id() const { return m_md->id(); }
 s3d::RectF PhysicalRadical::currentHitBox() const {
     // m_body;
     return s3d::RectF(0, 0, 0, 0);
 }
 bool PhysicalRadical::update(dx::Time dt) {
     m_timer += dt;
-    return m_timer > 100.f;
+    return m_has_vanished || m_timer > c_timelimit; // 消してほしいときにtrueを返す
 }
 // private function ------------------------------
 // ctor/dtor -------------------------------------
