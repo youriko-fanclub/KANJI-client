@@ -3,31 +3,6 @@
 #include "MasterRadicalParam.hpp"
 
 namespace kanji {
-namespace chara {
-
-class CharaParameters {
-private:
-    int m_attack;
-    int m_defence;
-    int m_speed;
-    int m_jump;
-    int m_weight;
-public:
-    int attack () const { return m_attack ; }
-    int defence() const { return m_defence; }
-    int speed  () const { return m_speed  ; }
-    int jump   () const { return m_jump   ; }
-    int weight () const { return m_weight ; }
-public:
-    CharaParameters(KanjiID id, int attack, int defence, int speed, int jump, int weight) :
-    m_attack(attack),
-    m_defence(defence),
-    m_speed(speed),
-    m_jump(jump),
-    m_weight(weight) {}
-};
-
-}
 namespace md {
 class MasterKanjiParam;
 class MasterRadicalParam;
@@ -63,11 +38,11 @@ public: // public function
     int jump() const override { return m_jump; }
     int weight() const override { return m_weight; }
 private: // field
-    int m_attack;
-    int m_defence;
-    int m_speed;
-    int m_jump;
-    int m_weight;
+    const int m_attack;
+    const int m_defence;
+    const int m_speed;
+    const int m_jump;
+    const int m_weight;
 private: // private function
 public: // ctor/dtor
     ConstantAbility(int attack, int defence, int speed, int jump, int weight) :
