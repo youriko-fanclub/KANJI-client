@@ -3,6 +3,7 @@
 #include "Misc.hpp"
 #include "BattlePlayer.hpp"
 #include "ParameterizedCharacter.hpp"
+#include "PhysicalCategory.hpp"
 
 namespace kanji {
 namespace battle {
@@ -52,7 +53,10 @@ PhysicalCharacter::PhysicalCharacter(
     const std::shared_ptr<battle::BattlePlayer>& player,
     const dx::toml::TomlAsset& toml) :
 m_pid(pid),
-m_body(world->createRect(initial_pos, SizeF(3, 3), P2Material(1.0, 0.0, toml[dx::toml::TomlKey(U"physics.chara.friction")].get<double>()))),
+m_body(world->createRect(
+    initial_pos, SizeF(3, 3),
+    P2Material(1.0, 0.0, toml[dx::toml::TomlKey(U"physics.chara.friction")].get<double>()),
+    PhysicalCategory::filter(PhysicalCategory::Character))),
 m_is_right(is_right),
 m_status(player),
 m_toml(toml) {

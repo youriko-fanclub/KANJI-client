@@ -38,6 +38,7 @@
 		2CE5C85B237FDE6000082EEC /* OpenAL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2C6906B12298123200A427D0 /* OpenAL.framework */; };
 		2CEACB67233A61C900C6EE98 /* libgif.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2CEACB65233A61C900C6EE98 /* libgif.a */; };
 		2CEACB68233A61C900C6EE98 /* libutil.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2CEACB66233A61C900C6EE98 /* libutil.a */; };
+		7209B4E025B28F6B00B1C053 /* PhysicalCategory.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7209B4DE25B28F6B00B1C053 /* PhysicalCategory.cpp */; };
 		722D9B072572ACCE00FD30FD /* KanjiScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 722D9B052572ACCE00FD30FD /* KanjiScene.cpp */; };
 		7247BB4225689E850052A75F /* RelativePosition.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7247BB4025689E840052A75F /* RelativePosition.cpp */; };
 		7247BB462568AB070052A75F /* Palette.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7247BB442568AB070052A75F /* Palette.cpp */; };
@@ -149,6 +150,8 @@
 		2CE5C859237FDE5100082EEC /* CoreMedia.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMedia.framework; path = System/Library/Frameworks/CoreMedia.framework; sourceTree = SDKROOT; };
 		2CEACB65233A61C900C6EE98 /* libgif.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libgif.a; path = ../../lib/macOS/libgif/libgif.a; sourceTree = "<group>"; };
 		2CEACB66233A61C900C6EE98 /* libutil.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libutil.a; path = ../../lib/macOS/libgif/libutil.a; sourceTree = "<group>"; };
+		7209B4DE25B28F6B00B1C053 /* PhysicalCategory.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = PhysicalCategory.cpp; sourceTree = "<group>"; };
+		7209B4DF25B28F6B00B1C053 /* PhysicalCategory.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = PhysicalCategory.hpp; sourceTree = "<group>"; };
 		722D9B052572ACCE00FD30FD /* KanjiScene.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = KanjiScene.cpp; sourceTree = "<group>"; };
 		722D9B062572ACCE00FD30FD /* KanjiScene.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = KanjiScene.hpp; sourceTree = "<group>"; };
 		7247BB4025689E840052A75F /* RelativePosition.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = RelativePosition.cpp; sourceTree = "<group>"; };
@@ -841,6 +844,8 @@
 				72DB89992568F13D00BF7CC5 /* PhysicalWorldManager.hpp */,
 				72DB89A4256929F100BF7CC5 /* PhysicalMove.cpp */,
 				72DB89A5256929F100BF7CC5 /* PhysicalMove.hpp */,
+				7209B4DE25B28F6B00B1C053 /* PhysicalCategory.cpp */,
+				7209B4DF25B28F6B00B1C053 /* PhysicalCategory.hpp */,
 			);
 			path = physics;
 			sourceTree = "<group>";
@@ -983,6 +988,7 @@
 				72CB2B4D259FF92400201366 /* MasterKanjiDictionaryRepository.cpp in Sources */,
 				72DB899A2568F13D00BF7CC5 /* PhysicalWorldManager.cpp in Sources */,
 				72DB89A1256916B200BF7CC5 /* PhysicalStage.cpp in Sources */,
+				7209B4E025B28F6B00B1C053 /* PhysicalCategory.cpp in Sources */,
 				72859F6D25388CA100EB0AAD /* UIComponent.cpp in Sources */,
 				729EEFA5256C29DD002A3696 /* StageSelectionScene.cpp in Sources */,
 				72CB2B5625A01BDD00201366 /* TomlAsset.cpp in Sources */,

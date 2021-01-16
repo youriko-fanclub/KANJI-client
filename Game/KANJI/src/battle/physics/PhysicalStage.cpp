@@ -1,6 +1,7 @@
 #include "PhysicalStage.hpp"
 #include <Siv3D/FormatLiteral.hpp>
 #include "MasterStageRepository.hpp"
+#include "PhysicalCategory.hpp"
 
 using namespace s3d::Literals::FormatLiterals;
 
@@ -56,10 +57,22 @@ void PhysicalStage::initialize() {
 // ctor/dtor -------------------------------------
 PhysicalStage::PhysicalStage(s3d::P2World* world, StageID id, const dx::toml::TomlAsset& physical) :
 m_md(md::MasterStageRepository::instance()->at(id)),
-m_floor     (world->createStaticLine(s3d::Vec2(  0,  0), s3d::Line(-25, 0, 25, 0), s3d::P2Material(1.0, 0.0, physical[dx::toml::TomlKey(U"physics.floor.friction")].get<double>()))),
-m_ceiling   (world->createStaticLine(s3d::Vec2(  0,-25), s3d::Line(-25, 0, 25, 0), s3d::P2Material(1.0, 0.0, physical[dx::toml::TomlKey(U"physics.ceiling.friction")].get<double>()))),
-m_wall_left (world->createStaticLine(s3d::Vec2(-25,  0), s3d::Line(0, -25, 0, 10), s3d::P2Material(1.0, 0.0, physical[dx::toml::TomlKey(U"physics.wall.friction")].get<double>()))),
-m_wall_right(world->createStaticLine(s3d::Vec2( 25,  0), s3d::Line(0, -25, 0, 10), s3d::P2Material(1.0, 0.0, physical[dx::toml::TomlKey(U"physics.wall.friction")].get<double>()))) {
+m_floor     (world->createStaticLine(
+    s3d::Vec2(  0,  0), s3d::Line(-25, 0, 25, 0),
+    s3d::P2Material(1.0, 0.0, physical[dx::toml::TomlKey(U"physics.floor.friction")].get<double>()),
+    PhysicalCategory::filter(PhysicalCategory::Stage))),
+m_ceiling   (world->createStaticLine(
+    s3d::Vec2(  0,-25), s3d::Line(-25, 0, 25, 0),
+    s3d::P2Material(1.0, 0.0, physical[dx::toml::TomlKey(U"physics.ceiling.friction")].get<double>()),
+    PhysicalCategory::filter(PhysicalCategory::Stage))),
+m_wall_left (world->createStaticLine(
+    s3d::Vec2(-25,  0), s3d::Line(0, -25, 0, 10),
+    s3d::P2Material(1.0, 0.0, physical[dx::toml::TomlKey(U"physics.wall.friction")].get<double>()),
+    PhysicalCategory::filter(PhysicalCategory::Stage))),
+m_wall_right(world->createStaticLine(
+    s3d::Vec2( 25,  0), s3d::Line(0, -25, 0, 10),
+    s3d::P2Material(1.0, 0.0, physical[dx::toml::TomlKey(U"physics.wall.friction")].get<double>()),
+    PhysicalCategory::filter(PhysicalCategory::Stage))) {
     initialize();
 }
 

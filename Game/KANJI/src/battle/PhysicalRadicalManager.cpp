@@ -1,5 +1,6 @@
 #include "PhysicalRadicalManager.hpp"
 #include "MasterRadicalParamRepository.hpp"
+#include "PhysicalCategory.hpp"
 
 namespace kanji {
 namespace battle {
@@ -26,7 +27,10 @@ PhysicalRadical::PhysicalRadical(
     const s3d::Vec2& initial_pos) :
 m_timer(0),
 m_md(md::MasterRadicalParamRepository::instance()->at(id)),
-m_body(world->createRect(initial_pos, s3d::SizeF(3, 3), s3d::P2Material(1.0, 0.0, 1.0))) {}
+m_body(world->createRect(
+    initial_pos, s3d::SizeF(3, 3),
+    s3d::P2Material(1.0, 0.0, 1.0),
+    PhysicalCategory::filter(PhysicalCategory::Radical))) {}
 
 
 /* ---------- PhysicalRadicalManager ---------- */
