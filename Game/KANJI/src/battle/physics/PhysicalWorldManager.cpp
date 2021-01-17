@@ -4,6 +4,7 @@
 #include "PhysicalStage.hpp"
 #include "PhysicalRadicalManager.hpp"
 #include "PhysicalWorld.hpp"
+#include "PhysicalCategory.hpp"
 
 namespace kanji {
 namespace battle {
@@ -71,7 +72,10 @@ void PhysicalWorldManager::lose(dx::di::PlayerId pid) {
 // ctor/dtor -------------------------------------
 PhysicalWorldManager::PhysicalWorldManager() :
 m_toml(U"Physics"),
-m_world(std::make_shared<dx::phys::PhysicalWorld>(9.8)),
+m_world(std::make_shared<dx::phys::PhysicalWorld>(
+    PhysicalCategory::categories(),
+    PhysicalCategory::collisionMap(),
+    9.8)),
 m_radical_mgr(std::make_shared<PhysicalRadicalManager>(m_world)) {}
     
 }

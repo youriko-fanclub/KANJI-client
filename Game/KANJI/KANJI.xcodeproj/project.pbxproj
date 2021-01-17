@@ -40,6 +40,7 @@
 		2CEACB68233A61C900C6EE98 /* libutil.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2CEACB66233A61C900C6EE98 /* libutil.a */; };
 		7201A05325B36635004ACB91 /* CollisionObserver.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7201A05125B36635004ACB91 /* CollisionObserver.cpp */; };
 		7201A05725B36709004ACB91 /* PhysicalObject.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7201A05525B36709004ACB91 /* PhysicalObject.cpp */; };
+		7201A05C25B3FDF1004ACB91 /* PhysicalCategoryManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7201A05A25B3FDF1004ACB91 /* PhysicalCategoryManager.cpp */; };
 		7209B4E025B28F6B00B1C053 /* PhysicalCategory.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7209B4DE25B28F6B00B1C053 /* PhysicalCategory.cpp */; };
 		7209B4EB25B2D50E00B1C053 /* PhysicalWorld.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7209B4E925B2D50E00B1C053 /* PhysicalWorld.cpp */; };
 		722D9B072572ACCE00FD30FD /* KanjiScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 722D9B052572ACCE00FD30FD /* KanjiScene.cpp */; };
@@ -157,6 +158,8 @@
 		7201A05225B36635004ACB91 /* CollisionObserver.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = CollisionObserver.hpp; sourceTree = "<group>"; };
 		7201A05525B36709004ACB91 /* PhysicalObject.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = PhysicalObject.cpp; sourceTree = "<group>"; };
 		7201A05625B36709004ACB91 /* PhysicalObject.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = PhysicalObject.hpp; sourceTree = "<group>"; };
+		7201A05A25B3FDF1004ACB91 /* PhysicalCategoryManager.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = PhysicalCategoryManager.cpp; sourceTree = "<group>"; };
+		7201A05B25B3FDF1004ACB91 /* PhysicalCategoryManager.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = PhysicalCategoryManager.hpp; sourceTree = "<group>"; };
 		7209B4DE25B28F6B00B1C053 /* PhysicalCategory.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = PhysicalCategory.cpp; sourceTree = "<group>"; };
 		7209B4DF25B28F6B00B1C053 /* PhysicalCategory.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = PhysicalCategory.hpp; sourceTree = "<group>"; };
 		7209B4E925B2D50E00B1C053 /* PhysicalWorld.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = PhysicalWorld.cpp; sourceTree = "<group>"; };
@@ -428,6 +431,8 @@
 				7201A05625B36709004ACB91 /* PhysicalObject.hpp */,
 				7209B4E925B2D50E00B1C053 /* PhysicalWorld.cpp */,
 				7209B4EA25B2D50E00B1C053 /* PhysicalWorld.hpp */,
+				7201A05A25B3FDF1004ACB91 /* PhysicalCategoryManager.cpp */,
+				7201A05B25B3FDF1004ACB91 /* PhysicalCategoryManager.hpp */,
 			);
 			path = physics;
 			sourceTree = "<group>";
@@ -1019,6 +1024,7 @@
 				729EEFA5256C29DD002A3696 /* StageSelectionScene.cpp in Sources */,
 				72CB2B5625A01BDD00201366 /* TomlAsset.cpp in Sources */,
 				72B1DCF92598B90800BC3D6C /* AudioVolume.cpp in Sources */,
+				7201A05C25B3FDF1004ACB91 /* PhysicalCategoryManager.cpp in Sources */,
 				72A3BDE0255137EB003393C4 /* SceneState.cpp in Sources */,
 				72A3BD59254427A9003393C4 /* Misc.cpp in Sources */,
 				7265F0702531DC1D00C15F67 /* ApplicationManager.cpp in Sources */,
