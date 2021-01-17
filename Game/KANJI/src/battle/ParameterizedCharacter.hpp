@@ -3,35 +3,24 @@
 #include <Siv3D/Circular.hpp>
 #include "IDs.hpp"
 #include "MasterKanjiParam.hpp"
+#include "Ability.hpp"
+#include "Status.hpp"
 
 namespace kanji {
 namespace chara {
 
-struct Kanji {
-public:
-    KanjiID id;
-    s3d::String kanji;
-};
-
-struct CharaParameters {
-public:
-    int hp;
-    int attack;
-    int defence;
-    int speed;
-    int jump;
-    int weight;
-};
+class RadicalHolder;
 
 class IParameterizedCharacter {
 public:
-    virtual const Kanji& kanji() const = 0;
+    virtual const s3d::String& chara() const = 0;
     virtual bool isBurnedOut() const = 0;
-    virtual const CharaParameters& params() const = 0;
-    virtual const CharaParameters& initialParams() const = 0;
+    virtual const std::unique_ptr<IAbility>& ability() const = 0;
+    virtual const std::unique_ptr<IAbility>& initialAbility() const = 0;
     virtual float hpRate() const = 0;
     
     virtual void damage(int amount) = 0;
+    virtual void setRadical(const RadicalHolder* radical) = 0;
 protected:
     IParameterizedCharacter() = default;
     virtual ~IParameterizedCharacter() = default;
@@ -40,54 +29,36 @@ protected:
 class ParameterizedCharacter : public IParameterizedCharacter {
 public: // static_const/enum
 public: // static
-    static std::shared_ptr<ParameterizedCharacter> createShared(const md::MasterKanjiParam* md) {
-        return std::make_shared<ParameterizedCharacter>(md->id(), md->character());
+    static std::shared_ptr<IParameterizedCharacter> createShared(KanjiID id) {
+        return std::make_shared<ParameterizedCharacter>(id);
     }
 public: // public function
-    const Kanji& kanji() const override { return m_kanji; }
-    bool isBurnedOut() const override { return m_is_burned_out; }
-    const CharaParameters& params() const override { return m_params; }
-    const CharaParameters& initialParams() const override { return m_initial_params; }
-    float hpRate() const override {
-        return static_cast<float>(m_params.hp) / static_cast<float>(m_initial_params.hp);
-    }
+    const s3d::String& chara() const override { return m_md->character(); }
+    const std::unique_ptr<IAbility>& ability() const override { return m_ability; }
+    const std::unique_ptr<IAbility>& initialAbility() const override { return m_initial_ability; }
+    float hpRate() const override { return m_status.hpRate(); }
+    bool isBurnedOut() const override { return m_status.isBurnedOut(); }
 
     void damage(int amount) override;
+    void setRadical(const RadicalHolder* radical_holder) override;
+    
+    // const md::MasterKanjiParam* mdKanji() const;
+    // const ud::UserKanjiParam* udKanji() const;
 private: // field
 private: // private function
-    Kanji m_kanji;
-    bool m_is_burned_out;
-    const CharaParameters m_initial_params;
-    CharaParameters m_params;
+    // 戦闘中に変化しない値、攻撃力/防御力などの基礎値
+    const md::MasterKanjiParam* m_md; // 種族値
+    ud::UserKanjiParam m_ud; // 努力値
+    
+    // 動的能力値、基礎値×状態変化
+    std::unique_ptr<IAbility> m_ability;
+    const std::unique_ptr<IAbility> m_initial_ability;
+    
+    // 戦闘中に変化する値、HP/状態変化
+    Status m_status;
+
 public: // ctor/dtor
-    ParameterizedCharacter(const KanjiID id, const s3d::String& kanji) :
-    m_kanji({
-        .id = id,
-        .kanji = kanji
-    }),
-    m_initial_params({
-        .hp = 100,
-        .attack = 100,
-        .defence = 100,
-        .speed = 100,
-        .jump = 100,
-        .weight = 100,
-    }),
-    m_params(m_initial_params) {}
-    ParameterizedCharacter() :
-    m_kanji({
-        .id = KanjiID(0),
-        .kanji = U"山"
-    }),
-    m_initial_params({
-        .hp = 100,
-        .attack = 100,
-        .defence = 100,
-        .speed = 100,
-        .jump = 100,
-        .weight = 100,
-    }),
-    m_params(m_initial_params) {}
+    ParameterizedCharacter(const KanjiID id);
 };
 
 

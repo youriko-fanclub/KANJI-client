@@ -92,7 +92,7 @@ void BattleUIManager::drawImpl() const {
         font = dx::toml::font(toml[key]);
     }
     for (const auto& chara : m_battle_manager->worldMgr()->characters()) {
-        const auto& kanji = chara.second->status()->activeCharacter()->kanji().kanji;
+        const auto& kanji = chara.second->status()->activeCharacter()->chara();
         const auto& pos = m_camera.getMat3x2().transform(chara.second->position());
         const auto& color = dx::di::Id::ToColorDark(chara.first);
         font(kanji).draw(s3d::Arg::center(pos), color);

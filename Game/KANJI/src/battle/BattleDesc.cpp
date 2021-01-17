@@ -14,7 +14,7 @@ namespace battle {
 s3d::String BattlePlayerDesc::toString() const {
     s3d::String ret = U"{ ";
     for (int i = 0; i < m_characters.size(); ++i) {
-        ret += U"{}:{}, "_fmt(i, m_characters.at(i)->kanji().kanji);
+        ret += U"{}:{}, "_fmt(i, m_characters.at(i)->chara());
     }
     ret += U"}";
     return ret;

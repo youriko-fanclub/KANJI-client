@@ -1,5 +1,6 @@
 #pragma once
 #include <Siv3D/Circle.hpp>
+#include <Siv3D/Polygon.hpp>
 #include "Enum.hpp"
 #include "RelativePosition.hpp"
 #include "Palette.hpp"
@@ -40,9 +41,12 @@ private: // field
     std::unordered_map<CirclePosition, s3d::Circle> m_circles;
     dx::ui::ColorPalette m_colors;
     dx::ui::FontPalette m_fonts;
+    std::unique_ptr<s3d::Polygon> m_default_ability;
+    std::unique_ptr<s3d::Polygon> m_ability;
 private: // private function
     void drawCircle(CirclePosition position, int charaIndex) const;
     void drawRadical() const;
+    void drawPolygon() const;
 public: // ctor/dtor
     HolderUI(int player_index, int player_num, const std::shared_ptr<battle::BattlePlayer>& player);
 };
