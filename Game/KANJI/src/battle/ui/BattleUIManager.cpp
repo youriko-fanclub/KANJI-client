@@ -9,7 +9,7 @@
 #include "HolderUI.hpp"
 #include "Log.hpp"
 #include "AssetManager.hpp"
-#include "HotReloadManager.hpp"
+#include "TomlAsset.hpp"
 
 namespace kanji {
 namespace ui {
@@ -84,10 +84,11 @@ void BattleUIManager::drawImpl() const {
     }
     m_camera.draw();
     
-    auto param = dx::cmp::HotReloadManager::createParamsWithLoad(U"Battle");
-    static s3d::Font font = param->getFont(U"battle.ui.object.physical.chara.font");
-    if (font.fontSize() != param->get<int>(U"battle.ui.object.physical.chara.font.size")) {
-        font = param->getFont(U"battle.ui.object.physical.chara.font");
+    dx::toml::TomlKey key(U"battle.ui.object.physical.chara.font");
+    dx::toml::TomlAsset toml(U"Battle");
+    static s3d::Font font = dx::toml::font(toml[key]);
+    if (font.fontSize() != toml[key + U"size"].get<int>()) {
+        font = dx::toml::font(toml[key]);
     }
     for (const auto& chara : m_battle_manager->worldMgr()->characters()) {
         const auto& kanji = chara.second->status()->activeCharacter()->kanji().kanji;

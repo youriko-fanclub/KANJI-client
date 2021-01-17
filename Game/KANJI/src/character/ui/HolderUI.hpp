@@ -4,12 +4,7 @@
 #include "RelativePosition.hpp"
 #include "Palette.hpp"
 #include "UIComponent.hpp"
-
-namespace dx {
-namespace cmp {
-class HotReloadableParameters;
-}
-}
+#include "TomlAsset.hpp"
 
 namespace kanji {
 namespace battle {
@@ -31,8 +26,8 @@ public: // static_const/enum
         Above = 0, Left = 1, Right = 2,
     };
 public: // static
-    const s3d::String m_toml_key = U"battle.ui.object.holder";
-    std::shared_ptr<dx::cmp::HotReloadableParameters> m_params;
+    const dx::toml::TomlKey m_toml_key;
+    dx::toml::TomlAsset m_toml;
 public: // public function
     void update() override;
 protected: // protected function

@@ -3,7 +3,7 @@
 #include <Siv3D/Vector2D.hpp>
 #include <Siv3D/Physics2D.hpp>
 #include "PlayerId.hpp"
-#include "CharaPhysicsParameters.hpp"
+#include "TomlAsset.hpp"
 
 namespace kanji {
 namespace battle {
@@ -38,7 +38,7 @@ private: // field
 private: // private function
     void initialize();
 public: // ctor/dtor
-    PhysicalStage(s3d::P2World* world, const std::shared_ptr<param::CharaPhysics>& param);
+    PhysicalStage(s3d::P2World* world, const dx::toml::TomlAsset& toml);
 };
 
 }
