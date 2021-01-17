@@ -1,10 +1,13 @@
 #pragma once
 #include <vector>
 #include "PlayerId.hpp"
+#include "IDs.hpp"
+#include "Radical.hpp"
 
 namespace kanji {
 namespace chara {
 class IParameterizedCharacter;
+class Radical;
 }
 namespace battle {
 class PhysicalCharacter;
@@ -13,7 +16,6 @@ class MomentaryMove;
 
 class BattlePlayer {
 public: // static_const/enum
-    using Radical = s3d::String;
     struct Score {
     public:
         int ko_count = 0;
@@ -33,9 +35,9 @@ public: // public function
     // 変更先が無かった(生存キャラが1体以下)場合falseを返す
     bool changeActiveCharacter();
 
-    bool hasRadical() const { return m_radical != U""; }
-    const Radical& radical() const { return m_radical; }
-    void setRadical(const Radical& value) { m_radical = value; }
+    bool hasRadical() const;
+    const std::unique_ptr<chara::Radical>& radical() const;
+    void setRadical(RadicalID radical_id);
     
     const std::shared_ptr<PhysicalCharacter>& physical() { return m_physical; }
     void initializePhysical(const std::shared_ptr<PhysicalCharacter>& physical) {
@@ -52,7 +54,7 @@ private: // field
     dx::di::PlayerId m_pid;
     int m_active_index;
     std::vector<std::shared_ptr<chara::IParameterizedCharacter>> m_characters;
-    Radical m_radical;
+    chara::RadicalHolder m_radical;
     std::shared_ptr<PhysicalCharacter> m_physical;
     bool m_is_lost;
     Score m_score;

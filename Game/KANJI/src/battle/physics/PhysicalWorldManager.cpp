@@ -34,6 +34,10 @@ void PhysicalWorldManager::initializeCharacters(const std::unordered_map<dx::di:
     }
 }
 
+void PhysicalWorldManager::initializeStage(StageID id) {
+    m_stage = std::make_shared<PhysicalStage>(&m_world, id, m_toml);
+}
+    
 void PhysicalWorldManager::update() {
     // 物理演算の精度
     static constexpr int32 velocity_iterations = 12;
@@ -52,9 +56,7 @@ void PhysicalWorldManager::lose(dx::di::PlayerId pid) {
 // ctor/dtor -------------------------------------
 PhysicalWorldManager::PhysicalWorldManager() :
 m_toml(U"Physics"),
-m_world(9.8) {
-    m_stage = std::make_shared<PhysicalStage>(&m_world, m_toml);
-}
+m_world(9.8) {}
     
 }
 }

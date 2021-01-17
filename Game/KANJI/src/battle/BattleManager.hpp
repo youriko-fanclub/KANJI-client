@@ -7,6 +7,7 @@ namespace battle {
 class BattlePlayerManager;
 class PhysicalWorldManager;
 class PhysicalMoveManager;
+class Stage;
 
 class BattleTimer {
 public: // static_const/enum
@@ -76,6 +77,7 @@ private: // field
     std::shared_ptr<BattlePlayerManager> m_player_mgr = nullptr;
     std::shared_ptr<PhysicalWorldManager> m_world_mgr = nullptr;
     std::shared_ptr<PhysicalMoveManager> m_move_mgr = nullptr;
+    std::shared_ptr<Stage> m_stage = nullptr;
     
     std::shared_ptr<BattleResultDesc> m_result_desc = nullptr;
     bool m_has_gameset = false;

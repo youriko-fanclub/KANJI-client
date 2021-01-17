@@ -1,6 +1,7 @@
 #include "StageSelectionScene.hpp"
 #include "BattleDesc.hpp"
 #include "Audio.hpp"
+#include "IDs.hpp"
 
 
 namespace kanji {
@@ -23,7 +24,7 @@ void StageSelectionScene::draw() const {
 
 // private function ------------------------------
 void StageSelectionScene::selectStage() const {
-    getData().battleDesc()->setStageId(0);
+    getData().battleDesc()->setStageId(StageID(300000));
 }
 
 // ctor/dtor -------------------------------------

@@ -41,7 +41,11 @@ m_move_mgr(move_mgr) {}
 void PhysicalWorldUIManager::update() {}
 // protected function ------------------------------
 void PhysicalWorldUIManager::drawImpl() const {
-    m_world_mgr->stage()->drawLegacy();
+    {
+        const auto& stage = m_world_mgr->stage();
+        s3d::Rect(-26, -28, 52, 40)(TextureAsset(U"Stage::" + stage->name() + U"::Bg")).draw();
+        stage->drawLegacy();
+    }
     for (const auto& chara : m_world_mgr->characters()) {
         const auto& color = dx::di::Id::ToColor(chara.first);
         chara.second->rect()
@@ -74,9 +78,6 @@ void BattleUIManager::update() {
 }
 
 void BattleUIManager::drawImpl() const {
-    for (const auto& holder : m_holders) {
-        holder.second->draw();
-    }
     {
         const auto t = m_camera.createTransformer();
         m_world->draw();
@@ -91,10 +92,13 @@ void BattleUIManager::drawImpl() const {
         font = dx::toml::font(toml[key]);
     }
     for (const auto& chara : m_battle_manager->worldMgr()->characters()) {
-        const auto& kanji = chara.second->status()->activeCharacter()->kanji().kanji;
+        const auto& kanji = chara.second->status()->activeCharacter()->chara();
         const auto& pos = m_camera.getMat3x2().transform(chara.second->position());
         const auto& color = dx::di::Id::ToColorDark(chara.first);
         font(kanji).draw(s3d::Arg::center(pos), color);
+    }
+    for (const auto& holder : m_holders) {
+        holder.second->draw();
     }
 }
 

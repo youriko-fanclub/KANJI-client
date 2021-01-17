@@ -14,7 +14,7 @@ namespace battle {
 s3d::String BattlePlayerDesc::toString() const {
     s3d::String ret = U"{ ";
     for (int i = 0; i < m_characters.size(); ++i) {
-        ret += U"{}:{}, "_fmt(i, m_characters.at(i)->kanji().kanji);
+        ret += U"{}:{}, "_fmt(i, m_characters.at(i)->chara());
     }
     ret += U"}";
     return ret;
@@ -55,7 +55,7 @@ void BattleDesc::dump() const {
     s3d::Print
         << U"TimeLimit : " << m_timeLimit_sec ;// << std::endl
     s3d::Print
-        << U"StageId : " << m_stage_id ;// << std::endl;
+        << U"StageId : " << m_stage_id.toInt() ;// << std::endl;
 }
 // private function ------------------------------
 // ctor/dtor -------------------------------------

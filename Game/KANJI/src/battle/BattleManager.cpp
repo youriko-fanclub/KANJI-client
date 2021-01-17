@@ -9,6 +9,7 @@
 #include "Log.hpp"
 #include "Input.hpp"
 #include "Audio.hpp"
+#include "Stage.hpp"
 
 namespace kanji {
 namespace battle {
@@ -63,17 +64,20 @@ void BattleManager::initialize(const std::shared_ptr<BattleDesc>& desc) {
     m_timer = std::make_shared<BattleTimer>(desc->timeLimitSec() * 60);
     
     m_player_mgr = std::make_shared<BattlePlayerManager>(desc->playerDescs());
-    m_player_mgr->players().at(dx::di::PlayerId::_1P)->setRadical(U"風");
-    m_player_mgr->players().at(dx::di::PlayerId::_2P)->setRadical(U"土");
-    m_player_mgr->players().at(dx::di::PlayerId::_3P)->setRadical(U"雨");
-    m_player_mgr->players().at(dx::di::PlayerId::_4P)->setRadical(U"獣");
+    m_player_mgr->players().at(dx::di::PlayerId::_1P)->setRadical(RadicalID(100000));
+    m_player_mgr->players().at(dx::di::PlayerId::_2P)->setRadical(RadicalID(100001));
+    m_player_mgr->players().at(dx::di::PlayerId::_3P)->setRadical(RadicalID(100002));
+    m_player_mgr->players().at(dx::di::PlayerId::_4P)->setRadical(RadicalID(100003));
     
     dx::aud::Audio::masterSource()->addSource(U"Battle");
     dx::aud::Audio::source(U"Battle")->addClip(dx::aud::AudioType::SE, U"SE::Battle::Move::Normal"/* + s3d::ToString(move_id)*/);
     
+    m_stage = std::make_shared<Stage>(desc->stageId());
+    m_stage->initialize();
     m_world_mgr = std::make_shared<PhysicalWorldManager>();
+    m_world_mgr->initializeStage(desc->stageId());
     m_world_mgr->initializeCharacters(m_player_mgr->players());
-    
+
     m_move_mgr = std::make_shared<PhysicalMoveManager>();
     
     for (auto& player : m_player_mgr->players()) {
