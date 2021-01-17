@@ -3,6 +3,7 @@
 #include "PhysicalCharacter.hpp"
 #include "PhysicalStage.hpp"
 #include "PhysicalRadicalManager.hpp"
+#include "PhysicalWorld.hpp"
 
 namespace kanji {
 namespace battle {
@@ -24,7 +25,7 @@ void PhysicalWorldManager::initializeCharacters(const std::unordered_map<dx::di:
     for (int index = 0; const auto& player : players) {
         m_characters.insert(std::make_pair(player.first,
             std::make_shared<PhysicalCharacter>(
-                &m_world,
+                m_world,
                 player.first,
                 initial_positions.at(random_indices.at(index)),
                 true,
@@ -36,16 +37,27 @@ void PhysicalWorldManager::initializeCharacters(const std::unordered_map<dx::di:
 }
 
 void PhysicalWorldManager::initializeStage(StageID id) {
-    m_stage = std::make_shared<PhysicalStage>(&m_world, id, m_toml);
+    m_stage = std::make_shared<PhysicalStage>(m_world, id, m_toml);
 }
     
 void PhysicalWorldManager::update() {
     const dx::Time dt = Scene::DeltaTime();
     // 物理演算の精度
-    static constexpr int32 velocity_iterations = 12;
-    static constexpr int32 position_iterations = 4;
-    m_world.update(dt, velocity_iterations, position_iterations);
+    static constexpr s3d::int32 velocity_iterations = 12;
+    static constexpr s3d::int32 position_iterations = 4;
+    m_world->update(dt, velocity_iterations, position_iterations);
     m_radical_mgr->update(dt);
+    const dx::Time temp_interval = 10.0;
+    static dx::Time temp_timer = 0.0;
+    static RadicalID temp_radical_id(100000);
+    if ((temp_timer += dt) > temp_interval) {
+        m_radical_mgr->createRadical(temp_radical_id);
+        ++temp_radical_id;
+        if (temp_radical_id.toInt() == 100020) {
+            temp_radical_id = RadicalID(100000);
+        }
+        temp_timer -= temp_interval;
+    }
     for (auto& chara : m_characters) {
         chara.second->update();
     }
@@ -59,8 +71,8 @@ void PhysicalWorldManager::lose(dx::di::PlayerId pid) {
 // ctor/dtor -------------------------------------
 PhysicalWorldManager::PhysicalWorldManager() :
 m_toml(U"Physics"),
-m_world(9.8),
-m_radical_mgr(std::make_shared<PhysicalRadicalManager>(&m_world)) {}
+m_world(std::make_shared<dx::phys::PhysicalWorld>(9.8)),
+m_radical_mgr(std::make_shared<PhysicalRadicalManager>(m_world)) {}
     
 }
 }

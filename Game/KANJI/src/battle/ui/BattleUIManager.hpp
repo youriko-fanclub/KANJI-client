@@ -29,21 +29,6 @@ public: // ctor/dtor
 };
 
 
-#if false
-class PhysicalCharacterUI : public dx::ui::UIComponent {
-public: // static_const/enum
-public: // static
-public: // public function
-private: // field
-    const battle::PhysicalCharacter* const m_character;
-private: // private function
-public: // ctor/dtor
-    PhysicalCharacterUI(const battle::PhysicalCharacter* chara) :
-        m_character(chara) {}
-};
-#endif
-
-
 class PhysicalWorldUIManager : public dx::ui::UIComponent {
 public: // static_const/enum
 public: // static

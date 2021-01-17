@@ -38,7 +38,10 @@
 		2CE5C85B237FDE6000082EEC /* OpenAL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2C6906B12298123200A427D0 /* OpenAL.framework */; };
 		2CEACB67233A61C900C6EE98 /* libgif.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2CEACB65233A61C900C6EE98 /* libgif.a */; };
 		2CEACB68233A61C900C6EE98 /* libutil.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2CEACB66233A61C900C6EE98 /* libutil.a */; };
+		7201A05325B36635004ACB91 /* CollisionObserver.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7201A05125B36635004ACB91 /* CollisionObserver.cpp */; };
+		7201A05725B36709004ACB91 /* PhysicalObject.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7201A05525B36709004ACB91 /* PhysicalObject.cpp */; };
 		7209B4E025B28F6B00B1C053 /* PhysicalCategory.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7209B4DE25B28F6B00B1C053 /* PhysicalCategory.cpp */; };
+		7209B4EB25B2D50E00B1C053 /* PhysicalWorld.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7209B4E925B2D50E00B1C053 /* PhysicalWorld.cpp */; };
 		722D9B072572ACCE00FD30FD /* KanjiScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 722D9B052572ACCE00FD30FD /* KanjiScene.cpp */; };
 		7247BB4225689E850052A75F /* RelativePosition.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7247BB4025689E840052A75F /* RelativePosition.cpp */; };
 		7247BB462568AB070052A75F /* Palette.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7247BB442568AB070052A75F /* Palette.cpp */; };
@@ -150,8 +153,14 @@
 		2CE5C859237FDE5100082EEC /* CoreMedia.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMedia.framework; path = System/Library/Frameworks/CoreMedia.framework; sourceTree = SDKROOT; };
 		2CEACB65233A61C900C6EE98 /* libgif.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libgif.a; path = ../../lib/macOS/libgif/libgif.a; sourceTree = "<group>"; };
 		2CEACB66233A61C900C6EE98 /* libutil.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libutil.a; path = ../../lib/macOS/libgif/libutil.a; sourceTree = "<group>"; };
+		7201A05125B36635004ACB91 /* CollisionObserver.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = CollisionObserver.cpp; sourceTree = "<group>"; };
+		7201A05225B36635004ACB91 /* CollisionObserver.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = CollisionObserver.hpp; sourceTree = "<group>"; };
+		7201A05525B36709004ACB91 /* PhysicalObject.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = PhysicalObject.cpp; sourceTree = "<group>"; };
+		7201A05625B36709004ACB91 /* PhysicalObject.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = PhysicalObject.hpp; sourceTree = "<group>"; };
 		7209B4DE25B28F6B00B1C053 /* PhysicalCategory.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = PhysicalCategory.cpp; sourceTree = "<group>"; };
 		7209B4DF25B28F6B00B1C053 /* PhysicalCategory.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = PhysicalCategory.hpp; sourceTree = "<group>"; };
+		7209B4E925B2D50E00B1C053 /* PhysicalWorld.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = PhysicalWorld.cpp; sourceTree = "<group>"; };
+		7209B4EA25B2D50E00B1C053 /* PhysicalWorld.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = PhysicalWorld.hpp; sourceTree = "<group>"; };
 		722D9B052572ACCE00FD30FD /* KanjiScene.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = KanjiScene.cpp; sourceTree = "<group>"; };
 		722D9B062572ACCE00FD30FD /* KanjiScene.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = KanjiScene.hpp; sourceTree = "<group>"; };
 		7247BB4025689E840052A75F /* RelativePosition.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = RelativePosition.cpp; sourceTree = "<group>"; };
@@ -410,6 +419,19 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		7209B4E825B2D4F400B1C053 /* physics */ = {
+			isa = PBXGroup;
+			children = (
+				7201A05125B36635004ACB91 /* CollisionObserver.cpp */,
+				7201A05225B36635004ACB91 /* CollisionObserver.hpp */,
+				7201A05525B36709004ACB91 /* PhysicalObject.cpp */,
+				7201A05625B36709004ACB91 /* PhysicalObject.hpp */,
+				7209B4E925B2D50E00B1C053 /* PhysicalWorld.cpp */,
+				7209B4EA25B2D50E00B1C053 /* PhysicalWorld.hpp */,
+			);
+			path = physics;
+			sourceTree = "<group>";
+		};
 		722D9B042572AC8C00FD30FD /* common */ = {
 			isa = PBXGroup;
 			children = (
@@ -466,6 +488,7 @@
 		7265F0592531ACDC00C15F67 /* component */ = {
 			isa = PBXGroup;
 			children = (
+				7209B4E825B2D4F400B1C053 /* physics */,
 				72CB2BB525AC7CED00201366 /* chrono */,
 				72D960332594637400236386 /* identity */,
 				72A3BDCA254F09A9003393C4 /* parameter */,
@@ -939,6 +962,7 @@
 				72CB2B4B259FF92400201366 /* MasterKanjiConsistRepository.cpp in Sources */,
 				72DB89AC2569321000BF7CC5 /* Move.cpp in Sources */,
 				72CB2B7E25A9EFE600201366 /* Stage.cpp in Sources */,
+				7201A05725B36709004ACB91 /* PhysicalObject.cpp in Sources */,
 				72A3BD9F254D80AB003393C4 /* GamePadDemo.cpp in Sources */,
 				7265F0752531E1BF00C15F67 /* SequenceManager.cpp in Sources */,
 				72B1DCFC2598B90800BC3D6C /* AudioProxy.cpp in Sources */,
@@ -956,6 +980,7 @@
 				726F87E02556BAE2003FAC77 /* BattlePlayerManager.cpp in Sources */,
 				2C971A5C239732F900E66570 /* TitleScene.cpp in Sources */,
 				72A3BD95254C6197003393C4 /* Input.cpp in Sources */,
+				7209B4EB25B2D50E00B1C053 /* PhysicalWorld.cpp in Sources */,
 				726F87D12555E1EA003FAC77 /* Log.cpp in Sources */,
 				726F87D32555E1EA003FAC77 /* LogDefinition.cpp in Sources */,
 				72CB2B4A259FF92400201366 /* MasterKanjiParamRepository.cpp in Sources */,
@@ -973,6 +998,7 @@
 				72B1DD19259DDDC500BC3D6C /* Radical.cpp in Sources */,
 				726F87D42555E1EA003FAC77 /* LogDestination.cpp in Sources */,
 				72CB2BA325AA151D00201366 /* MasterStageRepository.cpp in Sources */,
+				7201A05325B36635004ACB91 /* CollisionObserver.cpp in Sources */,
 				7247BB4225689E850052A75F /* RelativePosition.cpp in Sources */,
 				72CB2B5A25A01DE000201366 /* TomlAssetRepository.cpp in Sources */,
 				72B1DCFB2598B90800BC3D6C /* AudioType.cpp in Sources */,

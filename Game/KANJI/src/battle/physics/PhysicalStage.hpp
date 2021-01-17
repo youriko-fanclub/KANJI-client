@@ -6,6 +6,12 @@
 #include "TomlAsset.hpp"
 #include "IDs.hpp"
 
+namespace dx {
+namespace phys {
+class PhysicalWorld;
+class IPhysicalObject;
+}
+}
 namespace kanji {
 namespace md {
 class MasterStage;
@@ -23,14 +29,14 @@ public: // public function
     std::vector<s3d::Vec2> initialCharaPositions(int player_num) const;
 private: // field
     const md::MasterStage* m_md;
-    const s3d::P2Body m_floor;
-    const s3d::P2Body m_ceiling;
-    const s3d::P2Body m_wall_left;
-    const s3d::P2Body m_wall_right;
+    const std::shared_ptr<dx::phys::IPhysicalObject> m_floor;
+    const std::shared_ptr<dx::phys::IPhysicalObject> m_ceiling;
+    const std::shared_ptr<dx::phys::IPhysicalObject> m_wall_left;
+    const std::shared_ptr<dx::phys::IPhysicalObject> m_wall_right;
 private: // private function
     void initialize();
 public: // ctor/dtor
-    PhysicalStage(s3d::P2World* world, StageID id, const dx::toml::TomlAsset& physical);
+    PhysicalStage(const std::shared_ptr<dx::phys::PhysicalWorld>& world, StageID id, const dx::toml::TomlAsset& physical);
 };
 
 }

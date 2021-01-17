@@ -18,6 +18,7 @@ public:
     static void initialize();
     static bitflag mask(bitflag category);
     static s3d::P2Filter filter(bitflag category);
+    static const std::vector<bitflag>& categories() { return m_categories; }
 
 private:
     static const std::unordered_map<bitflag, bool> m_collision_map;

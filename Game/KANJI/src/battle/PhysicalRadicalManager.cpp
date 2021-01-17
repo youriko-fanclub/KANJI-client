@@ -1,6 +1,7 @@
 #include "PhysicalRadicalManager.hpp"
 #include "MasterRadicalParamRepository.hpp"
 #include "PhysicalCategory.hpp"
+#include "PhysicalWorld.hpp"
 
 namespace kanji {
 namespace battle {
@@ -23,14 +24,14 @@ bool PhysicalRadical::update(dx::Time dt) {
 // ctor/dtor -------------------------------------
 PhysicalRadical::PhysicalRadical(
     RadicalID id,
-    s3d::P2World* world,
+    const std::shared_ptr<dx::phys::PhysicalWorld>& world,
     const s3d::Vec2& initial_pos) :
 m_timer(0),
 m_md(md::MasterRadicalParamRepository::instance()->at(id)),
 m_body(world->createRect(
+    PhysicalCategory::Radical,
     initial_pos, s3d::SizeF(3, 3),
-    s3d::P2Material(1.0, 0.0, 1.0),
-    PhysicalCategory::filter(PhysicalCategory::Radical))) {}
+    s3d::P2Material(1.0, 0.0, 1.0))) {}
 
 
 /* ---------- PhysicalRadicalManager ---------- */
@@ -41,7 +42,7 @@ s3d::Vec2 PhysicalRadicalManager::randomCreatePos() {
 }
 // public function -------------------------------
 const std::shared_ptr<PhysicalRadical>& PhysicalRadicalManager::createRadical(RadicalID id) {
-    m_radicals.push_back(std::make_shared<PhysicalRadical>(id, m_p2world, randomCreatePos()));
+    m_radicals.push_back(std::make_shared<PhysicalRadical>(id, m_world, randomCreatePos()));
     return m_radicals.back();
 }
 void PhysicalRadicalManager::update(dx::Time dt) {

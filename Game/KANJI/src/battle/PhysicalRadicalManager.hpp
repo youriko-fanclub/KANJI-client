@@ -4,6 +4,12 @@
 #include "IDs.hpp"
 #include "Timer.hpp"
 
+namespace dx {
+namespace phys {
+class PhysicalWorld;
+class IPhysicalObject;
+}
+}
 namespace kanji {
 namespace md {
 class MasterRadicalParam;
@@ -18,7 +24,7 @@ public: // static
 public: // public function
     RadicalID id() const;
     s3d::RectF currentHitBox() const;
-    const s3d::P2Body& body() const { return m_body; }
+    const std::shared_ptr<dx::phys::IPhysicalObject>& body() const { return m_body; }
 
     // 終了したらtrueを返す
     bool update(dx::Time dt);
@@ -27,13 +33,13 @@ public: // public function
 private: // field
     dx::Time m_timer;
     const md::MasterRadicalParam* m_md;
-    s3d::P2Body m_body;
+    std::shared_ptr<dx::phys::IPhysicalObject> m_body;
     bool m_has_vanished = false;
 private: // private function
 public: // ctor/dtor
     PhysicalRadical(
         RadicalID id,
-        s3d::P2World* world,
+        const std::shared_ptr<dx::phys::PhysicalWorld>& world,
         const s3d::Vec2& initial_pos);
 };
 
@@ -50,11 +56,11 @@ public: // public function
     const std::vector<std::shared_ptr<PhysicalRadical>>& radicals() const;
 private: // field
     std::vector<std::shared_ptr<PhysicalRadical>> m_radicals;
-    s3d::P2World* m_p2world;
+    std::shared_ptr<dx::phys::PhysicalWorld> m_world;
 private: // private function
 public: // ctor/dtor
-    PhysicalRadicalManager(s3d::P2World* p2world) :
-    m_p2world(p2world) {}
+    PhysicalRadicalManager(const std::shared_ptr<dx::phys::PhysicalWorld>& world) :
+    m_world(world) {}
 };
 
 
