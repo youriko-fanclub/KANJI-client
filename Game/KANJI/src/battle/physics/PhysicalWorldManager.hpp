@@ -3,6 +3,7 @@
 #include <Siv3D.hpp>
 #include "PlayerId.hpp"
 #include "TomlAsset.hpp"
+#include "IDs.hpp"
 
 namespace kanji {
 namespace battle {
@@ -15,6 +16,7 @@ public: // static_const/enum
 public: // static
 public: // public function
     void initializeCharacters(const std::unordered_map<dx::di::PlayerId, std::shared_ptr<BattlePlayer>>& players);
+    void initializeStage(StageID id);
     void update();
 
     const std::unordered_map<dx::di::PlayerId, std::shared_ptr<PhysicalCharacter>>& characters() const {

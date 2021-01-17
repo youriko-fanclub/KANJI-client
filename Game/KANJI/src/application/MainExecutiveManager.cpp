@@ -24,6 +24,10 @@ dx::app::ExecutiveManager::Desc createExecutiveDesc() {
     texture_descs.reserve(5);
     texture_descs.emplace_back(U"Title::Logo", U"Title/Logo");
     texture_descs.emplace_back(U"Title::Bg", U"Title/Bg");
+    for (const s3d::String& stage_name : { U"Notebook", U"BlackBoard", U"Scroll" }) {
+        texture_descs.emplace_back(U"Stage::" + stage_name + U"::Bg", U"Stage/" + stage_name + U"/Bg");
+        texture_descs.emplace_back(U"Stage::" + stage_name + U"::Block", U"Stage/" + stage_name + U"/Block");
+    }
     
     std::vector<dx::app::AssetManager::AudioDesc> audio_descs
         = dx::app::AssetManager::AudioDesc::loadFromToml();

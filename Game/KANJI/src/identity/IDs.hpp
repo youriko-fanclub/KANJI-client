@@ -6,5 +6,6 @@ namespace kanji {
 ID_DEFINITION(Kanji)
 ID_DEFINITION(Radical)
 ID_DEFINITION(Move)
+ID_DEFINITION(Stage)
 
 }
