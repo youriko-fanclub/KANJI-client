@@ -20,7 +20,7 @@ enum class State {
 };
 
 
-using KanjiScene = s3d::SceneManager<State, DomainGameData>::Scene;
+using SceneWithData = s3d::SceneManager<State, DomainGameData>::Scene;
 
 }
 }

@@ -1,15 +1,15 @@
 #pragma once
 #include <Siv3D/String.hpp>
 #include <Siv3D/Circular.hpp>
+#include "IDs.hpp"
+#include "MasterKanjiParam.hpp"
 
 namespace kanji {
 namespace chara {
 
-using KanjiId = int;
-
 struct Kanji {
 public:
-    KanjiId id;
+    KanjiID id;
     s3d::String kanji;
 };
 
@@ -40,6 +40,9 @@ protected:
 class ParameterizedCharacter : public IParameterizedCharacter {
 public: // static_const/enum
 public: // static
+    static std::shared_ptr<ParameterizedCharacter> createShared(const md::MasterKanjiParam* md) {
+        return std::make_shared<ParameterizedCharacter>(md->id(), md->character());
+    }
 public: // public function
     const Kanji& kanji() const override { return m_kanji; }
     bool isBurnedOut() const override { return m_is_burned_out; }
@@ -57,7 +60,7 @@ private: // private function
     const CharaParameters m_initial_params;
     CharaParameters m_params;
 public: // ctor/dtor
-    ParameterizedCharacter(int id, const s3d::String& kanji) :
+    ParameterizedCharacter(const KanjiID id, const s3d::String& kanji) :
     m_kanji({
         .id = id,
         .kanji = kanji
@@ -73,7 +76,7 @@ public: // ctor/dtor
     m_params(m_initial_params) {}
     ParameterizedCharacter() :
     m_kanji({
-        .id = 0,
+        .id = KanjiID(0),
         .kanji = U"山"
     }),
     m_initial_params({

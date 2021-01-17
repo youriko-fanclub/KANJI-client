@@ -1,5 +1,4 @@
 #pragma once
-#include <Siv3D/String.hpp>
 #include <Siv3D/Circle.hpp>
 #include "Enum.hpp"
 #include "RelativePosition.hpp"

@@ -1,5 +1,6 @@
 #include "StageSelectionScene.hpp"
 #include "BattleDesc.hpp"
+#include "Audio.hpp"
 
 
 namespace kanji {
@@ -27,7 +28,7 @@ void StageSelectionScene::selectStage() const {
 
 // ctor/dtor -------------------------------------
 StageSelectionScene::StageSelectionScene(const InitData& init) :
-IScene(init),
+KanjiScene(init, U"StageSelection"),
 m_battle_start(
     Rect(Arg::center = Scene::Center().movedBy(65, 170), 300, 60),
     DrawableText(FontAsset(U"Menu"), U"試合開始"),
@@ -42,6 +43,15 @@ m_back(
         changeScene(State::Battle);
     });
     m_back.setCallback([this](){ changeScene(State::CharacterSelection); });
+    
+    setOnDestructCallback([this](State next){
+        switch (next) {
+        case State::Battle: {
+            dx::aud::Audio::masterSource()->removeSource(U"Menu");
+        } break;
+        default: break;
+        }
+    });
 }
 
 

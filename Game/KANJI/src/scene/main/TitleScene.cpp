@@ -1,5 +1,8 @@
 #include "TitleScene.hpp"
 
+#include "ApplicationManager.hpp"
+#include "Audio.hpp"
+
 namespace kanji {
 namespace seq {
 
@@ -33,7 +36,7 @@ void TitleScene::draw() const {
 // private function ------------------------------
 // ctor/dtor -------------------------------------
 TitleScene::TitleScene(const InitData& init) :
-IScene(init),
+KanjiScene(init, U"Title"),
 m_start(
     Rect(Arg::center = Scene::Center().movedBy(-165, 170), 300, 60),
     DrawableText(FontAsset(U"Menu"), U"はじめる"),
@@ -49,8 +52,14 @@ m_battle4debug(
     
     m_start.setCallback([this](){ changeScene(State::CharacterSelection); });
     m_battle4debug.setCallback([this](){ changeScene(State::Battle); });
-    m_exit.setCallback([](){ System::Exit(); });
+    m_exit.setCallback([](){ s3d::System::Exit(); });
     getData().clearBattleData();
+    
+    auto* title_audio = dx::aud::Audio::masterSource()->addSource(U"Title");
+    title_audio->addClip(dx::aud::AudioType::BGM, U"BGM::Title", true);
+    setOnDestructCallback([](State next){
+        dx::aud::Audio::masterSource()->removeSource(U"Title");
+    });
 }
 
 

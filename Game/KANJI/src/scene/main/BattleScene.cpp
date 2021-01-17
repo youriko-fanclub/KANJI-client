@@ -7,61 +7,50 @@
 #include "Input.hpp"
 #include "Misc.hpp"
 #include "HotReloadManager.hpp"
+#include "IDs.hpp"
+#include "Audio.hpp"
+#include "MasterKanjiParamRepository.hpp"
 
 
 namespace {
 
+using KanjiID = kanji::KanjiID;
+void createAndPushCharacter(
+    const std::shared_ptr<kanji::battle::BattlePlayerDesc>& desc,
+    const std::unique_ptr<kanji::md::MasterKanjiParamRepository>& repo,
+    KanjiID id) {
+    desc->characters().push_back(
+        kanji::chara::ParameterizedCharacter::createShared(repo->at(KanjiID(id)))
+    );
+}
 std::shared_ptr<kanji::battle::BattleDesc> createBattleDescForDebug(const std::shared_ptr<kanji::battle::BattleDesc>& battle_desc) {
+    const auto& repo = kanji::md::MasterKanjiParamRepository::instance();
     {
         auto player_desc = std::make_shared<kanji::battle::BattlePlayerDesc>();
-        player_desc->characters().push_back(
-            std::make_shared<kanji::chara::ParameterizedCharacter>(0, U"山")
-        );
-        player_desc->characters().push_back(
-            std::make_shared<kanji::chara::ParameterizedCharacter>(1, U"斬")
-        );
-        player_desc->characters().push_back(
-            std::make_shared<kanji::chara::ParameterizedCharacter>(2, U"王")
-        );
+        createAndPushCharacter(player_desc, repo, KanjiID(0));
+        createAndPushCharacter(player_desc, repo, KanjiID(1));
+        createAndPushCharacter(player_desc, repo, KanjiID(2));
         battle_desc->setPlayerDesc(dx::di::PlayerId::_1P, player_desc);
     }
     {
         auto player_desc = std::make_shared<kanji::battle::BattlePlayerDesc>();
-        player_desc->characters().push_back(
-            std::make_shared<kanji::chara::ParameterizedCharacter>(3, U"包")
-        );
-        player_desc->characters().push_back(
-            std::make_shared<kanji::chara::ParameterizedCharacter>(4, U"分")
-        );
-        player_desc->characters().push_back(
-            std::make_shared<kanji::chara::ParameterizedCharacter>(5, U"鬼")
-        );
+        createAndPushCharacter(player_desc, repo, KanjiID(3));
+        createAndPushCharacter(player_desc, repo, KanjiID(4));
+        createAndPushCharacter(player_desc, repo, KanjiID(5));
         battle_desc->setPlayerDesc(dx::di::PlayerId::_2P, player_desc);
     }
     {
         auto player_desc = std::make_shared<kanji::battle::BattlePlayerDesc>();
-        player_desc->characters().push_back(
-            std::make_shared<kanji::chara::ParameterizedCharacter>(6, U"工")
-        );
-        player_desc->characters().push_back(
-            std::make_shared<kanji::chara::ParameterizedCharacter>(7, U"詛")
-        );
-        player_desc->characters().push_back(
-            std::make_shared<kanji::chara::ParameterizedCharacter>(8, U"寺")
-        );
+        createAndPushCharacter(player_desc, repo, KanjiID(6));
+        createAndPushCharacter(player_desc, repo, KanjiID(7));
+        createAndPushCharacter(player_desc, repo, KanjiID(8));
         battle_desc->setPlayerDesc(dx::di::PlayerId::_3P, player_desc);
     }
     {
         auto player_desc = std::make_shared<kanji::battle::BattlePlayerDesc>();
-        player_desc->characters().push_back(
-            std::make_shared<kanji::chara::ParameterizedCharacter>(9, U"白")
-        );
-        player_desc->characters().push_back(
-            std::make_shared<kanji::chara::ParameterizedCharacter>(10, U"生")
-        );
-        player_desc->characters().push_back(
-            std::make_shared<kanji::chara::ParameterizedCharacter>(11, U"田")
-        );
+        createAndPushCharacter(player_desc, repo, KanjiID(9));
+        createAndPushCharacter(player_desc, repo, KanjiID(10));
+        createAndPushCharacter(player_desc, repo, KanjiID(11));
         battle_desc->setPlayerDesc(dx::di::PlayerId::_4P, player_desc);
     }
     static auto param = dx::cmp::HotReloadManager::createParamsWithLoad(U"Battle");
@@ -86,6 +75,12 @@ void BattleScene::initialize() {
     }
     m_mgr->initialize(getData().battleDesc());
     m_ui = std::make_shared<ui::BattleUIManager>(m_mgr.get());
+    
+    auto* battle_audio = dx::aud::Audio::masterSource()->addSource(U"Battle");
+    battle_audio->addClip(dx::aud::AudioType::BGM, U"BGM::Battle02", true);
+    setOnDestructCallback([](State next){
+        dx::aud::Audio::masterSource()->removeSource(U"Battle");
+    });
 }
 void BattleScene::update() {
     // TOdO: オブザーバにした方がよさそう
@@ -104,7 +99,7 @@ void BattleScene::draw() const {
 
 // private function ------------------------------
 // ctor/dtor -------------------------------------
-BattleScene::BattleScene(const InitData& init) : IScene(init) {
+BattleScene::BattleScene(const InitData& init) : KanjiScene(init, U"Battle") {
     initialize();
 }
 

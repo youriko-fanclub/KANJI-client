@@ -11,6 +11,7 @@ void Main() {
         if (!mgr->update()) { break; }
         mgr->draw();
 	}
+    mgr->finalize();
   
 }
 

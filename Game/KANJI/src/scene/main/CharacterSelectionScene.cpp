@@ -1,4 +1,5 @@
 #include "CharacterSelectionScene.hpp"
+#include "Audio.hpp"
 
 namespace kanji {
 namespace seq {
@@ -22,7 +23,7 @@ void CharacterSelectionScene::draw() const {
 // private function ------------------------------
 // ctor/dtor -------------------------------------
 CharacterSelectionScene::CharacterSelectionScene(const InitData& init) :
-IScene(init),
+KanjiScene(init, U"CharacterSelection"),
 m_next(
     Rect(Arg::center = Scene::Center().movedBy(0, 170), 300, 60),
     DrawableText(FontAsset(U"Menu"), U"次へ"),
@@ -33,6 +34,17 @@ m_back(
     Transition(0.4s, 0.2s)) {
     m_next.setCallback([this](){ changeScene(State::StageSelection); });
     m_back.setCallback([this](){ changeScene(State::Title); });
+    
+    auto* menu_audio = dx::aud::Audio::masterSource()->addSource(U"Menu");
+    menu_audio->addClip(dx::aud::AudioType::BGM, U"BGM::Menu", true);
+    setOnDestructCallback([this](State next){
+        switch (next) {
+        case State::Title: {
+            dx::aud::Audio::masterSource()->removeSource(U"Menu");
+        } break;
+        default: break;
+        }
+    });
 }
 
 
