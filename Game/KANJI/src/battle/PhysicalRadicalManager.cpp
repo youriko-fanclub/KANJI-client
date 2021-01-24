@@ -1,5 +1,7 @@
 #include "PhysicalRadicalManager.hpp"
 #include "MasterRadicalParamRepository.hpp"
+#include "PhysicalCategory.hpp"
+#include "PhysicalWorld.hpp"
 
 namespace kanji {
 namespace battle {
@@ -10,23 +12,28 @@ namespace battle {
 // static ----------------------------------------
 // public function -------------------------------
 RadicalID PhysicalRadical::id() const { return m_md->id(); }
-s3d::RectF PhysicalRadical::currentHitBox() const {
-    // m_body;
-    return s3d::RectF(0, 0, 0, 0);
+
+const std::shared_ptr<s3d::P2Body>& PhysicalRadical::body() const {
+    return obj()->body();
 }
+
 bool PhysicalRadical::update(dx::Time dt) {
     m_timer += dt;
     return m_has_vanished || m_timer > c_timelimit; // 消してほしいときにtrueを返す
 }
+
 // private function ------------------------------
 // ctor/dtor -------------------------------------
 PhysicalRadical::PhysicalRadical(
     RadicalID id,
-    s3d::P2World* world,
+    const std::shared_ptr<dx::phys::PhysicalWorld>& world,
     const s3d::Vec2& initial_pos) :
+CollisionObserver(world->createRect(
+    PhysicalCategory::Radical,
+    initial_pos, s3d::SizeF(3, 3),
+    s3d::P2Material(1.0, 0.0, 1.0))),
 m_timer(0),
-m_md(md::MasterRadicalParamRepository::instance()->at(id)),
-m_body(world->createRect(initial_pos, s3d::SizeF(3, 3), s3d::P2Material(1.0, 0.0, 1.0))) {}
+m_md(md::MasterRadicalParamRepository::instance()->at(id)) {}
 
 
 /* ---------- PhysicalRadicalManager ---------- */
@@ -37,7 +44,7 @@ s3d::Vec2 PhysicalRadicalManager::randomCreatePos() {
 }
 // public function -------------------------------
 const std::shared_ptr<PhysicalRadical>& PhysicalRadicalManager::createRadical(RadicalID id) {
-    m_radicals.push_back(std::make_shared<PhysicalRadical>(id, m_p2world, randomCreatePos()));
+    m_radicals.push_back(std::make_shared<PhysicalRadical>(id, m_world, randomCreatePos()));
     return m_radicals.back();
 }
 void PhysicalRadicalManager::update(dx::Time dt) {

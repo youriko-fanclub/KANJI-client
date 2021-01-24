@@ -10,6 +10,7 @@
 #include "Input.hpp"
 #include "Audio.hpp"
 #include "Stage.hpp"
+#include "PhysicalCategory.hpp"
 
 namespace kanji {
 namespace battle {

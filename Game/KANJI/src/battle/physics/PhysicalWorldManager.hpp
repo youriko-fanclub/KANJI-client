@@ -5,6 +5,11 @@
 #include "TomlAsset.hpp"
 #include "IDs.hpp"
 
+namespace dx {
+namespace phys {
+class PhysicalWorld;
+}
+}
 namespace kanji {
 namespace battle {
 class BattlePlayer;
@@ -33,7 +38,7 @@ public: // public function
 private: // field
     dx::toml::TomlAsset m_toml;
 
-    P2World m_world;
+    std::shared_ptr<dx::phys::PhysicalWorld> m_world;
     std::unordered_map<dx::di::PlayerId, std::shared_ptr<PhysicalCharacter>> m_characters;
     std::shared_ptr<PhysicalStage> m_stage;
     std::shared_ptr<PhysicalRadicalManager> m_radical_mgr;
