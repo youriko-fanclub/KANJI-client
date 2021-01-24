@@ -3,12 +3,19 @@
 #include <Siv3D.hpp>
 #include "PlayerId.hpp"
 #include "TomlAsset.hpp"
+#include "CollisionObserver.hpp"
 
+namespace dx {
+namespace phys {
+class PhysicalWorld;
+class IPhysicalObject;
+}
+}
 namespace kanji {
 namespace battle {
 class BattlePlayer;
 
-class PhysicalCharacter {
+class PhysicalCharacter : public dx::phys::CollisionObserver {
 public: // static_const/enum
 public: // static
 public: // public function
@@ -16,22 +23,22 @@ public: // public function
     const std::shared_ptr<battle::BattlePlayer>& status() const {
         return m_status;
     }
-    s3d::Vec2 position() const { return m_body.getPos(); }
-    s3d::Quad rect() const { return m_body.as<s3d::P2Rect>(0)->getQuad(); }
+    s3d::Vec2 position() const;
+    s3d::Quad rect() const;
     
     void shoot(const s3d::Circular& force);
     
     void update();
 private: // field
     dx::di::PlayerId m_pid;
-    P2Body m_body;
     bool m_is_right; // 右向きか否か
     const std::shared_ptr<battle::BattlePlayer> m_status;
     dx::toml::TomlAsset m_toml;
 private: // private function
+    const std::shared_ptr<s3d::P2Body>& body() const;
 public: // ctor/dtor
     PhysicalCharacter(
-        s3d::P2World* world,
+        const std::shared_ptr<dx::phys::PhysicalWorld>& world,
         dx::di::PlayerId pid,
         const s3d::Vec2& initial_pos,
         bool is_right,

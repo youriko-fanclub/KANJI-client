@@ -1,11 +1,25 @@
 #include "PhysicalStage.hpp"
 #include <Siv3D/FormatLiteral.hpp>
 #include "MasterStageRepository.hpp"
+#include "PhysicalCategory.hpp"
+#include "PhysicalWorld.hpp"
 
 using namespace s3d::Literals::FormatLiterals;
 
 namespace kanji {
 namespace battle {
+
+
+/* ---------- PhysicalStageObject ---------- */
+
+// static ----------------------------------------
+// public function -------------------------------
+const std::shared_ptr<s3d::P2Body>& PhysicalStageObject::body() const {
+    return obj()->body();
+}
+// private function ------------------------------
+// ctor/dtor -------------------------------------
+
 
 
 /* ---------- PhysicalStage ---------- */
@@ -15,10 +29,9 @@ namespace battle {
 const s3d::String& PhysicalStage::name() const { return m_md->name(); }
 
 void PhysicalStage::drawLegacy() const {
-    m_floor.draw(s3d::Palette::Skyblue);
-    m_ceiling.draw(s3d::Palette::Skyblue);
-    m_wall_left.draw(s3d::Palette::Skyblue);
-    m_wall_right.draw(s3d::Palette::Skyblue);
+    for (const auto& obj : m_objects) {
+        obj.second->body()->draw(s3d::Palette::Skyblue);
+    }
 }
 
 std::vector<s3d::Vec2> initialPos(const md::MasterStage* md, int player_num) {
@@ -54,12 +67,25 @@ void PhysicalStage::initialize() {
 }
 
 // ctor/dtor -------------------------------------
-PhysicalStage::PhysicalStage(s3d::P2World* world, StageID id, const dx::toml::TomlAsset& physical) :
-m_md(md::MasterStageRepository::instance()->at(id)),
-m_floor     (world->createStaticLine(s3d::Vec2(  0,  0), s3d::Line(-25, 0, 25, 0), s3d::P2Material(1.0, 0.0, physical[dx::toml::TomlKey(U"physics.floor.friction")].get<double>()))),
-m_ceiling   (world->createStaticLine(s3d::Vec2(  0,-25), s3d::Line(-25, 0, 25, 0), s3d::P2Material(1.0, 0.0, physical[dx::toml::TomlKey(U"physics.ceiling.friction")].get<double>()))),
-m_wall_left (world->createStaticLine(s3d::Vec2(-25,  0), s3d::Line(0, -25, 0, 10), s3d::P2Material(1.0, 0.0, physical[dx::toml::TomlKey(U"physics.wall.friction")].get<double>()))),
-m_wall_right(world->createStaticLine(s3d::Vec2( 25,  0), s3d::Line(0, -25, 0, 10), s3d::P2Material(1.0, 0.0, physical[dx::toml::TomlKey(U"physics.wall.friction")].get<double>()))) {
+PhysicalStage::PhysicalStage(const std::shared_ptr<dx::phys::PhysicalWorld>& world, StageID id, const dx::toml::TomlAsset& physical) :
+m_md(md::MasterStageRepository::instance()->at(id)) {
+dx::toml::TomlKey toml_key(U"physics");
+m_objects.emplace(U"Floor", std::make_shared<PhysicalStageObject>(
+    world->createStaticLine(PhysicalCategory::Stage,
+    s3d::Vec2(  0,  0), s3d::Line(-25, 0, 25, 0),
+    s3d::P2Material(1.0, 0.0, physical[toml_key + U"floor" + U"friction"].get<double>()))));
+m_objects.emplace(U"Ceiling", std::make_shared<PhysicalStageObject>(
+    world->createStaticLine(PhysicalCategory::Stage,
+    s3d::Vec2(  0,-25), s3d::Line(-25, 0, 25, 0),
+    s3d::P2Material(1.0, 0.0, physical[toml_key + U"ceiling" + U"friction"].get<double>()))));
+m_objects.emplace(U"WallLeft", std::make_shared<PhysicalStageObject>(
+    world->createStaticLine(PhysicalCategory::Stage,
+    s3d::Vec2(-25,  0), s3d::Line(0, -25, 0, 10),
+    s3d::P2Material(1.0, 0.0, physical[toml_key + U"wall" + U"friction"].get<double>()))));
+m_objects.emplace(U"WallRight", std::make_shared<PhysicalStageObject>(
+    world->createStaticLine(PhysicalCategory::Stage,
+    s3d::Vec2( 25,  0), s3d::Line(0, -25, 0, 10),
+    s3d::P2Material(1.0, 0.0, physical[toml_key + U"wall" + U"friction"].get<double>()))));
     initialize();
 }
 
