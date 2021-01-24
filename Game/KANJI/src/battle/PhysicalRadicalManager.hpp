@@ -3,6 +3,7 @@
 #include <Siv3D/Physics2D.hpp>
 #include "IDs.hpp"
 #include "Timer.hpp"
+#include "CollisionObserver.hpp"
 
 namespace dx {
 namespace phys {
@@ -17,14 +18,13 @@ class MasterRadicalParam;
 namespace battle {
 
 
-class PhysicalRadical {
+class PhysicalRadical : public dx::phys::CollisionObserver {
 private: // static_const/enum
     static constexpr dx::Time c_timelimit = 10.f;
 public: // static
 public: // public function
     RadicalID id() const;
-    s3d::RectF currentHitBox() const;
-    const std::shared_ptr<dx::phys::IPhysicalObject>& body() const { return m_body; }
+    const std::shared_ptr<s3d::P2Body>& body() const;
 
     // 終了したらtrueを返す
     bool update(dx::Time dt);
@@ -33,7 +33,6 @@ public: // public function
 private: // field
     dx::Time m_timer;
     const md::MasterRadicalParam* m_md;
-    std::shared_ptr<dx::phys::IPhysicalObject> m_body;
     bool m_has_vanished = false;
 private: // private function
 public: // ctor/dtor

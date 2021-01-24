@@ -63,8 +63,8 @@ void PhysicalWorldUIManager::drawImpl() const {
             s3d::Vec2::One()).draw(color);
     }
     for (const auto& radical : m_world_mgr->radicalMgr()->radicals()) {
-        radical->body()->impl()->draw(s3d::ColorF(1.f, 1.f, 1.f, 0.4f));
-        radical->body()->impl()->drawFrame(2.f, s3d::Palette::White);
+        radical->body()->draw(s3d::ColorF(1.f, 1.f, 1.f, 0.4f));
+        radical->body()->drawFrame(2.f, s3d::Palette::White);
     }
 }
 // private function ------------------------------

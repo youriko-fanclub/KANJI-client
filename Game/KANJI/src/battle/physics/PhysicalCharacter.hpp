@@ -3,6 +3,7 @@
 #include <Siv3D.hpp>
 #include "PlayerId.hpp"
 #include "TomlAsset.hpp"
+#include "CollisionObserver.hpp"
 
 namespace dx {
 namespace phys {
@@ -14,7 +15,7 @@ namespace kanji {
 namespace battle {
 class BattlePlayer;
 
-class PhysicalCharacter {
+class PhysicalCharacter : public dx::phys::CollisionObserver {
 public: // static_const/enum
 public: // static
 public: // public function
@@ -30,11 +31,11 @@ public: // public function
     void update();
 private: // field
     dx::di::PlayerId m_pid;
-    std::shared_ptr<dx::phys::IPhysicalObject> m_body;
     bool m_is_right; // 右向きか否か
     const std::shared_ptr<battle::BattlePlayer> m_status;
     dx::toml::TomlAsset m_toml;
 private: // private function
+    const std::shared_ptr<s3d::P2Body>& body() const;
 public: // ctor/dtor
     PhysicalCharacter(
         const std::shared_ptr<dx::phys::PhysicalWorld>& world,

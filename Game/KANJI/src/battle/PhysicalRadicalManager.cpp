@@ -12,26 +12,28 @@ namespace battle {
 // static ----------------------------------------
 // public function -------------------------------
 RadicalID PhysicalRadical::id() const { return m_md->id(); }
-s3d::RectF PhysicalRadical::currentHitBox() const {
-    // m_body;
-    return s3d::RectF(0, 0, 0, 0);
+
+const std::shared_ptr<s3d::P2Body>& PhysicalRadical::body() const {
+    return obj()->body();
 }
+
 bool PhysicalRadical::update(dx::Time dt) {
     m_timer += dt;
     return m_has_vanished || m_timer > c_timelimit; // 消してほしいときにtrueを返す
 }
+
 // private function ------------------------------
 // ctor/dtor -------------------------------------
 PhysicalRadical::PhysicalRadical(
     RadicalID id,
     const std::shared_ptr<dx::phys::PhysicalWorld>& world,
     const s3d::Vec2& initial_pos) :
-m_timer(0),
-m_md(md::MasterRadicalParamRepository::instance()->at(id)),
-m_body(world->createRect(
+CollisionObserver(world->createRect(
     PhysicalCategory::Radical,
     initial_pos, s3d::SizeF(3, 3),
-    s3d::P2Material(1.0, 0.0, 1.0))) {}
+    s3d::P2Material(1.0, 0.0, 1.0))),
+m_timer(0),
+m_md(md::MasterRadicalParamRepository::instance()->at(id)) {}
 
 
 /* ---------- PhysicalRadicalManager ---------- */
