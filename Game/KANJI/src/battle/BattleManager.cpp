@@ -61,7 +61,7 @@ std::shared_ptr<BattleResultDesc> BattleManager::createResultDesc() const {
 void BattleManager::initialize(const std::shared_ptr<BattleDesc>& desc) {
     desc->dump();
     
-    m_timer = std::make_shared<BattleTimer>(desc->timeLimitSec() * 60);
+    m_timer = std::make_shared<BattleTimer>(desc->timeLimitSec());
     
     m_player_mgr = std::make_shared<BattlePlayerManager>(desc->playerDescs());
     m_player_mgr->players().at(dx::di::PlayerId::_1P)->setRadical(RadicalID(100000));
@@ -126,7 +126,7 @@ void BattleManager::update() {
             }
         }
     }
-    m_timer->update();
+    m_timer->update(Scene::DeltaTime());
     if (m_timer->hasTimeover()) {
         m_has_gameset = true;
     }

@@ -1,5 +1,6 @@
 #pragma once
 #include "BattleDesc.hpp"
+#include "Timer.hpp"
 
 namespace kanji {
 namespace battle {
@@ -13,22 +14,24 @@ class BattleTimer {
 public: // static_const/enum
 public: // static
 public: // public function
-    int current() const { return m_counter; }
-    bool hasTimeover() const { return m_counter < 0; }
-    void update() {
+    dx::Time elapsed() const { return m_counter; }
+    bool hasTimeover() const { return m_counter > m_timelimit; }
+    void update(dx::Time dt) {
         if (!m_is_pause) {
-            --m_counter;
+            m_counter += dt;
         }
     }
     void pause() { m_is_pause = true; }
     void resume() { m_is_pause = false; }
 private: // field
-    int m_counter;
+    dx::Time m_counter;
+    const dx::Time m_timelimit;
     bool m_is_pause = false;
 private: // private function
 public: // ctor/dtor
-    BattleTimer(int timelimit) :
-    m_counter(timelimit) {}
+    BattleTimer(dx::Time timelimit) :
+    m_counter(0),
+    m_timelimit(timelimit) {}
 };
 
 

@@ -5,11 +5,14 @@
 #include "PhysicalStage.hpp"
 #include "PhysicalWorldManager.hpp"
 #include "PhysicalMove.hpp"
+#include "PhysicalRadicalManager.hpp"
 #include "ParameterizedCharacter.hpp"
 #include "HolderUI.hpp"
 #include "Log.hpp"
 #include "AssetManager.hpp"
 #include "TomlAsset.hpp"
+#include <Siv3D/Color.hpp>
+#include <Siv3D/ColorPalette.hpp>
 
 namespace kanji {
 namespace ui {
@@ -57,6 +60,10 @@ void PhysicalWorldUIManager::drawImpl() const {
             chara.second->position() + s3d::Vec2((chara.second->isRight() ? 1 : -1) * 3.75, 0),
             1.2,
             s3d::Vec2::One()).draw(color);
+    }
+    for (const auto& radical : m_world_mgr->radicalMgr()->radicals()) {
+        radical->body().draw(s3d::ColorF(1.f, 1.f, 1.f, 0.4f));
+        radical->body().drawFrame(2.f, s3d::Palette::White);
     }
 }
 // private function ------------------------------

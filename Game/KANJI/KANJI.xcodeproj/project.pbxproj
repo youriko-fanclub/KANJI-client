@@ -101,6 +101,8 @@
 		72CB2BA325AA151D00201366 /* MasterStageRepository.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 72CB2BA225AA151D00201366 /* MasterStageRepository.cpp */; };
 		72CB2BA925ABED3D00201366 /* Ability.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 72CB2BA725ABED3D00201366 /* Ability.cpp */; };
 		72CB2BAD25AC249A00201366 /* Status.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 72CB2BAB25AC249900201366 /* Status.cpp */; };
+		72CB2BB125AC67F300201366 /* PhysicalRadicalManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 72CB2BAF25AC67F200201366 /* PhysicalRadicalManager.cpp */; };
+		72CB2BB825AC7D1500201366 /* Timer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 72CB2BB625AC7D1500201366 /* Timer.cpp */; };
 		72DB89942568D97000BF7CC5 /* HolderUI.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 72DB89922568D97000BF7CC5 /* HolderUI.cpp */; };
 		72DB899A2568F13D00BF7CC5 /* PhysicalWorldManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 72DB89982568F13D00BF7CC5 /* PhysicalWorldManager.cpp */; };
 		72DB89A1256916B200BF7CC5 /* PhysicalStage.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 72DB899E256916B100BF7CC5 /* PhysicalStage.cpp */; };
@@ -275,6 +277,10 @@
 		72CB2BA825ABED3D00201366 /* Ability.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Ability.hpp; sourceTree = "<group>"; };
 		72CB2BAB25AC249900201366 /* Status.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Status.cpp; sourceTree = "<group>"; };
 		72CB2BAC25AC249A00201366 /* Status.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Status.hpp; sourceTree = "<group>"; };
+		72CB2BAF25AC67F200201366 /* PhysicalRadicalManager.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = PhysicalRadicalManager.cpp; sourceTree = "<group>"; };
+		72CB2BB025AC67F200201366 /* PhysicalRadicalManager.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = PhysicalRadicalManager.hpp; sourceTree = "<group>"; };
+		72CB2BB625AC7D1500201366 /* Timer.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Timer.cpp; sourceTree = "<group>"; };
+		72CB2BB725AC7D1500201366 /* Timer.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Timer.hpp; sourceTree = "<group>"; };
 		72D960352594638B00236386 /* Id.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = Id.hpp; sourceTree = "<group>"; };
 		72DB89922568D97000BF7CC5 /* HolderUI.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = HolderUI.cpp; sourceTree = "<group>"; };
 		72DB89932568D97000BF7CC5 /* HolderUI.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = HolderUI.hpp; sourceTree = "<group>"; };
@@ -457,6 +463,7 @@
 		7265F0592531ACDC00C15F67 /* component */ = {
 			isa = PBXGroup;
 			children = (
+				72CB2BB525AC7CED00201366 /* chrono */,
 				72D960332594637400236386 /* identity */,
 				72A3BDCA254F09A9003393C4 /* parameter */,
 				7265F0652531DC0F00C15F67 /* Singleton.cpp */,
@@ -674,6 +681,8 @@
 				72A3BDF1255167C0003393C4 /* BattleDesc.hpp */,
 				72A3BDF425516855003393C4 /* ParameterizedCharacter.cpp */,
 				72A3BDF525516855003393C4 /* ParameterizedCharacter.hpp */,
+				72CB2BAF25AC67F200201366 /* PhysicalRadicalManager.cpp */,
+				72CB2BB025AC67F200201366 /* PhysicalRadicalManager.hpp */,
 			);
 			path = battle;
 			sourceTree = "<group>";
@@ -776,6 +785,15 @@
 				72CB2B7D25A9EFE600201366 /* Stage.hpp */,
 			);
 			path = stage;
+			sourceTree = "<group>";
+		};
+		72CB2BB525AC7CED00201366 /* chrono */ = {
+			isa = PBXGroup;
+			children = (
+				72CB2BB625AC7D1500201366 /* Timer.cpp */,
+				72CB2BB725AC7D1500201366 /* Timer.hpp */,
+			);
+			path = chrono;
 			sourceTree = "<group>";
 		};
 		72D960332594637400236386 /* identity */ = {
@@ -941,6 +959,7 @@
 				C800DE80253DE01900C3835B /* CharacterSelectionScene.cpp in Sources */,
 				72CB2B4C259FF92400201366 /* MasterRadicalParamRepository.cpp in Sources */,
 				7265F0672531DC0F00C15F67 /* Singleton.cpp in Sources */,
+				72CB2BB825AC7D1500201366 /* Timer.cpp in Sources */,
 				72CB2BA925ABED3D00201366 /* Ability.cpp in Sources */,
 				72DB89942568D97000BF7CC5 /* HolderUI.cpp in Sources */,
 				72A3BD6D254536A9003393C4 /* PlayerId.cpp in Sources */,
@@ -959,6 +978,7 @@
 				722D9B072572ACCE00FD30FD /* KanjiScene.cpp in Sources */,
 				72A3BD7B25457D84003393C4 /* Axis.cpp in Sources */,
 				72B1DCFA2598B90800BC3D6C /* Audio.cpp in Sources */,
+				72CB2BB125AC67F300201366 /* PhysicalRadicalManager.cpp in Sources */,
 				72A3BDF2255167C0003393C4 /* BattleDesc.cpp in Sources */,
 				72CB2B4D259FF92400201366 /* MasterKanjiDictionaryRepository.cpp in Sources */,
 				72DB899A2568F13D00BF7CC5 /* PhysicalWorldManager.cpp in Sources */,

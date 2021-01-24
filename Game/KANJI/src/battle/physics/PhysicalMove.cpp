@@ -6,7 +6,7 @@ namespace battle {
 /* ---------- MomentaryMove ---------- */
 
 // static ----------------------------------------
-MomentaryMove MomentaryMove::divideLinear(float t, const MomentaryMove& from, const MomentaryMove& to, bool is_right, const s3d::Vec2& origin) {
+MomentaryMove MomentaryMove::divideLinear(dx::Time t, const MomentaryMove& from, const MomentaryMove& to, bool is_right, const s3d::Vec2& origin) {
     const float s = t / (to.time - from.time);
     // TOdO: とりあえず全部線形補間してるけど変えたほうが良さそう
     return MomentaryMove(
@@ -18,7 +18,7 @@ MomentaryMove MomentaryMove::divideLinear(float t, const MomentaryMove& from, co
         divideHitboxLinear(t, from, to, is_right, origin)
     );
 }
-s3d::RectF MomentaryMove::divideHitboxLinear(float t, const MomentaryMove& from, const MomentaryMove& to, bool is_right, const s3d::Vec2& origin) {
+s3d::RectF MomentaryMove::divideHitboxLinear(dx::Time t, const MomentaryMove& from, const MomentaryMove& to, bool is_right, const s3d::Vec2& origin) {
     const float s = (t - from.time) / (to.time - from.time);
     return s3d::RectF(s3d::Arg::center(
         (s * to.hitbox.center().x + (1.f-s) * from.hitbox.center().x) * (is_right ? 1.f : -1.f) + origin.x,
@@ -29,7 +29,7 @@ s3d::RectF MomentaryMove::divideHitboxLinear(float t, const MomentaryMove& from,
 // public function -------------------------------
 // private function ------------------------------
 // ctor/dtor -------------------------------------
-MomentaryMove::MomentaryMove(float time, int damage, const s3d::Circular& shoot_force, const s3d::RectF& hitbox) :
+MomentaryMove::MomentaryMove(dx::Time time, int damage, const s3d::Circular& shoot_force, const s3d::RectF& hitbox) :
 time(time), damage(damage), shoot_force(shoot_force), hitbox(hitbox) {}
 
 
@@ -37,7 +37,7 @@ time(time), damage(damage), shoot_force(shoot_force), hitbox(hitbox) {}
 
 // static ----------------------------------------
 // public function -------------------------------
-MomentaryMove Trajectory::momentary(float time, bool is_right, const s3d::Vec2& origin) const {
+MomentaryMove Trajectory::momentary(dx::Time time, bool is_right, const s3d::Vec2& origin) const {
     int index = -1;
     for (int i = 0; i < m_moments.size(); ++i) {
         if (time <= m_moments.at(i).time) {
@@ -48,7 +48,7 @@ MomentaryMove Trajectory::momentary(float time, bool is_right, const s3d::Vec2& 
     return MomentaryMove::divideLinear(time, m_moments.at(index - 1), m_moments.at(index), is_right, origin);
 }
 
-s3d::RectF Trajectory::momentaryHitbox(float time, bool is_right, const s3d::Vec2& origin) const {
+s3d::RectF Trajectory::momentaryHitbox(dx::Time time, bool is_right, const s3d::Vec2& origin) const {
     int index = -1;
     for (int i = 0; i < m_moments.size(); ++i) {
         if (time <= m_moments.at(i).time) {
@@ -75,7 +75,7 @@ s3d::RectF PhysicalMove::currentHitBox() const {
     return m_md->trajectory->momentaryHitbox(m_timer, m_is_to_right, m_owner_chara->position());
 }
 
-bool PhysicalMove::update(float dt) {
+bool PhysicalMove::update(dx::Time dt) {
     m_timer += dt;
     return m_timer > m_md->trajectory->totalTime();
 }
@@ -97,7 +97,7 @@ const std::shared_ptr<PhysicalMove>& PhysicalMoveManager::createMove(dx::di::Pla
     m_moves.push_back(std::make_shared<PhysicalMove>(owner, owner_chara, move_id));
     return m_moves.back();
 }
-void PhysicalMoveManager::update(float dt) {
+void PhysicalMoveManager::update(dx::Time dt) {
     for (auto it = m_moves.begin(); it != m_moves.end();) {
         if ((*it)->update(dt)) {
             it = m_moves.erase(it);

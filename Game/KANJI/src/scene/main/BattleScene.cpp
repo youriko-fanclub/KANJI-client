@@ -54,7 +54,7 @@ std::shared_ptr<kanji::battle::BattleDesc> createBattleDescForDebug(const std::s
     static dx::toml::TomlAsset toml(U"Battle");
     dx::toml::TomlKey key(U"battle.debug_desc");
     battle_desc->setTimeLimitSec(toml[key + U"timelimit"].get<int>());
-    battle_desc->setStageId(kanji::StageID(300000));
+    battle_desc->setStageId(kanji::StageID(300001));
     // battle_desc->setTimeLimitSec(param[U"battle"][U"debug_desc"][U"timelimit"].get<int>());
     // battle_desc->setStageId(param[U"battle"][U"debug_desc"][U"stage_id"].get<int>());
     return battle_desc;

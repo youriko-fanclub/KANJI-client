@@ -8,6 +8,7 @@ namespace battle {
 class IBattleManager;
 class PhysicalWorldManager;
 class PhysicalMoveManager;
+class PhysicalRadicalManager;
 class PhysicalCharacter;
 }
 namespace ui {
