@@ -17,6 +17,11 @@ const std::shared_ptr<s3d::P2Body>& PhysicalRadical::body() const {
     return obj()->body();
 }
 
+s3d::Vec2 PhysicalRadical::position() const { return body()->getPos(); }
+s3d::Quad PhysicalRadical::rect() const {
+    return body()->as<s3d::P2Rect>(0)->getQuad();
+}
+
 bool PhysicalRadical::update(dx::Time dt) {
     m_timer += dt;
     return m_has_vanished || m_timer > c_timelimit; // 消してほしいときにtrueを返す

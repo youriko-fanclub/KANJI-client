@@ -5,6 +5,7 @@
 #include "ParameterizedCharacter.hpp"
 #include "PhysicalCategory.hpp"
 #include "PhysicalWorld.hpp"
+#include "PhysicalRadicalManager.hpp"
 
 namespace kanji {
 namespace battle {
@@ -14,7 +15,9 @@ namespace battle {
 // static ----------------------------------------
 // public function -------------------------------
 s3d::Vec2 PhysicalCharacter::position() const { return body()->getPos(); }
-s3d::Quad PhysicalCharacter::rect() const { return body()->as<s3d::P2Rect>(0)->getQuad(); }
+s3d::Quad PhysicalCharacter::rect() const {
+    return body()->as<s3d::P2Rect>(0)->getQuad();
+}
 
 void PhysicalCharacter::shoot(const s3d::Circular& force) {
     // TOdO: 要検討: 力の与え方

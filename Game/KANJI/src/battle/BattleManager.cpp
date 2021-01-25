@@ -11,6 +11,7 @@
 #include "Audio.hpp"
 #include "Stage.hpp"
 #include "PhysicalCategory.hpp"
+#include "PhysicalRadicalManager.hpp"
 
 namespace kanji {
 namespace battle {
@@ -65,11 +66,7 @@ void BattleManager::initialize(const std::shared_ptr<BattleDesc>& desc) {
     m_timer = std::make_shared<BattleTimer>(desc->timeLimitSec());
     
     m_player_mgr = std::make_shared<BattlePlayerManager>(desc->playerDescs());
-    m_player_mgr->players().at(dx::di::PlayerId::_1P)->setRadical(RadicalID(100000));
-    m_player_mgr->players().at(dx::di::PlayerId::_2P)->setRadical(RadicalID(100001));
-    m_player_mgr->players().at(dx::di::PlayerId::_3P)->setRadical(RadicalID(100002));
-    m_player_mgr->players().at(dx::di::PlayerId::_4P)->setRadical(RadicalID(100003));
-    
+
     dx::aud::Audio::masterSource()->addSource(U"Battle");
     dx::aud::Audio::source(U"Battle")->addClip(dx::aud::AudioType::SE, U"SE::Battle::Move::Normal"/* + s3d::ToString(move_id)*/);
     
@@ -100,6 +97,9 @@ void BattleManager::update() {
         if (dx::di::Input::get(pid).buttons().x().down()) {
             player.second->changeActiveCharacter();
         }
+        if (dx::di::Input::get(pid).buttons().y().down()) {
+            player.second->trashRadical();
+        }
     }
     m_world_mgr->update();
     m_move_mgr->update(Scene::DeltaTime());
@@ -127,6 +127,25 @@ void BattleManager::update() {
             }
         }
     }
+    
+    // 部首とキャラの衝突判定
+    for (auto& player_pair : m_player_mgr->players()) {
+        auto& player = player_pair.second;
+        if (player->isLost() || player->hasRadical()) {
+            continue;
+        }
+        const auto& chara = player->activeCharacter();
+        const auto& hitbox = player->physical()->rect();
+        for (const auto& radical : m_world_mgr->radicalMgr()->radicals()) {
+            // TOdO: 合体可能か調べる
+            // if (chara->canConposeWith(radical))
+            if (hitbox.intersects(radical->rect())) {
+                player->setRadical(radical->id());
+                radical->taken();
+            }
+        }
+    }
+        
     m_timer->update(Scene::DeltaTime());
     if (m_timer->hasTimeover()) {
         m_has_gameset = true;

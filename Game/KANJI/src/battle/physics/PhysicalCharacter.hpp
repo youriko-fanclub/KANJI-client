@@ -29,6 +29,7 @@ public: // public function
     void shoot(const s3d::Circular& force);
     
     void update();
+    
 private: // field
     dx::di::PlayerId m_pid;
     bool m_is_right; // 右向きか否か
