@@ -24,7 +24,9 @@ private: // static_const/enum
 public: // static
 public: // public function
     RadicalID id() const;
+    const md::MasterRadicalParam* md() const { return m_md; }
     const std::shared_ptr<s3d::P2Body>& body() const;
+    s3d::Vec2 position() const;
     s3d::Quad rect() const;
 
     // 終了したらtrueを返す

@@ -93,17 +93,27 @@ void BattleUIManager::drawImpl() const {
     }
     m_camera.draw();
     
-    dx::toml::TomlKey key(U"battle.ui.object.physical.chara.font");
     dx::toml::TomlAsset toml(U"Battle");
+    dx::toml::TomlKey key(U"battle.ui.object.physical.chara.font");
     static s3d::Font font = dx::toml::font(toml[key]);
     if (font.fontSize() != toml[key + U"size"].get<int>()) {
         font = dx::toml::font(toml[key]);
+    }
+    dx::toml::TomlKey key2(U"battle.ui.object.physical.radical.font");
+    static s3d::Font font_rad = dx::toml::font(toml[key2]);
+    if (font_rad.fontSize() != toml[key2 + U"size"].get<int>()) {
+        font_rad = dx::toml::font(toml[key2]);
     }
     for (const auto& chara : m_battle_manager->worldMgr()->characters()) {
         const auto& kanji = chara.second->status()->activeCharacter()->chara();
         const auto& pos = m_camera.getMat3x2().transform(chara.second->position());
         const auto& color = dx::di::Id::ToColorDark(chara.first);
         font(kanji).draw(s3d::Arg::center(pos), color);
+    }
+    for (const auto& radical : m_battle_manager->worldMgr()->radicalMgr()->radicals()) {
+        const auto& kanji = radical->md()->character();
+        const auto& pos = m_camera.getMat3x2().transform(radical->position());
+        font(kanji).draw(s3d::Arg::center(pos), s3d::Palette::White);
     }
     for (const auto& holder : m_holders) {
         holder.second->draw();
