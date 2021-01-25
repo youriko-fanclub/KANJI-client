@@ -30,8 +30,6 @@ public: // public function
     
     void update();
     
-    // Collision Observer
-    void onCollisionEnter(const std::shared_ptr<dx::phys::IPhysicalObject>& that) override;
 private: // field
     dx::di::PlayerId m_pid;
     bool m_is_right; // 右向きか否か

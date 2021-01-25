@@ -15,7 +15,9 @@ namespace battle {
 // static ----------------------------------------
 // public function -------------------------------
 s3d::Vec2 PhysicalCharacter::position() const { return body()->getPos(); }
-s3d::Quad PhysicalCharacter::rect() const { return body()->as<s3d::P2Rect>(0)->getQuad(); }
+s3d::Quad PhysicalCharacter::rect() const {
+    return body()->as<s3d::P2Rect>(0)->getQuad();
+}
 
 void PhysicalCharacter::shoot(const s3d::Circular& force) {
     // TOdO: 要検討: 力の与え方
@@ -46,17 +48,6 @@ void PhysicalCharacter::update() {
     constexpr float threshold = 0.1f;
     if (m_is_right && velocity.x < -threshold) { m_is_right = false; }
     else if (!m_is_right && velocity.x > threshold) { m_is_right = true; }
-}
-
-// Collision Observer
-void PhysicalCharacter::onCollisionEnter(const std::shared_ptr<dx::phys::IPhysicalObject>& that) {
-    if (that->category() == PhysicalCategory::Radical) {
-        if (!m_status->hasRadical()) {
-            auto* radical = static_cast<PhysicalRadical*>(that->collisionObserver());
-            m_status->setRadical(radical->id());
-            radical->taken();
-        }
-    }
 }
 
 // private function ------------------------------

@@ -11,6 +11,7 @@
 #include "Audio.hpp"
 #include "Stage.hpp"
 #include "PhysicalCategory.hpp"
+#include "PhysicalRadicalManager.hpp"
 
 namespace kanji {
 namespace battle {
@@ -126,6 +127,25 @@ void BattleManager::update() {
             }
         }
     }
+    
+    // 部首とキャラの衝突判定
+    for (auto& player_pair : m_player_mgr->players()) {
+        auto& player = player_pair.second;
+        if (player->isLost() || player->hasRadical()) {
+            continue;
+        }
+        const auto& chara = player->activeCharacter();
+        const auto& hitbox = player->physical()->rect();
+        for (const auto& radical : m_world_mgr->radicalMgr()->radicals()) {
+            // TOdO: 合体可能か調べる
+            // if (chara->canConposeWith(radical))
+            if (hitbox.intersects(radical->rect())) {
+                player->setRadical(radical->id());
+                radical->taken();
+            }
+        }
+    }
+        
     m_timer->update(Scene::DeltaTime());
     if (m_timer->hasTimeover()) {
         m_has_gameset = true;

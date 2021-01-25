@@ -10,7 +10,6 @@ dx::phys::PhysicalCategoryManager::Categories PhysicalCategory::categories() {
 }
 dx::phys::PhysicalCategoryManager::CollisionMap PhysicalCategory::collisionMap() {
     return {
-        { Character | Radical, true },
         { Character | Move   , true },
         { Character | Stage  , true },
 

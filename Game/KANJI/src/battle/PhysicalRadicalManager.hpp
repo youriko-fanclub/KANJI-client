@@ -25,6 +25,7 @@ public: // static
 public: // public function
     RadicalID id() const;
     const std::shared_ptr<s3d::P2Body>& body() const;
+    s3d::Quad rect() const;
 
     // 終了したらtrueを返す
     bool update(dx::Time dt);
