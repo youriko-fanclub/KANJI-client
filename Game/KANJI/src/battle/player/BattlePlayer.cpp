@@ -35,6 +35,7 @@ const std::unique_ptr<chara::Radical>& BattlePlayer::radical() const {
     return m_radical.radical();
 }
 void BattlePlayer::setRadical(RadicalID id) { m_radical.add(id); }
+void BattlePlayer::trashRadical() { m_radical.remove(); }
 
 void BattlePlayer::attack(const MomentaryMove& move, bool is_from_left) {
     activeCharacter()->damage(move.damage);

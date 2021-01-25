@@ -5,6 +5,7 @@
 #include "ParameterizedCharacter.hpp"
 #include "PhysicalCategory.hpp"
 #include "PhysicalWorld.hpp"
+#include "PhysicalRadicalManager.hpp"
 
 namespace kanji {
 namespace battle {
@@ -45,6 +46,17 @@ void PhysicalCharacter::update() {
     constexpr float threshold = 0.1f;
     if (m_is_right && velocity.x < -threshold) { m_is_right = false; }
     else if (!m_is_right && velocity.x > threshold) { m_is_right = true; }
+}
+
+// Collision Observer
+void PhysicalCharacter::onCollisionEnter(const std::shared_ptr<dx::phys::IPhysicalObject>& that) {
+    if (that->category() == PhysicalCategory::Radical) {
+        if (!m_status->hasRadical()) {
+            auto* radical = static_cast<PhysicalRadical*>(that->collisionObserver());
+            m_status->setRadical(radical->id());
+            radical->taken();
+        }
+    }
 }
 
 // private function ------------------------------

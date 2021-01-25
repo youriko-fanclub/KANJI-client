@@ -38,6 +38,7 @@ public: // public function
     bool hasRadical() const;
     const std::unique_ptr<chara::Radical>& radical() const;
     void setRadical(RadicalID radical_id);
+    void trashRadical();
     
     const std::shared_ptr<PhysicalCharacter>& physical() { return m_physical; }
     void initializePhysical(const std::shared_ptr<PhysicalCharacter>& physical) {

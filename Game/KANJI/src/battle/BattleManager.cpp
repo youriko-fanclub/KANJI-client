@@ -65,11 +65,7 @@ void BattleManager::initialize(const std::shared_ptr<BattleDesc>& desc) {
     m_timer = std::make_shared<BattleTimer>(desc->timeLimitSec());
     
     m_player_mgr = std::make_shared<BattlePlayerManager>(desc->playerDescs());
-    m_player_mgr->players().at(dx::di::PlayerId::_1P)->setRadical(RadicalID(100000));
-    m_player_mgr->players().at(dx::di::PlayerId::_2P)->setRadical(RadicalID(100001));
-    m_player_mgr->players().at(dx::di::PlayerId::_3P)->setRadical(RadicalID(100002));
-    m_player_mgr->players().at(dx::di::PlayerId::_4P)->setRadical(RadicalID(100003));
-    
+
     dx::aud::Audio::masterSource()->addSource(U"Battle");
     dx::aud::Audio::source(U"Battle")->addClip(dx::aud::AudioType::SE, U"SE::Battle::Move::Normal"/* + s3d::ToString(move_id)*/);
     
@@ -99,6 +95,9 @@ void BattleManager::update() {
         }
         if (dx::di::Input::get(pid).buttons().x().down()) {
             player.second->changeActiveCharacter();
+        }
+        if (dx::di::Input::get(pid).buttons().y().down()) {
+            player.second->trashRadical();
         }
     }
     m_world_mgr->update();
