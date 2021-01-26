@@ -44,6 +44,7 @@
 		7209B4E025B28F6B00B1C053 /* PhysicalCategory.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7209B4DE25B28F6B00B1C053 /* PhysicalCategory.cpp */; };
 		7209B4EB25B2D50E00B1C053 /* PhysicalWorld.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7209B4E925B2D50E00B1C053 /* PhysicalWorld.cpp */; };
 		722D9B072572ACCE00FD30FD /* KanjiScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 722D9B052572ACCE00FD30FD /* KanjiScene.cpp */; };
+		7245309D25BF3E470089B62C /* Chronos.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7245309B25BF3E470089B62C /* Chronos.cpp */; };
 		7247BB4225689E850052A75F /* RelativePosition.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7247BB4025689E840052A75F /* RelativePosition.cpp */; };
 		7247BB462568AB070052A75F /* Palette.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7247BB442568AB070052A75F /* Palette.cpp */; };
 		7265F0672531DC0F00C15F67 /* Singleton.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7265F0652531DC0F00C15F67 /* Singleton.cpp */; };
@@ -166,6 +167,8 @@
 		7209B4EA25B2D50E00B1C053 /* PhysicalWorld.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = PhysicalWorld.hpp; sourceTree = "<group>"; };
 		722D9B052572ACCE00FD30FD /* KanjiScene.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = KanjiScene.cpp; sourceTree = "<group>"; };
 		722D9B062572ACCE00FD30FD /* KanjiScene.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = KanjiScene.hpp; sourceTree = "<group>"; };
+		7245309B25BF3E470089B62C /* Chronos.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Chronos.cpp; sourceTree = "<group>"; };
+		7245309C25BF3E470089B62C /* Chronos.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Chronos.hpp; sourceTree = "<group>"; };
 		7247BB4025689E840052A75F /* RelativePosition.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = RelativePosition.cpp; sourceTree = "<group>"; };
 		7247BB4125689E850052A75F /* RelativePosition.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = RelativePosition.hpp; sourceTree = "<group>"; };
 		7247BB442568AB070052A75F /* Palette.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Palette.cpp; sourceTree = "<group>"; };
@@ -823,6 +826,8 @@
 			children = (
 				72CB2BB625AC7D1500201366 /* Timer.cpp */,
 				72CB2BB725AC7D1500201366 /* Timer.hpp */,
+				7245309B25BF3E470089B62C /* Chronos.cpp */,
+				7245309C25BF3E470089B62C /* Chronos.hpp */,
 			);
 			path = chrono;
 			sourceTree = "<group>";
@@ -987,6 +992,7 @@
 				72A3BD95254C6197003393C4 /* Input.cpp in Sources */,
 				7209B4EB25B2D50E00B1C053 /* PhysicalWorld.cpp in Sources */,
 				726F87D12555E1EA003FAC77 /* Log.cpp in Sources */,
+				7245309D25BF3E470089B62C /* Chronos.cpp in Sources */,
 				726F87D32555E1EA003FAC77 /* LogDefinition.cpp in Sources */,
 				72CB2B4A259FF92400201366 /* MasterKanjiParamRepository.cpp in Sources */,
 				72A3BD7525455C0D003393C4 /* Button.cpp in Sources */,
