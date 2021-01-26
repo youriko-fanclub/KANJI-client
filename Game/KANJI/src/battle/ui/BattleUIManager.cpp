@@ -130,8 +130,7 @@ m_moves(std::make_shared<MoveUIManager>(battle_mgr->moveMgr().get())) {
     const auto& players = m_battle_manager->playerMgr()->players();
     const int player_num = static_cast<int>(players.size());
     for (int i = 0; const auto& player : players) {
-        m_holders.insert(std::make_pair(player.first,
-            std::make_shared<HolderUI>(i, player_num, player.second)));
+        m_holders.emplace(player.first, std::make_shared<HolderUI>(i, player_num, player.second));
         ++i;
     }
 }

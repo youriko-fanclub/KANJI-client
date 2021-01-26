@@ -1,4 +1,5 @@
 #pragma once
+#include <Siv3D/HashTable.hpp>
 #include <Siv3D/Circle.hpp>
 #include <Siv3D/Polygon.hpp>
 #include "Enum.hpp"
@@ -38,7 +39,7 @@ private: // field
     const int m_player_index; // 参加者のうち何人目か (Id若い順, 0 origin)
     const int m_player_num; // 参加者数
     const std::shared_ptr<battle::BattlePlayer> m_player;
-    std::unordered_map<CirclePosition, s3d::Circle> m_circles;
+    s3d::HashTable<CirclePosition, s3d::Circle> m_circles;
     dx::ui::ColorPalette m_colors;
     dx::ui::FontPalette m_fonts;
     std::unique_ptr<s3d::Polygon> m_default_ability;

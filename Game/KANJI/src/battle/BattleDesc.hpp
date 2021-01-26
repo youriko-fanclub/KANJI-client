@@ -1,6 +1,6 @@
 #pragma once
 #include <vector>
-#include <unordered_map>
+#include <Siv3D/HashTable.hpp>
 #include "PlayerId.hpp"
 #include "IDs.hpp"
 
@@ -29,7 +29,7 @@ public: // static
 public: // public function
     const std::shared_ptr<BattlePlayerDesc>& playerDesc(dx::di::PlayerId id) { return m_players.at(id); }
     // const std::shared_ptr<BattlePlayerDesc>& playerDesc(dx::di::PlayerId id) const { return m_players.at(id); }
-    const std::unordered_map<dx::di::PlayerId, std::shared_ptr<BattlePlayerDesc>>& playerDescs() const {
+    const s3d::HashTable<dx::di::PlayerId, std::shared_ptr<BattlePlayerDesc>>& playerDescs() const {
         return m_players;
     }
     void setPlayerDesc(dx::di::PlayerId id, const std::shared_ptr<BattlePlayerDesc>& value);
@@ -40,7 +40,7 @@ public: // public function
     bool readyToBattle() const;
     void dump() const;
 private: // field
-    std::unordered_map<dx::di::PlayerId, std::shared_ptr<BattlePlayerDesc>> m_players;
+    s3d::HashTable<dx::di::PlayerId, std::shared_ptr<BattlePlayerDesc>> m_players;
     int m_timeLimit_sec;
     StageID m_stage_id;
 private: // private function

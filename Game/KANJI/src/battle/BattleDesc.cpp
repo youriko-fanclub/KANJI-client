@@ -33,7 +33,7 @@ void BattleDesc::setPlayerDesc(dx::di::PlayerId id, const std::shared_ptr<Battle
         m_players.at(id) = value;
     }
     else {
-        m_players.insert(std::make_pair(id, value));
+        m_players.emplace(id, value);
     }
 }
 

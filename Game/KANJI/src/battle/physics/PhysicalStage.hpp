@@ -1,5 +1,4 @@
 #pragma once
-#include <unordered_map>
 #include <Siv3D/Vector2D.hpp>
 #include <Siv3D/Physics2D.hpp>
 #include "PlayerId.hpp"
