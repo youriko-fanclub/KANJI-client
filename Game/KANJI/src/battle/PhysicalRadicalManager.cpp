@@ -61,7 +61,7 @@ void PhysicalRadicalManager::update(dx::Time dt) {
     }
 }
 
-const std::vector<std::shared_ptr<PhysicalRadical>>& PhysicalRadicalManager::radicals() const {
+const s3d::Array<std::shared_ptr<PhysicalRadical>>& PhysicalRadicalManager::radicals() const {
     return m_radicals;
 }
 // private function ------------------------------

@@ -31,10 +31,10 @@ public: // public function
     MomentaryMove momentary(dx::Time time, bool is_right, const s3d::Vec2& origin) const;
     s3d::RectF momentaryHitbox(dx::Time time, bool is_right, const s3d::Vec2& origin) const;
 private: // field
-    std::vector<MomentaryMove> m_moments;
+    s3d::Array<MomentaryMove> m_moments;
 private: // private function
 public: // ctor/dtor
-    Trajectory(const std::vector<MomentaryMove>& moments) :
+    Trajectory(const s3d::Array<MomentaryMove>& moments) :
         m_moments(moments) {}
 };
 
@@ -70,9 +70,9 @@ public: // public function
     const std::shared_ptr<PhysicalMove>& createMove(dx::di::PlayerId owner, const std::shared_ptr<PhysicalCharacter>& owner_chara, MoveID move_id);
     void update(dx::Time dt);
     
-    const std::vector<std::shared_ptr<PhysicalMove>>& moves() const;
+    const s3d::Array<std::shared_ptr<PhysicalMove>>& moves() const;
 private: // field
-    std::vector<std::shared_ptr<PhysicalMove>> m_moves;
+    s3d::Array<std::shared_ptr<PhysicalMove>> m_moves;
 private: // private function
 public: // ctor/dtor
 };

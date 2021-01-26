@@ -34,7 +34,7 @@ void PhysicalStage::drawLegacy() const {
     }
 }
 
-std::vector<s3d::Vec2> initialPos(const md::MasterStage* md, int player_num) {
+s3d::Array<s3d::Vec2> initialPos(const md::MasterStage* md, int player_num) {
     switch (player_num) {
         case 1: return {
             md->initialposition1Players0()
@@ -58,7 +58,7 @@ std::vector<s3d::Vec2> initialPos(const md::MasterStage* md, int player_num) {
     }
 }
 
-std::vector<s3d::Vec2> PhysicalStage::initialCharaPositions(int player_num) const {
+s3d::Array<s3d::Vec2> PhysicalStage::initialCharaPositions(int player_num) const {
     return initialPos(m_md, player_num);
 }
     

@@ -15,7 +15,7 @@ namespace md {
 // ctor/dtor -------------------------------------
 MasterRepository::MasterRepository() {
     // TOdO: デバッグ用
-    std::vector<battle::MomentaryMove> moments;
+    s3d::Array<battle::MomentaryMove> moments;
     const s3d::Vec2 size(2.5, 2.5);
     float t = 0.f;
     t += 0.0f / 40.f; moments.emplace_back(t, 1.f, s3d::Circular(10, 60_deg), s3d::RectF(s3d::Arg::center(0.5, 0), size));

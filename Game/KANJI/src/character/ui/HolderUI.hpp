@@ -59,7 +59,7 @@ namespace dx {
 namespace denum {
 
 template <>
-std::vector<kanji::ui::HolderUI::CirclePosition> elems();
+s3d::Array<kanji::ui::HolderUI::CirclePosition> elems();
 template <>
 s3d::String toLower(kanji::ui::HolderUI::CirclePosition value);
 

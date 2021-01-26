@@ -32,7 +32,7 @@ std::shared_ptr<BattleResultDesc> BattleManager::createResultDesc() const {
         }
     }
     else if (m_player_mgr->alivePlayers().size() > 1) {
-        std::vector<std::pair<BattlePlayer::Score, dx::di::PlayerId>> survivors;
+        s3d::Array<std::pair<BattlePlayer::Score, dx::di::PlayerId>> survivors;
         for (const auto& survivor : m_player_mgr->alivePlayers()) {
             survivors.emplace_back(survivor.second->scoreForRanked(), survivor.first);
         }

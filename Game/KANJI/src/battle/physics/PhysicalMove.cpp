@@ -106,7 +106,7 @@ void PhysicalMoveManager::update(dx::Time dt) {
     }
 }
 
-const std::vector<std::shared_ptr<PhysicalMove>>& PhysicalMoveManager::moves() const {
+const s3d::Array<std::shared_ptr<PhysicalMove>>& PhysicalMoveManager::moves() const {
     return m_moves;
 }
 // private function ------------------------------

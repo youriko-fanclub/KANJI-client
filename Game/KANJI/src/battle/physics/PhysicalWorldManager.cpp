@@ -16,7 +16,7 @@ namespace battle {
 // public function -------------------------------
 void PhysicalWorldManager::initializeCharacters(const s3d::HashTable<dx::di::PlayerId, std::shared_ptr<BattlePlayer>>& players) {
     auto initial_positions = m_stage->initialCharaPositions(static_cast<int>(players.size()));
-    std::vector<int> random_indices(players.size());
+    s3d::Array<int> random_indices(players.size());
     { // 初期位置をランダムに
         std::iota(random_indices.begin(), random_indices.end(), 0);
         std::random_device seed;

@@ -7,8 +7,8 @@ namespace denum {
 
 #ifdef FUTURE_WORK // ひとまず使わないので無効にしておく (更新が面倒なので)
 template <>
-std::vector<State> elems() {
-    return std::vector<State>({
+s3d::Array<State> elems() {
+    return s3d::Array<State>({
         State::Splash,
         State::Title,
         State::CharacterSelection,
