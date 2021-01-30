@@ -30,7 +30,7 @@ namespace denum {
 
 #ifdef FUTURE_WORK // ひとまず使わないので無効にしておく
 template <>
-std::vector<kanji::seq::State> elems();
+s3d::Array<kanji::seq::State> elems();
 template <>
 s3d::String toString(kanji::seq::State value);
 #endif

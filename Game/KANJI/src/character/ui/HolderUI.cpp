@@ -139,7 +139,7 @@ namespace dx {
 namespace denum {
 
 template <>
-std::vector<CirclePosition> elems() {
+s3d::Array<CirclePosition> elems() {
     return {
         CirclePosition::Above,
         CirclePosition::Left,

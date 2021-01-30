@@ -11,7 +11,7 @@ dx::app::ExecutiveManager::Desc createExecutiveDesc() {
         .window_size = s3d::Size(1024, 768)
     };
     
-    std::vector<dx::app::AssetManager::FontDesc> font_descs;
+    s3d::Array<dx::app::AssetManager::FontDesc> font_descs;
     font_descs.reserve(5);
     font_descs.emplace_back(U"System", 20, s3d::Typeface::Bold);
     // font_descs.emplace_back(U"Title", 120, U"example/font/AnnyantRoman/AnnyantRoman.ttf");
@@ -20,7 +20,7 @@ dx::app::ExecutiveManager::Desc createExecutiveDesc() {
     font_descs.emplace_back(U"Score",  36, s3d::Typeface::Bold);
     font_descs.emplace_back(U"Holder::Above", 20, U"KouzanMouhituFontOTF.otf");
     
-    std::vector<dx::app::AssetManager::TextureDesc> texture_descs;
+    s3d::Array<dx::app::AssetManager::TextureDesc> texture_descs;
     texture_descs.reserve(5);
     texture_descs.emplace_back(U"Title::Logo", U"Title/Logo");
     texture_descs.emplace_back(U"Title::Bg", U"Title/Bg");
@@ -29,7 +29,7 @@ dx::app::ExecutiveManager::Desc createExecutiveDesc() {
         texture_descs.emplace_back(U"Stage::" + stage_name + U"::Block", U"Stage/" + stage_name + U"/Block");
     }
     
-    std::vector<dx::app::AssetManager::AudioDesc> audio_descs
+    s3d::Array<dx::app::AssetManager::AudioDesc> audio_descs
         = dx::app::AssetManager::AudioDesc::loadFromToml();
 
     return dx::app::ExecutiveManager::Desc{

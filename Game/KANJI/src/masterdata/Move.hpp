@@ -1,5 +1,5 @@
 #pragma once
-#include <unordered_map>
+#include <Siv3D/HashTable.hpp>
 #include <Siv3D/String.hpp>
 #include "Singleton.hpp"
 #include "IDs.hpp"
@@ -35,7 +35,7 @@ public: // public function
         return m_masterdata.at(id);
     }
 private: // field
-    std::unordered_map<Id, std::shared_ptr<Value>> m_masterdata;
+    s3d::HashTable<Id, std::shared_ptr<Value>> m_masterdata;
 private: // private function
 public: // ctor/dtor
     MasterRepository();

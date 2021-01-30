@@ -1,6 +1,5 @@
 #pragma once
-#include <vector>
-#include <unordered_map>
+#include <Siv3D/HashTable.hpp>
 #include "PlayerId.hpp"
 #include "IDs.hpp"
 
@@ -12,15 +11,15 @@ namespace battle {
 
 struct BattlePlayerDesc {
 public: // public function
-    const std::vector<std::shared_ptr<chara::IParameterizedCharacter>>& characters() const {
+    const s3d::Array<std::shared_ptr<chara::IParameterizedCharacter>>& characters() const {
         return m_characters;
     }
-    std::vector<std::shared_ptr<chara::IParameterizedCharacter>>& characters() {
+    s3d::Array<std::shared_ptr<chara::IParameterizedCharacter>>& characters() {
         return m_characters;
     }
     s3d::String toString() const;
 private: // field
-    std::vector<std::shared_ptr<chara::IParameterizedCharacter>> m_characters;
+    s3d::Array<std::shared_ptr<chara::IParameterizedCharacter>> m_characters;
 };
 
 class BattleDesc {
@@ -29,7 +28,7 @@ public: // static
 public: // public function
     const std::shared_ptr<BattlePlayerDesc>& playerDesc(dx::di::PlayerId id) { return m_players.at(id); }
     // const std::shared_ptr<BattlePlayerDesc>& playerDesc(dx::di::PlayerId id) const { return m_players.at(id); }
-    const std::unordered_map<dx::di::PlayerId, std::shared_ptr<BattlePlayerDesc>>& playerDescs() const {
+    const s3d::HashTable<dx::di::PlayerId, std::shared_ptr<BattlePlayerDesc>>& playerDescs() const {
         return m_players;
     }
     void setPlayerDesc(dx::di::PlayerId id, const std::shared_ptr<BattlePlayerDesc>& value);
@@ -40,7 +39,7 @@ public: // public function
     bool readyToBattle() const;
     void dump() const;
 private: // field
-    std::unordered_map<dx::di::PlayerId, std::shared_ptr<BattlePlayerDesc>> m_players;
+    s3d::HashTable<dx::di::PlayerId, std::shared_ptr<BattlePlayerDesc>> m_players;
     int m_timeLimit_sec;
     StageID m_stage_id;
 private: // private function
@@ -52,10 +51,10 @@ class BattleResultDesc {
 public: // static_const/enum
 public: // static
 public: // public function
-    std::vector<dx::di::PlayerId>* ranking() { return &m_ranking; }
+    s3d::Array<dx::di::PlayerId>* ranking() { return &m_ranking; }
 private: // field
     // 順位低い順
-    std::vector<dx::di::PlayerId> m_ranking;
+    s3d::Array<dx::di::PlayerId> m_ranking;
 private: // private function
 public: // ctor/dtor
 };

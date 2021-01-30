@@ -54,7 +54,7 @@ protected: // protected function
 private: // field
     s3d::Camera2D m_camera;
     const battle::IBattleManager* const m_battle_manager = nullptr;
-    std::unordered_map<dx::di::PlayerId, std::shared_ptr<IHolderUI>> m_holders;
+    s3d::HashTable<dx::di::PlayerId, std::shared_ptr<IHolderUI>> m_holders;
     std::shared_ptr<PhysicalWorldUIManager> m_world;
     std::shared_ptr<MoveUIManager> m_moves;
 private: // private function

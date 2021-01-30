@@ -1,5 +1,4 @@
 #pragma once
-#include <unordered_map>
 #include <Siv3D/Vector2D.hpp>
 #include <Siv3D/Physics2D.hpp>
 #include "PlayerId.hpp"
@@ -40,7 +39,7 @@ public: // public function
     void drawLegacy() const; // 近いうちに消す
     
     // player_num: 参加者人数 [1, 4]
-    std::vector<s3d::Vec2> initialCharaPositions(int player_num) const;
+    s3d::Array<s3d::Vec2> initialCharaPositions(int player_num) const;
 private: // field
     const md::MasterStage* m_md;
     s3d::HashTable<s3d::String, std::shared_ptr<PhysicalStageObject>> m_objects;
