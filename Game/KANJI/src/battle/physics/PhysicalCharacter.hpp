@@ -1,5 +1,4 @@
 #pragma once
-#include <unordered_map>
 #include <Siv3D.hpp>
 #include "PlayerId.hpp"
 #include "TomlAsset.hpp"

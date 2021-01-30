@@ -55,9 +55,9 @@ public: // public function
     void update(dx::Time dt);
     void takenRadical(int i) { m_radicals.erase(m_radicals.begin() + i); }
     
-    const std::vector<std::shared_ptr<PhysicalRadical>>& radicals() const;
+    const s3d::Array<std::shared_ptr<PhysicalRadical>>& radicals() const;
 private: // field
-    std::vector<std::shared_ptr<PhysicalRadical>> m_radicals;
+    s3d::Array<std::shared_ptr<PhysicalRadical>> m_radicals;
     std::shared_ptr<dx::phys::PhysicalWorld> m_world;
 private: // private function
 public: // ctor/dtor

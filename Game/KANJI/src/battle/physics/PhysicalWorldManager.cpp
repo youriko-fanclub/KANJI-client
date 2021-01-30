@@ -14,9 +14,9 @@ namespace battle {
 
 // static ----------------------------------------
 // public function -------------------------------
-void PhysicalWorldManager::initializeCharacters(const std::unordered_map<dx::di::PlayerId, std::shared_ptr<BattlePlayer>>& players) {
+void PhysicalWorldManager::initializeCharacters(const s3d::HashTable<dx::di::PlayerId, std::shared_ptr<BattlePlayer>>& players) {
     auto initial_positions = m_stage->initialCharaPositions(static_cast<int>(players.size()));
-    std::vector<int> random_indices(players.size());
+    s3d::Array<int> random_indices(players.size());
     { // 初期位置をランダムに
         std::iota(random_indices.begin(), random_indices.end(), 0);
         std::random_device seed;
@@ -24,7 +24,7 @@ void PhysicalWorldManager::initializeCharacters(const std::unordered_map<dx::di:
         std::shuffle(random_indices.begin(), random_indices.end(), engine);
     }
     for (int index = 0; const auto& player : players) {
-        m_characters.insert(std::make_pair(player.first,
+        m_characters.emplace(player.first,
             std::make_shared<PhysicalCharacter>(
                 m_world,
                 player.first,
@@ -32,7 +32,7 @@ void PhysicalWorldManager::initializeCharacters(const std::unordered_map<dx::di:
                 true,
                 player.second,
                 m_toml)
-            ));
+            );
         ++index;
     }
 }

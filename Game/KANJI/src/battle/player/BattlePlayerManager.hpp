@@ -1,5 +1,5 @@
 #pragma once
-#include <unordered_map>
+#include <Siv3D/HashTable.hpp>
 #include "PlayerId.hpp"
 
 namespace kanji {
@@ -12,10 +12,10 @@ class BattlePlayerManager {
 public: // static_const/enum
 public: // static
 public: // public function
-    const std::unordered_map<dx::di::PlayerId, std::shared_ptr<BattlePlayer>>& players() const {
+    const s3d::HashTable<dx::di::PlayerId, std::shared_ptr<BattlePlayer>>& players() const {
         return m_players;
     }
-    const std::unordered_map<dx::di::PlayerId, std::shared_ptr<BattlePlayer>>& alivePlayers() const {
+    const s3d::HashTable<dx::di::PlayerId, std::shared_ptr<BattlePlayer>>& alivePlayers() const {
         return m_alivePlayers;
     }
     
@@ -25,11 +25,11 @@ public: // public function
         }
     }
 private: // field
-    std::unordered_map<dx::di::PlayerId, std::shared_ptr<BattlePlayer>> m_players;
-    std::unordered_map<dx::di::PlayerId, std::shared_ptr<BattlePlayer>> m_alivePlayers;
+    s3d::HashTable<dx::di::PlayerId, std::shared_ptr<BattlePlayer>> m_players;
+    s3d::HashTable<dx::di::PlayerId, std::shared_ptr<BattlePlayer>> m_alivePlayers;
 private: // private function
 public: // ctor/dtor
-    BattlePlayerManager(const std::unordered_map<dx::di::PlayerId, std::shared_ptr<BattlePlayerDesc>>& descs);
+    BattlePlayerManager(const s3d::HashTable<dx::di::PlayerId, std::shared_ptr<BattlePlayerDesc>>& descs);
 };
 
 

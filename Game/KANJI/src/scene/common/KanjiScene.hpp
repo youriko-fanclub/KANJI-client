@@ -1,6 +1,5 @@
 #pragma once
 #include "SceneState.hpp"
-#include <vector>
 #include <functional>
 
 namespace dx {
